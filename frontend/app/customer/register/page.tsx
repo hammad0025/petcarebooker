@@ -1,0 +1,139 @@
+'use client';
+
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+
+const API_BASE_URL = 'http://localhost:8000';
+
+export default function CustomerRegisterPage() {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    const formData = new FormData(e.currentTarget);
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/customer/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          password: formData.get('password'),
+        }),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.detail || 'Registration failed');
+      }
+
+      const data = await response.json();
+      localStorage.setItem('customerToken', data.access_token);
+      localStorage.setItem('customerId', data.customer_id.toString());
+      localStorage.setItem('customerName', data.name);
+      router.push('/customer/dashboard');
+    } catch (err: any) {
+      setError(err.message || 'Failed to register');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
+      <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Create Account</h1>
+          <p className="text-gray-600">Join to manage your pet appointments</p>
+        </div>
+
+        {error && (
+          <div className="bg-red-50 text-red-600 p-3 rounded-lg mb-4">
+            {error}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-semibold text-gray-900 mb-1">
+              Your Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              required
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-900 mb-1">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              required
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-900 mb-1">
+              Phone
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              required
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-900 mb-1">
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              required
+              minLength={8}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 disabled:bg-gray-400"
+          >
+            {loading ? 'Creating Account...' : 'Create Account'}
+          </button>
+        </form>
+
+        <p className="mt-6 text-center text-gray-600">
+          Already have an account?{' '}
+          <Link href="/customer/login" className="text-purple-600 font-semibold hover:text-purple-700">
+            Sign in
+          </Link>
+        </p>
+
+        <p className="mt-4 text-center text-gray-600">
+          <Link href="/browse" className="text-purple-600 hover:text-purple-700">
+            ← Continue as guest
+          </Link>
+        </p>
+      </div>
+    </div>
+  );
+}
+

@@ -40,13 +40,26 @@ class Pet(Base):
     pet_type = Column(String, nullable=False)  # "dog" or "cat"
     breed = Column(String)
     weight = Column(String)
-    special_notes = Column(Text)
+    
+    # Enhanced pet-centric fields
+    photo_url = Column(String)  # Pet profile photo
+    birth_date = Column(DateTime)  # For age calculation
+    gender = Column(String)  # Male, Female, Unknown
+    color = Column(String)  # For description
+    special_notes = Column(Text)  # Allergies, fears, preferences
+    health_notes = Column(Text)  # Medical notes, vaccinations
+    favorite_groomer_id = Column(Integer, ForeignKey("shops.id"), nullable=True)  # Auto-select preferred groomer
+    grooming_frequency_days = Column(Integer)  # How often they need grooming (e.g., 30, 60, 90)
+    last_groom_date = Column(DateTime)  # Last grooming appointment
+    next_groom_due = Column(DateTime)  # When next groom is recommended
     
     created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     
     # Relationships
     customer = relationship("Customer", back_populates="pets")
     bookings = relationship("Booking", back_populates="pet")
+    favorite_groomer = relationship("Shop", foreign_keys=[favorite_groomer_id])
 
 
 class Shop(Base):
