@@ -32,7 +32,10 @@ app.add_middleware(
         "http://localhost:3000",
         "http://localhost:3001", 
         "http://localhost:8081",  # Expo mobile app
-        "http://10.0.0.181:8081"   # Expo on network
+        "http://10.0.0.181:8081",   # Expo on network
+        "https://petcarebooker.com",  # Production domain
+        "https://www.petcarebooker.com",  # WWW production domain
+        "https://frontend-1vjods97p-syed-haques-projects-689f876f.vercel.app",  # Vercel URL
     ],
     allow_credentials=True,
     allow_methods=["*"],

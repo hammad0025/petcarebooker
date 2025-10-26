@@ -8,6 +8,10 @@ load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./petcarebooker.db")
 
+# Render provides postgres:// but SQLAlchemy 2.0 requires postgresql://
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+
 # Use SQLite for development if PostgreSQL not configured
 if DATABASE_URL.startswith("postgresql"):
     engine = create_engine(DATABASE_URL)
