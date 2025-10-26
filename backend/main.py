@@ -5,6 +5,7 @@ from typing import List, Optional
 from datetime import datetime, timedelta, time
 import re
 import json
+import os
 
 from database import engine, get_db, Base
 from models import Shop, Service, Booking, BookingStatus, Customer, Pet
@@ -25,21 +26,28 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="PetCareBooker API", version="1.0.0")
 
-# CORS
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
+# CORS - Production-safe origins
+ALLOWED_ORIGINS = [
+    "https://petcarebooker.com",
+    "https://www.petcarebooker.com",
+    "https://frontend-1vjods97p-syed-haques-projects-689f876f.vercel.app",
+]
+
+# Development origins (only if DEBUG mode)
+if os.getenv("DEBUG", "false").lower() == "true":
+    ALLOWED_ORIGINS.extend([
         "http://localhost:3000",
         "http://localhost:3001", 
         "http://localhost:8081",  # Expo mobile app
         "http://10.0.0.181:8081",   # Expo on network
-        "https://petcarebooker.com",  # Production domain
-        "https://www.petcarebooker.com",  # WWW production domain
-        "https://frontend-1vjods97p-syed-haques-projects-689f876f.vercel.app",  # Vercel URL
-    ],
+    ])
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PATCH", "PUT", "DELETE"],
+    allow_headers=["Content-Type", "Authorization"],
 )
 
 
