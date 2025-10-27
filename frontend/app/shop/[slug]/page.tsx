@@ -21,8 +21,13 @@ interface Shop {
   address: string;
   city: string;
   state: string;
+  zip_code: string;
   phone: string;
   email: string;
+  latitude?: number;
+  longitude?: number;
+  is_mobile?: boolean;
+  service_area?: string;
 }
 
 export default function ShopPage() {
@@ -106,6 +111,101 @@ export default function ShopPage() {
           <div className="bg-white rounded-xl shadow p-6 mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">About Us</h2>
             <p className="text-gray-700 text-lg">{shop.description}</p>
+          </div>
+        )}
+
+        {/* Location & Map Section */}
+        {(shop.latitude && shop.longitude) && (
+          <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <span>📍</span> Location
+              {shop.is_mobile && (
+                <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
+                  🚐 Mobile Groomer
+                </span>
+              )}
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Address */}
+              <div>
+                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6">
+                  <div className="space-y-3">
+                    {shop.address && (
+                      <p className="text-gray-900 text-lg font-semibold flex items-start gap-2">
+                        <span>📍</span>
+                        <span>{shop.address}</span>
+                      </p>
+                    )}
+                    <p className="text-gray-700 flex items-center gap-2">
+                      <span>🏙️</span>
+                      <span>{shop.city}, {shop.state} {shop.zip_code}</span>
+                    </p>
+                    {shop.phone && (
+                      <p className="text-gray-700 flex items-center gap-2">
+                        <span>📞</span>
+                        <a href={`tel:${shop.phone}`} className="hover:text-purple-600 transition">
+                          {shop.phone}
+                        </a>
+                      </p>
+                    )}
+                    {shop.email && (
+                      <p className="text-gray-700 flex items-center gap-2">
+                        <span>✉️</span>
+                        <a href={`mailto:${shop.email}`} className="hover:text-purple-600 transition">
+                          {shop.email}
+                        </a>
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Directions Button */}
+                {(shop.latitude && shop.longitude) && (
+                  <a
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${shop.latitude},${shop.longitude}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-3 rounded-full font-bold hover:shadow-lg transition-all hover:scale-105"
+                  >
+                    <span>🗺️</span> Get Directions
+                  </a>
+                )}
+              </div>
+
+              {/* Map */}
+              <div className="rounded-xl overflow-hidden border-2 border-gray-200">
+                {shop.latitude && shop.longitude ? (
+                  <iframe
+                    width="100%"
+                    height="250"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6d11V8NM7W6RXYY&q=${shop.latitude},${shop.longitude}&zoom=15`}
+                  >
+                  </iframe>
+                ) : (
+                  <div className="h-full bg-gray-100 flex items-center justify-center text-gray-500">
+                    Map unavailable
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Service Area (for mobile groomers) */}
+            {shop.is_mobile && shop.service_area && (
+              <div className="mt-6 bg-blue-50 rounded-xl p-6 border-2 border-blue-200">
+                <h3 className="font-bold text-blue-900 mb-3 flex items-center gap-2">
+                  <span>🚐</span> Service Area
+                </h3>
+                <p className="text-blue-700">
+                  This mobile groomer services the following areas. Contact them to confirm availability in your location.
+                </p>
+                {/* Service area details would be parsed from JSON and displayed here */}
+              </div>
+            )}
           </div>
         )}
 

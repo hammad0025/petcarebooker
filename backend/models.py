@@ -82,6 +82,14 @@ class Shop(Base):
     phone = Column(String)
     email = Column(String)
     
+    # Location (for map integration)
+    latitude = Column(Float)  # e.g., 26.7153 for West Palm Beach
+    longitude = Column(Float)  # e.g., -80.0534 for West Palm Beach
+    
+    # Mobile groomer support
+    is_mobile = Column(Boolean, default=False)  # Is this a mobile groomer?
+    service_area = Column(Text)  # JSON: {"radius_miles": 10, "zip_codes": ["33401", "33402"], "neighborhoods": ["Downtown", "Northwood"]}
+    
     # Business hours (stored as JSON string)
     business_hours = Column(Text)  # JSON: {"monday": {"open": "09:00", "close": "17:00"}, ...}
     
