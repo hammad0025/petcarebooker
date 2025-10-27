@@ -8,12 +8,48 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    slug: 'best-pet-groomers-west-palm-beach',
+    title: 'Best Pet Groomers in West Palm Beach, FL (2025)',
+    excerpt: 'Find top-rated dog and cat groomers in West Palm Beach. Compare prices, read reviews, and book instantly. From downtown to the beaches.',
+    category: 'City Guides',
+    city: 'West Palm Beach',
+    image: '🌴',
+    date: '2025-01-18',
+  },
+  {
+    slug: 'tampa-pet-grooming-guide',
+    title: 'Complete Guide to Pet Grooming in Tampa, FL (2025)',
+    excerpt: 'Find the best pet groomers in Tampa Bay. Compare Hyde Park, Ybor City, and South Tampa options. Prices, reviews, and instant booking.',
+    category: 'City Guides',
+    city: 'Tampa',
+    image: '⚡',
+    date: '2025-01-17',
+  },
+  {
+    slug: 'orlando-dog-grooming-2025',
+    title: 'Best Dog Grooming in Orlando, FL: 2025 Guide',
+    excerpt: 'Discover Orlando\'s top dog groomers from Winter Park to Lake Nona. Compare prices, read reviews, and book same-day appointments.',
+    category: 'City Guides',
+    city: 'Orlando',
+    image: '🎢',
+    date: '2025-01-16',
+  },
+  {
     slug: 'best-dog-groomers-nyc',
     title: '10 Best Dog Groomers in New York City (2025)',
     excerpt: 'Discover the top-rated dog grooming salons in NYC. From Manhattan to Brooklyn, find expert groomers your pup will love.',
     category: 'City Guides',
     city: 'New York City',
     image: '🗽',
+    date: '2025-01-15',
+  },
+  {
+    slug: 'fort-lauderdale-pet-grooming',
+    title: 'Fort Lauderdale Pet Grooming: Best Salons & Mobile Services',
+    excerpt: 'Find top pet groomers in Fort Lauderdale. From Las Olas to Wilton Manors, discover trusted groomers with instant booking and verified reviews.',
+    category: 'City Guides',
+    city: 'Fort Lauderdale',
+    image: '⛵',
     date: '2025-01-15',
   },
   {

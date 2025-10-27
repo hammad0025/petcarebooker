@@ -30,6 +30,42 @@ const cityData: Record<string, any> = {
     totalGroomers: 142,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'De-shedding'],
   },
+  'west-palm-beach': {
+    name: 'West Palm Beach',
+    state: 'FL',
+    description: 'Discover top-rated pet groomers in West Palm Beach. From downtown to the beaches, find trusted grooming services with instant booking.',
+    neighborhoods: ['Downtown', 'Northwood', 'Flamingo Park', 'South Dixie', 'City Place'],
+    avgPrice: '$60-$125',
+    totalGroomers: 89,
+    topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Puppy Cuts'],
+  },
+  'tampa': {
+    name: 'Tampa',
+    state: 'FL',
+    description: 'Find the best pet groomers in Tampa Bay. From Ybor City to Hyde Park, book verified groomers with real reviews.',
+    neighborhoods: ['Hyde Park', 'Ybor City', 'Seminole Heights', 'Westshore', 'South Tampa'],
+    avgPrice: '$60-$120',
+    totalGroomers: 134,
+    topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Spa Treatments'],
+  },
+  'orlando': {
+    name: 'Orlando',
+    state: 'FL',
+    description: 'Book pet grooming in Orlando instantly. Discover experienced groomers from Winter Park to Lake Nona with verified reviews.',
+    neighborhoods: ['Winter Park', 'Downtown Orlando', 'Lake Nona', 'Dr. Phillips', 'College Park'],
+    avgPrice: '$60-$125',
+    totalGroomers: 156,
+    topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Creative Grooming'],
+  },
+  'fort-lauderdale': {
+    name: 'Fort Lauderdale',
+    state: 'FL',
+    description: 'Find trusted pet groomers in Fort Lauderdale. From Las Olas to Victoria Park, book top-rated groomers online.',
+    neighborhoods: ['Las Olas', 'Victoria Park', 'Wilton Manors', 'Harbor Beach', 'Rio Vista'],
+    avgPrice: '$65-$130',
+    totalGroomers: 98,
+    topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Beach Bath Packages'],
+  },
 };
 
 type Props = {

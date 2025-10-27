@@ -311,6 +311,10 @@ export default function HomePage() {
                 <li><Link href="/cities/new-york-city" className="text-gray-400 hover:text-white transition">New York City</Link></li>
                 <li><Link href="/cities/los-angeles" className="text-gray-400 hover:text-white transition">Los Angeles</Link></li>
                 <li><Link href="/cities/miami" className="text-gray-400 hover:text-white transition">Miami</Link></li>
+                <li><Link href="/cities/west-palm-beach" className="text-gray-400 hover:text-white transition">West Palm Beach</Link></li>
+                <li><Link href="/cities/tampa" className="text-gray-400 hover:text-white transition">Tampa</Link></li>
+                <li><Link href="/cities/orlando" className="text-gray-400 hover:text-white transition">Orlando</Link></li>
+                <li><Link href="/cities/fort-lauderdale" className="text-gray-400 hover:text-white transition">Fort Lauderdale</Link></li>
                 <li><Link href="/browse" className="text-gray-400 hover:text-white transition">View All →</Link></li>
               </ul>
             </div>
