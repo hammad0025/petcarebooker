@@ -33,11 +33,33 @@ const cityData: Record<string, any> = {
   'west-palm-beach': {
     name: 'West Palm Beach',
     state: 'FL',
-    description: 'Discover top-rated pet groomers in West Palm Beach. From downtown to the beaches, find trusted grooming services with instant booking.',
-    neighborhoods: ['Downtown', 'Northwood', 'Flamingo Park', 'South Dixie', 'City Place'],
+    description: 'Discover top-rated pet groomers in West Palm Beach, FL. From downtown to Palm Beach shores, find trusted grooming salons with instant online booking. Compare prices, read reviews, and book same-day appointments for your dog or cat.',
+    neighborhoods: ['Downtown West Palm Beach', 'Northwood', 'Flamingo Park', 'South Dixie', 'City Place', 'Old Northwood Historic District', 'El Cid', 'Grandview Heights', 'Howard Park', 'Palm Beach'],
     avgPrice: '$60-$125',
     totalGroomers: 89,
-    topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Puppy Cuts'],
+    topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Puppy Cuts', 'Senior Pet Grooming', 'Beach Bath Packages', 'De-shedding Treatments'],
+    featuredGroomer: {
+      name: 'Doggie Paws Salon',
+      address: '1502 Lake Osborne Dr, Lake Worth Beach, FL 33461',
+      phone: '(561) 555-0123',
+      rating: 5.0,
+      reviewCount: 12,
+      specialties: ['Small Dogs', 'Senior Pets', 'Beach Cleanups'],
+      featuredReview: 'Wanda and her team are amazing. They took such great care of my senior dog!',
+    },
+    popularAreas: [
+      'Downtown West Palm Beach - Upscale grooming for city dogs',
+      'Palm Beach - Luxury pet spa services',
+      'Lake Worth Beach - Convenient beach-side grooming',
+      'Northwood - Affordable and reliable pet care',
+    ],
+    quickFacts: [
+      '89 verified professional groomers in West Palm Beach area',
+      'Average grooming cost: $60-$125 depending on size',
+      'Most groomers offer same-day and next-day availability',
+      'Many salons specialize in beach dog grooming (saltwater removal)',
+      'Mobile grooming services available for busy pet parents',
+    ],
   },
   'tampa': {
     name: 'Tampa',
@@ -194,8 +216,107 @@ export default async function CityPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Featured Groomer - only for cities that have it */}
+      {city.featuredGroomer && (
+        <section className="py-20 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              Featured Groomer in {city.name} ⭐
+            </h2>
+            <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl p-10 border-4 border-purple-200">
+              <div className="flex items-start gap-6 mb-6">
+                <div className="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-5xl">
+                  🐕
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <h3 className="text-3xl font-bold text-gray-900">{city.featuredGroomer.name}</h3>
+                    <div className="flex items-center gap-1 bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full font-bold text-sm">
+                      <span>★</span> {city.featuredGroomer.rating}
+                    </div>
+                  </div>
+                  <p className="text-gray-600 flex items-center gap-1 mb-2">
+                    <span>📍</span> {city.featuredGroomer.address}
+                  </p>
+                  {city.featuredGroomer.phone && (
+                    <p className="text-gray-600 flex items-center gap-1 mb-4">
+                      <span>📞</span> {city.featuredGroomer.phone}
+                    </p>
+                  )}
+                  
+                  {/* Specialties */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {city.featuredGroomer.specialties.map((specialty: string, idx: number) => (
+                      <span key={idx} className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">
+                        ✨ {specialty}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  {/* Featured Review */}
+                  <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-200">
+                    <p className="text-gray-700 italic text-lg mb-2">"{city.featuredGroomer.featuredReview}"</p>
+                    <p className="text-gray-600 text-sm">
+                      - {city.featuredGroomer.reviewCount} verified reviews
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <Link
+                href="/browse"
+                className="block bg-gradient-to-r from-purple-600 to-pink-500 text-white text-center px-8 py-4 rounded-full font-bold text-lg hover:from-purple-700 hover:to-pink-600 transition-all hover:scale-105 shadow-lg"
+              >
+                View More Groomers in {city.name} →
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Quick Facts */}
+      {city.quickFacts && city.quickFacts.length > 0 && (
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-12">
+              Why Choose PetCareBooker in {city.name}? 🎯
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {city.quickFacts.map((fact: string, idx: number) => (
+                <div key={idx} className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-100 flex items-start gap-4">
+                  <div className="text-3xl flex-shrink-0">✓</div>
+                  <p className="text-gray-700 text-lg font-medium">{fact}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Popular Areas */}
+      {city.popularAreas && city.popularAreas.length > 0 && (
+        <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-12">
+              Popular Areas in {city.name} 📍
+            </h2>
+            
+            <div className="max-w-4xl mx-auto">
+              <div className="space-y-4">
+                {city.popularAreas.map((area: string, idx: number) => (
+                  <div key={idx} className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all border-l-4 border-purple-500">
+                    <p className="text-gray-900 text-lg font-semibold">{area}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Neighborhoods */}
-      <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-4">
             Neighborhoods We Serve 🗺️
