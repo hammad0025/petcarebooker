@@ -118,34 +118,76 @@ export default function ShopPage() {
             <p className="text-gray-600">Check back soon!</p>
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 gap-6">
-            {services.map((service) => (
-              <div key={service.id} className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.name}</h3>
-                    {service.category && (
-                      <span className="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
-                        {service.category}
-                      </span>
-                    )}
-                  </div>
-                  <div className="text-right">
-                    <div className="text-3xl font-bold text-purple-600">${service.price}</div>
-                    <div className="text-gray-600">{service.duration_minutes} min</div>
+          <div className="space-y-4">
+            {services.map((service) => {
+              // Format duration like Booksy (2h, 1h 30min, 45min)
+              const hours = Math.floor(service.duration_minutes / 60);
+              const mins = service.duration_minutes % 60;
+              let durationText = '';
+              if (hours > 0 && mins > 0) {
+                durationText = `${hours}h ${mins}min`;
+              } else if (hours > 0) {
+                durationText = `${hours}h`;
+              } else {
+                durationText = `${mins}min`;
+              }
+
+              return (
+                <div 
+                  key={service.id} 
+                  className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all border border-gray-100 hover:border-purple-300 overflow-hidden group"
+                >
+                  <div className="p-6">
+                    <div className="flex items-center justify-between">
+                      {/* Left side - Service info */}
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <h3 className="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">
+                            {service.name}
+                          </h3>
+                          {service.category && (
+                            <span className="inline-flex items-center bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-bold">
+                              {service.category}
+                            </span>
+                          )}
+                        </div>
+                        
+                        {service.description && (
+                          <p className="text-gray-600 mb-3 line-clamp-2">{service.description}</p>
+                        )}
+                        
+                        {/* Duration badge - Booksy style */}
+                        <div className="flex items-center gap-2">
+                          <div className="inline-flex items-center gap-1.5 text-gray-600 text-sm">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span className="font-medium">{durationText}</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right side - Price and action */}
+                      <div className="flex flex-col items-end gap-3 ml-6">
+                        <div className="text-right">
+                          <div className="text-sm text-gray-500 font-medium">from</div>
+                          <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
+                            ${service.price}
+                          </div>
+                        </div>
+                        
+                        <button
+                          onClick={() => handleBookService(service.id)}
+                          className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-8 py-3 rounded-full font-bold hover:shadow-lg hover:scale-105 transition-all whitespace-nowrap"
+                        >
+                          Book Now
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                {service.description && (
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                )}
-                <button
-                  onClick={() => handleBookService(service.id)}
-                  className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700"
-                >
-                  Book Now
-                </button>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>

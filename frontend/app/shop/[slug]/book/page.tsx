@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useSearchParams, useRouter } from 'next/navigation';
 import { shopsApi, servicesApi, bookingsApi } from '@/lib/api';
+import VisualCalendar from '@/components/VisualCalendar';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://petcarebooker.onrender.com';
 
@@ -170,83 +171,99 @@ export default function BookingPage() {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-8">
             {/* Date and Time Selection */}
             <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">📅 Choose Date & Time</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <span>📅</span> Choose Date & Time
+              </h3>
               
-              <div className="mb-6">
-                <label className="block text-sm font-bold text-gray-900 mb-2">
-                  Select Date
-                </label>
-                <input
-                  type="date"
-                  value={selectedDate}
-                  onChange={(e) => {
-                    setSelectedDate(e.target.value);
+              {/* Visual Calendar - Booksy Style */}
+              <div className="mb-8">
+                <VisualCalendar
+                  selectedDate={selectedDate}
+                  onDateSelect={(date) => {
+                    setSelectedDate(date);
                     setSelectedSlot(null);
                   }}
-                  min={minDate}
-                  max={maxDate}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-gray-900 text-lg"
+                  minDate={minDate}
+                  maxDate={maxDate}
                 />
               </div>
 
               {selectedDate && (
-                <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-3">
-                    Available Times {loadingSlots && '(Loading...)'}
-                  </label>
+                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-100">
+                  <div className="flex items-center justify-between mb-4">
+                    <h4 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                      <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Available Times
+                    </h4>
+                    {loadingSlots && (
+                      <div className="flex items-center gap-2 text-purple-600 text-sm">
+                        <div className="animate-spin rounded-full h-4 w-4 border-2 border-purple-600 border-t-transparent"></div>
+                        <span>Loading...</span>
+                      </div>
+                    )}
+                  </div>
                   
                   {!loadingSlots && slots.length === 0 && (
-                    <div className="text-center py-8 text-gray-600">
-                      No available slots for this date. Please choose another date.
+                    <div className="text-center py-12 bg-white rounded-xl">
+                      <div className="text-5xl mb-3">🗓️</div>
+                      <p className="text-gray-600 font-medium">
+                        No available times for this date
+                      </p>
+                      <p className="text-gray-500 text-sm mt-1">
+                        Please choose another date from the calendar
+                      </p>
                     </div>
                   )}
 
-                  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
-                    {slots.map((slot, index) => (
-                      <button
-                        key={index}
-                        type="button"
-                        disabled={!slot.available}
-                        onClick={() => slot.available && setSelectedSlot(slot)}
-                        className={`
-                          relative px-4 py-4 rounded-xl font-bold text-sm transition-all
-                          ${slot.available 
-                            ? (selectedSlot === slot
-                                ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white ring-4 ring-purple-300 scale-105 shadow-lg'
-                                : 'bg-white border-2 border-purple-300 text-purple-600 hover:bg-purple-50 hover:scale-105 hover:shadow-md')
-                            : 'bg-gray-100 text-gray-400 cursor-not-allowed line-through'
-                          }
-                        `}
-                      >
-                        {formatTime(slot.start_time)}
-                        {selectedSlot === slot && (
-                          <div className="absolute -top-1 -right-1 bg-white rounded-full w-5 h-5 flex items-center justify-center shadow">
-                            <div className="text-xs text-purple-600">✓</div>
-                          </div>
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                  
-                  {/* Legend */}
-                  <div className="mt-6 flex items-center justify-center gap-6 text-sm">
-                    <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 bg-white border-2 border-purple-300 rounded"></div>
-                      <span className="text-gray-600">Available</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 bg-gradient-to-r from-purple-600 to-pink-500 rounded"></div>
-                      <span className="text-gray-600">Selected</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 bg-gray-100 rounded"></div>
-                      <span className="text-gray-600">Unavailable</span>
-                    </div>
-                  </div>
+                  {!loadingSlots && slots.length > 0 && (
+                    <>
+                      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3 mb-4">
+                        {slots.map((slot, index) => (
+                          <button
+                            key={index}
+                            type="button"
+                            disabled={!slot.available}
+                            onClick={() => slot.available && setSelectedSlot(slot)}
+                            className={`
+                              relative px-3 py-4 rounded-xl font-bold text-sm transition-all
+                              ${slot.available 
+                                ? (selectedSlot === slot
+                                    ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white ring-4 ring-purple-200 scale-105 shadow-lg'
+                                    : 'bg-white border-2 border-purple-200 text-purple-700 hover:border-purple-400 hover:bg-white hover:scale-105 hover:shadow-md')
+                                : 'bg-gray-100 text-gray-400 cursor-not-allowed opacity-50'
+                              }
+                            `}
+                          >
+                            {formatTime(slot.start_time)}
+                            {selectedSlot === slot && (
+                              <div className="absolute -top-1.5 -right-1.5 bg-white rounded-full w-6 h-6 flex items-center justify-center shadow-lg ring-2 ring-purple-600">
+                                <svg className="w-3 h-3 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                                </svg>
+                              </div>
+                            )}
+                          </button>
+                        ))}
+                      </div>
+                      
+                      {/* Mini legend */}
+                      <div className="flex items-center justify-center gap-4 text-xs text-gray-600 pt-3 border-t border-purple-200">
+                        <div className="flex items-center gap-1.5">
+                          <div className="w-3 h-3 bg-white border-2 border-purple-200 rounded"></div>
+                          <span>Available</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <div className="w-3 h-3 bg-gradient-to-r from-purple-600 to-pink-500 rounded"></div>
+                          <span>Selected</span>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
               )}
             </div>
