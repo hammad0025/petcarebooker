@@ -4,6 +4,10 @@ import { useEffect, useState } from 'react';
 import { useParams, useSearchParams, useRouter } from 'next/navigation';
 import { shopsApi, servicesApi, bookingsApi } from '@/lib/api';
 
+const API_BASE_URL = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+  ? 'http://localhost:8000' 
+  : 'https://petcarebooker.onrender.com';
+
 interface Service {
   id: number;
   name: string;
@@ -60,7 +64,7 @@ export default function BookingPage() {
     setLoadingSlots(true);
     try {
       const response = await fetch(
-        `http://localhost:8000/api/shops/${slug}/available-slots?service_id=${serviceId}&date=${selectedDate}`
+        `${API_BASE_URL}/api/shops/${slug}/available-slots?service_id=${serviceId}&date=${selectedDate}`
       );
       
       if (!response.ok) {

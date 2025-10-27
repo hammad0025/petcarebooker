@@ -4,7 +4,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+  ? 'http://localhost:8000' 
+  : 'https://petcarebooker.onrender.com';
 
 export default function CustomerRegisterPage() {
   const router = useRouter();

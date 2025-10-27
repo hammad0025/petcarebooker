@@ -4,6 +4,10 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { shopsApi } from '@/lib/api';
 
+const API_BASE_URL = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+  ? 'http://localhost:8000' 
+  : 'https://petcarebooker.onrender.com';
+
 interface DayHours {
   open: string;
   close: string;
@@ -79,7 +83,7 @@ export default function BusinessHoursPage() {
 
     setSaving(true);
     try {
-      await fetch('http://localhost:8000/api/shops/me/hours', {
+      await fetch(`${API_BASE_URL}/api/shops/me/hours`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
