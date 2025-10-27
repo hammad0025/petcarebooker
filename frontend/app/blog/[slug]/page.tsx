@@ -579,11 +579,12 @@ If your dog swims weekly, light grooming/baths every 2 weeks. Full groom every 6
 };
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = blogContent[params.slug];
+  const { slug } = await params;
+  const post = blogContent[slug];
   
   if (!post) {
     return {
@@ -604,8 +605,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const post = blogContent[params.slug];
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params;
+  const post = blogContent[slug];
 
   if (!post) {
     return (

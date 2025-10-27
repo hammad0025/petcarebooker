@@ -69,11 +69,12 @@ const cityData: Record<string, any> = {
 };
 
 type Props = {
-  params: { city: string };
+  params: Promise<{ city: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const city = cityData[params.city];
+  const { city: citySlug } = await params;
+  const city = cityData[citySlug];
   
   if (!city) {
     return {
@@ -92,8 +93,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function CityPage({ params }: Props) {
-  const city = cityData[params.city];
+export default async function CityPage({ params }: Props) {
+  const { city: citySlug } = await params;
+  const city = cityData[citySlug];
 
   if (!city) {
     return (
@@ -206,7 +208,7 @@ export default function CityPage({ params }: Props) {
             {city.neighborhoods.map((neighborhood: string, index: number) => (
               <Link
                 key={index}
-                href={`/browse?city=${params.city}&neighborhood=${neighborhood.toLowerCase().replace(' ', '-')}`}
+                href={`/browse?city=${citySlug}&neighborhood=${neighborhood.toLowerCase().replace(' ', '-')}`}
                 className="bg-white rounded-xl p-6 text-center hover:shadow-lg hover:scale-105 transition-all border border-gray-200"
               >
                 <div className="font-bold text-gray-900 mb-1">{neighborhood}</div>
