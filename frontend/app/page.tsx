@@ -12,25 +12,31 @@ export default function HomePage() {
             </h1>
           </Link>
           <div className="flex items-center gap-4">
-            <Link 
-              href="/browse" 
-              className="text-white hover:text-gray-100 font-semibold transition-all hover:scale-105"
-            >
-              Find Groomers
-            </Link>
-            <Link 
-              href="/customer/login" 
-              className="text-white hover:text-gray-100 font-semibold transition-all hover:scale-105"
-            >
-              Sign In
-            </Link>
-            <Link 
-              href="/login" 
-              className="bg-white text-purple-600 px-5 py-2.5 rounded-full font-bold hover:bg-gray-50 transition-all hover:scale-105 shadow-lg"
-            >
-              For Businesses ✨
-            </Link>
-          </div>
+          <Link 
+            href="/browse" 
+            className="text-white hover:text-gray-100 font-semibold transition-all hover:scale-105"
+          >
+            Find Groomers
+          </Link>
+          <Link 
+            href="/blog" 
+            className="text-white hover:text-gray-100 font-semibold transition-all hover:scale-105"
+          >
+            Blog
+          </Link>
+          <Link 
+            href="/customer/login" 
+            className="text-white hover:text-gray-100 font-semibold transition-all hover:scale-105"
+          >
+            Sign In
+          </Link>
+          <Link 
+            href="/login" 
+            className="bg-white text-purple-600 px-5 py-2.5 rounded-full font-bold hover:bg-gray-50 transition-all hover:scale-105 shadow-lg"
+          >
+            For Businesses ✨
+          </Link>
+        </div>
         </div>
       </nav>
 
@@ -272,7 +278,7 @@ export default function HomePage() {
 
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
+          <div className="grid md:grid-cols-5 gap-8 mb-8">
             <div>
               <h3 className="text-xl font-bold mb-4">🐾 PetCareBooker</h3>
               <p className="text-gray-400">
@@ -286,6 +292,7 @@ export default function HomePage() {
                 <li><Link href="/browse" className="text-gray-400 hover:text-white transition">Find Groomers</Link></li>
                 <li><Link href="/customer/register" className="text-gray-400 hover:text-white transition">Sign Up</Link></li>
                 <li><Link href="/my-pets" className="text-gray-400 hover:text-white transition">My Pets</Link></li>
+                <li><Link href="/blog" className="text-gray-400 hover:text-white transition">Blog & Guides</Link></li>
               </ul>
             </div>
             
@@ -295,6 +302,16 @@ export default function HomePage() {
                 <li><Link href="/register" className="text-gray-400 hover:text-white transition">List Your Business</Link></li>
                 <li><Link href="/login" className="text-gray-400 hover:text-white transition">Groomer Login</Link></li>
                 <li><Link href="/for-businesses" className="text-gray-400 hover:text-white transition">Why Join?</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-bold mb-4">Cities</h4>
+              <ul className="space-y-2">
+                <li><Link href="/cities/new-york-city" className="text-gray-400 hover:text-white transition">New York City</Link></li>
+                <li><Link href="/cities/los-angeles" className="text-gray-400 hover:text-white transition">Los Angeles</Link></li>
+                <li><Link href="/cities/miami" className="text-gray-400 hover:text-white transition">Miami</Link></li>
+                <li><Link href="/browse" className="text-gray-400 hover:text-white transition">View All →</Link></li>
               </ul>
             </div>
             
