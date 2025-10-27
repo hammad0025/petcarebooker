@@ -9,9 +9,13 @@ import os
 from database import get_db
 from models import Shop, Customer
 
+# Allow dev mode without SECRET_KEY for local development
 SECRET_KEY = os.getenv("SECRET_KEY")
 if not SECRET_KEY:
-    raise ValueError("SECRET_KEY environment variable must be set in production!")
+    # For local development only - don't use in production!
+    if os.getenv("ENVIRONMENT") == "production":
+        raise ValueError("SECRET_KEY environment variable must be set in production!")
+    SECRET_KEY = "dev-secret-key-only-for-local-development"  # Never use in production
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_DAYS = 30
 

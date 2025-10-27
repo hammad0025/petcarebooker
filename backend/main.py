@@ -26,21 +26,21 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="PetCareBooker API", version="1.0.0")
 
-# CORS - Production-safe origins
+# CORS - Allow localhost for development, restrict in production
 ALLOWED_ORIGINS = [
-    "https://petcarebooker.com",
-    "https://www.petcarebooker.com",
-    "https://frontend-1vjods97p-syed-haques-projects-689f876f.vercel.app",
+    "http://localhost:3000",
+    "http://localhost:3001", 
+    "http://localhost:8081",  # Expo mobile app
+    "http://10.0.0.181:8081",   # Expo on network
 ]
 
-# Development origins (only if DEBUG mode)
-if os.getenv("DEBUG", "false").lower() == "true":
-    ALLOWED_ORIGINS.extend([
-        "http://localhost:3000",
-        "http://localhost:3001", 
-        "http://localhost:8081",  # Expo mobile app
-        "http://10.0.0.181:8081",   # Expo on network
-    ])
+# Production origins (only add in production)
+if os.getenv("ENVIRONMENT") == "production":
+    ALLOWED_ORIGINS = [
+        "https://petcarebooker.com",
+        "https://www.petcarebooker.com",
+        "https://frontend-1vjods97p-syed-haques-projects-689f876f.vercel.app",
+    ]
 
 app.add_middleware(
     CORSMiddleware,
