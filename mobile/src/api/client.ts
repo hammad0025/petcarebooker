@@ -1,9 +1,6 @@
-// Use localhost for web, network IP for native mobile
-const API_BASE_URL = __DEV__ 
-  ? (typeof window !== 'undefined' && window.location.hostname === 'localhost' 
-      ? 'http://localhost:8000'  // Web browser
-      : 'http://10.0.0.181:8000')  // Native mobile
-  : 'https://api.petcarebooker.com';
+// Clean API URL configuration using environment variable
+// @ts-ignore - Expo env vars
+const API_BASE_URL = process.env.EXPO_PUBLIC_API_URL || 'https://petcarebooker.onrender.com';
 
 interface ApiOptions {
   method?: string;

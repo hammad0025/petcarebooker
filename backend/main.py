@@ -26,25 +26,26 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="PetCareBooker API", version="1.0.0")
 
-# CORS - Allow localhost for development, restrict in production
-ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://localhost:3001", 
-    "http://localhost:8081",  # Expo mobile app
-    "http://10.0.0.181:8081",   # Expo on network
-]
-
-# Production origins (only add in production)
-if os.getenv("ENVIRONMENT") == "production":
-    ALLOWED_ORIGINS = [
-        "https://petcarebooker.com",
-        "https://www.petcarebooker.com",
-        "https://frontend-1vjods97p-syed-haques-projects-689f876f.vercel.app",
-    ]
+# CORS Configuration
+def get_allowed_origins():
+    """Get CORS origins based on environment"""
+    if os.getenv("ENVIRONMENT") == "production":
+        return [
+            "https://petcarebooker.com",
+            "https://www.petcarebooker.com",
+        ]
+    else:
+        # Development: allow localhost on various ports
+        return [
+            "http://localhost:3000",
+            "http://localhost:3001",
+            "http://localhost:8081",
+            "http://10.0.0.181:8081",  # Expo dev server
+        ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS,
+    allow_origins=get_allowed_origins(),
     allow_credentials=True,
     allow_methods=["GET", "POST", "PATCH", "PUT", "DELETE"],
     allow_headers=["Content-Type", "Authorization"],
