@@ -40,10 +40,10 @@ export default function BrowsePage() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
-      <nav className="bg-white border-b-2 border-purple-200 shadow-md">
-        <div className="container mx-auto px-4 py-5">
-          <Link href="/" className="text-3xl font-bold text-purple-600 hover:text-purple-700 transition-colors flex items-center gap-2">
+    <div className="min-h-screen bg-gray-50">
+      <nav className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white py-6 shadow-lg">
+        <div className="container mx-auto px-4">
+          <Link href="/" className="text-3xl font-bold hover:opacity-90 transition-opacity flex items-center gap-2">
             🐾 PetCareBooker
           </Link>
         </div>
@@ -85,26 +85,51 @@ export default function BrowsePage() {
               <Link
                 key={shop.id}
                 href={`/shop/${shop.slug}`}
-                className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all p-8 block border-2 border-purple-100 hover:border-purple-300 hover:scale-105 group"
+                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all block border border-gray-200 hover:border-purple-300 hover:-translate-y-1 group overflow-hidden"
               >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-20 h-20 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full flex items-center justify-center text-4xl group-hover:scale-110 transition-transform">
-                    {shop.logo_url ? (
-                      <img src={shop.logo_url} alt={shop.business_name} className="w-full h-full rounded-full" />
-                    ) : (
-                      '🐕'
-                    )}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">{shop.business_name}</h3>
-                    <p className="text-purple-600 font-semibold">📍 {shop.city}, {shop.state}</p>
+                {/* Shop Image/Logo Area */}
+                <div className="relative h-48 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 flex items-center justify-center">
+                  {shop.logo_url ? (
+                    <img src={shop.logo_url} alt={shop.business_name} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="text-8xl">🐕</div>
+                  )}
+                  {/* Rating Badge */}
+                  <div className="absolute top-4 right-4 bg-white rounded-full px-3 py-1 shadow-lg flex items-center gap-1">
+                    <span className="text-yellow-500 font-bold">★</span>
+                    <span className="font-bold text-gray-900">4.9</span>
                   </div>
                 </div>
-                {shop.description && (
-                  <p className="text-gray-600 line-clamp-2 mb-4 text-lg">{shop.description}</p>
-                )}
-                <div className="text-purple-600 font-bold text-lg flex items-center gap-2 group-hover:gap-4 transition-all">
-                  View Profile <span className="text-xl">→</span>
+
+                {/* Card Content */}
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors mb-2">
+                    {shop.business_name}
+                  </h3>
+                  <p className="text-gray-600 font-medium mb-3 flex items-center gap-1">
+                    <span>📍</span> {shop.city}, {shop.state}
+                  </p>
+                  
+                  {shop.description && (
+                    <p className="text-gray-600 line-clamp-2 mb-4">{shop.description}</p>
+                  )}
+
+                  {/* Price Range */}
+                  <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                    <div>
+                      <div className="text-sm text-gray-500">Starting at</div>
+                      <div className="text-xl font-bold text-gray-900">$45</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-sm text-gray-500">Next available</div>
+                      <div className="text-sm font-bold text-purple-600">Today 2:00 PM</div>
+                    </div>
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-3 px-6 rounded-full font-bold text-center group-hover:from-purple-700 group-hover:to-pink-600 transition-all">
+                    Book Now →
+                  </div>
                 </div>
               </Link>
             ))}
