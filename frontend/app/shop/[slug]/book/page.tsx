@@ -155,13 +155,13 @@ export default function BookingPage() {
   const maxDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="bg-white rounded-xl shadow-lg p-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Book Appointment</h1>
-          <div className="bg-purple-50 rounded-lg p-4 mb-8">
-            <h3 className="font-bold text-gray-900">{service.name}</h3>
-            <p className="text-gray-600">${service.price} • {service.duration_minutes} minutes</p>
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <h1 className="text-4xl font-extrabold text-gray-900 mb-2">Book Your Appointment 🎉</h1>
+          <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl p-6 mb-8 border-2 border-purple-200">
+            <h3 className="font-bold text-gray-900 text-xl">{service.name}</h3>
+            <p className="text-gray-700 text-lg">${service.price} • {service.duration_minutes} minutes</p>
           </div>
 
           {error && (
@@ -213,19 +213,39 @@ export default function BookingPage() {
                         disabled={!slot.available}
                         onClick={() => slot.available && setSelectedSlot(slot)}
                         className={`
-                          px-4 py-3 rounded-lg font-semibold text-sm transition-all
+                          relative px-4 py-4 rounded-xl font-bold text-sm transition-all
                           ${slot.available 
                             ? (selectedSlot === slot
-                                ? 'bg-purple-600 text-white ring-2 ring-purple-400'
-                                : 'bg-green-50 text-green-700 border-2 border-green-200 hover:bg-green-100'
-                              )
+                                ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white ring-4 ring-purple-300 scale-105 shadow-lg'
+                                : 'bg-white border-2 border-purple-300 text-purple-600 hover:bg-purple-50 hover:scale-105 hover:shadow-md')
                             : 'bg-gray-100 text-gray-400 cursor-not-allowed line-through'
                           }
                         `}
                       >
                         {formatTime(slot.start_time)}
+                        {selectedSlot === slot && (
+                          <div className="absolute -top-1 -right-1 bg-white rounded-full w-5 h-5 flex items-center justify-center shadow">
+                            <div className="text-xs text-purple-600">✓</div>
+                          </div>
+                        )}
                       </button>
                     ))}
+                  </div>
+                  
+                  {/* Legend */}
+                  <div className="mt-6 flex items-center justify-center gap-6 text-sm">
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 bg-white border-2 border-purple-300 rounded"></div>
+                      <span className="text-gray-600">Available</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 bg-gradient-to-r from-purple-600 to-pink-500 rounded"></div>
+                      <span className="text-gray-600">Selected</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 bg-gray-100 rounded"></div>
+                      <span className="text-gray-600">Unavailable</span>
+                    </div>
                   </div>
                 </div>
               )}

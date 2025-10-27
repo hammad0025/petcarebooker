@@ -40,7 +40,7 @@ export default function BrowsePage() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
       <nav className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white py-6 shadow-lg">
         <div className="container mx-auto px-4">
           <Link href="/" className="text-3xl font-bold hover:opacity-90 transition-opacity flex items-center gap-2">
@@ -52,7 +52,7 @@ export default function BrowsePage() {
       <div className="container mx-auto px-4 py-12">
         <div className="text-center mb-12">
           <h1 className="text-6xl font-extrabold text-gray-900 mb-4">Find Your Perfect Groomer 🐕✨</h1>
-          <p className="text-2xl text-gray-600">Browse trusted pet groomers in your area</p>
+          <p className="text-2xl text-gray-700">Browse trusted pet groomers in your area</p>
         </div>
 
         <div className="mb-12 max-w-3xl mx-auto">

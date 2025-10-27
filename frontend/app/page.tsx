@@ -99,8 +99,14 @@ export default function HomePage() {
       </div>
 
       {/* Feature Cards - moved outside hero */}
-      <div className="bg-white py-20">
+      <div className="bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 py-20">
         <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-4">
+            How It Works ✨
+          </h2>
+          <p className="text-center text-gray-700 text-xl mb-12 max-w-2xl mx-auto">
+            Three simple steps to a happy, pampered pet
+          </p>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-gradient-to-br from-purple-50 to-white rounded-3xl p-8 border-2 border-purple-100 hover:shadow-xl hover:scale-105 transition-all">
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg">
@@ -136,24 +142,24 @@ export default function HomePage() {
       </div>
 
       {/* Social Proof Metrics */}
-      <div className="bg-white py-16">
+      <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="text-5xl font-extrabold text-purple-600 mb-2">1,200+</div>
-              <div className="text-gray-600 font-medium">Happy Pets</div>
+              <div className="text-5xl font-extrabold text-white mb-2">1,200+</div>
+              <div className="text-white/90 font-medium">Happy Pets</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-extrabold text-pink-500 mb-2">100+</div>
-              <div className="text-gray-600 font-medium">Verified Groomers</div>
+              <div className="text-5xl font-extrabold text-white mb-2">100+</div>
+              <div className="text-white/90 font-medium">Verified Groomers</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-extrabold text-orange-500 mb-2">4.9★</div>
-              <div className="text-gray-600 font-medium">Average Rating</div>
+              <div className="text-5xl font-extrabold text-white mb-2">4.9★</div>
+              <div className="text-white/90 font-medium">Average Rating</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-extrabold text-purple-600 mb-2">24/7</div>
-              <div className="text-gray-600 font-medium">Online Booking</div>
+              <div className="text-5xl font-extrabold text-white mb-2">24/7</div>
+              <div className="text-white/90 font-medium">Online Booking</div>
             </div>
           </div>
         </div>
@@ -212,7 +218,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-orange-100 to-pink-100 py-20">
+      <div className="bg-white py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-5xl font-extrabold text-center mb-4 text-gray-900">
             Why Pet Parents Love Us 💙
