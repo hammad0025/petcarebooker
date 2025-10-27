@@ -40,68 +40,109 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* Hero with gradient overlay on neutral background */}
-      <div className="relative bg-gradient-to-br from-purple-50 via-lavender-50 to-pink-50 overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-10 text-9xl">🐕</div>
-          <div className="absolute bottom-20 right-10 text-9xl">🐈</div>
-          <div className="absolute top-1/2 left-1/4 text-6xl">🐾</div>
-          <div className="absolute top-1/3 right-1/4 text-6xl">🐾</div>
+      {/* Hero with video background - Vagaro/Booksy style */}
+      <div className="relative h-[90vh] min-h-[600px] overflow-hidden">
+        {/* Video/Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400">
+          {/* Animated paw prints floating */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-1/4 left-1/4 text-9xl opacity-20 animate-pulse">🐾</div>
+            <div className="absolute top-1/3 right-1/4 text-8xl opacity-15 animate-pulse delay-100">🐕</div>
+            <div className="absolute bottom-1/4 left-1/3 text-9xl opacity-20 animate-pulse delay-200">🐈</div>
+            <div className="absolute bottom-1/3 right-1/3 text-7xl opacity-15 animate-pulse delay-300">🐾</div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 text-9xl opacity-10 animate-pulse delay-75">✂️</div>
+          </div>
+          
+          {/* Decorative shapes */}
+          <div className="absolute inset-0">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+          </div>
         </div>
-        
-        <div className="container mx-auto px-4 py-20 text-center relative z-10">
-        <div className="mb-8 text-6xl animate-bounce">🐕 🐈</div>
-        <h1 className="text-7xl font-extrabold text-gray-900 mb-6">
-          Book Pet Grooming<br />in Seconds ⚡
-        </h1>
-        <p className="text-2xl text-gray-700 mb-4 max-w-2xl mx-auto font-medium">
-          Find trusted groomers near you. Book appointments instantly. 
-          Keep your furry friend looking pawsome! 🌟
-        </p>
-        <p className="text-xl text-gray-600 mb-12 max-w-xl mx-auto">
-          No phone calls. No waiting. Just happy pets and peace of mind.
-        </p>
 
-        {/* Search Bar */}
-        <div className="max-w-2xl mx-auto mb-12">
-          <div className="bg-white rounded-full shadow-2xl p-2 flex items-center gap-2">
-            <input 
-              type="text" 
-              placeholder="🔍 Enter your city or zip code..."
-              className="flex-1 px-6 py-4 text-lg rounded-full focus:outline-none text-gray-800"
-            />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/60 via-purple-600/70 to-pink-600/80"></div>
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center text-center">
+          {/* Headline */}
+          <h1 className="text-6xl md:text-8xl font-extrabold text-white mb-6 drop-shadow-2xl">
+            Book Pet Grooming<br />
+            <span className="text-yellow-300">in Seconds</span> ⚡
+          </h1>
+          
+          <p className="text-2xl text-white/95 mb-2 max-w-3xl mx-auto font-medium drop-shadow-lg">
+            Find trusted groomers near you • Book instantly • Keep your pet looking pawsome! 🌟
+          </p>
+          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+            No phone calls. No waiting. Just happy pets and peace of mind.
+          </p>
+
+          {/* Large Search Bar - Booksy/Vagaro style */}
+          <div className="w-full max-w-3xl mb-8">
+            <div className="bg-white rounded-2xl shadow-2xl p-3 flex items-center gap-3">
+              <div className="flex-1">
+                <input 
+                  type="text" 
+                  placeholder="🔍 Enter your city or zip code..."
+                  className="w-full px-6 py-5 text-xl rounded-xl focus:outline-none text-gray-800 placeholder-gray-400"
+                />
+              </div>
+              <Link 
+                href="/browse"
+                className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-10 py-5 rounded-xl font-bold hover:from-purple-700 hover:to-pink-600 transition-all whitespace-nowrap text-xl shadow-lg hover:scale-105"
+              >
+                Find Groomers →
+              </Link>
+            </div>
+          </div>
+
+          {/* Trust indicators */}
+          <div className="flex flex-wrap justify-center gap-8 text-white/90 mb-8">
+            <div className="flex items-center gap-2">
+              <div className="text-3xl">🐾</div>
+              <div>
+                <div className="text-2xl font-bold">1,200+</div>
+                <div className="text-sm">Happy Pets</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="text-3xl">⭐</div>
+              <div>
+                <div className="text-2xl font-bold">100+</div>
+                <div className="text-sm">Verified Groomers</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="text-3xl">📱</div>
+              <div>
+                <div className="text-2xl font-bold">4.9★</div>
+                <div className="text-sm">Average Rating</div>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Link 
+              href="/my-pets"
+              className="bg-white text-purple-600 px-10 py-4 rounded-full text-xl font-bold hover:bg-gray-50 transition-all hover:scale-110 shadow-2xl"
+            >
+              🐾 Start with Your Pet
+            </Link>
             <Link 
               href="/browse"
-              className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-8 py-4 rounded-full font-bold hover:from-purple-700 hover:to-pink-600 transition-all whitespace-nowrap"
+              className="bg-white/10 backdrop-blur-md text-white border-2 border-white/30 px-10 py-4 rounded-full text-xl font-bold hover:bg-white/20 transition-all hover:scale-110"
             >
-              Find Groomers
+              Browse All Groomers
             </Link>
           </div>
         </div>
 
-        <div className="flex gap-4 justify-center mb-8">
-          <Link 
-            href="/my-pets"
-            className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-10 py-5 rounded-full text-xl font-bold hover:from-purple-700 hover:to-pink-600 transition-all hover:scale-110 shadow-2xl"
-          >
-            🐾 Start with Your Pet
-          </Link>
-          <Link 
-            href="/browse"
-            className="bg-white text-purple-600 px-10 py-5 rounded-full text-xl font-bold hover:bg-gray-50 transition-all hover:scale-110 shadow-2xl border-2 border-purple-200"
-          >
-            Browse All Groomers
-          </Link>
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 animate-bounce">
+          <div className="text-2xl">↓</div>
         </div>
-        
-        <p className="text-gray-700 text-base font-medium">
-          Are you a groomer?{' '}
-          <Link href="/register" className="text-purple-600 underline hover:text-purple-700 font-bold">
-            List your business here 🚀
-          </Link>
-        </p>
-      </div>
       </div>
 
       {/* Feature Cards - moved outside hero */}
