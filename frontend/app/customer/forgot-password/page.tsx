@@ -19,9 +19,15 @@ export default function ForgotPasswordPage() {
     setError('');
 
     try {
-      // TODO: Call forgot password endpoint
-      // For now, just show success message
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const response = await fetch(`${API_BASE_URL}/api/customer/forgot-password?email=${encodeURIComponent(email)}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send reset email');
+      }
+
       setSuccess(true);
     } catch (err: any) {
       setError(err.message || 'Failed to send reset email');

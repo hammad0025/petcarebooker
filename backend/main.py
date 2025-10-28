@@ -8,7 +8,7 @@ import json
 import os
 
 from database import engine, get_db, Base
-from models import Shop, Service, Booking, BookingStatus, Customer, Pet
+from models import Shop, Service, Booking, BookingStatus, Customer, Pet, PasswordResetToken
 from schemas import (
     ShopCreate, ShopResponse, ShopListItem, ShopUpdate,
     ServiceCreate, ServiceResponse,
@@ -18,7 +18,7 @@ from schemas import (
     PetCreate, PetResponse,
     BusinessHoursUpdate, AvailableSlot, AvailableSlotsResponse
 )
-from auth import hash_password, verify_password, create_access_token, get_current_shop, get_current_customer, validate_password_strength
+from auth import hash_password, verify_password, create_access_token, get_current_shop, get_current_customer, validate_password_strength, generate_reset_token
 from notifications import notify_shop_new_booking, notify_customer_booking_confirmed, notify_customer_booking_cancelled
 
 # Create database tables
@@ -188,6 +188,79 @@ def customer_login(credentials: LoginRequest, db: Session = Depends(get_db)):
         customer_id=customer.id,
         name=customer.name
     )
+
+
+# ============================================================================
+# FORGOT PASSWORD ENDPOINTS
+# ============================================================================
+
+@app.post("/api/customer/forgot-password")
+def forgot_password(email: str, db: Session = Depends(get_db)):
+    """Request password reset"""
+    customer = db.query(Customer).filter(Customer.email == email).first()
+    
+    # Always return success to prevent email enumeration
+    # If email exists, create and send reset token
+    if customer:
+        # Generate secure token
+        token = generate_reset_token()
+        expires_at = datetime.utcnow() + timedelta(hours=1)  # Token expires in 1 hour
+        
+        # Invalidate any existing tokens for this customer
+        db.query(PasswordResetToken).filter(
+            PasswordResetToken.customer_id == customer.id,
+            PasswordResetToken.used == False
+        ).delete()
+        
+        # Create new reset token
+        reset_token = PasswordResetToken(
+            customer_id=customer.id,
+            token=token,
+            expires_at=expires_at
+        )
+        db.add(reset_token)
+        db.commit()
+        
+        # TODO: Send email with reset link
+        # reset_link = f"https://petcarebooker.com/customer/reset-password?token={token}"
+        # send_reset_email(customer.email, reset_link)
+        
+        print(f"🔐 Password reset token for {email}: {token}")
+        print(f"📧 Would send email to {customer.email}")
+    
+    return {"message": "If an account exists with this email, a password reset link has been sent"}
+
+
+@app.post("/api/customer/reset-password")
+def reset_password(token: str, new_password: str, db: Session = Depends(get_db)):
+    """Reset password with token"""
+    # Find token
+    reset_token = db.query(PasswordResetToken).filter(
+        PasswordResetToken.token == token,
+        PasswordResetToken.used == False
+    ).first()
+    
+    if not reset_token:
+        raise HTTPException(status_code=400, detail="Invalid or expired reset token")
+    
+    if reset_token.expires_at < datetime.utcnow():
+        raise HTTPException(status_code=400, detail="Reset token has expired")
+    
+    # Validate new password
+    is_valid, error_msg = validate_password_strength(new_password)
+    if not is_valid:
+        raise HTTPException(status_code=400, detail=error_msg)
+    
+    # Update customer password
+    customer = db.query(Customer).filter(Customer.id == reset_token.customer_id).first()
+    customer.password_hash = hash_password(new_password)
+    
+    # Mark token as used
+    reset_token.used = True
+    
+    db.commit()
+    
+    return {"message": "Password reset successfully"}
 
 
 # ============================================================================

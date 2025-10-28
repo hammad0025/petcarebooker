@@ -28,6 +28,22 @@ class Customer(Base):
     # Relationships
     pets = relationship("Pet", back_populates="customer", cascade="all, delete-orphan")
     bookings = relationship("Booking", back_populates="customer", cascade="all, delete-orphan")
+    password_reset_tokens = relationship("PasswordResetToken", back_populates="customer", cascade="all, delete-orphan")
+
+
+class PasswordResetToken(Base):
+    __tablename__ = "password_reset_tokens"
+
+    id = Column(Integer, primary_key=True, index=True)
+    customer_id = Column(Integer, ForeignKey("customers.id"), nullable=False)
+    token = Column(String, unique=True, nullable=False, index=True)
+    expires_at = Column(DateTime, nullable=False)
+    used = Column(Boolean, default=False)
+    
+    created_at = Column(DateTime, default=datetime.utcnow)
+    
+    # Relationships
+    customer = relationship("Customer", back_populates="password_reset_tokens")
 
 
 class Pet(Base):
