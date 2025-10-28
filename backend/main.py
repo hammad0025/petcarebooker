@@ -18,7 +18,7 @@ from schemas import (
     PetCreate, PetResponse,
     BusinessHoursUpdate, AvailableSlot, AvailableSlotsResponse
 )
-from auth import hash_password, verify_password, create_access_token, get_current_shop, get_current_customer
+from auth import hash_password, verify_password, create_access_token, get_current_shop, get_current_customer, validate_password_strength
 from notifications import notify_shop_new_booking, notify_customer_booking_confirmed, notify_customer_booking_cancelled
 
 # Create database tables
@@ -144,6 +144,11 @@ def register_customer(
     existing = db.query(Customer).filter(Customer.email == customer_data.email).first()
     if existing:
         raise HTTPException(status_code=400, detail="Email already registered")
+    
+    # Validate password strength
+    is_valid, error_msg = validate_password_strength(customer_data.password)
+    if not is_valid:
+        raise HTTPException(status_code=400, detail=error_msg)
     
     customer = Customer(
         name=customer_data.name,

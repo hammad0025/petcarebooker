@@ -119,7 +119,16 @@ export default function CustomerRegisterPage() {
                 {showPassword ? '🙈' : '👁️'}
               </button>
             </div>
-            <p className="text-xs text-gray-500 mt-1">Minimum 8 characters</p>
+            <div className="mt-2 bg-purple-50 rounded-lg p-3 text-sm text-gray-700">
+              <p className="font-semibold mb-1">Password must include:</p>
+              <ul className="space-y-1 text-xs">
+                <li>✓ At least 8 characters</li>
+                <li>✓ One uppercase letter (A-Z)</li>
+                <li>✓ One lowercase letter (a-z)</li>
+                <li>✓ One number (0-9)</li>
+                <li>✓ One special character (!@#$%^&*)</li>
+              </ul>
+            </div>
           </div>
 
           <button

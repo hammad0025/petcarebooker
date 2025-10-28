@@ -103,12 +103,17 @@ export default function CustomerLoginPage() {
           </button>
         </form>
 
-        <p className="mt-6 text-center text-gray-600">
-          Don't have an account?{' '}
-          <Link href="/customer/register" className="text-purple-600 font-semibold hover:text-purple-700">
-            Sign up
+        <div className="mt-6 text-center space-y-2">
+          <Link href="/customer/forgot-password" className="block text-purple-600 font-semibold hover:text-purple-700 text-sm">
+            Forgot your password?
           </Link>
-        </p>
+          <p className="text-gray-600">
+            Don't have an account?{' '}
+            <Link href="/customer/register" className="text-purple-600 font-semibold hover:text-purple-700">
+              Sign up
+            </Link>
+          </p>
+        </div>
 
         <p className="mt-4 text-center text-gray-600">
           <Link href="/browse" className="text-purple-600 hover:text-purple-700">

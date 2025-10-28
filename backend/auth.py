@@ -23,6 +23,37 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 security = HTTPBearer()
 
 
+def validate_password_strength(password: str) -> tuple[bool, str]:
+    """
+    Validate password strength
+    Returns: (is_valid, error_message)
+    Requirements:
+    - At least 8 characters
+    - At least one uppercase letter
+    - At least one lowercase letter
+    - At least one number
+    - At least one special character
+    """
+    if len(password) < 8:
+        return False, "Password must be at least 8 characters long"
+    
+    has_upper = any(c.isupper() for c in password)
+    has_lower = any(c.islower() for c in password)
+    has_digit = any(c.isdigit() for c in password)
+    has_special = any(c in "!@#$%^&*()-_=+[]{}|;:,.<>?" for c in password)
+    
+    if not has_upper:
+        return False, "Password must contain at least one uppercase letter"
+    if not has_lower:
+        return False, "Password must contain at least one lowercase letter"
+    if not has_digit:
+        return False, "Password must contain at least one number"
+    if not has_special:
+        return False, "Password must contain at least one special character (!@#$%^&*)"
+    
+    return True, ""
+
+
 def hash_password(password: str) -> str:
     return pwd_context.hash(password)
 
