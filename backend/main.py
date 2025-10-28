@@ -20,6 +20,7 @@ from schemas import (
 )
 from auth import hash_password, verify_password, create_access_token, get_current_shop, get_current_customer, validate_password_strength, generate_reset_token
 from notifications import notify_shop_new_booking, notify_customer_booking_confirmed, notify_customer_booking_cancelled
+from email_service import send_reset_email
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
@@ -221,12 +222,8 @@ def forgot_password(email: str, db: Session = Depends(get_db)):
         db.add(reset_token)
         db.commit()
         
-        # TODO: Send email with reset link
-        # reset_link = f"https://petcarebooker.com/customer/reset-password?token={token}"
-        # send_reset_email(customer.email, reset_link)
-        
-        print(f"🔐 Password reset token for {email}: {token}")
-        print(f"📧 Would send email to {customer.email}")
+        # Send password reset email
+        send_reset_email(customer.email, token)
     
     return {"message": "If an account exists with this email, a password reset link has been sent"}
 
