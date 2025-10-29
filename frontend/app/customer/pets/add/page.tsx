@@ -96,7 +96,7 @@ export default function AddPetPage() {
 
       // Close modal and redirect
       setShowInfoModal(false);
-      router.push('/customer/pets');
+      router.push('/customer/dashboard');
     } catch (err: any) {
       console.error('Failed to add pet:', err);
       setError(err.message || 'Failed to add pet');
