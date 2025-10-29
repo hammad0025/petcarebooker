@@ -20,7 +20,7 @@ from schemas import (
 )
 from auth import hash_password, verify_password, create_access_token, get_current_shop, get_current_customer, validate_password_strength, generate_reset_token
 from notifications import notify_shop_new_booking, notify_customer_booking_confirmed, notify_customer_booking_cancelled
-from email_service import send_reset_email
+# from email_service import send_reset_email
 # from stripe_service import create_stripe_customer, create_subscription_checkout_session, get_subscription_details, cancel_subscription, handle_webhook_event
 
 # Create database tables
@@ -230,7 +230,8 @@ def forgot_password(request: dict, db: Session = Depends(get_db)):
         db.commit()
         
         # Send password reset email
-        send_reset_email(customer.email, token)
+        # send_reset_email(customer.email, token)
+        print(f"Password reset token for {customer.email}: {token}")
     
     return {"message": "If an account exists with this email, a password reset link has been sent"}
 
