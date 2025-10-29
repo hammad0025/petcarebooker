@@ -198,8 +198,12 @@ def customer_login(credentials: LoginRequest, db: Session = Depends(get_db)):
 # ============================================================================
 
 @app.post("/api/customer/forgot-password")
-def forgot_password(email: str, db: Session = Depends(get_db)):
+def forgot_password(request: dict, db: Session = Depends(get_db)):
     """Request password reset"""
+    email = request.get("email")
+    if not email:
+        raise HTTPException(status_code=400, detail="Email is required")
+    
     customer = db.query(Customer).filter(Customer.email == email).first()
     
     # Always return success to prevent email enumeration
@@ -231,8 +235,14 @@ def forgot_password(email: str, db: Session = Depends(get_db)):
 
 
 @app.post("/api/customer/reset-password")
-def reset_password(token: str, new_password: str, db: Session = Depends(get_db)):
+def reset_password(request: dict, db: Session = Depends(get_db)):
     """Reset password with token"""
+    token = request.get("token")
+    new_password = request.get("new_password")
+    
+    if not token or not new_password:
+        raise HTTPException(status_code=400, detail="Token and new password are required")
+    
     # Find token
     reset_token = db.query(PasswordResetToken).filter(
         PasswordResetToken.token == token,

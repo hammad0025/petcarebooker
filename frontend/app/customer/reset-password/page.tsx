@@ -3,8 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://petcarebooker.onrender.com';
+import { customerAuthApi } from '@/lib/api';
 
 export default function ResetPasswordPage() {
   const router = useRouter();
@@ -54,16 +53,7 @@ export default function ResetPasswordPage() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/customer/reset-password?token=${token}&new_password=${encodeURIComponent(password)}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-      });
-
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.detail || 'Failed to reset password');
-      }
-
+      await customerAuthApi.resetPassword(token!, password);
       setSuccess(true);
       setTimeout(() => {
         router.push('/customer/login');

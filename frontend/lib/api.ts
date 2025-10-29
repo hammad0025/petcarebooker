@@ -49,6 +49,17 @@ export const authApi = {
     fetchApi('/api/auth/login', { method: 'POST', body: { email, password } }),
 };
 
+// Customer Auth
+export const customerAuthApi = {
+  register: (data: any) => fetchApi('/api/customer/register', { method: 'POST', body: data }),
+  login: (email: string, password: string) => 
+    fetchApi('/api/customer/login', { method: 'POST', body: { email, password } }),
+  forgotPassword: (email: string) => 
+    fetchApi('/api/customer/forgot-password', { method: 'POST', body: { email } }),
+  resetPassword: (token: string, newPassword: string) => 
+    fetchApi('/api/customer/reset-password', { method: 'POST', body: { token, new_password: newPassword } }),
+};
+
 // Shops
 export const shopsApi = {
   getAll: (params?: { city?: string; state?: string; search?: string }) => {

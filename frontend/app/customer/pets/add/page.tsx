@@ -34,36 +34,16 @@ export default function AddPetPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [selectedPetType, setSelectedPetType] = useState('');
-  const [weightValue, setWeightValue] = useState(25);
-  const [weightUnit, setWeightUnit] = useState<'lbs' | 'kg'>('lbs');
+  const [selectedSize, setSelectedSize] = useState('');
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [petName, setPetName] = useState('');
 
-  const convertWeight = (value: number, from: 'lbs' | 'kg', to: 'lbs' | 'kg'): number => {
-    if (from === to) return value;
-    if (from === 'lbs' && to === 'kg') return Math.round(value * 0.453592);
-    return Math.round(value * 2.20462);
-  };
-
-  const handleUnitToggle = () => {
-    const newUnit = weightUnit === 'lbs' ? 'kg' : 'lbs';
-    setWeightValue(convertWeight(weightValue, weightUnit, newUnit));
-    setWeightUnit(newUnit);
-  };
-
-  const getWeightLabel = () => {
-    if (weightUnit === 'lbs') {
-      if (weightValue < 15) return 'Small';
-      if (weightValue < 40) return 'Medium';
-      if (weightValue < 80) return 'Large';
-      return 'Extra Large';
-    } else {
-      if (weightValue < 7) return 'Small';
-      if (weightValue < 18) return 'Medium';
-      if (weightValue < 36) return 'Large';
-      return 'Extra Large';
-    }
-  };
+  const SIZE_OPTIONS = [
+    { value: 'S', label: 'S', description: '1-20lbs' },
+    { value: 'M', label: 'M', description: '21-40lbs' },
+    { value: 'L', label: 'L', description: '41-80lbs' },
+    { value: 'XL', label: 'XL+', description: '80+lbs' },
+  ];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -80,11 +60,13 @@ export default function AddPetPage() {
 
     try {
       // TODO: API call to add pet with all info
+      const breedElement = document.querySelector('select[name="breed"]') as HTMLSelectElement;
+      
       console.log('Adding pet with complete info:', {
         name: petName,
         pet_type: selectedPetType,
-        breed: document.querySelector('input[name="breed"]')?.value || '',
-        weight: `${weightValue} ${weightUnit}`,
+        breed: breedElement?.value || '',
+        size: selectedSize,
         issues: additionalInfo.issues,
         birthday: additionalInfo.birthday,
         healthIssues: additionalInfo.healthIssues,
@@ -186,72 +168,38 @@ export default function AddPetPage() {
               )}
             </div>
 
-            {/* Weight - Modern Dial */}
+            {/* Size Selector */}
             <div>
-              <div className="flex items-center justify-between mb-3">
-                <label className="block text-gray-900 font-bold text-lg">Weight ⚖️</label>
-                <button
-                  type="button"
-                  onClick={handleUnitToggle}
-                  className="px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 rounded-full text-sm font-bold hover:from-purple-200 hover:to-pink-200 transition-all"
-                >
-                  Switch to {weightUnit === 'lbs' ? 'kg' : 'lbs'}
-                </button>
+              <label className="block text-gray-900 font-bold text-lg mb-3">
+                Size 🎯
+                <span className="text-red-500 ml-1">*</span>
+              </label>
+              <div className="grid grid-cols-4 gap-3">
+                {SIZE_OPTIONS.map((size) => (
+                  <button
+                    key={size.value}
+                    type="button"
+                    onClick={() => setSelectedSize(size.value)}
+                    className={`
+                      px-4 py-6 rounded-2xl border-2 transition-all hover:scale-105 text-center
+                      ${selectedSize === size.value 
+                        ? 'border-blue-500 bg-blue-50 shadow-lg' 
+                        : 'border-gray-200 hover:border-blue-300'
+                      }
+                    `}
+                  >
+                    <div className={`text-2xl font-extrabold mb-1 ${selectedSize === size.value ? 'text-blue-700' : 'text-gray-700'}`}>
+                      {size.label}
+                    </div>
+                    <div className={`text-xs font-semibold ${selectedSize === size.value ? 'text-blue-600' : 'text-gray-600'}`}>
+                      {size.description}
+                    </div>
+                  </button>
+                ))}
               </div>
-
-              {/* Weight Display */}
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 mb-4">
-                <div className="text-center mb-2">
-                  <div className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-                    {weightValue}
-                  </div>
-                  <div className="text-2xl font-bold text-gray-700 mt-1">
-                    {weightUnit}
-                  </div>
-                  <div className="inline-block mt-2 px-4 py-1 bg-white rounded-full text-purple-700 font-semibold text-sm shadow-sm">
-                    {getWeightLabel()}
-                  </div>
-                </div>
-              </div>
-
-              {/* Slider */}
-              <div className="relative">
-                <input
-                  type="range"
-                  min={weightUnit === 'lbs' ? 1 : 1}
-                  max={weightUnit === 'lbs' ? 200 : 90}
-                  value={weightValue}
-                  onChange={(e) => setWeightValue(parseInt(e.target.value))}
-                  className="w-full h-3 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full appearance-none cursor-pointer
-                    [&::-webkit-slider-thumb]:appearance-none
-                    [&::-webkit-slider-thumb]:w-7
-                    [&::-webkit-slider-thumb]:h-7
-                    [&::-webkit-slider-thumb]:rounded-full
-                    [&::-webkit-slider-thumb]:bg-gradient-to-r
-                    [&::-webkit-slider-thumb]:from-purple-600
-                    [&::-webkit-slider-thumb]:to-pink-600
-                    [&::-webkit-slider-thumb]:shadow-lg
-                    [&::-webkit-slider-thumb]:cursor-pointer
-                    [&::-webkit-slider-thumb]:hover:scale-110
-                    [&::-webkit-slider-thumb]:transition-transform
-                    [&::-moz-range-thumb]:w-7
-                    [&::-moz-range-thumb]:h-7
-                    [&::-moz-range-thumb]:rounded-full
-                    [&::-moz-range-thumb]:bg-gradient-to-r
-                    [&::-moz-range-thumb]:from-purple-600
-                    [&::-moz-range-thumb]:to-pink-600
-                    [&::-moz-range-thumb]:shadow-lg
-                    [&::-moz-range-thumb]:cursor-pointer
-                    [&::-moz-range-thumb]:hover:scale-110
-                    [&::-moz-range-thumb]:transition-transform
-                    [&::-moz-range-thumb]:border-0
-                  "
-                />
-                <div className="flex justify-between text-xs text-gray-500 mt-2 px-1">
-                  <span>{weightUnit === 'lbs' ? '1 lb' : '1 kg'}</span>
-                  <span>{weightUnit === 'lbs' ? '200 lbs' : '90 kg'}</span>
-                </div>
-              </div>
+              {!selectedSize && (
+                <p className="text-red-500 text-sm mt-2">Please select a size</p>
+              )}
             </div>
 
             {/* Error */}
@@ -272,7 +220,7 @@ export default function AddPetPage() {
               </button>
               <button
                 type="submit"
-                disabled={loading || !selectedPetType}
+                disabled={loading || !selectedPetType || !selectedSize}
                 className="flex-1 px-6 py-5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl font-bold text-lg hover:shadow-2xl transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
               >
                 {loading ? 'Continuing...' : 'Continue'}

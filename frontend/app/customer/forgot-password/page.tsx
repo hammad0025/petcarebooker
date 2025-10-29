@@ -3,8 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://petcarebooker.onrender.com';
+import { customerAuthApi } from '@/lib/api';
 
 export default function ForgotPasswordPage() {
   const router = useRouter();
@@ -19,15 +18,7 @@ export default function ForgotPasswordPage() {
     setError('');
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/customer/forgot-password?email=${encodeURIComponent(email)}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to send reset email');
-      }
-
+      await customerAuthApi.forgotPassword(email);
       setSuccess(true);
     } catch (err: any) {
       setError(err.message || 'Failed to send reset email');
