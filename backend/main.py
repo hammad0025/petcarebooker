@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends, HTTPException, status, Query
+from fastapi import FastAPI, Depends, HTTPException, status, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from typing import List, Optional
@@ -21,6 +21,7 @@ from schemas import (
 from auth import hash_password, verify_password, create_access_token, get_current_shop, get_current_customer, validate_password_strength, generate_reset_token
 from notifications import notify_shop_new_booking, notify_customer_booking_confirmed, notify_customer_booking_cancelled
 from email_service import send_reset_email
+from stripe_service import create_stripe_customer, create_subscription_checkout_session, get_subscription_details, cancel_subscription, handle_webhook_event
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
@@ -695,6 +696,131 @@ def update_booking(
     db.refresh(booking)
     
     return booking
+
+
+# ============================================================================
+# STRIPE ENDPOINTS - REVENUE
+# ============================================================================
+
+@app.post("/api/subscription/create-checkout")
+def create_checkout_session(
+    shop: Shop = Depends(get_current_shop),
+    db: Session = Depends(get_db)
+):
+    """Create Stripe Checkout session for subscription"""
+    # Create Stripe customer if doesn't exist
+    if not shop.stripe_customer_id:
+        stripe_customer_id = create_stripe_customer(shop.owner_email, shop.owner_name)
+        if stripe_customer_id:
+            shop.stripe_customer_id = stripe_customer_id
+            db.commit()
+    
+    # Create checkout session
+    success_url = f"{os.getenv('FRONTEND_URL', 'https://www.petcarebooker.com')}/dashboard/subscription/success?session_id={{CHECKOUT_SESSION_ID}}"
+    cancel_url = f"{os.getenv('FRONTEND_URL', 'https://www.petcarebooker.com')}/dashboard/subscription/cancel"
+    
+    checkout_data = create_subscription_checkout_session(
+        customer_id=shop.stripe_customer_id,
+        success_url=success_url,
+        cancel_url=cancel_url,
+        shop_id=shop.id
+    )
+    
+    if not checkout_data:
+        raise HTTPException(status_code=500, detail="Failed to create checkout session")
+    
+    return checkout_data
+
+
+@app.post("/api/subscription/cancel")
+def cancel_shop_subscription(
+    shop: Shop = Depends(get_current_shop),
+    db: Session = Depends(get_db)
+):
+    """Cancel shop subscription"""
+    if not shop.stripe_subscription_id:
+        raise HTTPException(status_code=400, detail="No active subscription to cancel")
+    
+    success = cancel_subscription(shop.stripe_subscription_id)
+    if not success:
+        raise HTTPException(status_code=500, detail="Failed to cancel subscription")
+    
+    # Update shop status
+    shop.subscription_status = "cancelled"
+    shop.subscription_cancelled_at = datetime.utcnow()
+    db.commit()
+    
+    return {"message": "Subscription cancelled successfully"}
+
+
+@app.get("/api/subscription/status")
+def get_subscription_status(shop: Shop = Depends(get_current_shop)):
+    """Get current subscription status"""
+    return {
+        "subscription_tier": shop.subscription_tier,
+        "subscription_status": shop.subscription_status,
+        "subscription_start_date": shop.subscription_start_date.isoformat() if shop.subscription_start_date else None,
+        "subscription_renewal_date": shop.subscription_renewal_date.isoformat() if shop.subscription_renewal_date else None,
+        "subscription_cancelled_at": shop.subscription_cancelled_at.isoformat() if shop.subscription_cancelled_at else None,
+    }
+
+
+@app.post("/api/stripe/webhook")
+async def stripe_webhook(request: Request):
+    """Handle Stripe webhook events"""
+    import stripe
+    from fastapi import Request
+    
+    body = await request.body()
+    signature = request.headers.get("stripe-signature")
+    
+    webhook_secret = os.getenv("STRIPE_WEBHOOK_SECRET")
+    if not webhook_secret:
+        raise HTTPException(status_code=500, detail="Webhook secret not configured")
+    
+    try:
+        event = stripe.Webhook.construct_event(
+            body, signature, webhook_secret
+        )
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail="Invalid payload")
+    except stripe.error.SignatureVerificationError as e:
+        raise HTTPException(status_code=400, detail="Invalid signature")
+    
+    # Handle the event
+    result = handle_webhook_event(event)
+    
+    if result and result.get('action') == 'activate_subscription':
+        shop_id = result.get('shop_id')
+        subscription_id = result.get('subscription_id')
+        customer_id = result.get('customer_id')
+        
+        db = next(get_db())
+        shop = db.query(Shop).filter(Shop.id == shop_id).first()
+        
+        if shop:
+            shop.stripe_customer_id = customer_id
+            shop.stripe_subscription_id = subscription_id
+            shop.subscription_tier = "basic"
+            shop.subscription_status = "active"
+            shop.subscription_start_date = datetime.utcnow()
+            shop.subscription_renewal_date = datetime.utcnow() + timedelta(days=30)
+            
+            db.commit()
+    
+    elif result and result.get('action') == 'cancel_subscription':
+        shop_id = result.get('shop_id')
+        
+        db = next(get_db())
+        shop = db.query(Shop).filter(Shop.id == shop_id).first()
+        
+        if shop:
+            shop.subscription_status = "cancelled"
+            shop.subscription_cancelled_at = datetime.utcnow()
+            
+            db.commit()
+    
+    return {"status": "success"}
 
 
 @app.get("/api/health")
