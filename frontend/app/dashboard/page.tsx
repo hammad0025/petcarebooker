@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { bookingsApi } from '@/lib/api';
+import SubscriptionStatus from '@/components/SubscriptionStatus';
 
 const Calendar = dynamic(() => import('@/components/Calendar'), { ssr: false });
 
@@ -118,6 +119,11 @@ export default function DashboardPage() {
       </nav>
 
       <div className="container mx-auto px-4 py-8">
+        {/* Subscription Status */}
+        <div className="mb-8">
+          <SubscriptionStatus />
+        </div>
+
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl font-bold text-gray-900">Your Calendar</h2>
           <div className="flex gap-2">
