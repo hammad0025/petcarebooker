@@ -27,14 +27,19 @@ async function fetchApi(endpoint: string, options: ApiOptions = {}) {
     config.body = JSON.stringify(body);
   }
 
-  const response = await fetch(`${API_BASE_URL}${endpoint}`, config);
+  try {
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, config);
 
-  if (!response.ok) {
-    const error = await response.json().catch(() => ({ detail: 'An error occurred' }));
-    throw new Error(error.detail || 'An error occurred');
+    if (!response.ok) {
+      const error = await response.json().catch(() => ({ detail: 'An error occurred' }));
+      throw new Error(error.detail || 'An error occurred');
+    }
+
+    return response.json();
+  } catch (error: any) {
+    console.error('API fetch error:', error);
+    throw new Error(`Failed to fetch: ${error.message || 'Network error'}`);
   }
-
-  return response.json();
 }
 
 // Auth

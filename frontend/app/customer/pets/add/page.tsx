@@ -2,19 +2,31 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import PetInfoModal from '@/components/PetInfoModal';
 
 const PET_TYPES = [
   { value: 'dog', label: 'Dog', emoji: '🐕' },
   { value: 'cat', label: 'Cat', emoji: '🐈' },
-  { value: 'rabbit', label: 'Rabbit', emoji: '🐰' },
-  { value: 'bird', label: 'Bird', emoji: '🦜' },
-  { value: 'guinea-pig', label: 'Guinea Pig', emoji: '🐹' },
-  { value: 'hamster', label: 'Hamster', emoji: '🐭' },
-  { value: 'ferret', label: 'Ferret', emoji: '🦡' },
-  { value: 'reptile', label: 'Reptile', emoji: '🦎' },
-  { value: 'fish', label: 'Fish', emoji: '🐠' },
-  { value: 'horse', label: 'Horse', emoji: '🐴' },
-  { value: 'other', label: 'Other', emoji: '🐾' },
+];
+
+const DOG_BREEDS = [
+  'Golden Retriever', 'Labrador', 'German Shepherd', 'Bulldog', 'Beagle',
+  'Poodle', 'Rottweiler', 'Yorkshire Terrier', 'Boxer', 'Dachshund',
+  'Siberian Husky', 'Great Dane', 'Chihuahua', 'Shih Tzu', 'Border Collie',
+  'Australian Shepherd', 'Cocker Spaniel', 'French Bulldog', 'Maltese',
+  'Basset Hound', 'English Springer Spaniel', 'Boston Terrier', 'Mastiff',
+  'Pug', 'Weimaraner', 'Belgian Malinois', 'Vizsla', 'Havanese', 'Pomeranian',
+  'Mutt/Mixed', 'Other'
+];
+
+const CAT_BREEDS = [
+  'Persian', 'Maine Coon', 'British Shorthair', 'Ragdoll', 'Siamese',
+  'American Shorthair', 'Scottish Fold', 'Bengal', 'Russian Blue', 'Sphynx',
+  'Norwegian Forest Cat', 'Oriental Shorthair', 'Abyssinian', 'Devon Rex',
+  'Exotic Shorthair', 'Burmese', 'Turkish Angora', 'American Curl', 'Munchkin',
+  'Birman', 'Manx', 'Himalayan', 'Cornish Rex', 'Tonkinese', 'Egyptian Mau',
+  'Savannah', 'British Longhair', 'Domestic Shorthair', 'Domestic Longhair',
+  'Mixed/Mutt', 'Other'
 ];
 
 export default function AddPetPage() {
@@ -24,6 +36,8 @@ export default function AddPetPage() {
   const [selectedPetType, setSelectedPetType] = useState('');
   const [weightValue, setWeightValue] = useState(25);
   const [weightUnit, setWeightUnit] = useState<'lbs' | 'kg'>('lbs');
+  const [showInfoModal, setShowInfoModal] = useState(false);
+  const [petName, setPetName] = useState('');
 
   const convertWeight = (value: number, from: 'lbs' | 'kg', to: 'lbs' | 'kg'): number => {
     if (from === to) return value;
@@ -53,22 +67,31 @@ export default function AddPetPage() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name') as string;
+    setPetName(name);
+    setShowInfoModal(true);
+  };
+
+  const handleModalSubmit = async (additionalInfo: any) => {
     setLoading(true);
     setError('');
 
-    const formData = new FormData(e.currentTarget);
-    
     try {
-      // TODO: API call to add pet
-      console.log('Adding pet:', {
-        name: formData.get('name'),
+      // TODO: API call to add pet with all info
+      console.log('Adding pet with complete info:', {
+        name: petName,
         pet_type: selectedPetType,
-        breed: formData.get('breed'),
+        breed: document.querySelector('input[name="breed"]')?.value || '',
         weight: `${weightValue} ${weightUnit}`,
-        special_notes: formData.get('special_notes'),
+        issues: additionalInfo.issues,
+        birthday: additionalInfo.birthday,
+        healthIssues: additionalInfo.healthIssues,
       });
 
-      // For now, just redirect to my-pets
+      // Close modal and redirect
+      setShowInfoModal(false);
       router.push('/my-pets');
     } catch (err) {
       setError('Failed to add pet');
@@ -109,23 +132,26 @@ export default function AddPetPage() {
 
             {/* Pet Type - Visual Selector */}
             <div>
-              <label className="block text-gray-900 font-bold text-lg mb-3">What kind of pet? 🐾</label>
-              <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
+              <label className="block text-gray-900 font-bold text-lg mb-3">
+                Type 🐾
+                <span className="text-red-500 ml-1">*</span>
+              </label>
+              <div className="grid grid-cols-2 gap-4">
                 {PET_TYPES.map((pet) => (
                   <button
                     key={pet.value}
                     type="button"
                     onClick={() => setSelectedPetType(pet.value)}
                     className={`
-                      p-4 rounded-2xl border-2 transition-all hover:scale-105
+                      p-6 rounded-2xl border-2 transition-all hover:scale-105
                       ${selectedPetType === pet.value 
-                        ? 'border-purple-500 bg-purple-50 shadow-lg scale-105' 
-                        : 'border-gray-200 hover:border-purple-300'
+                        ? 'border-blue-500 bg-blue-50 shadow-lg' 
+                        : 'border-gray-200 hover:border-blue-300'
                       }
                     `}
                   >
-                    <div className="text-4xl mb-1">{pet.emoji}</div>
-                    <div className={`text-sm font-semibold ${selectedPetType === pet.value ? 'text-purple-700' : 'text-gray-700'}`}>
+                    <div className="text-5xl mb-2">{pet.emoji}</div>
+                    <div className={`text-lg font-semibold ${selectedPetType === pet.value ? 'text-blue-700' : 'text-gray-700'}`}>
                       {pet.label}
                     </div>
                   </button>
@@ -136,15 +162,28 @@ export default function AddPetPage() {
               )}
             </div>
 
-            {/* Breed */}
+            {/* Breed - Dropdown */}
             <div>
-              <label className="block text-gray-900 font-bold text-lg mb-3">Breed (optional) 🎯</label>
-              <input
-                type="text"
-                name="breed"
-                className="w-full px-5 py-4 border-2 border-gray-200 rounded-2xl focus:border-purple-500 focus:outline-none text-lg transition-all"
-                placeholder="Golden Retriever, Tabby, etc."
-              />
+              <label className="block text-gray-900 font-bold text-lg mb-3">
+                Breed 🎯
+              </label>
+              {selectedPetType ? (
+                <select
+                  name="breed"
+                  className="w-full px-5 py-4 border-2 border-gray-200 rounded-2xl focus:border-purple-500 focus:outline-none text-lg transition-all bg-white"
+                >
+                  <option value="">Select breed...</option>
+                  {(selectedPetType === 'dog' ? DOG_BREEDS : CAT_BREEDS).map((breed) => (
+                    <option key={breed} value={breed}>
+                      {breed}
+                    </option>
+                  ))}
+                </select>
+              ) : (
+                <div className="w-full px-5 py-4 border-2 border-dashed border-gray-300 rounded-2xl text-gray-400 text-lg text-center">
+                  Please select pet type first
+                </div>
+              )}
             </div>
 
             {/* Weight - Modern Dial */}
@@ -215,17 +254,6 @@ export default function AddPetPage() {
               </div>
             </div>
 
-            {/* Special Notes */}
-            <div>
-              <label className="block text-gray-900 font-bold text-lg mb-3">Special Notes (optional) 📝</label>
-              <textarea
-                name="special_notes"
-                rows={4}
-                className="w-full px-5 py-4 border-2 border-gray-200 rounded-2xl focus:border-purple-500 focus:outline-none text-lg transition-all resize-none"
-                placeholder="Any allergies, fears, or special care instructions..."
-              />
-            </div>
-
             {/* Error */}
             {error && (
               <div className="bg-red-100 text-red-700 px-5 py-4 rounded-2xl font-semibold">
@@ -247,11 +275,20 @@ export default function AddPetPage() {
                 disabled={loading || !selectedPetType}
                 className="flex-1 px-6 py-5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl font-bold text-lg hover:shadow-2xl transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
               >
-                {loading ? 'Adding...' : 'Add Pet 🐾'}
+                {loading ? 'Continuing...' : 'Continue'}
               </button>
             </div>
           </form>
         </div>
+
+        {/* Pet Info Modal */}
+        <PetInfoModal
+          isOpen={showInfoModal}
+          onClose={() => setShowInfoModal(false)}
+          petName={petName}
+          petType={selectedPetType}
+          onSubmit={handleModalSubmit}
+        />
       </div>
     </div>
   );

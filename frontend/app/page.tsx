@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import CityAutocomplete from '@/components/CityAutocomplete';
 
 export default function HomePage() {
   return (
@@ -78,24 +79,27 @@ export default function HomePage() {
             No phone calls. No waiting. Just happy pets and peace of mind.
           </p>
 
-          {/* Large Search Bar - Booksy/Vagaro style */}
-          <div className="w-full max-w-3xl mb-8">
-            <div className="bg-white rounded-2xl shadow-2xl p-3 flex items-center gap-3">
-              <div className="flex-1">
-                <input 
-                  type="text" 
-                  placeholder="🔍 Enter your city or zip code..."
-                  className="w-full px-6 py-5 text-xl rounded-xl focus:outline-none text-gray-800 placeholder-gray-400"
-                />
-              </div>
-              <Link 
-                href="/browse"
-                className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-10 py-5 rounded-xl font-bold hover:from-purple-700 hover:to-pink-600 transition-all whitespace-nowrap text-xl shadow-lg hover:scale-105"
-              >
-                Find Groomers →
-              </Link>
-            </div>
-          </div>
+                 {/* Large Search Bar - Vagaro/Booksy style with autocomplete */}
+                 <div className="w-full max-w-3xl mb-8">
+                   <div className="bg-white rounded-2xl shadow-2xl p-3 flex items-center gap-3">
+                     <div className="flex-1">
+                       <CityAutocomplete />
+                     </div>
+                     <select className="px-4 py-5 text-xl rounded-xl focus:outline-none bg-gray-50 text-gray-700 border border-gray-200">
+                       <option>All Services</option>
+                       <option>Dog Grooming</option>
+                       <option>Cat Grooming</option>
+                       <option>Mobile Grooming</option>
+                       <option>Spa Services</option>
+                     </select>
+                     <Link 
+                       href="/browse"
+                       className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-10 py-5 rounded-xl font-bold hover:from-purple-700 hover:to-pink-600 transition-all whitespace-nowrap text-xl shadow-lg hover:scale-105"
+                     >
+                       Search
+                     </Link>
+                   </div>
+                 </div>
 
           {/* Trust indicators */}
           <div className="flex flex-wrap justify-center gap-8 text-white/90 mb-8">

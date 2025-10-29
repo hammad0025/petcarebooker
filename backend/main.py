@@ -34,6 +34,7 @@ def get_allowed_origins():
         return [
             "https://petcarebooker.com",
             "https://www.petcarebooker.com",
+            "https://*.vercel.app",  # Vercel preview deployments
         ]
     else:
         # Development: allow localhost on various ports
@@ -42,11 +43,12 @@ def get_allowed_origins():
             "http://localhost:3001",
             "http://localhost:8081",
             "http://10.0.0.181:8081",  # Expo dev server
+            "https://*.vercel.app",  # Also allow Vercel in dev
         ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=get_allowed_origins(),
+    allow_origins=["*"],  # Allow all origins in production for now
     allow_credentials=True,
     allow_methods=["GET", "POST", "PATCH", "PUT", "DELETE"],
     allow_headers=["Content-Type", "Authorization"],

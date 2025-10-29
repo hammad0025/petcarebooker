@@ -32,8 +32,8 @@ export default function PricingPage() {
         <h1 className="text-6xl font-extrabold text-gray-900 mb-6">
           Simple, Transparent Pricing
         </h1>
-        <p className="text-2xl text-gray-700 max-w-2xl mx-auto mb-12">
-          The ONLY pet-centric grooming platform. $24.99/month. Start free for 30 days. No credit card required.
+        <p className="text-2xl font-semibold text-gray-900 max-w-2xl mx-auto mb-12">
+          The ONLY pet-first grooming platform. $24.99/month. Start free for 30 days. No credit card required.
         </p>
 
         {/* Pricing Cards */}
@@ -67,8 +67,8 @@ export default function PricingPage() {
                 <span>SMS notifications</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-gray-400 text-xl">✗</span>
-                <span className="text-gray-400">Ends after 30 days</span>
+                <span className="text-gray-500 text-xl">✗</span>
+                <span className="text-gray-700">Ends after 30 days</span>
               </li>
             </ul>
             <Link
@@ -90,8 +90,8 @@ export default function PricingPage() {
               <span className="text-5xl font-extrabold text-gray-900">$24.99</span>
               <span className="text-gray-600 text-lg">/month</span>
             </div>
-            <div className="text-sm text-gray-600 mb-6">
-              Pet-centric platform • 17% cheaper than Booksy
+            <div className="text-sm font-semibold text-gray-900 mb-6">
+              The pet-first booking platform
             </div>
             <ul className="text-left space-y-3 mb-8">
               <li className="flex items-start gap-2">
@@ -165,46 +165,38 @@ export default function PricingPage() {
           </div>
         </div>
 
-        {/* Comparison Table */}
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-8 mb-16">
-          <h2 className="text-3xl font-extrabold text-center mb-8">How We Compare</h2>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b-2 border-gray-200">
-                  <th className="text-left py-4 text-gray-900 font-bold">Feature</th>
-                  <th className="text-center py-4 text-gray-900 font-bold">Booksy</th>
-                  <th className="text-center py-4 text-purple-600 font-bold">PetCareBooker</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                <tr>
-                  <td className="py-4 font-semibold">Monthly Cost</td>
-                  <td className="text-center py-4 text-gray-600">$29.99</td>
-                  <td className="text-center py-4 text-purple-600 font-bold">$24.99</td>
-                </tr>
-                <tr>
-                  <td className="py-4 font-semibold">Free Trial</td>
-                  <td className="text-center py-4 text-gray-600">No</td>
-                  <td className="text-center py-4 text-green-600 font-bold">✓ 30 days</td>
-                </tr>
-                <tr>
-                  <td className="py-4 font-semibold">Unlimited Bookings</td>
-                  <td className="text-center py-4 text-gray-600">✓</td>
-                  <td className="text-center py-4 text-green-600 font-bold">✓</td>
-                </tr>
-                <tr>
-                  <td className="py-4 font-semibold">Payment Processing</td>
-                  <td className="text-center py-4 text-gray-600">✓</td>
-                  <td className="text-center py-4 text-green-600 font-bold">✓</td>
-                </tr>
-                <tr>
-                  <td className="py-4 font-semibold">Customer Service</td>
-                  <td className="text-center py-4 text-gray-600">Limited</td>
-                  <td className="text-center py-4 text-green-600 font-bold">24/7 Support</td>
-                </tr>
-              </tbody>
-            </table>
+        {/* Why Choose Us */}
+        <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-12 mb-16">
+          <h2 className="text-3xl font-extrabold text-center mb-12">Why PetCareBooker? 🐾</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="flex items-start gap-4">
+              <div className="text-4xl">🐕</div>
+              <div>
+                <h3 className="font-bold text-lg text-gray-900 mb-2">Pet-First Design</h3>
+                <p className="text-gray-700">Built specifically for pet groomers who care about their furry clients. Track grooming history, preferences, and more.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <div className="text-4xl">💰</div>
+              <div>
+                <h3 className="font-bold text-lg text-gray-900 mb-2">Fair Pricing</h3>
+                <p className="text-gray-700">Transparent $24.99/month with no hidden fees. Save hundreds compared to other platforms.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <div className="text-4xl">⚡</div>
+              <div>
+                <h3 className="font-bold text-lg text-gray-900 mb-2">Easy to Use</h3>
+                <p className="text-gray-700">Beautiful interface that groomers and pet parents love. Get started in minutes, not hours.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <div className="text-4xl">📱</div>
+              <div>
+                <h3 className="font-bold text-lg text-gray-900 mb-2">24/7 Support</h3>
+                <p className="text-gray-700">Dedicated support team ready to help when you need it. No bots, real people.</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -212,7 +204,7 @@ export default function PricingPage() {
         <div className="bg-gradient-to-r from-purple-600 via-purple-500 to-pink-500 rounded-3xl p-12 text-white">
           <h2 className="text-4xl font-extrabold mb-4">Ready to get started?</h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Join hundreds of groomers who switched from Booksy and saved money.
+            Join hundreds of groomers making more with PetCareBooker. Start your 30-day free trial today.
           </p>
           <Link
             href="/register"
