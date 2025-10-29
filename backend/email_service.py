@@ -1,10 +1,13 @@
 import os
-from resend import Resend
+import resend
 from typing import Optional
 
 # Initialize Resend client
 RESEND_API_KEY = os.getenv("RESEND_API_KEY")
-resend = Resend(api_key=RESEND_API_KEY) if RESEND_API_KEY else None
+if RESEND_API_KEY:
+    resend.api_key = RESEND_API_KEY
+else:
+    resend = None
 
 # Email configuration
 FROM_EMAIL = os.getenv("FROM_EMAIL", "PetCareBooker <noreply@petcarebooker.com>")
