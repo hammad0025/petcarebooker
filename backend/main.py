@@ -824,9 +824,10 @@ def get_subscription_status(shop: Shop = Depends(get_current_shop)):
 #     return {"status": "success"}
 
 
-@app.get("/api/health")
-def health_check():
-    return {"status": "healthy", "timestamp": datetime.utcnow().isoformat()}
+@app.get("/api/test")
+def test_endpoint():
+    """Simple test endpoint without database"""
+    return {"message": "Backend is working", "timestamp": datetime.utcnow().isoformat()}
 
 
 if __name__ == "__main__":
