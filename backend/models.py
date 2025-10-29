@@ -98,6 +98,15 @@ class Shop(Base):
     phone = Column(String)
     email = Column(String)
     
+    # Subscription & Billing - REVENUE MODEL
+    subscription_tier = Column(String, default="free")  # free, basic, premium
+    subscription_status = Column(String, default="active")  # active, cancelled, trial
+    stripe_customer_id = Column(String)  # Stripe customer ID for billing
+    stripe_subscription_id = Column(String)  # Stripe subscription ID
+    subscription_start_date = Column(DateTime)
+    subscription_renewal_date = Column(DateTime)
+    subscription_cancelled_at = Column(DateTime)
+    
     # Location (for map integration)
     latitude = Column(Float)  # e.g., 26.7153 for West Palm Beach
     longitude = Column(Float)  # e.g., -80.0534 for West Palm Beach
@@ -175,6 +184,17 @@ class Booking(Base):
     appointment_date = Column(DateTime, nullable=False, index=True)
     duration_minutes = Column(Integer, nullable=False)
     status = Column(Enum(BookingStatus), default=BookingStatus.PENDING, index=True)
+    
+    # Payment fields - REVENUE TRACKING
+    amount_paid = Column(Float)  # Amount customer paid
+    stripe_payment_intent_id = Column(String)  # Stripe payment intent ID
+    payment_status = Column(String, default="pending")  # pending, paid, refunded
+    payment_date = Column(DateTime)
+    
+    # Commission tracking - YOUR REVENUE
+    platform_commission = Column(Float)  # Your cut (e.g., 5-10%)
+    groomer_payout = Column(Float)  # What groomer gets
+    commission_processed = Column(Boolean, default=False)
     
     # Tracking
     created_at = Column(DateTime, default=datetime.utcnow)
