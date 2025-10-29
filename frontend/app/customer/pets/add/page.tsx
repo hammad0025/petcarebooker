@@ -59,24 +59,47 @@ export default function AddPetPage() {
     setError('');
 
     try {
-      // TODO: API call to add pet with all info
       const breedElement = document.querySelector('select[name="breed"]') as HTMLSelectElement;
+      const breed = breedElement?.value || '';
       
-      console.log('Adding pet with complete info:', {
+      // Get the authentication token from localStorage
+      const token = localStorage.getItem('customerToken');
+      
+      if (!token) {
+        throw new Error('Please log in to add pets');
+      }
+
+      // Create the pet data object
+      const petData = {
         name: petName,
         pet_type: selectedPetType,
-        breed: breedElement?.value || '',
-        size: selectedSize,
-        issues: additionalInfo.issues,
-        birthday: additionalInfo.birthday,
-        healthIssues: additionalInfo.healthIssues,
+        breed: breed,
+        weight: selectedSize, // Using size as weight for now
+        special_notes: `Issues: ${additionalInfo.issues.join(', ') || 'None'}. Birthday: ${additionalInfo.birthday || 'Unknown'}. Health issues: ${additionalInfo.healthIssues || 'None'}`,
+      };
+
+      // Make the API call to add the pet
+      const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://petcarebooker.onrender.com';
+      const response = await fetch(`${API_BASE_URL}/api/customer/pets`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(petData),
       });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ detail: 'Failed to add pet' }));
+        throw new Error(errorData.detail || 'Failed to add pet');
+      }
 
       // Close modal and redirect
       setShowInfoModal(false);
-      router.push('/my-pets');
-    } catch (err) {
-      setError('Failed to add pet');
+      router.push('/customer/pets');
+    } catch (err: any) {
+      console.error('Failed to add pet:', err);
+      setError(err.message || 'Failed to add pet');
     } finally {
       setLoading(false);
     }
