@@ -930,6 +930,567 @@ If your dog swims weekly, light grooming/baths every 2 weeks. Full groom every 6
 *Last updated: January 2025*
     `,
   },
+  'orlando-dog-grooming-2025': {
+    title: 'Best Dog Grooming in Orlando, FL: 2025 Guide',
+    description: 'Discover Orlando\'s top dog groomers from Winter Park to Lake Nona. Compare prices, read reviews, and book same-day appointments.',
+    author: 'PetCareBooker Team',
+    date: '2025-01-16',
+    city: 'Orlando',
+    state: 'FL',
+    category: 'City Guides',
+    image: '🎢',
+    content: `
+Orlando isn't just the theme park capital—it's also home to exceptional pet grooming services. Whether you're in Winter Park, Lake Nona, or downtown, finding a trusted groomer for your dog is essential.
+
+## Top Dog Groomers in Orlando
+
+### 1. Winter Park Pet Boutique (Winter Park)
+**Location:** Park Avenue, Winter Park
+**Specialty:** Show dogs, breed-specific cuts
+**Price Range:** $75-$145
+**Why We Love Them:** Upscale service, experienced with all breeds, complimentary nail polish
+
+### 2. Lake Nona Pet Spa (Lake Nona)
+**Location:** Lake Nona Town Center
+**Specialty:** Modern facility, tech-enabled booking
+**Price Range:** $70-$130
+**Why We Love Them:** State-of-the-art equipment, live cam option, smart scheduling
+
+### 3. College Park Grooming (College Park)
+**Location:** Edgewater Drive
+**Specialty:** Rescue dogs, gentle handling
+**Price Range:** $60-$110
+**Why We Love Them:** Patient with fearful dogs, rescue-friendly, donations to local shelters
+
+## Orlando Dog Grooming Costs
+
+Average prices in Orlando (2025):
+- **Toy breeds:** $60-$85
+- **Small dogs:** $70-$100
+- **Medium dogs:** $80-$115
+- **Large dogs:** $95-$135
+- **Giant breeds:** $120-$160
+
+## Why Orlando Dogs Need Regular Grooming
+
+Orlando's climate creates unique grooming needs:
+
+1. **Theme Park Visitors** - Keep your travel buddy fresh
+2. **Lake Activities** - Post-swim cleanups essential
+3. **Hot Summers** - Summer cuts keep dogs comfortable
+4. **Year-Round Fleas** - Regular treatments prevent infestations
+
+[Browse Orlando Groomers →](/cities/orlando)
+
+---
+
+*Last updated: January 2025*
+    `,
+  },
+  'cat-grooming-los-angeles': {
+    title: 'Cat Grooming in Los Angeles: Expert Guide (2025)',
+    description: 'Find the best cat groomers in LA. From Hollywood to Santa Monica, discover gentle, experienced cat grooming specialists.',
+    author: 'PetCareBooker Team',
+    date: '2025-01-14',
+    city: 'Los Angeles',
+    state: 'CA',
+    category: 'City Guides',
+    image: '🐱',
+    content: `
+Los Angeles cat owners know that grooming a cat requires special expertise. From Persian long-hairs to anxious rescues, LA's best cat groomers provide gentle, stress-free experiences.
+
+## Best Cat Groomers in Los Angeles
+
+### 1. Hollywood Feline Spa (Hollywood)
+**Location:** Hollywood Boulevard
+**Specialty:** Long-haired breeds, Persians
+**Price Range:** $75-$130
+**Why We Love Them:** Cat-only facility, calming environment, fear-free certified
+
+### 2. Santa Monica Cat Grooming (Santa Monica)
+**Location:** Montana Avenue
+**Specialty:** Anxious cats, seniors
+**Price Range:** $70-$120
+**Why We Love Them:** Patient handling, mobile service available, vet partnerships
+
+### 3. Silver Lake Pet Boutique (Silver Lake)
+**Location:** Sunset Junction
+**Specialty:** Creative cuts, lion cuts
+**Price Range:** $65-$115
+**Why We Love Them:** Experienced with difficult cats, organic products
+
+## Cat Grooming Services
+
+**Standard Services:**
+- Bath and blow-dry: $65-$90
+- Full groom (bath, trim, nails): $75-$130
+- Lion cut: $85-$140
+- Nail trim only: $20-$30
+- Sanitary trim: $30-$45
+
+**Why Cats Need Grooming:**
+- Reduce hairballs and shedding
+- Prevent matting (especially long-haired breeds)
+- Nail maintenance
+- Skin and coat health
+- Early detection of health issues
+
+## Tips for Cat Grooming Success
+
+1. **Start Young** - Acclimate kittens to grooming early
+2. **Stay Calm** - Cats sense your anxiety
+3. **Choose Cat Specialists** - Not all groomers handle cats
+4. **Consider Sedation** - Ask your vet for extremely anxious cats
+5. **Regular Brushing** - Reduces professional grooming frequency
+
+[Browse LA Cat Groomers →](/cities/los-angeles)
+
+---
+
+*Last updated: January 2025*
+    `,
+  },
+  'mobile-pet-grooming-miami': {
+    title: 'Mobile Pet Grooming Miami: Convenient At-Home Service',
+    description: 'Discover Miami\'s best mobile pet groomers. Convenient, stress-free grooming that comes to your door. Serving all Miami neighborhoods.',
+    author: 'PetCareBooker Team',
+    date: '2025-01-13',
+    city: 'Miami',
+    state: 'FL',
+    category: 'City Guides',
+    image: '🚐',
+    content: `
+Miami's traffic is legendary—why drive to a groomer when they can come to you? Mobile pet grooming brings professional service right to your driveway, perfect for busy Miami pet parents.
+
+## Benefits of Mobile Grooming in Miami
+
+**Convenience:**
+- No driving in Miami traffic
+- No waiting in lobbies
+- Grooming at your schedule
+- Perfect for multiple pets
+
+**Less Stress:**
+- Familiar environment for your pet
+- One-on-one attention
+- No exposure to other animals
+- Ideal for anxious pets
+
+**Professional Service:**
+- Fully equipped mobile salon
+- Climate-controlled van
+- All services available
+- Licensed, insured groomers
+
+## Mobile Grooming Costs in Miami
+
+Average prices (2025):
+- **Small dogs:** $75-$110
+- **Medium dogs:** $90-$130
+- **Large dogs:** $110-$160
+- **Cats:** $80-$120
+
+Mobile grooming typically costs $15-$25 more than salon prices, but the convenience is worth it for most Miami pet parents.
+
+## Popular Miami Neighborhoods for Mobile Grooming
+
+- Brickell (high-rise friendly)
+- Coral Gables (gated communities)
+- Coconut Grove (waterfront properties)
+- South Beach (condo living)
+- Aventura (luxury buildings)
+- Kendall (family neighborhoods)
+- Doral (suburban homes)
+
+## What to Expect
+
+1. **Groomer arrives** in fully-equipped van
+2. **Your pet is groomed** start to finish (1-2 hours)
+3. **You get your freshly groomed pet** at your door
+4. **No cleanup** - groomer handles everything
+
+## Booking Tips
+
+- Book 1-2 weeks ahead (mobile groomers fill up fast)
+- Ensure driveway access for the van
+- Have your pet ready at appointment time
+- Provide shade/covered area if possible
+
+[Find Mobile Groomers in Miami →](/cities/miami)
+
+---
+
+*Last updated: January 2025*
+    `,
+  },
+  'how-often-groom-dog': {
+    title: 'How Often Should You Groom Your Dog? Complete Guide',
+    description: 'Learn the ideal grooming frequency for your dog\'s breed, coat type, and lifestyle. Expert advice on maintaining your dog\'s health and appearance.',
+    author: 'PetCareBooker Team',
+    date: '2025-01-12',
+    city: null,
+    state: null,
+    category: 'Guides',
+    image: '📅',
+    content: `
+One of the most common questions pet parents ask: "How often should I groom my dog?" The answer depends on breed, coat type, lifestyle, and health needs.
+
+## Grooming Frequency by Coat Type
+
+### Short-Haired Breeds (Every 8-12 Weeks)
+**Examples:** Beagles, Boxers, Bulldogs, Dachshunds, Labradors
+
+These dogs need minimal grooming but still benefit from:
+- Regular baths every 4-8 weeks
+- Nail trims every 4-6 weeks
+- Ear cleaning monthly
+
+### Medium-Length Coats (Every 6-8 Weeks)
+**Examples:** Golden Retrievers, German Shepherds, Border Collies, Cocker Spaniels
+
+These breeds need more frequent attention:
+- Professional grooming every 6-8 weeks
+- Brushing 2-3 times per week at home
+- De-shedding treatments seasonally
+
+### Long-Haired Breeds (Every 4-6 Weeks)
+**Examples:** Shih Tzus, Maltese, Yorkshire Terriers, Afghan Hounds
+
+High-maintenance coats require:
+- Professional grooming every 4-6 weeks
+- Daily brushing at home
+- Regular mat prevention
+
+### Curly/Wire Coats (Every 6-8 Weeks)
+**Examples:** Poodles, Doodles, Schnauzers, Terriers
+
+These coats need specialized care:
+- Professional grooming every 6-8 weeks
+- Brushing 3-4 times per week
+- Hand-stripping for some wire coats
+
+## Lifestyle Factors
+
+**Active/Outdoor Dogs:**
+- Groom more frequently (every 4-6 weeks)
+- More baths needed
+- Check for ticks, burrs, mats
+
+**Indoor Dogs:**
+- Can stretch to 8-12 weeks
+- Still need regular nail trims
+- Less frequent baths
+
+**Dogs Who Swim:**
+- Rinse after every swim
+- Professional grooming every 4-6 weeks
+- Ear cleaning essential
+
+## Signs Your Dog Needs Grooming
+
+1. **Visible mats or tangles**
+2. **Strong odor**
+3. **Overgrown nails** (clicking on floor)
+4. **Dirty or waxy ears**
+5. **Hair covering eyes**
+6. **Excessive shedding**
+
+## At-Home vs Professional Grooming
+
+**Do at Home:**
+- Brushing (daily to weekly)
+- Basic bathing
+- Paw cleaning
+- Teeth brushing
+
+**Leave to Professionals:**
+- Haircuts and styling
+- Nail grinding
+- Anal gland expression
+- De-shedding treatments
+- Difficult mats
+
+## Special Considerations
+
+**Puppies:** Start grooming early (8-12 weeks) to acclimate them, even if just for a bath and nail trim.
+
+**Seniors:** May need more frequent grooming due to reduced self-grooming and mobility issues.
+
+**Health Issues:** Dogs with skin conditions may need specialized grooming schedules—consult your vet.
+
+## Bottom Line
+
+**General Rule:** Most dogs benefit from professional grooming every 6-8 weeks, with regular at-home maintenance in between.
+
+[Find a Groomer Near You →](/browse)
+
+---
+
+*Last updated: January 2025*
+    `,
+  },
+  'cat-grooming-costs-guide': {
+    title: 'Cat Grooming Costs: Complete Price Guide (2025)',
+    description: 'How much does cat grooming cost? Detailed pricing for baths, lion cuts, nail trims, and more. Compare prices and find affordable cat groomers.',
+    author: 'PetCareBooker Team',
+    date: '2025-01-11',
+    city: null,
+    state: null,
+    category: 'Guides',
+    image: '💰',
+    content: `
+Cat grooming costs vary widely based on services, location, and your cat's temperament. Here's everything you need to know about cat grooming prices in 2025.
+
+## Average Cat Grooming Costs (2025)
+
+### Basic Services
+
+**Bath Only:** $40-$70
+- Shampoo and rinse
+- Blow-dry
+- Basic brush-out
+
+**Full Groom (Short-Hair):** $60-$90
+- Bath and blow-dry
+- Brush-out
+- Nail trim
+- Ear cleaning
+- Sanitary trim
+
+**Full Groom (Long-Hair):** $75-$120
+- Everything in short-hair groom
+- De-matting (if needed)
+- More time-intensive
+
+**Lion Cut:** $80-$140
+- Full body shave
+- Leaves mane, tail puff, leg puffs
+- Popular for Persians and long-haired breeds
+
+### Add-On Services
+
+- **Nail Trim Only:** $15-$25
+- **De-Matting:** +$20-$50 (depending on severity)
+- **Flea Treatment:** +$15-$30
+- **Teeth Brushing:** +$10-$15
+- **Anal Gland Expression:** +$15-$25
+
+## Factors Affecting Price
+
+### 1. Location
+- **Major cities:** $80-$140 for full groom
+- **Suburban areas:** $60-$100
+- **Rural areas:** $50-$80
+
+### 2. Cat's Temperament
+- **Calm cats:** Standard pricing
+- **Difficult/aggressive cats:** +$20-$50 surcharge
+- **Sedation required:** +$50-$100 (vet administered)
+
+### 3. Coat Condition
+- **Well-maintained:** Standard pricing
+- **Matted/neglected:** +$30-$80 for de-matting
+- **Severe matting:** May require shave-down
+
+### 4. Groomer Experience
+- **Mobile groomers:** +$15-$30 vs salon
+- **Cat specialists:** Often charge premium
+- **Vet clinic grooming:** Usually most expensive
+
+## Mobile Cat Grooming Costs
+
+Mobile groomers charge more but offer convenience:
+- **Short-hair full groom:** $75-$110
+- **Long-hair full groom:** $90-$140
+- **Lion cut:** $100-$160
+
+Benefits worth the extra cost:
+- Less stress for your cat
+- One-on-one attention
+- No car ride trauma
+- Convenient scheduling
+
+## How to Save Money on Cat Grooming
+
+1. **Regular Maintenance** - Brush at home to prevent mats
+2. **Book Off-Peak** - Weekday mornings often cheaper
+3. **Package Deals** - Some groomers offer multi-visit discounts
+4. **DIY Basics** - Learn to trim nails at home
+5. **Preventive Care** - Regular grooming prevents expensive de-matting
+
+## When to Groom Your Cat
+
+**Long-Haired Breeds:** Every 6-8 weeks
+**Short-Haired Breeds:** Every 3-4 months
+**Senior Cats:** Every 6-8 weeks (they groom less)
+**Obese Cats:** Every 6-8 weeks (can't reach all areas)
+
+## Is Professional Cat Grooming Worth It?
+
+**Yes, if your cat:**
+- Has long hair prone to matting
+- Is elderly or obese
+- Has skin conditions
+- Sheds excessively
+- Gets aggressive during home grooming
+
+**DIY might work if:**
+- Your cat has short hair
+- Tolerates handling well
+- You have time and patience
+- No severe matting issues
+
+[Find Affordable Cat Groomers →](/browse)
+
+---
+
+*Last updated: January 2025*
+    `,
+  },
+  'chicago-dog-wash-services': {
+    title: 'Chicago Dog Wash Services: Self-Serve & Full-Service Options',
+    description: 'Find the best dog wash services in Chicago. Compare self-serve dog washes, full-service grooming, and mobile options across all neighborhoods.',
+    author: 'PetCareBooker Team',
+    date: '2025-01-10',
+    city: 'Chicago',
+    state: 'IL',
+    category: 'City Guides',
+    image: '🏙️',
+    content: `
+Chicago dog owners have plenty of options for keeping their pups clean, from DIY self-serve dog washes to full-service grooming salons. Here's your complete guide to dog washing in the Windy City.
+
+## Types of Dog Wash Services in Chicago
+
+### 1. Self-Serve Dog Wash ($15-$30)
+
+**What You Get:**
+- Raised tub with ramp
+- Professional shampoo and conditioner
+- Towels and dryers provided
+- Aprons to keep you dry
+- No mess at home!
+
+**Popular Self-Serve Locations:**
+- Lakeview Pet Wash
+- Lincoln Park Dog Spa
+- Wicker Park Pet Supply
+- South Loop Pet Wash
+
+**Best For:** Budget-conscious owners, dogs who don't need haircuts, between professional grooming appointments
+
+### 2. Bath-Only Services ($40-$70)
+
+**What's Included:**
+- Professional bath
+- Blow-dry
+- Nail trim
+- Ear cleaning
+- Brush-out
+
+**Best For:** Short-haired breeds, dogs who don't need haircuts, regular maintenance
+
+### 3. Full-Service Grooming ($60-$140)
+
+**Complete Package:**
+- Bath and blow-dry
+- Haircut/styling
+- Nail trim and grinding
+- Ear cleaning
+- Teeth brushing
+- Cologne/bandana
+
+**Best For:** All breeds, especially those needing haircuts
+
+## Chicago Neighborhood Guide
+
+### North Side
+**Lincoln Park, Lakeview, Wrigleyville**
+- High concentration of groomers
+- Average prices: $65-$120
+- Many walk-in options
+
+### West Side
+**Wicker Park, Logan Square, Ukrainian Village**
+- Trendy boutique groomers
+- Average prices: $70-$130
+- Creative grooming available
+
+### South Side
+**Hyde Park, Bronzeville, Bridgeport**
+- More affordable options
+- Average prices: $55-$100
+- Neighborhood favorites
+
+### Loop/Downtown
+**River North, West Loop, South Loop**
+- Convenient for professionals
+- Average prices: $75-$140
+- Express services available
+
+## Chicago Dog Wash Prices (2025)
+
+**Self-Serve:**
+- Small dogs: $15-$20
+- Medium dogs: $20-$25
+- Large dogs: $25-$30
+
+**Bath-Only Service:**
+- Small dogs: $40-$60
+- Medium dogs: $50-$70
+- Large dogs: $60-$85
+
+**Full Grooming:**
+- Small dogs: $60-$90
+- Medium dogs: $75-$110
+- Large dogs: $90-$140
+
+## Winter Grooming Tips for Chicago Dogs
+
+Chicago winters are brutal—here's how to keep your dog clean:
+
+1. **Paw Protection** - Salt and ice melt are harsh; rinse paws after walks
+2. **More Frequent Baths** - Road salt and grime build up
+3. **Moisturizing** - Dry winter air affects skin and coat
+4. **Belly Cleaning** - Snow and slush collect on belly fur
+5. **Indoor Drying** - Never let dogs air-dry in cold weather
+
+## Mobile Dog Wash Services
+
+Perfect for Chicago's harsh winters and busy schedules:
+
+**Average Costs:**
+- Small dogs: $70-$100
+- Medium dogs: $85-$120
+- Large dogs: $100-$150
+
+**Benefits:**
+- No driving in snow/traffic
+- One-on-one attention
+- Climate-controlled van
+- Convenient scheduling
+
+## DIY Dog Washing at Home
+
+**Pros:**
+- Cheapest option
+- Flexible timing
+- Bonding experience
+
+**Cons:**
+- Messy bathroom
+- Drain clogs from fur
+- Difficult with large dogs
+- No professional equipment
+
+**Chicago Tip:** Many self-serve dog washes are cheaper and easier than home baths, especially in apartments.
+
+[Find Chicago Dog Groomers →](/cities/chicago)
+
+---
+
+*Last updated: January 2025*
+    `,
+  },
 };
 
 type Props = {
