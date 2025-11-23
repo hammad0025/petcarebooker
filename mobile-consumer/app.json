@@ -41,7 +41,7 @@
       "bundler": "metro"
     },
     "extra": {
-      "apiUrl": "https://petcarebooker-backend.railway.app",
+      "apiUrl": "https://petcarebooker.onrender.com",
       "eas": {
         "projectId": "YOUR_EAS_PROJECT_ID"
       }
