@@ -930,63 +930,6 @@ If your dog swims weekly, light grooming/baths every 2 weeks. Full groom every 6
 *Last updated: January 2025*
     `,
   },
-  'orlando-dog-grooming-2025': {
-    title: 'Best Dog Grooming in Orlando, FL: 2025 Guide',
-    description: 'Discover Orlando\'s top dog groomers from Winter Park to Lake Nona. Compare prices, read reviews, and book same-day appointments.',
-    author: 'PetCareBooker Team',
-    date: '2025-01-16',
-    city: 'Orlando',
-    state: 'FL',
-    category: 'City Guides',
-    image: '🎢',
-    content: `
-Orlando isn't just the theme park capital—it's also home to exceptional pet grooming services. Whether you're in Winter Park, Lake Nona, or downtown, finding a trusted groomer for your dog is essential.
-
-## Top Dog Groomers in Orlando
-
-### 1. Winter Park Pet Boutique (Winter Park)
-**Location:** Park Avenue, Winter Park
-**Specialty:** Show dogs, breed-specific cuts
-**Price Range:** $75-$145
-**Why We Love Them:** Upscale service, experienced with all breeds, complimentary nail polish
-
-### 2. Lake Nona Pet Spa (Lake Nona)
-**Location:** Lake Nona Town Center
-**Specialty:** Modern facility, tech-enabled booking
-**Price Range:** $70-$130
-**Why We Love Them:** State-of-the-art equipment, live cam option, smart scheduling
-
-### 3. College Park Grooming (College Park)
-**Location:** Edgewater Drive
-**Specialty:** Rescue dogs, gentle handling
-**Price Range:** $60-$110
-**Why We Love Them:** Patient with fearful dogs, rescue-friendly, donations to local shelters
-
-## Orlando Dog Grooming Costs
-
-Average prices in Orlando (2025):
-- **Toy breeds:** $60-$85
-- **Small dogs:** $70-$100
-- **Medium dogs:** $80-$115
-- **Large dogs:** $95-$135
-- **Giant breeds:** $120-$160
-
-## Why Orlando Dogs Need Regular Grooming
-
-Orlando's climate creates unique grooming needs:
-
-1. **Theme Park Visitors** - Keep your travel buddy fresh
-2. **Lake Activities** - Post-swim cleanups essential
-3. **Hot Summers** - Summer cuts keep dogs comfortable
-4. **Year-Round Fleas** - Regular treatments prevent infestations
-
-[Browse Orlando Groomers →](/cities/orlando)
-
----
-
-*Last updated: January 2025*
-    `,
-  },
   'cat-grooming-los-angeles': {
     title: 'Cat Grooming in Los Angeles: Expert Guide (2025)',
     description: 'Find the best cat groomers in LA. From Hollywood to Santa Monica, discover gentle, experienced cat grooming specialists.',
