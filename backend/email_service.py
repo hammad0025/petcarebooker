@@ -1,10 +1,13 @@
 import os
-from resend import Resend
+import resend
 from typing import Optional
 
 # Initialize Resend client
 RESEND_API_KEY = os.getenv("RESEND_API_KEY")
-resend_client = Resend(RESEND_API_KEY) if RESEND_API_KEY else None
+if RESEND_API_KEY:
+    resend.api_key = RESEND_API_KEY
+else:
+    resend = None
 
 # Email configuration
 FROM_EMAIL = os.getenv("FROM_EMAIL", "PetCareBooker <noreply@petcarebooker.com>")
@@ -24,7 +27,7 @@ def send_reset_email(to_email: str, reset_token: str) -> bool:
     """
     
     # If no API key is configured, log the token instead
-    if not resend_client:
+    if not RESEND_API_KEY or not resend:
         print(f"\n{'='*60}")
         print(f"🔐 PASSWORD RESET TOKEN")
         print(f"{'='*60}")
@@ -38,7 +41,7 @@ def send_reset_email(to_email: str, reset_token: str) -> bool:
         reset_link = f"{FRONTEND_URL}/customer/reset-password?token={reset_token}"
         
         # Send email via Resend
-        response = resend_client.emails.send({
+        response = resend.Emails.send({
             "from": FROM_EMAIL,
             "to": [to_email],
             "subject": "Reset Your Password - PetCareBooker",
@@ -125,7 +128,7 @@ def send_contact_email(name: str, email: str, subject: str, message: str) -> boo
     recipient_email = "haquemediagroup@gmail.com"
     
     # If no API key is configured, log the message instead
-    if not resend_client:
+    if not RESEND_API_KEY or not resend:
         print(f"\n{'='*60}")
         print(f"📧 CONTACT FORM SUBMISSION")
         print(f"{'='*60}")
@@ -142,7 +145,7 @@ def send_contact_email(name: str, email: str, subject: str, message: str) -> boo
         print(f"   Reply-To: {email}")
         print(f"   Subject: {subject}")
         
-        response = resend_client.emails.send({
+        response = resend.Emails.send({
             "from": FROM_EMAIL,
             "to": [recipient_email],
             "reply_to": email,
