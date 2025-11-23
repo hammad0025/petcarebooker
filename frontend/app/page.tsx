@@ -582,6 +582,53 @@ export default function HomePage() {
         }}
       />
 
+      {/* Popular Cities Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+              Find Groomers in Your City 🗺️
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Browse verified pet groomers in top cities across the US
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
+            {[
+              { name: 'Miami', slug: 'miami', emoji: '🌴' },
+              { name: 'Tampa', slug: 'tampa', emoji: '⚡' },
+              { name: 'Orlando', slug: 'orlando', emoji: '🎢' },
+              { name: 'NYC', slug: 'new-york-city', emoji: '🗽' },
+              { name: 'Chicago', slug: 'chicago', emoji: '🏙️' },
+              { name: 'Los Angeles', slug: 'los-angeles', emoji: '🌟' },
+              { name: 'Fort Lauderdale', slug: 'fort-lauderdale', emoji: '⛵' },
+              { name: 'West Palm Beach', slug: 'west-palm-beach', emoji: '🌴' },
+              { name: 'Brooklyn', slug: 'brooklyn', emoji: '🌉' },
+              { name: 'Queens', slug: 'queens', emoji: '👑' },
+            ].map((city) => (
+              <Link
+                key={city.slug}
+                href={`/cities/${city.slug}`}
+                className="bg-gradient-to-br from-purple-50 to-pink-50 hover:from-purple-100 hover:to-pink-100 rounded-xl p-6 text-center transition-all hover:shadow-lg hover:-translate-y-1 border-2 border-purple-100"
+              >
+                <div className="text-4xl mb-2">{city.emoji}</div>
+                <div className="font-bold text-gray-900">{city.name}</div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <Link
+              href="/browse"
+              className="text-purple-600 font-bold hover:underline text-lg"
+            >
+              View All Cities →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <div className="bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 py-20">
         <div className="container mx-auto px-4 text-center">
           <h3 className="text-5xl font-extrabold mb-6 text-white">Ready to pamper your pet? 🎉</h3>

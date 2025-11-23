@@ -1,4 +1,11 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'For Groomers - Grow Your Pet Grooming Business | PetCareBooker',
+  description: 'Join PetCareBooker and get more bookings. Free to start, no monthly fees. Manage your schedule, accept online bookings, and grow your grooming business.',
+  keywords: 'pet grooming business, groomer software, online booking for groomers, pet salon management',
+};
 
 export default function ForBusinessesPage() {
   return (
