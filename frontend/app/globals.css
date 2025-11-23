@@ -25,6 +25,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Override body color on blog pages */
+.blog-page,
+.blog-page body {
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+
 /* Force black text in blog content - override dark mode and prose */
 .blog-content {
   background-color: #ffffff !important;

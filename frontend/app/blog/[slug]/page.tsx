@@ -1006,7 +1006,7 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 dark:bg-white dark:text-gray-900">
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-white dark:text-gray-900 blog-page">
       {/* Header */}
       <nav className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white py-6 shadow-lg">
         <div className="container mx-auto px-4">
