@@ -1,4 +1,10 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'FAQ - PetCareBooker | Pet Grooming Booking Questions',
+  description: 'Get answers to common questions about booking pet grooming appointments, pricing, cancellations, and more. For pet parents and groomers.',
+};
 
 export default function FAQPage() {
   return (
@@ -236,6 +242,51 @@ export default function FAQPage() {
           </p>
         </div>
       </footer>
+
+      {/* FAQPage Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'Do I need to create an account to book?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'No! You can book instantly as a guest. Just enter your pet\'s info and contact details. However, creating an account lets you save your pets, track appointment history, and book faster next time.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How do I find groomers near me?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Click "Find Groomers" and enter your city or zip code. You\'ll see all available groomers in your area with their ratings, services, prices, and next available appointment time.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Can I book for multiple pets at once?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes! During booking, you can add multiple pets and select services for each one. The system will show you available time slots that accommodate all your pets.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How much does it cost to join as a groomer?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'It\'s free to create your profile and start accepting bookings! We only take a small commission on completed appointments. No monthly fees, no setup costs, no hidden charges.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
     </div>
   );
 }

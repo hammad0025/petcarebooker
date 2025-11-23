@@ -1,5 +1,19 @@
 import Link from 'next/link';
 import CityAutocomplete from '@/components/CityAutocomplete';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'PetCareBooker - Book Pet Grooming Online | Instant Scheduling',
+  description: 'Find and book trusted pet groomers instantly. Real-time availability, verified professionals, SMS reminders. Serving 20+ cities across the US.',
+  keywords: 'pet grooming, dog grooming, cat grooming, mobile pet grooming, book groomer online',
+  openGraph: {
+    title: 'PetCareBooker - Book Pet Grooming Online',
+    description: 'Find and book trusted pet groomers instantly. Real-time availability, verified professionals.',
+    url: 'https://petcarebooker.com',
+    siteName: 'PetCareBooker',
+    type: 'website',
+  },
+};
 
 export default function HomePage() {
   return (
@@ -658,6 +672,30 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+
+      {/* Schema.org JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'PetCareBooker',
+            url: 'https://petcarebooker.com',
+            logo: 'https://petcarebooker.com/logo.png',
+            description: 'Online pet grooming booking platform connecting pet owners with verified professional groomers',
+            sameAs: [
+              'https://www.facebook.com/petcarebooker',
+              'https://twitter.com/petcarebooker',
+            ],
+            contactPoint: {
+              '@type': 'ContactPoint',
+              contactType: 'Customer Service',
+              availableLanguage: 'English',
+            },
+          }),
+        }}
+      />
     </div>
   );
 }
