@@ -109,16 +109,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Blog posts (HIGH PRIORITY for SEO)
   const blogSlugs = [
+    'best-dog-groomers-nyc',
     'best-pet-groomers-west-palm-beach',
     'tampa-pet-grooming-guide',
-    'orlando-dog-grooming-2025',
-    'best-dog-groomers-nyc',
     'fort-lauderdale-pet-grooming',
-    'cat-grooming-los-angeles',
-    'mobile-pet-grooming-miami',
-    'how-often-groom-dog',
-    'cat-grooming-costs-guide',
-    'chicago-dog-wash-services',
   ];
 
   const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
