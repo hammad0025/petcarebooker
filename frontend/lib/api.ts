@@ -95,3 +95,5 @@ export const bookingsApi = {
     fetchApi(`/api/bookings/${bookingId}`, { method: 'PATCH', body: data, token }),
 };
 
+
+

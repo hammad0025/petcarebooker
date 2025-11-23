@@ -26,6 +26,12 @@ export default function HomePage() {
             Blog
           </Link>
           <Link 
+            href="/guides" 
+            className="text-white hover:text-gray-100 font-semibold transition-all hover:scale-105"
+          >
+            Guides
+          </Link>
+          <Link 
             href="/customer/login" 
             className="text-white hover:text-gray-100 font-semibold transition-all hover:scale-105"
           >
@@ -100,6 +106,23 @@ export default function HomePage() {
                      </Link>
                    </div>
                  </div>
+
+          {/* Popular Cities Quick Links */}
+          <div className="mb-8">
+            <p className="text-white/90 text-lg mb-4 font-semibold">Popular Cities:</p>
+            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+              <Link href="/cities/miami" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Miami</Link>
+              <Link href="/cities/new-york-city" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">NYC</Link>
+              <Link href="/cities/tampa" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Tampa</Link>
+              <Link href="/cities/orlando" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Orlando</Link>
+              <Link href="/cities/brooklyn" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Brooklyn</Link>
+              <Link href="/cities/west-palm-beach" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">West Palm Beach</Link>
+              <Link href="/cities/fort-lauderdale" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Fort Lauderdale</Link>
+              <Link href="/cities/jacksonville" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Jacksonville</Link>
+              <Link href="/cities/buffalo" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Buffalo</Link>
+              <Link href="/browse" className="bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/30 transition-all text-sm font-bold border border-white/30">View All Cities →</Link>
+            </div>
+          </div>
 
           {/* Trust indicators */}
           <div className="flex flex-wrap justify-center gap-8 text-white/90 mb-8">
@@ -306,6 +329,245 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* FAQ Section with Schema Markup */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 className="text-5xl font-extrabold text-center text-gray-900 mb-4">
+            Frequently Asked Questions 💬
+          </h2>
+          <p className="text-center text-gray-600 text-xl mb-12 max-w-2xl mx-auto">
+            Everything you need to know about booking pet grooming with PetCareBooker
+          </p>
+
+          <div className="space-y-4">
+            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+              <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
+                How much does pet grooming cost?
+              </summary>
+              <p className="mt-4 text-gray-600 text-lg leading-relaxed">
+                Pet grooming costs vary by location, pet size, and services. On average, expect $50-$150 for a full grooming session including bath, haircut, nail trim, and ear cleaning. Small dogs typically cost $50-$80, medium dogs $70-$110, and large dogs $90-$150. Mobile grooming services may cost 10-20% more.
+              </p>
+            </details>
+
+            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+              <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
+                Do I need to create an account to book?
+              </summary>
+              <p className="mt-4 text-gray-600 text-lg leading-relaxed">
+                No! You can book instantly without creating an account. Just browse groomers, pick a time, add your pet's information, and confirm. We'll send you SMS updates about your appointment. Creating an account is optional but helpful if you want to manage multiple pets or track appointment history.
+              </p>
+            </details>
+
+            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+              <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
+                Are all groomers verified and licensed?
+              </summary>
+              <p className="mt-4 text-gray-600 text-lg leading-relaxed">
+                Yes! All groomers on PetCareBooker are verified professionals with proper business licenses and insurance. We carefully vet each groomer to ensure they meet our standards for safety, cleanliness, and pet care expertise. You can read verified reviews from real pet parents before booking.
+              </p>
+            </details>
+
+            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+              <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
+                Can I book same-day grooming appointments?
+              </summary>
+              <p className="mt-4 text-gray-600 text-lg leading-relaxed">
+                Many groomers offer same-day appointments based on availability! Our real-time booking system shows you exactly when each groomer has open slots. During busy seasons (holidays, summer), we recommend booking 2-3 days in advance. Mobile groomers especially tend to book quickly.
+              </p>
+            </details>
+
+            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+              <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
+                What's included in a standard grooming appointment?
+              </summary>
+              <p className="mt-4 text-gray-600 text-lg leading-relaxed">
+                A standard grooming session typically includes: bath with premium shampoo, blow dry and brush out, haircut or trim (breed-specific or your preference), nail trimming and filing, ear cleaning, and sanitary trim. Some groomers also include teeth brushing, paw pad moisturizing, and a cologne spritz at no extra charge.
+              </p>
+            </details>
+
+            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+              <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
+                Do you offer mobile grooming services?
+              </summary>
+              <p className="mt-4 text-gray-600 text-lg leading-relaxed">
+                Yes! Many groomers on our platform offer mobile grooming that comes to your home. Mobile grooming is perfect for anxious pets, busy schedules, or multi-pet households. Mobile groomers arrive in fully-equipped vans with everything needed. Use our filter to find "Mobile Grooming" services in your area.
+              </p>
+            </details>
+
+            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+              <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
+                What if my pet has special needs or is anxious?
+              </summary>
+              <p className="mt-4 text-gray-600 text-lg leading-relaxed">
+                Many of our groomers specialize in anxious, senior, or special-needs pets! When booking, look for groomers with "Senior Pet Care," "Anxiety-Friendly," or "Special Needs" badges. You can also message groomers before booking to discuss your pet's specific requirements. Mobile grooming can be especially helpful for anxious pets as it's a calmer, one-on-one environment.
+              </p>
+            </details>
+
+            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+              <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
+                How far in advance should I book?
+              </summary>
+              <p className="mt-4 text-gray-600 text-lg leading-relaxed">
+                For routine grooming, booking 3-7 days in advance is ideal. During peak times (holidays, summer, weekends), we recommend 1-2 weeks ahead. However, many groomers have same-day or next-day availability! Our real-time calendar shows you exactly what's available so you can book what works best for your schedule.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      {/* Schema.org LocalBusiness structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'LocalBusiness',
+            '@id': 'https://www.petcarebooker.com',
+            name: 'PetCareBooker',
+            description: 'Online pet grooming booking platform connecting pet parents with trusted, verified groomers nationwide. Instant booking, real-time availability, and verified reviews.',
+            url: 'https://www.petcarebooker.com',
+            logo: 'https://www.petcarebooker.com/logo.png',
+            image: 'https://www.petcarebooker.com/og-image.png',
+            priceRange: '$$',
+            telephone: '+1-555-PET-CARE',
+            areaServed: [
+              {
+                '@type': 'State',
+                name: 'Florida',
+              },
+              {
+                '@type': 'State',
+                name: 'New York',
+              },
+              {
+                '@type': 'Country',
+                name: 'United States',
+              },
+            ],
+            serviceType: 'Pet Grooming Booking Platform',
+            hasOfferCatalog: {
+              '@type': 'OfferCatalog',
+              name: 'Pet Grooming Services',
+              itemListElement: [
+                {
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Service',
+                    name: 'Dog Grooming',
+                    description: 'Professional dog grooming including bath, haircut, nail trim, and ear cleaning',
+                  },
+                },
+                {
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Service',
+                    name: 'Cat Grooming',
+                    description: 'Expert cat grooming with gentle handling and specialized techniques',
+                  },
+                },
+                {
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Service',
+                    name: 'Mobile Pet Grooming',
+                    description: 'Convenient mobile grooming services that come to your home',
+                  },
+                },
+              ],
+            },
+            aggregateRating: {
+              '@type': 'AggregateRating',
+              ratingValue: '4.9',
+              reviewCount: '1200',
+              bestRating: '5',
+              worstRating: '1',
+            },
+            sameAs: [
+              'https://www.facebook.com/petcarebooker',
+              'https://www.instagram.com/petcarebooker',
+              'https://twitter.com/petcarebooker',
+            ],
+          }),
+        }}
+      />
+
+      {/* Schema.org FAQPage structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'How much does pet grooming cost?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Pet grooming costs vary by location, pet size, and services. On average, expect $50-$150 for a full grooming session including bath, haircut, nail trim, and ear cleaning. Small dogs typically cost $50-$80, medium dogs $70-$110, and large dogs $90-$150.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Do I need to create an account to book?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'No! You can book instantly without creating an account. Just browse groomers, pick a time, add your pet information, and confirm. We will send you SMS updates about your appointment.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Are all groomers verified and licensed?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes! All groomers on PetCareBooker are verified professionals with proper business licenses and insurance. We carefully vet each groomer to ensure they meet our standards for safety, cleanliness, and pet care expertise.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Can I book same-day grooming appointments?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Many groomers offer same-day appointments based on availability! Our real-time booking system shows you exactly when each groomer has open slots. During busy seasons, we recommend booking 2-3 days in advance.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'What is included in a standard grooming appointment?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'A standard grooming session typically includes: bath with premium shampoo, blow dry and brush out, haircut or trim, nail trimming and filing, ear cleaning, and sanitary trim. Some groomers also include teeth brushing and paw pad moisturizing.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Do you offer mobile grooming services?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes! Many groomers on our platform offer mobile grooming that comes to your home. Mobile grooming is perfect for anxious pets, busy schedules, or multi-pet households. Use our filter to find Mobile Grooming services in your area.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'What if my pet has special needs or is anxious?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Many of our groomers specialize in anxious, senior, or special-needs pets! When booking, look for groomers with Senior Pet Care, Anxiety-Friendly, or Special Needs badges. Mobile grooming can be especially helpful for anxious pets.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How far in advance should I book?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'For routine grooming, booking 3-7 days in advance is ideal. During peak times (holidays, summer, weekends), we recommend 1-2 weeks ahead. However, many groomers have same-day or next-day availability!',
+                },
+              },
+            ],
+          }),
+        }}
+      />
+
       <div className="bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 py-20">
         <div className="container mx-auto px-4 text-center">
           <h3 className="text-5xl font-extrabold mb-6 text-white">Ready to pamper your pet? 🎉</h3>
@@ -323,7 +585,7 @@ export default function HomePage() {
 
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-5 gap-8 mb-8">
+          <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-8 mb-8">
             <div>
               <h3 className="text-xl font-bold mb-4">🐾 PetCareBooker</h3>
               <p className="text-gray-400">
@@ -337,7 +599,8 @@ export default function HomePage() {
                 <li><Link href="/browse" className="text-gray-400 hover:text-white transition">Find Groomers</Link></li>
                 <li><Link href="/customer/register" className="text-gray-400 hover:text-white transition">Sign Up</Link></li>
                 <li><Link href="/my-pets" className="text-gray-400 hover:text-white transition">My Pets</Link></li>
-                <li><Link href="/blog" className="text-gray-400 hover:text-white transition">Blog & Guides</Link></li>
+                <li><Link href="/blog" className="text-gray-400 hover:text-white transition">Blog</Link></li>
+                <li><Link href="/guides" className="text-gray-400 hover:text-white transition">Grooming Guides</Link></li>
               </ul>
             </div>
             
@@ -351,15 +614,29 @@ export default function HomePage() {
             </div>
             
             <div>
-              <h4 className="font-bold mb-4">Cities</h4>
+              <h4 className="font-bold mb-4">Florida Cities</h4>
               <ul className="space-y-2">
-                <li><Link href="/cities/new-york-city" className="text-gray-400 hover:text-white transition">New York City</Link></li>
-                <li><Link href="/cities/los-angeles" className="text-gray-400 hover:text-white transition">Los Angeles</Link></li>
                 <li><Link href="/cities/miami" className="text-gray-400 hover:text-white transition">Miami</Link></li>
-                <li><Link href="/cities/west-palm-beach" className="text-gray-400 hover:text-white transition">West Palm Beach</Link></li>
                 <li><Link href="/cities/tampa" className="text-gray-400 hover:text-white transition">Tampa</Link></li>
                 <li><Link href="/cities/orlando" className="text-gray-400 hover:text-white transition">Orlando</Link></li>
+                <li><Link href="/cities/west-palm-beach" className="text-gray-400 hover:text-white transition">West Palm Beach</Link></li>
                 <li><Link href="/cities/fort-lauderdale" className="text-gray-400 hover:text-white transition">Fort Lauderdale</Link></li>
+                <li><Link href="/cities/jacksonville" className="text-gray-400 hover:text-white transition">Jacksonville</Link></li>
+                <li><Link href="/cities/naples" className="text-gray-400 hover:text-white transition">Naples</Link></li>
+                <li><Link href="/browse" className="text-gray-400 hover:text-white transition">View All →</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-bold mb-4">New York Cities</h4>
+              <ul className="space-y-2">
+                <li><Link href="/cities/new-york-city" className="text-gray-400 hover:text-white transition">New York City</Link></li>
+                <li><Link href="/cities/brooklyn" className="text-gray-400 hover:text-white transition">Brooklyn</Link></li>
+                <li><Link href="/cities/queens" className="text-gray-400 hover:text-white transition">Queens</Link></li>
+                <li><Link href="/cities/buffalo" className="text-gray-400 hover:text-white transition">Buffalo</Link></li>
+                <li><Link href="/cities/rochester" className="text-gray-400 hover:text-white transition">Rochester</Link></li>
+                <li><Link href="/cities/syracuse" className="text-gray-400 hover:text-white transition">Syracuse</Link></li>
+                <li><Link href="/cities/albany" className="text-gray-400 hover:text-white transition">Albany</Link></li>
                 <li><Link href="/browse" className="text-gray-400 hover:text-white transition">View All →</Link></li>
               </ul>
             </div>

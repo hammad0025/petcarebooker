@@ -25,25 +25,33 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Force black text in blog content - override dark mode */
+/* Force black text in blog content - override dark mode and prose */
 .blog-content {
   background-color: #ffffff !important;
-  color: #000000 !important;
 }
 
-.blog-content *:not(a) {
-  color: #000000 !important;
+.blog-content,
+.blog-content p,
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4,
+.blog-content h5,
+.blog-content h6,
+.blog-content li,
+.blog-content strong,
+.blog-content em,
+.blog-content span,
+.blog-content div {
+  color: #111827 !important;
 }
 
-.blog-content p {
-  color: #000000 !important;
-  font-size: 1.125rem !important;
-  line-height: 1.75 !important;
-  margin-bottom: 1rem !important;
+.blog-content a {
+  color: #9333ea !important;
+  text-decoration: underline !important;
 }
 
 .blog-content h2 {
-  color: #000000 !important;
   font-size: 1.875rem !important;
   font-weight: bold !important;
   margin-top: 3rem !important;
@@ -51,16 +59,16 @@ body {
 }
 
 .blog-content h3 {
-  color: #000000 !important;
   font-size: 1.5rem !important;
   font-weight: bold !important;
   margin-top: 2rem !important;
   margin-bottom: 1rem !important;
 }
 
-.blog-content strong {
-  color: #000000 !important;
-  font-weight: bold !important;
+.blog-content p {
+  font-size: 1.125rem !important;
+  line-height: 1.75 !important;
+  margin-bottom: 1rem !important;
 }
 
 .blog-content ul {
@@ -70,11 +78,5 @@ body {
 }
 
 .blog-content li {
-  color: #000000 !important;
   margin-bottom: 0.5rem !important;
-}
-
-.blog-content a {
-  color: #9333ea !important;
-  text-decoration: underline !important;
 }

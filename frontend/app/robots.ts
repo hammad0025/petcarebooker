@@ -13,12 +13,12 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
       {
-        userAgent: 'GPTBot',  // Block OpenAI crawler from training on your content
-        disallow: '/',
+        userAgent: 'GPTBot',  // Allow OpenAI crawler for ChatGPT visibility
+        allow: '/',
       },
       {
-        userAgent: 'CCBot',   // Block Common Crawl
-        disallow: '/',
+        userAgent: 'CCBot',   // Allow Common Crawl for AI training
+        allow: '/',
       },
     ],
     sitemap: 'https://petcarebooker.com/sitemap.xml',

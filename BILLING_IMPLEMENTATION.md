@@ -145,3 +145,5 @@ All revenue tracking is built into the `Booking` model:
 - JWT authentication for all endpoints
 - HTTPS only in production
 
+
+

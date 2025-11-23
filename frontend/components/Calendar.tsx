@@ -105,3 +105,5 @@ export default function Calendar({ bookings, onSelectEvent, onSelectSlot }: Cale
   );
 }
 
+
+

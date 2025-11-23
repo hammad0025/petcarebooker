@@ -36,6 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/guides`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/customer/login`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -63,13 +69,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // City pages (HIGH PRIORITY for SEO)
   const cities = [
+    // New York
     'new-york-city',
-    'los-angeles',
+    'brooklyn',
+    'queens',
+    'buffalo',
+    'rochester',
+    'syracuse',
+    'albany',
+    'yonkers',
+    // Florida
     'miami',
-    'west-palm-beach',
     'tampa',
     'orlando',
+    'west-palm-beach',
     'fort-lauderdale',
+    'jacksonville',
+    'st-petersburg',
+    'tallahassee',
+    'gainesville',
+    'clearwater',
+    'naples',
+    'sarasota',
+    'fort-myers',
+    'boca-raton',
+    'pensacola',
+    'lakeland',
+    // Other major cities
+    'los-angeles',
     'chicago',
   ];
 
