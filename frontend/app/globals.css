@@ -14,15 +14,41 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not(.blog-page) {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff; /* Keep white background even in dark mode */
+    --foreground: #111827; /* Force dark text */
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: #ffffff !important; /* Always white background */
+  color: #111827 !important; /* Force dark text */
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Force dark text on content areas - but respect explicit white text classes */
+body:not([class*="bg-gradient"]) p,
+body:not([class*="bg-gradient"]) h1,
+body:not([class*="bg-gradient"]) h2,
+body:not([class*="bg-gradient"]) h3,
+body:not([class*="bg-gradient"]) h4,
+body:not([class*="bg-gradient"]) h5,
+body:not([class*="bg-gradient"]) h6,
+body:not([class*="bg-gradient"]) span:not(.text-white),
+body:not([class*="bg-gradient"]) div:not(.text-white),
+body:not([class*="bg-gradient"]) li,
+body:not([class*="bg-gradient"]) label,
+body:not([class*="bg-gradient"]) input:not([class*="text-white"]),
+body:not([class*="bg-gradient"]) textarea:not([class*="text-white"]),
+body:not([class*="bg-gradient"]) select:not([class*="text-white"]) {
+  color: #111827 !important;
+}
+
+/* Explicit white text classes override */
+.text-white,
+[class*="text-white"],
+nav [class*="text-white"],
+.bg-gradient [class*="text-white"] {
+  color: white !important;
 }
 
 /* Blog page overrides */
