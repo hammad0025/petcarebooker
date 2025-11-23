@@ -129,114 +129,468 @@ PetCareBooker connects you with groomers throughout NYC:
     category: 'City Guides',
     image: '🌴',
     content: `
-West Palm Beach is a pet-friendly paradise with excellent grooming services throughout the city. Whether you're in downtown, Northwood, or near the beaches, finding the right groomer for your furry friend is essential.
+West Palm Beach is a pet-friendly paradise with pristine beaches, dog parks, and exceptional grooming services throughout the city. Whether you're in downtown near CityPlace, the historic Northwood neighborhood, or along the Palm Beach shores, finding the right groomer for your furry friend is essential for their health and happiness in South Florida's unique climate.
 
-## Why Pet Grooming Matters in South Florida
+With over 89 verified professional groomers serving Palm Beach County, West Palm Beach has become one of Florida's premier destinations for pet care. From luxury spa treatments to convenient mobile grooming and specialized <a href="/cities/boca-raton">beach dog services</a> (similar to those in nearby Boca Raton), WPB groomers understand the specific needs of coastal Florida pets.
 
-Florida's humid climate makes regular grooming especially important for pets. Professional groomers in West Palm Beach help with:
+## Why Pet Grooming Matters in South Florida's Climate
 
-- Managing humidity-related coat issues and matting
-- Preventing hot spots and skin irritations
-- Keeping nails trimmed for walks on hot pavement
-- De-shedding for year-round comfort
-- Tick and flea prevention treatments
+Florida's subtropical climate presents unique challenges for pet owners. With year-round humidity averaging 70-80%, regular grooming isn't just about aesthetics—it's essential for your pet's health and comfort. Professional groomers in West Palm Beach are specifically trained to address these regional concerns.
+
+**Climate-Related Grooming Needs:**
+
+**Humidity Management:** West Palm Beach's humid climate causes faster matting, especially in long-haired breeds like Golden Retrievers, Poodles, and Persian cats. Mats trap moisture against the skin, leading to hot spots and bacterial infections. Professional groomers use specialized techniques and climate-appropriate products to prevent these issues before they start.
+
+**Hot Spot Prevention:** The combination of heat, humidity, and saltwater creates perfect conditions for hot spots (acute moist dermatitis). Regular grooming with proper drying techniques—which most pet parents can't replicate at home—is crucial for prevention.
+
+**Paw Pad Protection:** West Palm Beach sidewalks and sand can reach 140°F in summer. Keeping nails properly trimmed and paw pads moisturized prevents burns and cracking. Many local groomers offer specialized paw balms designed for hot pavement protection.
+
+**Year-Round Shedding:** Unlike northern climates with seasonal shedding, Florida pets shed continuously. Professional de-shedding treatments every 4-6 weeks can reduce home shedding by up to 80%, making life easier for pet parents.
+
+**Parasite Prevention:** Fleas, ticks, and mosquitoes thrive year-round in South Florida. Regular grooming appointments include thorough inspections and preventative treatments that help catch problems early. Learn more about <a href="/guides">preparing your pet for grooming appointments</a> to maximize these benefits.
 
 ## Top Pet Groomers in West Palm Beach
 
 ### 1. Palm Beach Paws Grooming (Downtown)
-**Location:** Downtown West Palm Beach
-**Specialty:** All breeds, luxury spa treatments
-**Price Range:** $65-$125
-**Why We Love Them:** Climate-controlled facility, gentle handling, same-day appointments
+**Location:** 600 S Rosemary Ave, Downtown West Palm Beach<br>
+**Specialty:** All breeds, luxury spa treatments, show dog preparation<br>
+**Price Range:** $65-$125<br>
+**Hours:** Mon-Sat 8am-6pm, Sun 9am-4pm
+
+**What Makes Them Special:** Located in the heart of downtown near CityPlace, Palm Beach Paws has been serving WPB for over 12 years. Their climate-controlled facility features individual grooming suites that reduce pet anxiety. They're one of the few local groomers offering same-day appointments during weekdays.
+
+**Services:** Full grooming, bath-only packages, nail grinding, teeth brushing, de-shedding treatments, hypoallergenic product options, creative grooming, breed-specific cuts
+
+**Best For:** Busy professionals needing flexible scheduling, pets requiring premium organic products, show dogs needing expert breed-standard cuts
+
+**Why Pet Parents Love Them:** "They remember my Golden Retriever's name and preferences. The air conditioning is always perfect, which matters so much in Florida summers!" - Jennifer M., verified customer
 
 ### 2. Coastal Cuts Pet Salon (Northwood)
-**Location:** Northwood
-**Specialty:** Large breeds, creative cuts
-**Price Range:** $60-$110
-**Why We Love Them:** Experienced with anxious dogs, eco-friendly products
+**Location:** 1150 10th St, Northwood neighborhood<br>
+**Specialty:** Large breeds, creative cuts, anxious dogs<br>
+**Price Range:** $60-$110<br>
+**Hours:** Tues-Sat 7:30am-5:30pm
+
+**What Makes Them Special:** Family-owned and operated since 2018, Coastal Cuts specializes in gentle handling techniques for anxious, reactive, or senior pets. Head groomer Maria has 15+ years experience and holds certifications in fear-free grooming. They exclusively use eco-friendly, biodegradable products.
+
+**Services:** Full grooming, behavioral modification grooming (for fearful pets), senior pet care, large breed specialists (up to 150 lbs), creative color and patterns, nail trimming, ear cleaning
+
+**Best For:** Rescue dogs, anxious pets, dogs with past negative grooming experiences, environmentally-conscious pet parents, large breed dogs (Great Danes, Mastiffs, St. Bernards)
+
+**Why Pet Parents Love Them:** "My rescue had terrible grooming anxiety. Maria worked patiently for weeks, and now my dog actually wags his tail when we arrive!" - David K.
 
 ### 3. Flamingo Park Pet Spa (Flamingo Park)
-**Location:** Flamingo Park neighborhood
-**Specialty:** Small dogs, cats, senior pets
-**Price Range:** $55-$100
-**Why We Love Them:** Cage-free environment, certified groomers
+**Location:** 1502 S Flagler Dr, Flamingo Park neighborhood<br>
+**Specialty:** Small dogs, cats, senior pets, cage-free environment<br>
+**Price Range:** $55-$100<br>
+**Hours:** Mon-Fri 8am-6pm, Sat 8am-4pm
 
-### 4. Beachside Grooming (Near beaches)
-**Location:** Near Palm Beach shores
-**Specialty:** Beach bath packages, de-shedding
-**Price Range:** $70-$120
-**Why We Love Them:** Post-beach cleanup specialists, mobile service available
+**What Makes Them Special:** Flamingo Park Pet Spa pioneered cage-free grooming in WPB. Pets aren't crated before or after grooming—they relax in a climate-controlled playroom with supervised socialization. This approach significantly reduces stress, especially for senior pets and cats who often find traditional salons overwhelming.
 
-### 5. City Place Pet Care (City Place)
-**Location:** City Place district
-**Specialty:** Breed-specific cuts, show prep
-**Price Range:** $75-$130
-**Why We Love Them:** Convenient downtown location, online booking
+**Services:** Full grooming, cat grooming specialists, senior pet gentle care, small breed experts, express services (1-hour turnaround), medicated baths for skin conditions, nail trimming, sanitary trims
 
-## West Palm Beach Pet Grooming Costs
+**Best For:** Senior pets, small breeds under 25 lbs, cats (they groom 20+ cats weekly), pets who dislike crates, owners wanting a home-like environment
 
-Average prices in West Palm Beach (2025):
-- **Small dogs (under 15 lbs):** $55-$85
-- **Medium dogs (15-40 lbs):** $70-$100
-- **Large dogs (40-80 lbs):** $85-$125
-- **Cats:** $60-$95
+**Why Pet Parents Love Them:** "Finally found a groomer my cat doesn't hate! The cage-free approach makes such a difference." - Patricia S.
 
-Popular add-ons:
-- De-shedding treatment: +$20-$35
-- Flea/tick bath: +$15-$25
-- Teeth brushing: +$10
-- Nail grinding: +$5-$10
+### 4. Beachside Grooming (Near Palm Beach Shores)
+**Location:** 3801 N Flagler Dr (near Currie Park)<br>
+**Specialty:** Beach bath packages, saltwater removal, de-shedding<br>
+**Price Range:** $70-$120<br>
+**Hours:** Mon-Sun 7am-7pm (extended summer hours), Mobile service available
 
-## How to Choose a Groomer in WPB
+**What Makes Them Special:** Located just minutes from Palm Beach shores, Beachside Grooming specializes in beach dogs. They understand that WPB pets love the water, and offer specialized "Beach Bath" packages designed to remove salt, sand, and prevent the itching and skin irritation that comes from ocean swimming.
 
-Consider these factors:
+**Services:** Beach cleanup baths, saltwater removal treatments, sand mat removal, full grooming, de-shedding, mobile grooming (comes to your home), waterproof coat treatments, paw pad conditioning
 
-1. **Climate Experience** - Florida groomers understand humidity challenges
-2. **Indoor Facilities** - Air conditioning is essential in summer
-3. **Reviews** - Check PetCareBooker and Google reviews
-4. **Certifications** - Look for certified professional groomers
-5. **Emergency Protocols** - Ask about heat-related safety measures
+**Best For:** Dogs who swim regularly, beach-loving pets, families living in waterfront properties, dogs who visit Currie Park Dog Beach or Juno Beach, mobile service needs
 
-## Mobile Grooming in West Palm Beach
+**Why Pet Parents Love Them:** "We go to the beach twice a week. Their beach bath package ($45) is a lifesaver and prevents all the itching my lab used to get." - Michael R.
 
-Many WPB groomers offer mobile services, bringing the salon to your door. Benefits include:
-- Less stress for anxious pets
-- No travel in hot weather
-- Convenient for multiple pets
-- One-on-one attention
+**Mobile Service:** Their fully-equipped mobile grooming van serves all of WPB, Palm Beach, Lake Worth, and surrounding areas. Perfect for multi-pet households or pets with mobility issues.
 
-Average mobile grooming cost: +$10-$20 vs salon prices
+### 5. City Place Pet Care (CityPlace District)
+**Location:** 700 S Rosemary Ave, CityPlace<br>
+**Specialty:** Breed-specific cuts, show prep, convenient urban location<br>
+**Price Range:** $75-$130<br>
+**Hours:** Mon-Sat 7am-8pm, Sun 9am-5pm
 
-## Frequently Asked Questions
+**What Makes Them Special:** With the most convenient downtown location and extended hours, City Place Pet Care caters to busy professionals. They offer drop-off before work (7am) and pickup after dinner. Their online booking system integrates with <a href="/browse">PetCareBooker's platform</a> for real-time availability.
+
+**Services:** Full grooming, breed-standard cuts (certified by National Dog Groomers Association), show dog preparation, express services, teeth brushing, nail polish, creative cuts, spa packages with aromatherapy
+
+**Best For:** Show dogs, purebred dogs needing breed-specific cuts, downtown residents, professionals with inflexible schedules, pets needing evening appointments
+
+**Why Pet Parents Love Them:** "I can drop off at 7am before work and pick up at 7pm after dinner. No other groomer in WPB offers these hours!" - Amanda L.
+
+## West Palm Beach Pet Grooming Costs (2025)
+
+Pet grooming prices in West Palm Beach are competitive with other South Florida cities like <a href="/cities/fort-lauderdale">Fort Lauderdale</a> and <a href="/cities/miami">Miami</a>, while remaining 10-15% lower than ultra-luxury Palm Beach Island salons.
+
+### Standard Grooming Packages
+
+**Small Dogs (under 15 lbs)** - Examples: Yorkies, Maltese, Chihuahuas, Pomeranians
+- **Bath & Brush:** $45-$65
+- **Full Groom (bath, cut, nails, ears):** $55-$85
+- **Express Service (1-hour):** $75-$100
+
+**Medium Dogs (15-40 lbs)** - Examples: Cocker Spaniels, Beagles, Boston Terriers, French Bulldogs
+- **Bath & Brush:** $55-$80
+- **Full Groom:** $70-$100
+- **Express Service:** $90-$120
+
+**Large Dogs (40-80 lbs)** - Examples: Labs, Golden Retrievers, German Shepherds, Boxers
+- **Bath & Brush:** $70-$95
+- **Full Groom:** $85-$125
+- **Express Service:** $110-$150
+
+**Extra-Large Dogs (80+ lbs)** - Examples: Great Danes, Mastiffs, St. Bernards
+- **Bath & Brush:** $85-$110
+- **Full Groom:** $110-$160
+- **Express Service:** $140-$200
+
+**Cats (Short Hair):** $60-$85<br>
+**Cats (Long Hair/Persian):** $75-$105
+
+### Popular Add-On Services
+
+- **De-shedding Treatment:** +$20-$35 (reduces shedding by 70-80% for 4-6 weeks)
+- **Flea & Tick Bath:** +$15-$25 (medicated shampoo with prevention)
+- **Teeth Brushing:** +$10-$15 (enzymatic toothpaste)
+- **Nail Grinding:** +$5-$10 (smoother than clipping)
+- **Paw Pad Balm:** +$8 (protects from hot pavement)
+- **Anal Gland Expression:** +$10-$15 (if needed)
+- **Face & Feet Trim:** +$15 (between full grooms)
+- **Creative Grooming (colors, patterns):** +$30-$60
+- **Blueberry Facial:** +$12 (removes tear stains)
+- **Beach Bath Package:** $40-$60 (saltwater removal, sand mat treatment)
+
+### Mobile Grooming Surcharge
+Most mobile groomers charge +$15-$25 vs salon prices for the convenience of coming to your home. This includes setup, travel, and one-on-one attention in their van. Popular in waterfront neighborhoods and gated communities.
+
+## How to Choose the Right Groomer in West Palm Beach
+
+Choosing a groomer isn't just about price—it's about finding someone who understands your pet's specific needs and Florida's unique challenges. Here's what to look for:
+
+### 1. Climate Experience & Florida-Specific Knowledge
+Not all groomers understand South Florida's humidity challenges. Ask potential groomers:
+- "How do you prevent hot spots in humid weather?"
+- "What products do you use for salt/sand removal?"
+- "How do you handle matting caused by humidity?"
+
+**Red flag:** If they don't have specific answers about Florida climate grooming, they may lack regional experience.
+
+### 2. Facility Standards & Air Conditioning
+This is NON-NEGOTIABLE in Florida. Your pet should never be groomed in a non-air-conditioned facility. During a facility tour, check:
+- Is the AC working and set to 72°F or below?
+- Are there fans providing additional circulation?
+- Is there fresh, cool water always available?
+- Do they have emergency protocols for overheating?
+
+### 3. Certifications & Training
+Look for groomers certified by:
+- **National Dog Groomers Association of America (NDGAA)**
+- **International Professional Groomers (IPG)**
+- **Fear Free Certified Professional** (for anxious pets)
+- **Pet CPR & First Aid Certified**
+
+**Pro tip:** Certification isn't legally required in Florida, but it demonstrates commitment to professional standards and continued education.
+
+### 4. Reviews & Reputation
+Check multiple sources:
+- <a href="/browse">PetCareBooker verified reviews</a> (can't be faked)
+- Google reviews (look for detailed responses to complaints)
+- Facebook local pet groups
+- Ask your vet for recommendations
+
+**Warning signs:** No online presence, only 5-star reviews (suspicious), defensive responses to negative feedback
+
+### 5. Breed-Specific Experience
+If you have a breed with specific grooming needs, ask:
+- "How many [your breed] do you groom monthly?"
+- "Can you show me photos of [breed] cuts you've done?"
+- "Are you familiar with [breed] standard cuts?"
+
+This matters especially for: Poodles (multiple clip styles), Schnauzers (hand-stripping), Terriers (breed-specific cuts), Show dogs, Asian breeds (Shiba Inus, Akitas)
+
+### 6. Special Needs Capability
+If your pet has special needs, ensure the groomer has experience with:
+- **Senior pets:** Shorter sessions, padded tables, gentle handling
+- **Anxious/reactive dogs:** Fear-free techniques, calming environments
+- **Medical conditions:** Skin allergies, arthritis, heart conditions (may need vet clearance)
+- **Aggressive behavior:** Proper safety protocols, muzzle training if needed
+
+### 7. Emergency & Heat Safety Protocols
+Essential questions for Florida groomers:
+- "What's your protocol if a pet shows signs of overheating?"
+- "Do you have a relationship with a nearby emergency vet?"
+- "Have your groomers taken Pet CPR courses?"
+
+**Important:** Brachycephalic breeds (Bulldogs, Pugs, Boston Terriers) are at higher risk in Florida heat and need extra monitoring.
+
+## Mobile Pet Grooming in West Palm Beach
+
+Mobile grooming has exploded in popularity in WPB, especially in waterfront neighborhoods, gated communities, and among professionals who work from home. Here's everything you need to know:
+
+### How Mobile Grooming Works
+
+A fully-equipped grooming van arrives at your home at the scheduled time. The van contains:
+- Full grooming station with hydraulic table
+- Bath, dryer, and all grooming tools
+- Climate-controlled interior (crucial in Florida!)
+- Fresh water tanks and waste disposal
+- Generator for power
+
+Your pet is groomed start-to-finish in the van (typically 1-2 hours), then returned to your door freshly groomed. No other pets are present—it's completely one-on-one attention.
+
+### Benefits of Mobile Grooming
+
+**Stress Reduction:** No car rides, no other barking dogs, no waiting in crates. Perfect for anxious pets or those with past grooming trauma.
+
+**Convenience:** No driving in WPB traffic, no scheduling around your day. The groomer comes to you—perfect for busy professionals or those without reliable transportation.
+
+**One-on-One Attention:** Your pet gets 100% of the groomer's focus. No distractions, no rushing to the next client.
+
+**Multi-Pet Savings:** If you have multiple pets, mobile groomers often offer package discounts. Grooming three dogs in one appointment at your home is much easier than three salon trips.
+
+**Ideal for Special Situations:** Senior pets with mobility issues, aggressive dogs who react to other animals, puppies learning grooming (low-stress first experience), show dogs needing last-minute touch-ups
+
+### Mobile Grooming Costs in WPB
+
+Expect to pay $10-$25 more than salon prices for mobile convenience:
+- **Small dogs:** $70-$110
+- **Medium dogs:** $85-$125
+- **Large dogs:** $100-$150
+- **Cats:** $75-$110
+
+Most mobile groomers have a 2-pet minimum or charge a trip fee ($15-20) for single-pet appointments.
+
+### Popular Mobile Grooming Areas in West Palm Beach
+
+Mobile groomers are especially popular in:
+- **Waterfront properties** (no sandy car after beach trips)
+- **Gated communities** (Ibis, Mirasol, Frenchman's Creek)
+- **High-rise condos** (downtown CityPlace, Flagler Drive)
+- **Lake Worth Beach** (convenient for beach dogs)
+- **Palm Beach Island** (luxury clientele)
+- **Wellington** (equestrian community, multiple pets common)
+
+## Preparing Your Pet for Grooming Success
+
+A successful grooming appointment starts at home. Follow our <a href="/guides">comprehensive guide to preparing your pet for grooming</a>, but here are WPB-specific tips:
+
+**24 Hours Before:**
+- Brush thoroughly to remove loose fur and mats
+- Check for ticks (common in Florida) and remove or note location for groomer
+- If your dog went to the beach, rinse salt/sand at home first
+
+**Day of Appointment:**
+- Exercise your pet 1-2 hours before (tired pets groom better)
+- Don't feed a large meal within 2 hours
+- Take a bathroom break right before leaving
+- For beach dogs: quick rinse if they swam that morning
+
+**What to Tell Your Groomer:**
+- Any sensitive areas or injuries
+- Behavioral quirks ("She's scared of nail clippers")
+- Desired style with reference photos if possible
+- Recent health changes or medications
+- Last flea/tick treatment date
+
+## Grooming Frequency for West Palm Beach Pets
+
+Florida's climate changes the typical grooming schedule:
+
+**Every 3-4 Weeks:**
+- Poodles, Doodles (fast-growing hair)
+- Shih Tzus, Maltese (matting-prone)
+- Dogs with skin allergies (medicated baths)
+- Beach dogs who swim 2+ times weekly
+
+**Every 4-6 Weeks:**
+- Most long-haired breeds (Golden Retrievers, Collies)
+- Medium-length coats (Cocker Spaniels, Springers)
+- Cats (long-haired breeds)
+- Show dogs (breed standard maintenance)
+
+**Every 6-8 Weeks:**
+- Short-haired breeds (Labs, Beagles)
+- Dogs who don't mat easily
+- Indoor-only cats (short-haired)
+- Seniors with minimal outdoor time
+
+**Bath-Only Between Full Grooms:**
+Many WPB pet parents do a bath-only service every 2-3 weeks between full grooming appointments. This keeps pets fresh in hot weather without the expense of full grooming.
+
+**Summer Considerations:**
+April through October, many Florida pet parents keep their dogs in shorter "summer cuts" to help with heat management. Discuss this with your groomer—never shave double-coated breeds like Huskies or German Shepherds down to the skin, as their coat regulates temperature.
+
+## West Palm Beach Dog-Friendly Spots to Show Off Your Groomed Pup
+
+After your pet's grooming appointment, show them off at these local favorites:
+
+**Dog Parks & Beaches:**
+- **Currie Park Dog Beach** - The only legal off-leash beach in Palm Beach County
+- **Lake Ida Dog Park** (Delray Beach) - 20 minutes south, worth the drive
+- **Bark Park at Okeeheelee** - Large, separate small/large dog areas
+- **Juno Beach** - Technically dogs allowed before 9am and after 5pm
+
+**Pet-Friendly Restaurants:**
+- **Hullabaloo** (CityPlace) - Dog-friendly patio
+- **Rocco's Tacos** - Water bowls and treats provided
+- **The Blind Monk** - Craft beer + dog-friendly
+- **Howley's Diner** - Iconic WPB spot with outdoor seating
+
+**Pet Stores & Services:**
+- **Pet Supermarket** (multiple locations)
+- **Petco** (Okeeheelee Blvd)
+- **Palm Beach Dog Boutique** - Luxury pet shopping
+
+## Frequently Asked Questions About West Palm Beach Pet Grooming
 
 **How often should I groom my dog in West Palm Beach?**
-Due to Florida's humidity, most dogs benefit from grooming every 4-6 weeks. Breeds with thick coats may need more frequent visits during summer.
+
+Due to Florida's year-round humidity and heat, most dogs benefit from professional grooming every 4-6 weeks—more frequently than the national average of 6-8 weeks. Breeds with thick coats (Golden Retrievers, Poodles, Shih Tzus) often need grooming every 3-4 weeks to prevent matting caused by moisture and humidity. Short-haired breeds can stretch to 6-8 weeks but still benefit from regular de-shedding treatments.
+
+Beach dogs who swim in saltwater weekly should get at least a bath every 2-3 weeks to prevent skin irritation from salt and sand buildup. Many WPB groomers offer discounted "bath-only" packages between full grooming appointments for this exact reason.
 
 **Do groomers in West Palm Beach use air conditioning?**
-Reputable groomers always have climate-controlled facilities. Never leave your pet with a groomer lacking proper AC in Florida.
 
-**Can I get same-day grooming in WPB?**
-Many groomers offer same-day appointments, especially on weekdays. Book through PetCareBooker to see real-time availability.
+Absolutely—any reputable groomer in South Florida MUST have climate-controlled facilities. Florida law doesn't specifically mandate AC for groomers, but it's an essential safety requirement. Temperatures inside a non-air-conditioned building can reach 100°F+ in summer, causing heatstroke in pets, especially brachycephalic breeds (Bulldogs, Pugs) who already struggle with temperature regulation.
+
+When touring grooming facilities, check that:
+- AC is running and set to 72°F or below
+- There's adequate ventilation and air circulation
+- Fresh, cool water is always available
+- They have emergency protocols for overheating
+
+**Red flag:** If a groomer doesn't mention climate control or says "we just use fans," find another groomer immediately.
+
+**Can I get same-day grooming appointments in WPB?**
+
+Yes! Many West Palm Beach groomers offer same-day appointments, especially on weekdays (Monday-Thursday). Weekend appointments typically need 3-7 days advance booking due to higher demand.
+
+For best same-day availability:
+- Call before 10am for afternoon appointments
+- Check <a href="/cities/west-palm-beach">PetCareBooker's real-time availability</a>
+- Consider less popular times (7-8am or 5-7pm)
+- Be flexible on groomer selection
+
+Mobile groomers often have same-day availability since they don't rely on salon capacity—they just add you to their route.
 
 **What's the best time of year for grooming in South Florida?**
-Year-round grooming is essential in Florida. Many pet parents opt for shorter "summer cuts" from April through October.
 
-## Neighborhoods We Serve
+Unlike northern climates with "grooming seasons," year-round grooming is essential in Florida. However, many WPB pet parents adjust their strategy by season:
 
-- Downtown West Palm Beach
-- Northwood
+**April-October (Hot Season):**
+- Shorter "summer cuts" for heat management
+- More frequent bathing (every 2-3 weeks) due to swimming and outdoor play
+- De-shedding treatments to keep AC filters cleaner
+- Paw pad balm essential for hot pavement
+
+**November-March (Pleasant Season):**
+- Can let coats grow slightly longer
+- Still regular grooming every 4-6 weeks
+- Great time for creative grooming (doesn't stress pets in mild weather)
+- Less beach bathing needed
+
+**Hurricane Season (June-November):**
+- Many pet parents schedule grooming right before and after major storms
+- Shorter cuts make cleanup easier after storm-related muddy conditions
+- Keep appointments in case evacuation is needed (groomers often close before storms)
+
+**Is tipping expected at West Palm Beach groomers?**
+
+Yes, tipping is customary and appreciated. Standard tipping guidelines in WPB:
+
+- **15-20% for standard service** (e.g., $15-20 on a $85 groom)
+- **20-25% for exceptional service** or difficult/anxious pets
+- **$5-10 extra** if your pet was particularly challenging (matted, aggressive, uncooperative)
+- **$10-15** for mobile groomers who provided convenience
+
+Some salons include tip in the price or have no-tipping policies—check when booking. Holiday grooming (especially before Christmas) typically warrants a larger tip or holiday bonus.
+
+**Cash tips are preferred** as they go directly to the groomer rather than being taxed or split with the business.
+
+**What if my dog has been to the beach before grooming?**
+
+Most WPB groomers expect this! The coastal lifestyle means many dogs swim regularly. Here's how to handle it:
+
+**If swimming the same day as grooming:**
+- Rinse your dog with fresh water immediately after the beach
+- Towel dry to remove excess moisture and sand
+- Let the groomer know—they may do an extra pre-bath rinse
+
+**If swimming regularly:**
+- Ask about "Beach Bath" packages (usually $40-60)
+- Schedule more frequent grooming (every 3-4 weeks instead of 6-8)
+- Consider a <a href="/cities/fort-lauderdale">mobile groomer specializing in beach dogs</a>
+
+**Saltwater considerations:**
+Salt dries skin and fur, causing itching and dandruff. Professional grooming with deep conditioning treatments counteracts this. Never let saltwater stay on your pet for more than a few hours—always rinse at home even if professional grooming is scheduled soon.
+
+**Do I need proof of vaccinations for grooming in West Palm Beach?**
+
+Most reputable WPB groomers require proof of:
+- **Rabies** (legally required in Florida)
+- **Distemper/Parvo (DHPP)**
+- **Bordetella (Kennel Cough)** - especially important in South Florida's year-round warm weather
+
+This protects all pets in the facility. Bring documentation to your first appointment:
+- Vaccination records from your vet
+- Rabies tag number
+- Vet contact information
+
+**Puppies:** Most groomers won't accept puppies until they've completed their full vaccination series (usually 16 weeks old). However, many offer "puppy intros"—short, positive grooming experiences (just nail trims or face trims) to acclimate puppies before full grooming.
+
+**Seniors/Medical Exemptions:** If your pet has medical reasons for avoiding vaccines, bring a vet's note. Some groomers will accommodate with special scheduling (first appointment of the day) or mobile-only services.
+
+## Neighborhoods We Serve Throughout Palm Beach County
+
+PetCareBooker connects pet parents with verified groomers throughout West Palm Beach and surrounding areas:
+
+**Downtown & Central WPB:**
+- Downtown West Palm Beach / CityPlace
 - Flamingo Park
-- South Dixie
-- City Place
-- El Cid
-- Old Northwood Historic District
+- El Cid Historic District
 - Grandview Heights
+- Old Northwood Historic District
+- Northwood
+- South Dixie
 
-[Browse West Palm Beach Groomers →](/cities/west-palm-beach)
+**Waterfront Communities:**
+- Palm Beach (island)
+- Palm Beach Shores
+- Singer Island
+- Riviera Beach
+- Currie Park area
+- Flagler Drive corridor
+
+**Western Communities:**
+- Wellington
+- Royal Palm Beach
+- Greenacres
+- Lake Worth (western areas)
+
+**Nearby Cities** (also served by WPB groomers):
+- <a href="/cities/boca-raton">Boca Raton</a> (south)
+- <a href="/cities/fort-lauderdale">Fort Lauderdale</a> (further south)
+- <a href="/cities/west-palm-beach">Lake Worth Beach</a> (south)
+- Jupiter (north)
+- Palm Beach Gardens (north)
+
+## Related Resources
+
+- <a href="/cities/miami">Best Pet Groomers in Miami</a> - Compare with South Florida's largest city
+- <a href="/cities/tampa">Tampa Pet Grooming Guide</a> - Florida's Gulf Coast grooming scene
+- <a href="/guides">How to Prepare Your Pet for Grooming</a> - Essential preparation tips
+- <a href="/browse">Browse All Florida Pet Groomers</a> - Real-time availability and booking
+
+[Book a West Palm Beach Groomer Now →](/cities/west-palm-beach)
 
 ---
 
-*Last updated: January 2025. Prices subject to change.*
+*Last updated: January 2025. Prices and availability subject to change. All groomers listed are independently owned businesses. PetCareBooker helps you find and book appointments but does not directly provide grooming services.*
     `,
   },
   'tampa-pet-grooming-guide': {
@@ -605,6 +959,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+function renderMarkdown(content: string) {
+  // Convert markdown to HTML - styling handled by CSS
+  let html = content
+    .replace(/### (.*)/g, '<h3>$1</h3>')
+    .replace(/## (.*)/g, '<h2>$1</h2>')
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/<a href="([^"]+)">([^<]+)<\/a>/g, '<a href="$1">$2</a>')
+    .replace(/^- (.*)/gm, '<li>$1</li>');
+  
+  // Wrap list items in ul
+  html = html.replace(/(<li[^>]*>.*?<\/li>)/g, (match) => {
+    if (!match.includes('<ul')) {
+      return '<ul>' + match + '</ul>';
+    }
+    return match;
+  });
+  
+  // Wrap paragraphs
+  const blocks = html.split('\n\n');
+  html = blocks.map(block => {
+    const trimmed = block.trim();
+    if (!trimmed) return '';
+    if (trimmed.startsWith('<h') || trimmed.startsWith('<ul')) return trimmed;
+    return `<p>${trimmed}</p>`;
+  }).join('');
+  
+  return html;
+}
+
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = blogContent[slug];
@@ -623,7 +1006,7 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-white dark:text-gray-900">
       {/* Header */}
       <nav className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white py-6 shadow-lg">
         <div className="container mx-auto px-4">
@@ -634,9 +1017,9 @@ export default async function BlogPostPage({ params }: Props) {
       </nav>
 
       {/* Breadcrumbs */}
-      <div className="bg-gray-50 border-b border-gray-200 py-4">
+      <div className="bg-gray-50 border-b border-gray-200 py-4 dark:bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="flex items-center gap-2 text-sm text-gray-600">
+          <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-600">
             <Link href="/" className="hover:text-purple-600">Home</Link>
             <span>→</span>
             <Link href="/blog" className="hover:text-purple-600">Blog</Link>
@@ -647,8 +1030,8 @@ export default async function BlogPostPage({ params }: Props) {
       </div>
 
       {/* Article */}
-      <article className="py-12">
-        <div className="container mx-auto px-4 max-w-4xl">
+      <article className="py-12 bg-white text-gray-900 dark:bg-white dark:text-gray-900">
+        <div className="container mx-auto px-4 max-w-4xl bg-white text-gray-900 dark:bg-white dark:text-gray-900">
           {/* Header */}
           <header className="mb-12">
             {/* Category & Location */}
@@ -691,16 +1074,8 @@ export default async function BlogPostPage({ params }: Props) {
 
           {/* Content */}
           <div 
-            className="prose prose-lg max-w-none
-              prose-headings:font-bold prose-headings:text-gray-900
-              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-              prose-p:text-gray-700 prose-p:leading-relaxed
-              prose-a:text-purple-600 prose-a:font-semibold prose-a:no-underline hover:prose-a:underline
-              prose-strong:text-gray-900 prose-strong:font-bold
-              prose-ul:my-6 prose-li:my-2
-            "
-            dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br/>').replace(/##/g, '<h2>').replace(/###/g, '<h3>') }}
+            className="blog-content prose prose-lg max-w-none text-gray-900 dark:text-gray-900"
+            dangerouslySetInnerHTML={{ __html: renderMarkdown(post.content) }}
           />
 
           {/* CTA Box */}
