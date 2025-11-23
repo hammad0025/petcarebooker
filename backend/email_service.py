@@ -140,6 +140,11 @@ def send_contact_email(name: str, email: str, subject: str, message: str) -> boo
     
     try:
         # Send email via Resend
+        print(f"📧 Attempting to send contact email to {recipient_email}...")
+        print(f"   From: {FROM_EMAIL}")
+        print(f"   Reply-To: {email}")
+        print(f"   Subject: {subject}")
+        
         response = resend.emails.send({
             "from": FROM_EMAIL,
             "to": [recipient_email],
@@ -182,11 +187,15 @@ def send_contact_email(name: str, email: str, subject: str, message: str) -> boo
             """,
         })
         
-        print(f"✅ Contact form email sent to {recipient_email} from {name} <{email}>")
+        print(f"✅ Contact form email sent successfully!")
+        print(f"   Response: {response}")
         return True
         
     except Exception as e:
         print(f"❌ Failed to send contact email: {str(e)}")
+        print(f"   Error type: {type(e).__name__}")
+        import traceback
+        print(f"   Traceback: {traceback.format_exc()}")
         return False
 
 

@@ -839,15 +839,28 @@ def submit_contact_form(contact: ContactForm = Body(...)):
     """
     try:
         # Send email
+        print(f"📧 Received contact form submission:")
+        print(f"   Name: {contact.name}")
+        print(f"   Email: {contact.email}")
+        print(f"   Subject: {contact.subject}")
+        
         success = send_contact_email(contact.name, contact.email, contact.subject, contact.message)
         
         if success:
             return {"message": "Contact form submitted successfully", "status": "success"}
         else:
-            # Even if email fails, return success (email might be logged instead)
-            return {"message": "Contact form submitted", "status": "success", "note": "Email service may not be configured"}
+            # Log the submission even if email fails
+            print(f"⚠️ Email sending failed, but form was submitted. Check logs above.")
+            return {
+                "message": "Contact form submitted", 
+                "status": "success", 
+                "note": "Email may not have been sent - check backend logs"
+            }
             
     except Exception as e:
+        print(f"❌ Error in contact form endpoint: {str(e)}")
+        import traceback
+        print(traceback.format_exc())
         raise HTTPException(status_code=500, detail=f"Failed to submit contact form: {str(e)}")
 
 
