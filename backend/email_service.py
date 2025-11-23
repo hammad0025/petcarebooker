@@ -112,6 +112,84 @@ def send_reset_email(to_email: str, reset_token: str) -> bool:
         return False
 
 
+def send_contact_email(name: str, email: str, subject: str, message: str) -> bool:
+    """
+    Send contact form email to haquemediagroup@gmail.com
+    
+    Args:
+        name: Sender's name
+        email: Sender's email
+        subject: Email subject
+        message: Email message
+        
+    Returns:
+        True if email was sent successfully, False otherwise
+    """
+    recipient_email = "haquemediagroup@gmail.com"
+    
+    # If no API key is configured, log the message instead
+    if not RESEND_API_KEY:
+        print(f"\n{'='*60}")
+        print(f"📧 CONTACT FORM SUBMISSION")
+        print(f"{'='*60}")
+        print(f"From: {name} <{email}>")
+        print(f"Subject: {subject}")
+        print(f"Message: {message}")
+        print(f"{'='*60}\n")
+        return False
+    
+    try:
+        # Send email via Resend
+        response = resend.emails.send({
+            "from": FROM_EMAIL,
+            "to": [recipient_email],
+            "reply_to": email,
+            "subject": f"Contact Form: {subject}",
+            "html": f"""
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            </head>
+            <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
+                    <h1 style="color: white; margin: 0; font-size: 28px;">🐾 PetCareBooker Contact Form</h1>
+                </div>
+                
+                <div style="background: #ffffff; padding: 30px; border: 1px solid #e0e0e0; border-top: none; border-radius: 0 0 10px 10px;">
+                    <h2 style="color: #333; margin-top: 0;">New Contact Form Submission</h2>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <p style="margin: 5px 0;"><strong>Name:</strong> {name}</p>
+                        <p style="margin: 5px 0;"><strong>Email:</strong> <a href="mailto:{email}">{email}</a></p>
+                        <p style="margin: 5px 0;"><strong>Subject:</strong> {subject}</p>
+                    </div>
+                    
+                    <div style="background: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                        <p style="margin: 0; white-space: pre-wrap;">{message}</p>
+                    </div>
+                    
+                    <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 30px 0;">
+                    
+                    <p style="font-size: 12px; color: #999; text-align: center;">
+                        This email was sent from the PetCareBooker contact form.<br>
+                        Reply directly to this email to respond to {name}.
+                    </p>
+                </div>
+            </body>
+            </html>
+            """,
+        })
+        
+        print(f"✅ Contact form email sent to {recipient_email} from {name} <{email}>")
+        return True
+        
+    except Exception as e:
+        print(f"❌ Failed to send contact email: {str(e)}")
+        return False
+
+
 # Future: Add SES support when switching
 def send_reset_email_ses(to_email: str, reset_token: str) -> bool:
     """

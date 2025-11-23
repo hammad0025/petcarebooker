@@ -1,4 +1,5 @@
-from fastapi import FastAPI, Depends, HTTPException, status, Query, Request
+from fastapi import FastAPI, Depends, HTTPException, status, Query, Request, Body
+from pydantic import BaseModel, EmailStr
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from typing import List, Optional
@@ -20,6 +21,7 @@ from schemas import (
 )
 from auth import hash_password, verify_password, create_access_token, get_current_shop, get_current_customer, validate_password_strength, generate_reset_token
 from notifications import notify_shop_new_booking, notify_customer_booking_confirmed, notify_customer_booking_cancelled
+from email_service import send_contact_email
 # from email_service import send_reset_email
 # from stripe_service import create_stripe_customer, create_subscription_checkout_session, get_subscription_details, cancel_subscription, handle_webhook_event
 
@@ -822,6 +824,31 @@ def get_subscription_status(shop: Shop = Depends(get_current_shop)):
 #             db.commit()
 #     
 #     return {"status": "success"}
+
+
+class ContactForm(BaseModel):
+    name: str
+    email: EmailStr
+    subject: str
+    message: str
+
+@app.post("/api/contact")
+def submit_contact_form(contact: ContactForm = Body(...)):
+    """
+    Submit contact form - sends email to haquemediagroup@gmail.com
+    """
+    try:
+        # Send email
+        success = send_contact_email(contact.name, contact.email, contact.subject, contact.message)
+        
+        if success:
+            return {"message": "Contact form submitted successfully", "status": "success"}
+        else:
+            # Even if email fails, return success (email might be logged instead)
+            return {"message": "Contact form submitted", "status": "success", "note": "Email service may not be configured"}
+            
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to submit contact form: {str(e)}")
 
 
 @app.get("/api/test")
