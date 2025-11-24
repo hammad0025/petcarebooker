@@ -13,12 +13,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PetCareBooker | Book Pet Grooming Near You | Instant Online Booking",
+  title: {
+    default: "PetCareBooker | Book Pet Grooming Near You | Instant Online Booking",
+    template: "%s | PetCareBooker",
+  },
   description: "Find and book trusted pet groomers near you instantly. No phone calls, no waiting. Compare prices, read verified reviews, and schedule dog and cat grooming in seconds. Serving 100+ cities nationwide.",
   keywords: "pet grooming, dog grooming, cat grooming, mobile pet grooming, pet grooming near me, book pet groomer, dog groomer near me, pet spa",
   alternates: {
     canonical: 'https://petcarebooker.com',
   },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
+  manifest: '/manifest.json',
   openGraph: {
     title: "PetCareBooker | Book Pet Grooming in Seconds",
     description: "Find trusted pet groomers near you. Book instantly with real-time availability. 4.9★ average rating from 1,200+ happy pet parents.",
@@ -27,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "PetCareBooker",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://www.petcarebooker.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "PetCareBooker - Book Pet Grooming Near You",
@@ -38,6 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "PetCareBooker | Book Pet Grooming Near You",
     description: "Find and book trusted pet groomers instantly. No phone calls needed. 4.9★ rating.",
+    images: ["https://www.petcarebooker.com/og-image.png"],
   },
   robots: {
     index: true,

@@ -1,0 +1,24 @@
+{
+  "name": "PetCareBooker - Book Pet Grooming Near You",
+  "short_name": "PetCareBooker",
+  "description": "Find and book trusted pet groomers near you instantly. No phone calls, no waiting.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#9333ea",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
