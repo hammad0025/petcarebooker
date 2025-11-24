@@ -10,6 +10,7 @@ export default function robots(): MetadataRoute.Robots {
           '/dashboard/*',        // Don't index private groomer dashboards
           '/customer/dashboard', // Don't index customer dashboards
           '/api/*',             // Don't index API routes
+          '/analysis',          // Block non-existent page with incorrect Google content
         ],
       },
       {
