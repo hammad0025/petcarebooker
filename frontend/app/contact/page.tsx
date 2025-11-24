@@ -6,6 +6,14 @@ import { useState, useEffect } from 'react';
 export default function ContactPage() {
   useEffect(() => {
     document.title = 'Contact Us - PetCareBooker | Get Help & Support';
+    // Add meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.setAttribute('name', 'description');
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.setAttribute('content', 'Get in touch with PetCareBooker. Have questions about booking pet grooming, becoming a groomer, or need technical support? Contact us today.');
   }, []);
 
   const [formData, setFormData] = useState({
@@ -213,6 +221,26 @@ export default function ContactPage() {
           </p>
         </div>
       </footer>
+
+      {/* ContactPage Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ContactPage',
+            name: 'Contact PetCareBooker',
+            description: 'Get in touch with PetCareBooker for support, questions, or to become a groomer.',
+            url: 'https://petcarebooker.com/contact',
+            mainEntity: {
+              '@type': 'Organization',
+              name: 'PetCareBooker',
+              email: 'haquemediagroup@gmail.com',
+              url: 'https://petcarebooker.com',
+            },
+          }),
+        }}
+      />
     </div>
   );
 }

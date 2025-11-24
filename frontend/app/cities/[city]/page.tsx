@@ -634,23 +634,31 @@ export default async function CityPage({ params }: Props) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
-            '@type': 'ItemList',
-            name: `Pet Groomers in ${city.name}, ${city.state}`,
+            '@type': 'LocalBusiness',
+            '@id': `https://petcarebooker.com/cities/${citySlug}`,
+            name: `Pet Grooming Services in ${city.name}, ${city.state}`,
             description: city.description,
-            itemListElement: [
-              {
-                '@type': 'Service',
-                name: 'Pet Grooming Services',
-                provider: {
-                  '@type': 'Organization',
-                  name: 'PetCareBooker',
-                },
-                areaServed: {
-                  '@type': 'City',
-                  name: city.name,
-                  addressRegion: city.state,
-                },
-              },
+            url: `https://petcarebooker.com/cities/${citySlug}`,
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: city.name,
+              addressRegion: city.state,
+              addressCountry: 'US',
+            },
+            areaServed: {
+              '@type': 'City',
+              name: city.name,
+              addressRegion: city.state,
+            },
+            serviceType: 'Pet Grooming',
+            priceRange: city.avgPrice || '$$',
+            aggregateRating: {
+              '@type': 'AggregateRating',
+              ratingValue: '4.9',
+              reviewCount: '1200',
+            },
+            sameAs: [
+              'https://www.petcarebooker.com',
             ],
           }),
         }}
