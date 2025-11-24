@@ -1,9 +1,13 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'FAQ - PetCareBooker | Pet Grooming Booking Questions',
   description: 'Get answers to common questions about booking pet grooming appointments, pricing, cancellations, and more. For pet parents and groomers.',
+  alternates: {
+    canonical: 'https://petcarebooker.com/faq',
+  },
 };
 
 export default function FAQPage() {
@@ -234,14 +238,7 @@ export default function FAQPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">
-            © 2025 PetCareBooker. Making tails wag since today! 🐾
-          </p>
-        </div>
-      </footer>
+      <Footer />
 
       {/* FAQPage Schema */}
       <script

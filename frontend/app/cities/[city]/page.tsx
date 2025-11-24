@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
+import Footer from '@/components/Footer';
 
 // City data - in production this would come from your database
 const cityData: Record<string, any> = {
@@ -300,13 +301,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? `Pet Grooming Fort Lauderdale: Best Dog & Cat Groomers | Book Online`
     : `Pet Groomers in ${city.name}, ${city.state} | Book Online | PetCareBooker`;
   
+  const canonicalUrl = `https://petcarebooker.com/cities/${citySlug}`;
+  
   return {
     title,
     description: city.description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: isFortLauderdale ? 'Pet Grooming Fort Lauderdale: Best Salons & Mobile Services' : `Best Pet Groomers in ${city.name}`,
       description: city.description,
       type: 'website',
+      url: canonicalUrl,
     },
   };
 }
@@ -682,14 +689,7 @@ export default async function CityPage({ params }: Props) {
         }}
       />
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">
-            © 2025 PetCareBooker. Making tails wag since today! 🐾
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

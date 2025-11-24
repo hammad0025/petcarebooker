@@ -1,9 +1,13 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Pet Grooming Blog - Tips, Guides & Local Recommendations | PetCareBooker',
   description: 'Expert pet grooming tips, city guides, and recommendations. Find the best groomers in your area and learn how to keep your pet looking their best.',
+  alternates: {
+    canonical: 'https://petcarebooker.com/blog',
+  },
 };
 
 const blogPosts = [
@@ -205,14 +209,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">
-            © 2025 PetCareBooker. Making tails wag since today! 🐾
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

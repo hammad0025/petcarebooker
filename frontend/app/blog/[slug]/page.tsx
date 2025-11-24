@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
+import Footer from '@/components/Footer';
 
 // This would come from a CMS or database in production
 const blogContent: Record<string, any> = {
@@ -1797,13 +1798,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const canonicalUrl = `https://petcarebooker.com/blog/${slug}`;
+
   return {
     title: `${post.title} | PetCareBooker Blog`,
     description: post.description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: post.title,
       description: post.description,
       type: 'article',
+      url: canonicalUrl,
       publishedTime: post.date,
       authors: [post.author],
     },
@@ -1974,14 +1981,7 @@ export default async function BlogPostPage({ params }: Props) {
         }}
       />
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">
-            © 2025 PetCareBooker. Making tails wag since today! 🐾
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

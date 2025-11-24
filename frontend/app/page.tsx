@@ -505,6 +505,35 @@ export default function HomePage() {
         }}
       />
 
+      {/* Schema.org Organization structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'PetCareBooker',
+            url: 'https://www.petcarebooker.com',
+            logo: 'https://www.petcarebooker.com/logo.png',
+            description: 'Book pet grooming appointments instantly. Find trusted groomers near you with verified reviews and real-time availability.',
+            contactPoint: {
+              '@type': 'ContactPoint',
+              contactType: 'Customer Service',
+              email: 'haquemediagroup@gmail.com',
+              url: 'https://www.petcarebooker.com/contact',
+            },
+            sameAs: [
+              'https://www.petcarebooker.com',
+            ],
+            aggregateRating: {
+              '@type': 'AggregateRating',
+              ratingValue: '4.9',
+              reviewCount: '1200',
+            },
+          }),
+        }}
+      />
+
       {/* Schema.org FAQPage structured data */}
       <script
         type="application/ld+json"
@@ -644,37 +673,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-8 mb-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">🐾 PetCareBooker</h3>
-              <p className="text-gray-400">
-                Making pet grooming simple, fast, and stress-free.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="font-bold mb-4">For Pet Parents</h4>
-              <ul className="space-y-2">
-                <li><Link href="/browse" className="text-gray-400 hover:text-white transition">Find Groomers</Link></li>
-                <li><Link href="/customer/register" className="text-gray-400 hover:text-white transition">Sign Up</Link></li>
-                <li><Link href="/my-pets" className="text-gray-400 hover:text-white transition">My Pets</Link></li>
-                <li><Link href="/blog" className="text-gray-400 hover:text-white transition">Blog</Link></li>
-                <li><Link href="/guides" className="text-gray-400 hover:text-white transition">Grooming Guides</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-bold mb-4">For Businesses</h4>
-              <ul className="space-y-2">
-                <li><Link href="/register" className="text-gray-400 hover:text-white transition">List Your Business</Link></li>
-                <li><Link href="/login" className="text-gray-400 hover:text-white transition">Groomer Login</Link></li>
-                <li><Link href="/for-businesses" className="text-gray-400 hover:text-white transition">Why Join?</Link></li>
-              </ul>
-            </div>
-            
-            <div>
+      <Footer />
               <h4 className="font-bold mb-4">Florida Cities</h4>
               <ul className="space-y-2">
                 <li><Link href="/cities/miami" className="text-gray-400 hover:text-white transition">Miami</Link></li>

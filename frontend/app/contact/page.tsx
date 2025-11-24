@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import Footer from '@/components/Footer';
 
 export default function ContactPage() {
   useEffect(() => {
@@ -213,14 +214,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">
-            © 2025 PetCareBooker. Making tails wag since today! 🐾
-          </p>
-        </div>
-      </footer>
+      <Footer />
 
       {/* ContactPage Schema */}
       <script

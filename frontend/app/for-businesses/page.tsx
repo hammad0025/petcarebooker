@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'For Groomers - Grow Your Pet Grooming Business | PetCareBooker',
   description: 'Join PetCareBooker and get more bookings. Free to start, no monthly fees. Manage your schedule, accept online bookings, and grow your grooming business.',
   keywords: 'pet grooming business, groomer software, online booking for groomers, pet salon management',
+  alternates: {
+    canonical: 'https://petcarebooker.com/for-businesses',
+  },
 };
 
 export default function ForBusinessesPage() {
@@ -233,14 +237,7 @@ export default function ForBusinessesPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">
-            © 2025 PetCareBooker. Making tails wag since today! 🐾
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
