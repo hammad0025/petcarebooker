@@ -3,11 +3,11 @@ import CityAutocomplete from '@/components/CityAutocomplete';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'PetCareBooker - Book Pet Grooming Online | Instant Scheduling',
-  description: 'Find and book trusted pet groomers instantly. Real-time availability, verified professionals, SMS reminders. Serving 20+ cities across the US.',
-  keywords: 'pet grooming, dog grooming, cat grooming, mobile pet grooming, book groomer online',
+  title: 'PetCareBooker | Book Pet Grooming Near You | Instant Online Booking',
+  description: 'Find and book trusted pet groomers near you instantly. No phone calls, no waiting. Compare prices, read verified reviews, and schedule dog and cat grooming in seconds. Serving 100+ cities nationwide.',
+  keywords: 'pet grooming, dog grooming, cat grooming, mobile pet grooming, pet grooming near me, book pet groomer, dog groomer near me, pet spa',
   openGraph: {
-    title: 'PetCareBooker - Book Pet Grooming Online',
+    title: 'PetCareBooker | Book Pet Grooming in Seconds',
     description: 'Find and book trusted pet groomers instantly. Real-time availability, verified professionals.',
     url: 'https://petcarebooker.com',
     siteName: 'PetCareBooker',
