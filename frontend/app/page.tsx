@@ -8,10 +8,21 @@ export const metadata: Metadata = {
   keywords: 'pet grooming, dog grooming, cat grooming, mobile pet grooming, pet grooming near me, book pet groomer, dog groomer near me, pet spa',
   openGraph: {
     title: 'PetCareBooker | Book Pet Grooming in Seconds',
-    description: 'Find and book trusted pet groomers instantly. Real-time availability, verified professionals.',
+    description: 'Find trusted pet groomers near you. Book instantly with real-time availability. 4.9★ average rating from 1,200+ happy pet parents.',
     url: 'https://petcarebooker.com',
     siteName: 'PetCareBooker',
     type: 'website',
+    images: [
+      {
+        url: 'https://petcarebooker.com/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'PetCareBooker - Book Pet Grooming Near You',
+      },
+    ],
+  },
+  alternates: {
+    canonical: 'https://petcarebooker.com',
   },
 };
 
