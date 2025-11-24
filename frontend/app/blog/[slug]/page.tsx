@@ -818,8 +818,8 @@ Expect 2-4 hours depending on your dog's size and coat. Express services (1-2 ho
     `,
   },
   'fort-lauderdale-pet-grooming': {
-    title: 'Fort Lauderdale Pet Grooming: Best Salons & Mobile Services',
-    description: 'Find top pet groomers in Fort Lauderdale. From Las Olas to Wilton Manors, discover trusted groomers with instant booking and verified reviews.',
+    title: 'Pet Grooming Fort Lauderdale: Best Salons & Mobile Services (2025)',
+    description: 'Pet grooming Fort Lauderdale: Find the best dog and cat groomers. Compare prices, read reviews, and book instantly. Serving Las Olas, Victoria Park, Wilton Manors, and all of Broward County.',
     author: 'PetCareBooker Team',
     date: '2025-01-15',
     city: 'Fort Lauderdale',
@@ -827,7 +827,7 @@ Expect 2-4 hours depending on your dog's size and coat. Express services (1-2 ho
     category: 'City Guides',
     image: '⛵',
     content: `
-Fort Lauderdale's beach lifestyle demands exceptional pet grooming. Whether your furry friend needs a post-beach cleanup or a luxury spa day, Fort Lauderdale's groomers deliver world-class service.
+Pet grooming Fort Lauderdale offers exceptional services for beach-loving pets. Whether your furry friend needs a post-beach cleanup or a luxury spa day, Fort Lauderdale's top groomers deliver world-class pet grooming services.
 
 ## Best Pet Groomers in Fort Lauderdale
 

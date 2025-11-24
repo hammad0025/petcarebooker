@@ -147,7 +147,7 @@ const cityData: Record<string, any> = {
   'fort-lauderdale': {
     name: 'Fort Lauderdale',
     state: 'FL',
-    description: 'Find trusted pet groomers in Fort Lauderdale. From Las Olas to Victoria Park, book top-rated groomers online with verified reviews.',
+    description: 'Pet grooming Fort Lauderdale: Find top-rated dog and cat groomers. Book instantly with verified reviews. Serving Las Olas, Victoria Park, Wilton Manors, and all of Broward County.',
     neighborhoods: ['Las Olas', 'Victoria Park', 'Wilton Manors', 'Harbor Beach', 'Rio Vista', 'Lauderdale-by-the-Sea', 'Colee Hammock'],
     avgPrice: '$65-$130',
     totalGroomers: 98,
@@ -286,11 +286,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  // Special handling for Fort Lauderdale to target exact keyword
+  const isFortLauderdale = citySlug === 'fort-lauderdale';
+  const title = isFortLauderdale 
+    ? `Pet Grooming Fort Lauderdale: Best Dog & Cat Groomers | Book Online`
+    : `Pet Groomers in ${city.name}, ${city.state} | Book Online | PetCareBooker`;
+  
   return {
-    title: `Pet Groomers in ${city.name}, ${city.state} | Book Online | PetCareBooker`,
+    title,
     description: city.description,
     openGraph: {
-      title: `Best Pet Groomers in ${city.name}`,
+      title: isFortLauderdale ? 'Pet Grooming Fort Lauderdale: Best Salons & Mobile Services' : `Best Pet Groomers in ${city.name}`,
       description: city.description,
       type: 'website',
     },
@@ -329,7 +335,11 @@ export default async function CityPage({ params }: Props) {
       <section className="bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-6xl font-extrabold text-gray-900 mb-6">
-            Pet Groomers in {city.name} 🐾
+            {citySlug === 'fort-lauderdale' ? (
+              <>Pet Grooming Fort Lauderdale 🐾</>
+            ) : (
+              <>Pet Groomers in {city.name} 🐾</>
+            )}
           </h1>
           <p className="text-2xl text-gray-700 max-w-3xl mx-auto mb-8">
             {city.description}
