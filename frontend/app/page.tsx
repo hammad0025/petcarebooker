@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: 'https://petcarebooker.com',
+    canonical: 'https://www.petcarebooker.com',
   },
 };
 

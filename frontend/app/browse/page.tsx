@@ -3,6 +3,11 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { shopsApi } from '@/lib/api';
+import { Metadata } from 'next';
+import Footer from '@/components/Footer';
+
+// Note: Client components can't export metadata directly
+// We'll set it via useEffect
 
 interface Shop {
   id: number;
@@ -20,6 +25,24 @@ export default function BrowsePage() {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
+    // Set metadata for client component
+    document.title = 'Find Pet Groomers Near You | PetCareBooker';
+    const metaDescription = document.querySelector('meta[name="description"]') || document.createElement('meta');
+    metaDescription.setAttribute('name', 'description');
+    metaDescription.setAttribute('content', 'Browse and book trusted pet groomers in your area. Compare prices, read reviews, and book instantly with verified professionals.');
+    if (!document.querySelector('meta[name="description"]')) {
+      document.head.appendChild(metaDescription);
+    }
+    
+    // Add canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://www.petcarebooker.com/browse');
+    
     loadShops();
   }, []);
 
@@ -90,7 +113,7 @@ export default function BrowsePage() {
                 {/* Shop Image/Logo Area */}
                 <div className="relative h-48 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 flex items-center justify-center">
                   {shop.logo_url ? (
-                    <img src={shop.logo_url} alt={shop.business_name} className="w-full h-full object-cover" />
+                    <img src={shop.logo_url} alt={`${shop.business_name} - Pet Groomer in ${shop.city}, ${shop.state}`} className="w-full h-full object-cover" />
                   ) : (
                     <div className="text-8xl">🐕</div>
                   )}
@@ -136,6 +159,8 @@ export default function BrowsePage() {
           </div>
         )}
       </div>
+
+      <Footer />
     </div>
   );
 }

@@ -22,7 +22,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://petcarebooker.com/sitemap.xml',
+    sitemap: 'https://www.petcarebooker.com/sitemap.xml',
   };
 }
 

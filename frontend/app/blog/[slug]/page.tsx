@@ -1798,8 +1798,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const canonicalUrl = `https://petcarebooker.com/blog/${slug}`;
-
+  const canonicalUrl = `https://www.petcarebooker.com/blog/${slug}`;
+  
   return {
     title: `${post.title} | PetCareBooker Blog`,
     description: post.description,
@@ -1972,17 +1972,17 @@ export default async function BlogPostPage({ params }: Props) {
             dateModified: post.date,
             mainEntityOfPage: {
               '@type': 'WebPage',
-              '@id': `https://petcarebooker.com/blog/${slug}`,
+              '@id': `https://www.petcarebooker.com/blog/${slug}`,
             },
             publisher: {
               '@type': 'Organization',
               name: 'PetCareBooker',
               logo: {
                 '@type': 'ImageObject',
-                url: 'https://petcarebooker.com/icon-512.png',
+                url: 'https://www.petcarebooker.com/icon-512.png',
               },
             },
-            image: post.image ? `https://petcarebooker.com/blog/${slug}/image` : 'https://petcarebooker.com/og-image.png',
+            image: post.image ? `https://www.petcarebooker.com/blog/${slug}/image` : 'https://www.petcarebooker.com/og-image.png',
             articleSection: post.category || 'Pet Grooming Guides',
             keywords: post.city ? `pet grooming ${post.city}, dog grooming ${post.city}, ${post.city} pet care` : 'pet grooming, dog grooming, cat grooming',
           }),

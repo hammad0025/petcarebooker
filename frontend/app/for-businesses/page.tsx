@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: 'Join PetCareBooker and get more bookings. Free to start, no monthly fees. Manage your schedule, accept online bookings, and grow your grooming business.',
   keywords: 'pet grooming business, groomer software, online booking for groomers, pet salon management',
   alternates: {
-    canonical: 'https://petcarebooker.com/for-businesses',
+    canonical: 'https://www.petcarebooker.com/for-businesses',
   },
 };
 

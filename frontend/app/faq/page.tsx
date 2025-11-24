@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'FAQ - PetCareBooker | Pet Grooming Booking Questions',
   description: 'Get answers to common questions about booking pet grooming appointments, pricing, cancellations, and more. For pet parents and groomers.',
   alternates: {
-    canonical: 'https://petcarebooker.com/faq',
+    canonical: 'https://www.petcarebooker.com/faq',
   },
 };
 
@@ -247,7 +247,7 @@ export default function FAQPage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'FAQPage',
-            '@id': 'https://petcarebooker.com/faq',
+            '@id': 'https://www.petcarebooker.com/faq',
             mainEntity: [
               {
                 '@type': 'Question',

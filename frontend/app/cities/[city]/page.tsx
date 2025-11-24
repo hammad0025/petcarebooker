@@ -660,10 +660,10 @@ export default async function CityPage({ params }: Props) {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'LocalBusiness',
-            '@id': `https://petcarebooker.com/cities/${citySlug}`,
+            '@id': `https://www.petcarebooker.com/cities/${citySlug}`,
             name: `Pet Grooming Services in ${city.name}, ${city.state}`,
             description: city.description,
-            url: `https://petcarebooker.com/cities/${citySlug}`,
+            url: `https://www.petcarebooker.com/cities/${citySlug}`,
             address: {
               '@type': 'PostalAddress',
               addressLocality: city.name,

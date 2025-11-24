@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Pet Grooming Guides - How to Prepare Your Pet | PetCareBooker',
   description: 'Learn how to prepare your pet for grooming appointments. Expert tips for a stress-free grooming experience for dogs and cats.',
   alternates: {
-    canonical: 'https://petcarebooker.com/guides',
+    canonical: 'https://www.petcarebooker.com/guides',
   },
 };
 

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Pet Grooming Blog - Tips, Guides & Local Recommendations | PetCareBooker',
   description: 'Expert pet grooming tips, city guides, and recommendations. Find the best groomers in your area and learn how to keep your pet looking their best.',
   alternates: {
-    canonical: 'https://petcarebooker.com/blog',
+    canonical: 'https://www.petcarebooker.com/blog',
   },
 };
 

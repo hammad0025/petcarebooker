@@ -225,12 +225,12 @@ export default function ContactPage() {
             '@type': 'ContactPage',
             name: 'Contact PetCareBooker',
             description: 'Get in touch with PetCareBooker for support, questions, or to become a groomer.',
-            url: 'https://petcarebooker.com/contact',
+            url: 'https://www.petcarebooker.com/contact',
             mainEntity: {
               '@type': 'Organization',
               name: 'PetCareBooker',
               email: 'haquemediagroup@gmail.com',
-              url: 'https://petcarebooker.com',
+              url: 'https://www.petcarebooker.com',
             },
           }),
         }}
