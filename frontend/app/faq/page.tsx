@@ -247,6 +247,7 @@ export default function FAQPage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'FAQPage',
+            '@id': 'https://petcarebooker.com/faq',
             mainEntity: [
               {
                 '@type': 'Question',
@@ -274,10 +275,82 @@ export default function FAQPage() {
               },
               {
                 '@type': 'Question',
+                name: 'What if I need to cancel or reschedule?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'You\'ll receive a confirmation SMS with a link to manage your appointment. Click it to cancel or reschedule. Please note that each groomer sets their own cancellation policy (usually 24 hours notice).',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How do I know the groomer is trustworthy?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'All groomers on PetCareBooker are verified professionals. You can read reviews from other pet parents, see their average rating, and view photos of their work before booking.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Will I get a reminder before my appointment?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes! You\'ll receive an SMS reminder 24 hours before your appointment with all the details (time, location, groomer name, and your pet\'s services).',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How does payment work?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Payment is handled directly with the groomer at the time of service. Prices are shown upfront when you book, so there are no surprises.',
+                },
+              },
+              {
+                '@type': 'Question',
                 name: 'How much does it cost to join as a groomer?',
                 acceptedAnswer: {
                   '@type': 'Answer',
                   text: 'It\'s free to create your profile and start accepting bookings! We only take a small commission on completed appointments. No monthly fees, no setup costs, no hidden charges.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How quickly can I start accepting bookings?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'You can be live in under 10 minutes! Just create your profile, add your services and prices, set your availability, and you\'re ready to accept bookings.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Can I control my own schedule?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Absolutely! You set your working hours, service duration, and buffer time between appointments. You can block out time for personal days or emergencies anytime.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Is there a mobile app?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Not yet, but our website is fully mobile-responsive! You can book appointments and manage your account from any device. A native mobile app is coming soon!',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'What cities/areas do you serve?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'We\'re currently available nationwide! As long as a groomer in your area has joined our platform, you can book them. We\'re adding new groomers every day.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How do I contact support?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Email us at support@petcarebooker.com or use our contact form. We typically respond within 24 hours.',
                 },
               },
             ],

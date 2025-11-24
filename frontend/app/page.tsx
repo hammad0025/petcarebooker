@@ -525,7 +525,12 @@ export default function HomePage() {
             '@type': 'Organization',
             name: 'PetCareBooker',
             url: 'https://www.petcarebooker.com',
-            logo: 'https://www.petcarebooker.com/logo.png',
+            logo: {
+              '@type': 'ImageObject',
+              url: 'https://www.petcarebooker.com/icon-512.png',
+              width: 512,
+              height: 512,
+            },
             description: 'Book pet grooming appointments instantly. Find trusted groomers near you with verified reviews and real-time availability.',
             contactPoint: {
               '@type': 'ContactPoint',

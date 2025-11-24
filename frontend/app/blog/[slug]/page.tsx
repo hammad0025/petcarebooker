@@ -1961,22 +1961,30 @@ export default async function BlogPostPage({ params }: Props) {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'BlogPosting',
+            '@id': `https://petcarebooker.com/blog/${slug}`,
             headline: post.title,
             description: post.description,
             author: {
               '@type': 'Organization',
-              name: post.author,
+              name: post.author || 'PetCareBooker Team',
             },
             datePublished: post.date,
             dateModified: post.date,
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': `https://petcarebooker.com/blog/${slug}`,
+            },
             publisher: {
               '@type': 'Organization',
               name: 'PetCareBooker',
               logo: {
                 '@type': 'ImageObject',
-                url: 'https://petcarebooker.com/logo.png',
+                url: 'https://petcarebooker.com/icon-512.png',
               },
             },
+            image: post.image ? `https://petcarebooker.com/blog/${slug}/image` : 'https://petcarebooker.com/og-image.png',
+            articleSection: post.category || 'Pet Grooming Guides',
+            keywords: post.city ? `pet grooming ${post.city}, dog grooming ${post.city}, ${post.city} pet care` : 'pet grooming, dog grooming, cat grooming',
           }),
         }}
       />
