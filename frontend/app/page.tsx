@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'PetCareBooker | Book Pet Grooming in Seconds',
     description: 'Find trusted pet groomers near you. Book instantly with real-time availability. 4.9★ average rating from 1,200+ happy pet parents.',
-    url: 'https://petcarebooker.com',
+    url: 'https://www.petcarebooker.com',
     siteName: 'PetCareBooker',
     type: 'website',
     images: [
       {
-        url: 'https://petcarebooker.com/opengraph-image',
+        url: 'https://www.petcarebooker.com/opengraph-image',
         width: 1200,
         height: 630,
         alt: 'PetCareBooker - Book Pet Grooming Near You',
@@ -743,8 +743,8 @@ export default function HomePage() {
             '@context': 'https://schema.org',
             '@type': 'Organization',
             name: 'PetCareBooker',
-            url: 'https://petcarebooker.com',
-            logo: 'https://petcarebooker.com/logo.png',
+            url: 'https://www.petcarebooker.com',
+            logo: 'https://www.petcarebooker.com/logo.png',
             description: 'Online pet grooming booking platform connecting pet owners with verified professional groomers',
             sameAs: [
               'https://www.facebook.com/petcarebooker',

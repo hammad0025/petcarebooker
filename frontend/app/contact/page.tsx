@@ -15,6 +15,15 @@ export default function ContactPage() {
       document.head.appendChild(metaDescription);
     }
     metaDescription.setAttribute('content', 'Get in touch with PetCareBooker. Have questions about booking pet grooming, becoming a groomer, or need technical support? Contact us today.');
+    
+    // Add canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://www.petcarebooker.com/contact');
   }, []);
 
   const [formData, setFormData] = useState({

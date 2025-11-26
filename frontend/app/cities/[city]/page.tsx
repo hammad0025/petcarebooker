@@ -301,7 +301,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? `Pet Grooming Fort Lauderdale: Best Dog & Cat Groomers | Book Online`
     : `Pet Groomers in ${city.name}, ${city.state} | Book Online | PetCareBooker`;
   
-  const canonicalUrl = `https://petcarebooker.com/cities/${citySlug}`;
+  const canonicalUrl = `https://www.petcarebooker.com/cities/${citySlug}`;
   
   return {
     title,
