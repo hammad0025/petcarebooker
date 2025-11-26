@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.petcarebooker.com"),
   title: {
     default: "PetCareBooker | Book Pet Grooming Near You | Instant Online Booking",
     template: "%s | PetCareBooker",
