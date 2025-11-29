@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    slug: 'how-much-does-dog-grooming-cost',
+    title: 'How Much Does Dog Grooming Cost in 2025? Complete Price Guide',
+    excerpt: 'Complete guide to dog grooming costs by size, breed, and location. Learn what affects pricing, average costs nationwide, and how to save money on professional grooming.',
+    category: 'Pet Care Tips',
+    city: null,
+    image: '💰',
+    date: '2025-01-20',
+  },
+  {
     slug: 'best-pet-groomers-west-palm-beach',
     title: 'Best Pet Groomers in West Palm Beach, FL (2025)',
     excerpt: 'Find top-rated dog and cat groomers in West Palm Beach. Compare prices, read reviews, and book instantly. From downtown to the beaches.',

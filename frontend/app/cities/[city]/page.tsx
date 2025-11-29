@@ -133,8 +133,7 @@ const cityData: Record<string, any> = {
   'west-palm-beach': {
     name: 'West Palm Beach',
     state: 'FL',
-    description: 'Discover top-rated pet groomers in West Palm Beach, FL. From downtown to Palm Beach shores, find trusted grooming salons with instant online booking.',
-    neighborhoods: ['Downtown West Palm Beach', 'Northwood', 'Flamingo Park', 'South Dixie', 'City Place', 'Old Northwood', 'El Cid', 'Grandview Heights'],
+    description: 'Discover top-rated pet grooming and mobile pet grooming in West Palm Beach, FL. From downtown West Palm Beach to the Palm Beach shores, find trusted dog and cat groomers with instant online booking.',    neighborhoods: ['Downtown West Palm Beach', 'Northwood', 'Flamingo Park', 'South Dixie', 'City Place', 'Old Northwood', 'El Cid', 'Grandview Heights'],
     avgPrice: '$60-$125',
     totalGroomers: 89,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Beach Bath Packages'],
@@ -143,7 +142,7 @@ const cityData: Record<string, any> = {
       'Beach dog specialists - saltwater removal and sand-free coats',
       'Luxury spa services available for pampered pets',
       'Mobile grooming perfect for waterfront homes',
-    ],
+      'Mobile pet grooming West Palm Beach: book mobile dog and cat groomers that come to your home across downtown, Northwood, Flamingo Park, and more',    ],
   },
   'fort-lauderdale': {
     name: 'Fort Lauderdale',
@@ -160,8 +159,7 @@ const cityData: Record<string, any> = {
       'Year-round grooming essential due to Florida\'s humid climate and beach lifestyle',
       'Same-day appointments available at most salons, especially weekdays',
       'Luxury spa treatments available for pampered pets in upscale neighborhoods',
-    ],
-  },
+    ],  },
   'jacksonville': {
     name: 'Jacksonville',
     state: 'FL',
@@ -499,6 +497,188 @@ export default async function CityPage({ params }: Props) {
             </div>
           </div>
         </section>
+      )}
+
+      {/* West Palm Beach Deep-Dive SEO Section */}
+      {citySlug === 'west-palm-beach' && (
+        <>
+          {/* Map + Overview */}
+          <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+            <div className="container mx-auto px-4 max-w-6xl">
+              <div className="grid md:grid-cols-2 gap-10 items-start">
+                <div>
+                  <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+                    Mobile Pet Grooming & Salons in West Palm Beach 🐕
+                  </h2>
+                  <p className="text-lg text-gray-700 mb-4">
+                    Looking for <strong>mobile pet grooming West Palm Beach</strong> or a trusted local
+                    salon? PetCareBooker connects you with dog and cat groomers across downtown West Palm
+                    Beach, Northwood, Flamingo Park, South Dixie, CityPlace, and the surrounding Palm Beach
+                    County neighborhoods. Compare prices, read verified reviews, and book online in seconds.
+                  </p>
+                  <p className="text-lg text-gray-700 mb-4">
+                    Whether you prefer a traditional grooming salon or <strong>mobile dog grooming West Palm
+                    Beach</strong> services that come right to your driveway, you will find options that fit
+                    your schedule, budget, and your pet&apos;s temperament. Many local groomers specialize in
+                    beach dogs, senior pets, and anxious rescue pups.
+                  </p>
+                  <p className="text-lg text-gray-700">
+                    Want a deeper breakdown of specific salons, mobile vans, and pricing? Read our in‑depth{' '}
+                    <Link href="/blog/best-pet-groomers-west-palm-beach" className="text-purple-600 font-semibold hover:underline">
+                      Best Pet Groomers in West Palm Beach guide
+                    </Link>{' '}
+                    for detailed recommendations, cost examples, and FAQs.
+                  </p>
+                </div>
+                <div className="rounded-3xl overflow-hidden shadow-2xl border border-purple-200 bg-white">
+                  <div className="h-80 w-full">
+                    <iframe
+                      title="Pet grooming in West Palm Beach, FL"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.118977708715!2d-80.064166!3d26.715342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d92b32b9c1d2a1%3A0x4c7e0d3d4e1e9a2!2sWest%20Palm%20Beach%2C%20FL!5e0!3m2!1sen!2sus!4v1700000000000"
+                      loading="lazy"
+                      className="w-full h-full border-0"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  </div>
+                  <div className="p-4 text-sm text-gray-600">
+                    View groomers across Downtown West Palm Beach, Northwood, Flamingo Park, El Cid, Grandview Heights,
+                    Palm Beach Shores, and nearby waterfront communities.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Pricing & Mobile Grooming Details */}
+          <section className="py-20 bg-white">
+            <div className="container mx-auto px-4 max-w-5xl">
+              <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-4">
+                West Palm Beach Pet Grooming Prices (2025) 💰
+              </h2>
+              <p className="text-center text-gray-700 text-lg mb-10 max-w-3xl mx-auto">
+                Grooming prices in West Palm Beach are competitive with other South Florida cities like{' '}
+                <Link href="/cities/fort-lauderdale" className="text-purple-600 font-semibold hover:underline">
+                  Fort Lauderdale
+                </Link>{' '}
+                and{' '}
+                <Link href="/cities/miami" className="text-purple-600 font-semibold hover:underline">
+                  Miami
+                </Link>
+                , while typically remaining 10–15% lower than luxury Palm Beach Island salons.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-8 mb-12">
+                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-100">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Salon Grooming in West Palm Beach</h3>
+                  <ul className="space-y-2 text-gray-700 text-lg">
+                    <li><strong>Small dogs (under 15 lbs):</strong> $55–$85</li>
+                    <li><strong>Medium dogs (15–40 lbs):</strong> $70–$105</li>
+                    <li><strong>Large dogs (40–80 lbs):</strong> $85–$125</li>
+                    <li><strong>Extra‑large dogs (80+ lbs):</strong> $110–$160</li>
+                    <li><strong>Cats:</strong> $60–$105 depending on coat length</li>
+                  </ul>
+                  <p className="mt-4 text-gray-700 text-sm">
+                    Prices usually include bath, haircut, nail trim, ear cleaning, and sanitary trim. Exact pricing
+                    depends on coat condition, matting, and requested style.
+                  </p>
+                </div>
+
+                <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-6 border border-orange-100">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Mobile Dog Grooming West Palm Beach</h3>
+                  <p className="text-gray-700 text-lg mb-3">
+                    <strong>Mobile grooming West Palm Beach</strong> vans typically charge{' '}
+                    <strong>$15–$25 more</strong> than in‑salon services in exchange for driveway‑side convenience
+                    and one‑on‑one attention.
+                  </p>
+                  <ul className="space-y-2 text-gray-700 text-lg">
+                    <li><strong>Small dogs:</strong> $70–$110</li>
+                    <li><strong>Medium dogs:</strong> $85–$125</li>
+                    <li><strong>Large dogs:</strong> $100–$150</li>
+                    <li><strong>Cats:</strong> $75–$115</li>
+                  </ul>
+                  <p className="mt-4 text-gray-700 text-sm">
+                    Mobile groomers are especially popular in waterfront communities, high‑rise condos along Flagler
+                    Drive, Palm Beach Shores, and gated communities throughout western Palm Beach County.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  How to Save on Pet Grooming in West Palm Beach
+                </h3>
+                <ul className="list-disc list-inside space-y-2 text-gray-700 text-lg">
+                  <li>Book regular appointments every 4–6 weeks to avoid matting fees and keep pricing predictable.</li>
+                  <li>Use bath‑only or de‑shedding packages between full grooms for beach dogs that swim often.</li>
+                  <li>
+                    Ask groomers listed on{' '}
+                    <Link href="/browse" className="text-purple-600 font-semibold hover:underline">
+                      PetCareBooker
+                    </Link>{' '}
+                    about multi‑pet or loyalty discounts.
+                  </li>
+                  <li>
+                    Read our{' '}
+                    <Link href="/blog/how-much-does-dog-grooming-cost" className="text-purple-600 font-semibold hover:underline">
+                      national dog grooming cost guide
+                    </Link>{' '}
+                    to compare West Palm Beach pricing with other U.S. cities.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Prep & Internal Links */}
+          <section className="py-20 bg-gray-50">
+            <div className="container mx-auto px-4 max-w-5xl">
+              <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+                Preparing Your Pet for a West Palm Beach Grooming Appointment ✂️
+              </h2>
+              <p className="text-center text-gray-700 text-lg mb-10 max-w-3xl mx-auto">
+                A little preparation goes a long way—especially in Florida&apos;s humid, beach‑heavy climate.
+                Follow these steps before you head to your West Palm Beach dog or cat groomer.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-white rounded-2xl p-6 shadow-md border border-purple-100">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Day Before Grooming</h3>
+                  <ul className="list-disc list-inside space-y-2 text-gray-700 text-lg">
+                    <li>Brush out loose fur and light tangles, especially after beach days.</li>
+                    <li>Check for sand, burrs, and ticks—common in Palm Beach County parks.</li>
+                    <li>
+                      Review our{' '}
+                      <Link href="/guides" className="text-purple-600 font-semibold hover:underline">
+                        step‑by‑step grooming preparation guide
+                      </Link>{' '}
+                      for detailed tips.
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-white rounded-2xl p-6 shadow-md border border-pink-100">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">Day Of Grooming</h3>
+                  <ul className="list-disc list-inside space-y-2 text-gray-700 text-lg">
+                    <li>Give your dog a bathroom break right before the appointment or mobile van arrival.</li>
+                    <li>Avoid feeding a large meal within 2 hours of grooming, especially in hot weather.</li>
+                    <li>
+                      Bring or share reference photos with your groomer so your West Palm Beach pup gets the
+                      exact style you want.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-10 text-center">
+                <Link
+                  href="/browse?city=west-palm-beach"
+                  className="inline-block bg-gradient-to-r from-purple-600 to-pink-500 text-white px-10 py-4 rounded-full text-lg font-bold hover:from-purple-700 hover:to-pink-600 transition-all hover:scale-110 shadow-xl"
+                >
+                  Browse West Palm Beach Groomers
+                </Link>
+              </div>
+            </div>
+          </section>
+        </>
       )}
 
       {/* Popular Areas */}
