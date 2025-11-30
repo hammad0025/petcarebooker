@@ -48,7 +48,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-=======
       url: `${baseUrl}/customer/login`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -117,7 +116,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog posts (HIGH PRIORITY for SEO)
   const blogSlugs = [
     'best-dog-groomers-nyc',
-=======
     'how-much-does-dog-grooming-cost',
     'best-pet-groomers-west-palm-beach',
     'tampa-pet-grooming-guide',
