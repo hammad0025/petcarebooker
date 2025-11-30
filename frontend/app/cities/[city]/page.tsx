@@ -997,7 +997,6 @@ export default async function CityPage({ params }: Props) {
               'https://www.petcarebooker.com',
             ],
             telephone: '+1-800-PET-CARE',
-            priceRange: city.avgPrice || '$$',
           }),
         }}
       />
