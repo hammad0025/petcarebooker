@@ -181,11 +181,19 @@ const cityData: Record<string, any> = {
   'tallahassee': {
     name: 'Tallahassee',
     state: 'FL',
-    description: 'Find pet groomers in Tallahassee, FL. Serving Midtown, College Town, and nearby neighborhoods with professional grooming services.',
-    neighborhoods: ['Midtown', 'College Town', 'Killearn', 'Southwood', 'Betton Hills'],
+    description: 'Find top-rated pet groomers and mobile pet grooming in Tallahassee, FL. Book dog and cat grooming services near FSU, in Midtown, College Town, and throughout Leon County with instant online booking.',
+    neighborhoods: ['Midtown', 'College Town', 'Killearn', 'Southwood', 'Betton Hills', 'FSU Area', 'Downtown Tallahassee', 'Northeast Tallahassee', 'Southside', 'Lake Jackson', 'Apalachee Parkway', 'Thomasville Road'],
     avgPrice: '$50-$100',
     totalGroomers: 41,
-    topServices: ['Dog Grooming', 'Cat Grooming', 'Student-Friendly Pricing', 'Mobile Grooming'],
+    topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Student-Friendly Pricing'],
+    quickFacts: [
+      '41+ verified professional groomers serving Tallahassee and Leon County',
+      'Student-friendly pricing - perfect for FSU and FAMU students',
+      'Mobile pet grooming Tallahassee services available throughout the city',
+      'Affordable grooming options - lower prices than major metro areas',
+      'Same-day appointments available, especially during summer break',
+      'Pet grooming Tallahassee FL: serving Midtown, College Town, and all neighborhoods',
+    ],
   },
   'gainesville': {
     name: 'Gainesville',
@@ -293,10 +301,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  // Special handling for Fort Lauderdale to target exact keyword
+  // Special handling for Fort Lauderdale and Tallahassee to target exact keywords
   const isFortLauderdale = citySlug === 'fort-lauderdale';
+  const isTallahassee = citySlug === 'tallahassee';
   const title = isFortLauderdale 
     ? `Pet Grooming Fort Lauderdale: Best Dog & Cat Groomers | Book Online`
+    : isTallahassee
+    ? `Pet Groomers in Tallahassee, FL | Book Online | 41+ Verified Groomers`
     : `Pet Groomers in ${city.name}, ${city.state} | Book Online | PetCareBooker`;
   
   const canonicalUrl = `https://petcarebooker.com/cities/${citySlug}`;
@@ -308,7 +319,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: isFortLauderdale ? 'Pet Grooming Fort Lauderdale: Best Salons & Mobile Services' : `Best Pet Groomers in ${city.name}`,
+      title: isFortLauderdale 
+        ? 'Pet Grooming Fort Lauderdale: Best Salons & Mobile Services' 
+        : isTallahassee
+        ? 'Pet Groomers in Tallahassee, FL | Book Dog & Cat Grooming Online'
+        : `Best Pet Groomers in ${city.name}`,
       description: city.description,
       type: 'website',
       url: canonicalUrl,
@@ -420,6 +435,122 @@ export default async function CityPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Tallahassee-Specific: Map & Coverage Area */}
+      {citySlug === 'tallahassee' && (
+        <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              Pet Grooming Coverage Map - Tallahassee, FL 🗺️
+            </h2>
+            <p className="text-center text-gray-700 text-xl mb-8 max-w-3xl mx-auto">
+              Our verified pet groomers serve all of Tallahassee and Leon County, including Midtown, College Town near FSU, Killearn, Southwood, and surrounding neighborhoods. Mobile pet grooming Tallahassee services are available throughout the area.
+            </p>
+            
+            <div className="max-w-5xl mx-auto mb-8">
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220895.34567890123!2d-84.2807!3d30.4515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88ec8b8b8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sTallahassee%2C%20FL!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                  width="100%"
+                  height="450"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full"
+                  title="Pet Grooming Coverage Map - Tallahassee, FL"
+                />
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">📍 Areas We Serve</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Midtown Tallahassee</li>
+                  <li>• College Town (FSU area)</li>
+                  <li>• Killearn</li>
+                  <li>• Southwood</li>
+                  <li>• Betton Hills</li>
+                  <li>• Downtown Tallahassee</li>
+                  <li>• Northeast Tallahassee</li>
+                  <li>• All of Leon County</li>
+                </ul>
+              </div>
+              <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">🚐 Mobile Grooming Available</h3>
+                <p className="text-gray-700 mb-4">
+                  Mobile pet grooming Tallahassee services come directly to your home, perfect for busy FSU students, families, and pet parents throughout the city.
+                </p>
+                <Link 
+                  href="/browse?city=tallahassee&service=mobile-grooming"
+                  className="inline-block bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition"
+                >
+                  Find Mobile Groomers →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Tallahassee-Specific: Pricing Guide */}
+      {citySlug === 'tallahassee' && (
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              Pet Grooming Prices in Tallahassee, FL (2025) 💰
+            </h2>
+            <p className="text-center text-gray-700 text-xl mb-12 max-w-3xl mx-auto">
+              Tallahassee offers some of the most affordable pet grooming in Florida. Prices are typically 20-30% lower than major metro areas like Miami or Tampa, making it perfect for students and budget-conscious pet parents.
+            </p>
+
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 mb-8">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">Salon Grooming Prices</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-white rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Small Dogs (under 20 lbs)</h4>
+                  <p className="text-3xl font-bold text-purple-600 mb-2">$45-$75</p>
+                  <p className="text-gray-600">Includes: Bath, haircut, nails, ears</p>
+                </div>
+                <div className="bg-white rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Medium Dogs (20-50 lbs)</h4>
+                  <p className="text-3xl font-bold text-purple-600 mb-2">$60-$90</p>
+                  <p className="text-gray-600">Includes: Full groom package</p>
+                </div>
+                <div className="bg-white rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Large Dogs (50+ lbs)</h4>
+                  <p className="text-3xl font-bold text-purple-600 mb-2">$75-$100</p>
+                  <p className="text-gray-600">Includes: Complete grooming service</p>
+                </div>
+                <div className="bg-white rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Cats</h4>
+                  <p className="text-3xl font-bold text-purple-600 mb-2">$50-$85</p>
+                  <p className="text-gray-600">Gentle handling, specialized care</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-pink-50 to-orange-50 rounded-3xl p-8">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">Mobile Pet Grooming Tallahassee Prices</h3>
+              <p className="text-gray-700 mb-4">
+                Mobile grooming typically costs $10-$20 more than salon prices for the convenience of coming to your home:
+              </p>
+              <ul className="space-y-3 text-gray-700">
+                <li>• <strong>Small dogs:</strong> $55-$90</li>
+                <li>• <strong>Medium dogs:</strong> $70-$110</li>
+                <li>• <strong>Large dogs:</strong> $85-$120</li>
+                <li>• <strong>Cats:</strong> $60-$100</li>
+              </ul>
+              <p className="text-gray-600 text-sm mt-4">
+                <Link href="/blog/how-much-does-dog-grooming-cost" className="text-purple-600 font-bold hover:underline">
+                  Learn more about pet grooming costs →
+                </Link>
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Featured Groomer - only for cities that have it */}
       {city.featuredGroomer && (
