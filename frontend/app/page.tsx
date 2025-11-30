@@ -690,50 +690,6 @@ export default function HomePage() {
       </div>
 
       <Footer />
-              <h4 className="font-bold mb-4">Florida Cities</h4>
-              <ul className="space-y-2">
-                <li><Link href="/cities/miami" className="text-gray-400 hover:text-white transition">Miami</Link></li>
-                <li><Link href="/cities/tampa" className="text-gray-400 hover:text-white transition">Tampa</Link></li>
-                <li><Link href="/cities/orlando" className="text-gray-400 hover:text-white transition">Orlando</Link></li>
-                <li><Link href="/cities/west-palm-beach" className="text-gray-400 hover:text-white transition">West Palm Beach</Link></li>
-                <li><Link href="/cities/fort-lauderdale" className="text-gray-400 hover:text-white transition">Fort Lauderdale</Link></li>
-                <li><Link href="/cities/jacksonville" className="text-gray-400 hover:text-white transition">Jacksonville</Link></li>
-                <li><Link href="/cities/naples" className="text-gray-400 hover:text-white transition">Naples</Link></li>
-                <li><Link href="/browse" className="text-gray-400 hover:text-white transition">View All →</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-bold mb-4">New York Cities</h4>
-              <ul className="space-y-2">
-                <li><Link href="/cities/new-york-city" className="text-gray-400 hover:text-white transition">New York City</Link></li>
-                <li><Link href="/cities/brooklyn" className="text-gray-400 hover:text-white transition">Brooklyn</Link></li>
-                <li><Link href="/cities/queens" className="text-gray-400 hover:text-white transition">Queens</Link></li>
-                <li><Link href="/cities/buffalo" className="text-gray-400 hover:text-white transition">Buffalo</Link></li>
-                <li><Link href="/cities/rochester" className="text-gray-400 hover:text-white transition">Rochester</Link></li>
-                <li><Link href="/cities/syracuse" className="text-gray-400 hover:text-white transition">Syracuse</Link></li>
-                <li><Link href="/cities/albany" className="text-gray-400 hover:text-white transition">Albany</Link></li>
-                <li><Link href="/browse" className="text-gray-400 hover:text-white transition">View All →</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-bold mb-4">Support</h4>
-              <ul className="space-y-2">
-                <li><Link href="/help" className="text-gray-400 hover:text-white transition">Help Center</Link></li>
-                <li><Link href="/faq" className="text-gray-400 hover:text-white transition">FAQ</Link></li>
-                <li><Link href="/contact" className="text-gray-400 hover:text-white transition">Contact Us</Link></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-800 pt-8 text-center">
-            <p className="text-gray-400">
-              © 2025 PetCareBooker. Making tails wag since today! 🐾
-            </p>
-          </div>
-        </div>
-      </footer>
 
       {/* Schema.org JSON-LD */}
       <script
