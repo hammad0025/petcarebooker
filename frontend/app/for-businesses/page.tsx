@@ -61,6 +61,114 @@ export default function ForBusinessesPage() {
         </div>
       </section>
 
+      {/* Business FAQ */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-10">
+            Groomer FAQ 💬
+          </h2>
+          <div className="space-y-4">
+            <details className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
+              <summary className="font-bold text-xl text-gray-900 cursor-pointer">
+                How long does onboarding take?
+              </summary>
+              <p className="mt-4 text-gray-600 text-lg">
+                Most groomers go live in under 10 minutes. Import your services, pick your availability, upload a few photos, and you're ready to accept bookings instantly.
+              </p>
+            </details>
+            <details className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
+              <summary className="font-bold text-xl text-gray-900 cursor-pointer">
+                Do you charge any monthly or setup fees?
+              </summary>
+              <p className="mt-4 text-gray-600 text-lg">
+                Nope. It&apos;s 100% free to list your business. We only earn when you do: 8% success fee on appointments booked through PetCareBooker.
+              </p>
+            </details>
+            <details className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
+              <summary className="font-bold text-xl text-gray-900 cursor-pointer">
+                How do payouts work?
+              </summary>
+              <p className="mt-4 text-gray-600 text-lg">
+                After each completed appointment, funds are automatically deposited to your connected bank account within 2 business days. Track everything inside your payout dashboard.
+              </p>
+            </details>
+            <details className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
+              <summary className="font-bold text-xl text-gray-900 cursor-pointer">
+                Can I talk to someone before signing up?
+              </summary>
+              <p className="mt-4 text-gray-600 text-lg">
+                Absolutely! Email <a href="mailto:hello@petcarebooker.com" className="text-purple-600 font-semibold">hello@petcarebooker.com</a> to book a quick walkthrough or ask any questions.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Tour */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <h2 className="text-5xl font-extrabold text-gray-900 mb-4">
+                Peek Inside the Dashboard 👀
+              </h2>
+              <p className="text-gray-600 text-xl mb-6">
+                We built PetCareBooker with busy groomers in mind. Everything you need—calendar, clients,
+                payments, reminders—is a tap away. No tech headaches.
+              </p>
+              <ul className="space-y-3 text-gray-700 text-lg">
+                <li>✅ Drag-and-drop calendar with blocked time support</li>
+                <li>✅ Client CRM with pet notes, allergy alerts, and visit history</li>
+                <li>✅ Automated SMS + email reminders to crush no-shows</li>
+                <li>✅ Instant deposits to your bank with full payout transparency</li>
+              </ul>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link href="/register" className="bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition">
+                  Create Free Account
+                </Link>
+                <a href="mailto:hello@petcarebooker.com" className="font-semibold text-purple-600 hover:underline">
+                  Book a 15-min demo →
+                </a>
+              </div>
+            </div>
+            <div className="grid gap-4">
+              <div className="bg-white rounded-3xl shadow-2xl border border-purple-100 p-6">
+                <p className="text-sm font-semibold text-purple-600 mb-2">Calendar View</p>
+                <div className="h-56 bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl flex items-center justify-center text-gray-600 font-semibold">
+                  Calendar & booking grid preview
+                </div>
+              </div>
+              <div className="bg-white rounded-3xl shadow-2xl border border-pink-100 p-6">
+                <p className="text-sm font-semibold text-pink-500 mb-2">Client Profiles</p>
+                <div className="h-40 bg-gradient-to-br from-pink-100 to-orange-100 rounded-2xl flex items-center justify-center text-gray-600 font-semibold">
+                  Pet + owner CRM preview
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Credibility Stats */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-6 text-center">
+            <div className="bg-gradient-to-br from-purple-50 to-white rounded-3xl p-8 shadow-lg border border-purple-100">
+              <p className="text-5xl font-extrabold text-purple-600 mb-2">+120%</p>
+              <p className="text-gray-600 text-lg">Average increase in booked appointments after 60 days</p>
+            </div>
+            <div className="bg-gradient-to-br from-pink-50 to-white rounded-3xl p-8 shadow-lg border border-pink-100">
+              <p className="text-5xl font-extrabold text-pink-500 mb-2">4.9 / 5</p>
+              <p className="text-gray-600 text-lg">Average rating pet parents give groomers on PetCareBooker</p>
+            </div>
+            <div className="bg-gradient-to-br from-orange-50 to-white rounded-3xl p-8 shadow-lg border border-orange-100">
+              <p className="text-5xl font-extrabold text-orange-500 mb-2">5 min</p>
+              <p className="text-gray-600 text-lg">Time it takes to launch your profile and accept your first booking</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -117,6 +225,37 @@ export default function ForBusinessesPage() {
               <h3 className="text-2xl font-bold mb-3 text-gray-900">Easy to Use</h3>
               <p className="text-gray-600 text-lg">
                 No tech skills needed. Set up in minutes. Manage everything from your phone or computer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing & payouts */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-10">
+            <div className="bg-gradient-to-br from-purple-600 to-pink-500 text-white rounded-3xl p-10 shadow-2xl">
+              <p className="text-sm uppercase tracking-widest mb-2">Pricing</p>
+              <h3 className="text-4xl font-extrabold mb-4">No monthly fees. Ever.</h3>
+              <ul className="space-y-3 text-lg">
+                <li>• Free listing, free calendar, free messaging</li>
+                <li>• 8% success fee only when we send you a paid booking</li>
+                <li>• You keep full control of prices, add-ons, deposits</li>
+                <li>• Cancel anytime — no contracts, no setup fees</li>
+              </ul>
+            </div>
+            <div className="bg-white rounded-3xl shadow-xl border border-gray-200 p-10">
+              <p className="text-sm font-semibold text-gray-500 mb-2">Payouts & support</p>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">Get paid fast, stay in control</h3>
+              <ul className="space-y-3 text-gray-700 text-lg">
+                <li>• Funds are deposited to your bank 2 business days after each appointment</li>
+                <li>• Detailed payout dashboard with downloadable CSVs</li>
+                <li>• Dispute assistance + chargeback protection included</li>
+                <li>• Dedicated slack/email support for partner groomers</li>
+              </ul>
+              <p className="text-gray-500 text-sm mt-6">
+                Need custom pricing for multi-location salons? <a href="mailto:hello@petcarebooker.com" className="text-purple-600 font-semibold">Contact us</a>.
               </p>
             </div>
           </div>
