@@ -49,13 +49,33 @@ def get_allowed_origins():
             "https://*.vercel.app",  # Also allow Vercel in dev
         ]
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins in production for now
-    allow_credentials=True,
-    allow_methods=["GET", "POST", "PATCH", "PUT", "DELETE"],
-    allow_headers=["Content-Type", "Authorization"],
-)
+# Get allowed origins based on environment
+allowed_origins = get_allowed_origins()
+
+# Use specific origins in production, wildcard in development
+is_production = os.getenv("ENVIRONMENT") == "production"
+
+if is_production:
+    # Production: specific origins with credentials
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=[
+            "https://petcarebooker.com",
+            "https://www.petcarebooker.com",
+        ],
+        allow_credentials=True,
+        allow_methods=["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
+        allow_headers=["Content-Type", "Authorization"],
+    )
+else:
+    # Development: allow all origins without credentials
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=False,
+        allow_methods=["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
+        allow_headers=["Content-Type", "Authorization"],
+    )
 
 
 # Helper Functions
