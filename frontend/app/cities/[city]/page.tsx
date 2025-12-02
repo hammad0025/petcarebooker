@@ -147,20 +147,22 @@ const cityData: Record<string, any> = {
   'fort-lauderdale': {
     name: 'Fort Lauderdale',
     state: 'FL',
-    description: 'Pet grooming Fort Lauderdale: Find the best dog and cat groomers. Book top-rated pet grooming Fort Lauderdale services instantly with verified reviews. Serving Las Olas, Victoria Park, Wilton Manors, Harbor Beach, and all of Broward County. Best dog and cat groomers with mobile and salon services.',
+    description: 'Dog groomers Fort Lauderdale: Find top-rated groomers Fort Lauderdale and pet groomer Fort Lauderdale services. Book mobile dog grooming Fort Lauderdale and mobile grooming Fort Lauderdale instantly with verified reviews. Serving Las Olas, Victoria Park, Wilton Manors, Harbor Beach, and all of Broward County.',
     neighborhoods: ['Las Olas', 'Victoria Park', 'Wilton Manors', 'Harbor Beach', 'Rio Vista', 'Lauderdale-by-the-Sea', 'Colee Hammock', 'Coral Ridge', 'Imperial Point', 'Downtown Fort Lauderdale', 'Pompano Beach', 'Oakland Park', 'Fort Lauderdale Beach', 'Coral Ridge', 'Seven Isles'],
     avgPrice: '$65-$130',
     totalGroomers: 98,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Beach Bath Packages'],
     quickFacts: [
       '98+ verified professional groomers serving all of Broward County',
-      'Best dog and cat groomers in Fort Lauderdale with 4.9★ average rating',
+      'Dog groomers Fort Lauderdale and groomers Fort Lauderdale with 4.9★ average rating',
+      'Mobile dog grooming Fort Lauderdale and mobile grooming Fort Lauderdale available',
+      'Pet groomer Fort Lauderdale professionals specialize in beach dogs and luxury spa treatments',
       'Specialized beach dog grooming - saltwater removal and sand treatment experts',
       'Mobile grooming available for waterfront homes, marinas, and yacht-side service',
       'Year-round grooming essential due to Florida\'s humid climate and beach lifestyle',
       'Same-day appointments available at most salons, especially weekdays',
       'Luxury spa treatments available for pampered pets in upscale neighborhoods',
-      'Pet grooming Fort Lauderdale: serving Las Olas, Victoria Park, and all neighborhoods',
+      'Dog groomers Fort Lauderdale: serving Las Olas, Victoria Park, and all neighborhoods',
     ],  },
   'jacksonville': {
     name: 'Jacksonville',
@@ -578,7 +580,7 @@ export default async function CityPage({ params }: Props) {
               Pet Grooming Coverage Map - Fort Lauderdale, FL 🗺️
             </h2>
             <p className="text-center text-gray-700 text-xl mb-8 max-w-3xl mx-auto">
-              Looking for <strong>pet grooming Fort Lauderdale</strong> services? Our verified <strong>dog and cat groomers</strong> serve all of Fort Lauderdale and Broward County, including Las Olas, Victoria Park, Wilton Manors, Harbor Beach, Rio Vista, Lauderdale-by-the-Sea, and downtown Fort Lauderdale. <strong>Pet grooming Fort Lauderdale</strong> professionals offer both salon and mobile services perfect for waterfront homes, marinas, and yacht-side service. Compare prices, read verified reviews, and <Link href="/browse?city=fort-lauderdale" className="text-purple-600 font-semibold hover:underline">book instantly online</Link>.
+              Looking for <strong>dog groomers Fort Lauderdale</strong> or <strong>groomers Fort Lauderdale</strong>? Our verified <strong>pet groomer Fort Lauderdale</strong> professionals serve all of Fort Lauderdale and Broward County, including Las Olas, Victoria Park, Wilton Manors, Harbor Beach, Rio Vista, Lauderdale-by-the-Sea, and downtown Fort Lauderdale. <strong>Dog groomers Fort Lauderdale</strong> offer both salon and <strong>mobile dog grooming Fort Lauderdale</strong> services perfect for waterfront homes, marinas, and yacht-side service. Compare prices, read verified reviews, and <Link href="/browse?city=fort-lauderdale" className="text-purple-600 font-semibold hover:underline">book instantly online</Link>.
             </p>
             
             <div className="max-w-5xl mx-auto mb-8">
@@ -612,9 +614,9 @@ export default async function CityPage({ params }: Props) {
                 </ul>
               </div>
               <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">🐕 Best Dog & Cat Groomers</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">🐕 Dog Groomers Fort Lauderdale</h3>
                 <p className="text-gray-700 mb-4">
-                  Our <strong>pet grooming Fort Lauderdale</strong> professionals specialize in beach dogs, luxury spa treatments, and gentle cat grooming. Many offer mobile services that come to your waterfront home or marina.
+                  Our <strong>dog groomers Fort Lauderdale</strong> and <strong>groomers Fort Lauderdale</strong> professionals specialize in beach dogs, luxury spa treatments, and gentle cat grooming. Many offer <strong>mobile grooming Fort Lauderdale</strong> services that come to your waterfront home or marina.
                 </p>
                 <Link 
                   href="/browse?city=fort-lauderdale"
@@ -666,9 +668,9 @@ export default async function CityPage({ params }: Props) {
             </div>
 
             <div className="bg-gradient-to-br from-pink-50 to-orange-50 rounded-3xl p-8">
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">Mobile Pet Grooming Fort Lauderdale</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">Mobile Dog Grooming Fort Lauderdale</h3>
               <p className="text-gray-700 mb-4">
-                Mobile <strong>pet grooming Fort Lauderdale</strong> services typically cost $15-$25 more than salon prices for the convenience of coming to your home, marina, or yacht:
+                <strong>Mobile dog grooming Fort Lauderdale</strong> and <strong>mobile grooming Fort Lauderdale</strong> services typically cost $15-$25 more than salon prices for the convenience of coming to your home, marina, or yacht. Our <strong>groomers Fort Lauderdale</strong> mobile professionals bring the full salon experience to you:
               </p>
               <ul className="space-y-3 text-gray-700">
                 <li>• <strong>Small dogs:</strong> $75-$110</li>
@@ -691,23 +693,23 @@ export default async function CityPage({ params }: Props) {
             <div className="grid md:grid-cols-2 gap-10 items-start">
               <div>
                 <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
-                  Best Dog & Cat Groomers in Fort Lauderdale 🐕🐈
+                  Dog Groomers Fort Lauderdale & Pet Groomer Fort Lauderdale 🐕🐈
                 </h2>
                 <p className="text-lg text-gray-700 mb-4">
-                  Looking for the <strong>best dog and cat groomers</strong> in Fort Lauderdale? PetCareBooker connects you with top-rated <strong>pet grooming Fort Lauderdale</strong> professionals across Las Olas, Victoria Park, Wilton Manors, Harbor Beach, and all of Broward County. Compare prices, read verified reviews, and book online in seconds.
+                  Looking for <strong>dog groomers Fort Lauderdale</strong> or a <strong>pet groomer Fort Lauderdale</strong>? PetCareBooker connects you with top-rated <strong>groomers Fort Lauderdale</strong> professionals across Las Olas, Victoria Park, Wilton Manors, Harbor Beach, and all of Broward County. Compare prices, read verified reviews, and book online in seconds.
                 </p>
                 <p className="text-lg text-gray-700 mb-4">
-                  Our <strong>pet grooming Fort Lauderdale</strong> professionals specialize in:
+                  Our <strong>dog groomers Fort Lauderdale</strong> and <strong>pet groomer Fort Lauderdale</strong> professionals specialize in:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-gray-700 text-lg mb-4">
                   <li>Beach dog grooming - saltwater removal and sand treatment experts</li>
                   <li>Luxury spa treatments for pampered pets</li>
                   <li>Gentle cat grooming for anxious felines</li>
-                  <li>Mobile grooming for waterfront homes and marinas</li>
+                  <li><strong>Mobile dog grooming Fort Lauderdale</strong> and <strong>mobile grooming Fort Lauderdale</strong> for waterfront homes and marinas</li>
                   <li>Year-round grooming essential for Florida&apos;s humid climate</li>
                 </ul>
                 <p className="text-lg text-gray-700">
-                  Whether you prefer a traditional grooming salon or mobile services that come right to your driveway or yacht, you&apos;ll find <strong>best dog and cat groomers</strong> that fit your schedule, budget, and your pet&apos;s needs.
+                  Whether you prefer a traditional grooming salon or <strong>mobile dog grooming Fort Lauderdale</strong> services that come right to your driveway or yacht, you&apos;ll find <strong>dog groomers Fort Lauderdale</strong> and <strong>groomers Fort Lauderdale</strong> that fit your schedule, budget, and your pet&apos;s needs.
                 </p>
               </div>
               <div className="bg-white rounded-2xl p-6 shadow-lg">
@@ -741,6 +743,72 @@ export default async function CityPage({ params }: Props) {
                   Browse Fort Lauderdale Groomers →
                 </Link>
               </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Fort Lauderdale-Specific: Mobile Dog Grooming Section */}
+      {citySlug === 'fort-lauderdale' && (
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              Mobile Dog Grooming Fort Lauderdale 🚐
+            </h2>
+            <p className="text-center text-gray-700 text-xl mb-10 max-w-3xl mx-auto">
+              Looking for <strong>mobile dog grooming Fort Lauderdale</strong> or <strong>mobile grooming Fort Lauderdale</strong> services? Our <strong>groomers Fort Lauderdale</strong> mobile professionals bring the full salon experience directly to your home, marina, or yacht. Perfect for busy pet parents, waterfront residents, and those who prefer the convenience of at-home grooming.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-10">
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-100">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Mobile Dog Grooming Fort Lauderdale Benefits</h3>
+                <ul className="space-y-3 text-gray-700 text-lg">
+                  <li>✓ <strong>Mobile dog grooming Fort Lauderdale</strong> comes to your location</li>
+                  <li>✓ One-on-one attention for your pet</li>
+                  <li>✓ Perfect for anxious dogs who prefer familiar surroundings</li>
+                  <li>✓ Ideal for waterfront homes, marinas, and luxury communities</li>
+                  <li>✓ No need to leave your home or office</li>
+                  <li>✓ Same professional quality as salon grooming</li>
+                </ul>
+                <p className="mt-4 text-gray-600 text-sm">
+                  <strong>Mobile grooming Fort Lauderdale</strong> services are especially popular in Las Olas, Harbor Beach, and waterfront communities throughout Broward County.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-6 border border-orange-100">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">What to Expect</h3>
+                <ul className="space-y-3 text-gray-700 text-lg">
+                  <li>• Fully equipped mobile grooming van with all salon amenities</li>
+                  <li>• Professional <strong>groomers Fort Lauderdale</strong> with years of experience</li>
+                  <li>• Same services as salon: bath, haircut, nails, ears, anal glands</li>
+                  <li>• Typically 1-2 hour appointment per pet</li>
+                  <li>• Convenient scheduling - book <strong>mobile dog grooming Fort Lauderdale</strong> around your schedule</li>
+                </ul>
+                <Link 
+                  href="/browse?city=fort-lauderdale&service=mobile-grooming"
+                  className="inline-block mt-4 bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition"
+                >
+                  Book Mobile Grooming →
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Mobile Dog Grooming Fort Lauderdale Pricing
+              </h3>
+              <p className="text-gray-700 mb-4 text-lg">
+                <strong>Mobile dog grooming Fort Lauderdale</strong> and <strong>mobile grooming Fort Lauderdale</strong> services typically cost $15-$25 more than salon prices for the convenience of coming to your location:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 text-lg">
+                <li><strong>Small dogs:</strong> $75-$110 (vs $60-$85 in salon)</li>
+                <li><strong>Medium dogs:</strong> $90-$130 (vs $75-$105 in salon)</li>
+                <li><strong>Large dogs:</strong> $105-$155 (vs $90-$130 in salon)</li>
+                <li><strong>Cats:</strong> $80-$125 (vs $65-$100 in salon)</li>
+              </ul>
+              <p className="text-gray-600 text-sm mt-4">
+                Many <strong>dog groomers Fort Lauderdale</strong> offer mobile services. Book <strong>mobile grooming Fort Lauderdale</strong> appointments with our verified professionals.
+              </p>
             </div>
           </div>
         </section>
