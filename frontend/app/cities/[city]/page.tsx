@@ -88,46 +88,54 @@ const cityData: Record<string, any> = {
   'miami': {
     name: 'Miami',
     state: 'FL',
-    description: 'Book pet grooming in Miami with ease. Find experienced groomers in South Beach, Coral Gables, Brickell, and throughout Miami-Dade with instant online booking.',
-    neighborhoods: ['South Beach', 'Coral Gables', 'Brickell', 'Wynwood', 'Coconut Grove', 'Design District', 'Little Havana', 'Key Biscayne'],
+    description: 'Find top-rated dog groomers and cat grooming in Miami, FL. Book dog grooming Miami and cat grooming Miami FL services with verified reviews. Serving South Beach, Coral Gables, Brickell, and throughout Miami-Dade County.',
+    neighborhoods: ['South Beach', 'Coral Gables', 'Brickell', 'Wynwood', 'Coconut Grove', 'Design District', 'Little Havana', 'Key Biscayne', 'Downtown Miami', 'Aventura', 'Bal Harbour', 'Sunny Isles', 'Doral', 'Miami Beach'],
     avgPrice: '$65-$130',
     totalGroomers: 142,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Beach Bath Packages'],
     quickFacts: [
-      '142+ verified groomers across Miami-Dade County',
-      'Specialized beach dog cleaning services available',
+      '142+ verified professional groomers across Miami-Dade County',
+      'Dog grooming Miami and cat grooming Miami FL specialists',
+      'Specialized beach dog cleaning services - saltwater removal experts',
       'Bilingual groomers (English/Spanish) available',
-      'Many salons offer luxury spa treatments',
+      'Mobile pet grooming Miami services available throughout the city',
+      'Many salons offer luxury spa treatments for pampered pets',
+      'Pet grooming Miami FL: serving South Beach, Coral Gables, and all neighborhoods',
     ],
   },
   'tampa': {
     name: 'Tampa',
     state: 'FL',
-    description: 'Find the best pet groomers in Tampa Bay. From Ybor City to Hyde Park, book verified groomers with real reviews and same-day availability.',
-    neighborhoods: ['Hyde Park', 'Ybor City', 'Seminole Heights', 'Westshore', 'South Tampa', 'Channelside', 'Downtown Tampa', 'Palma Ceia'],
+    description: 'Find top-rated dog groomers and cat grooming in Tampa, FL. Book dog grooming Tampa and cat grooming Tampa FL services with verified reviews. Serving Hyde Park, Ybor City, Seminole Heights, and throughout Hillsborough County.',
+    neighborhoods: ['Hyde Park', 'Ybor City', 'Seminole Heights', 'Westshore', 'South Tampa', 'Channelside', 'Downtown Tampa', 'Palma Ceia', 'Davis Islands', 'Carrollwood', 'New Tampa', 'Westchase', 'Brandon'],
     avgPrice: '$60-$120',
     totalGroomers: 134,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Spa Treatments'],
     quickFacts: [
       '134+ trusted groomers serving Tampa Bay area',
+      'Dog grooming Tampa and cat grooming Tampa FL specialists',
       'Most groomers offer air-conditioned facilities (important in FL heat!)',
       'Same-day and next-day appointments widely available',
-      'Mobile grooming services throughout Hillsborough County',
+      'Mobile pet grooming Tampa services throughout Hillsborough County',
+      'Pet grooming Tampa FL: serving Hyde Park, Ybor City, and all neighborhoods',
     ],
   },
   'orlando': {
     name: 'Orlando',
     state: 'FL',
-    description: 'Book pet grooming in Orlando instantly. Discover experienced groomers from Winter Park to Lake Nona with verified reviews and real-time booking.',
-    neighborhoods: ['Winter Park', 'Downtown Orlando', 'Lake Nona', 'Dr. Phillips', 'College Park', 'Baldwin Park', 'Thornton Park', 'Milk District'],
+    description: 'Find top-rated dog groomers and cat grooming in Orlando, FL. Book dog grooming Orlando and cat grooming Orlando FL services with verified reviews. Serving Winter Park, Lake Nona, Dr. Phillips, and throughout Orange County.',
+    neighborhoods: ['Winter Park', 'Downtown Orlando', 'Lake Nona', 'Dr. Phillips', 'College Park', 'Baldwin Park', 'Thornton Park', 'Milk District', 'Windermere', 'Celebration', 'Kissimmee', 'Oviedo', 'Apopka'],
     avgPrice: '$60-$125',
     totalGroomers: 156,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Creative Grooming'],
     quickFacts: [
       '156+ verified groomers in the Orlando metro area',
+      'Dog grooming Orlando and cat grooming Orlando FL specialists',
       'Tourist-friendly: Many groomers welcome visiting pets',
       'Theme park proximity - convenient for vacation pet care',
+      'Mobile pet grooming Orlando services available',
       'Creative grooming specialists available',
+      'Pet grooming Orlando FL: serving Winter Park, Lake Nona, and all neighborhoods',
     ],
   },
   'west-palm-beach': {
@@ -168,11 +176,20 @@ const cityData: Record<string, any> = {
   'jacksonville': {
     name: 'Jacksonville',
     state: 'FL',
-    description: 'Book pet grooming in Jacksonville, FL. Find professional groomers in Riverside, San Marco, and throughout Duval County.',
-    neighborhoods: ['Riverside', 'San Marco', 'Avondale', 'Jacksonville Beach', 'Southside', 'Mandarin', 'Ponte Vedra'],
+    description: 'Find top-rated dog groomers and cat grooming in Jacksonville, FL. Book dog grooming Jacksonville and cat grooming Jacksonville FL services with verified reviews. Serving Riverside, San Marco, Jacksonville Beach, and throughout Duval County.',
+    neighborhoods: ['Riverside', 'San Marco', 'Avondale', 'Jacksonville Beach', 'Southside', 'Mandarin', 'Ponte Vedra', 'Downtown Jacksonville', 'Murray Hill', 'Springfield', 'Atlantic Beach', 'Neptune Beach', 'Orange Park', 'Fleming Island'],
     avgPrice: '$55-$110',
     totalGroomers: 87,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Large Breed Specialists'],
+    quickFacts: [
+      '87+ verified professional groomers serving all of Duval County',
+      'Expert cat grooming Jacksonville FL services - gentle handling for anxious felines',
+      'Dog grooming Jacksonville specialists for large breeds and beach dogs',
+      'Mobile pet grooming Jacksonville services available throughout the city',
+      'Beach dog specialists - serving Jacksonville Beach, Atlantic Beach, and Neptune Beach',
+      'Large breed specialists - perfect for Great Danes, Mastiffs, and other big dogs',
+      'Pet grooming Jacksonville FL: serving Riverside, San Marco, and all neighborhoods',
+    ],
   },
   'st-petersburg': {
     name: 'St. Petersburg',
@@ -1041,6 +1058,181 @@ export default async function CityPage({ params }: Props) {
                 <li>• <strong>Medium dogs:</strong> $70-$105</li>
                 <li>• <strong>Large dogs:</strong> $85-$120</li>
                 <li>• <strong>Beach dogs:</strong> $65-$110 (includes sand removal)</li>
+              </ul>
+              <p className="text-gray-600 text-sm mt-4">
+                <Link href="/blog/how-much-does-dog-grooming-cost" className="text-purple-600 font-bold hover:underline">
+                  Learn more about pet grooming costs →
+                </Link>
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Jacksonville-Specific: Map & Coverage Area */}
+      {citySlug === 'jacksonville' && (
+        <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              Pet Grooming Coverage Map - Jacksonville, FL 🗺️
+            </h2>
+            <p className="text-center text-gray-700 text-xl mb-8 max-w-3xl mx-auto">
+              Looking for <strong>dog grooming Jacksonville</strong> or <strong>cat grooming Jacksonville FL</strong> services? Our verified pet groomers serve all of Jacksonville and Duval County, including Riverside, San Marco, Jacksonville Beach, Atlantic Beach, Mandarin, and Ponte Vedra. <strong>Dog grooming Jacksonville</strong> professionals offer both salon and mobile services perfect for beach communities and large breed owners. Compare prices, read reviews, and <Link href="/browse?city=jacksonville" className="text-purple-600 font-semibold hover:underline">book instantly online</Link>.
+            </p>
+            
+            <div className="max-w-5xl mx-auto mb-8">
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d221895.34567890123!2d-81.6557!3d30.3322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e5b742c8b5b0e7%3A0x7b6f8b9c9c9c9c9c!2sJacksonville%2C%20FL!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                  width="100%"
+                  height="450"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full"
+                  title="Pet Grooming Coverage Map - Jacksonville, FL"
+                />
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">📍 Areas We Serve</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Riverside & San Marco</li>
+                  <li>• Jacksonville Beach & Atlantic Beach</li>
+                  <li>• Neptune Beach & Ponte Vedra</li>
+                  <li>• Downtown Jacksonville</li>
+                  <li>• Avondale & Murray Hill</li>
+                  <li>• Springfield & Southside</li>
+                  <li>• Mandarin & Orange Park</li>
+                  <li>• All of Duval County</li>
+                </ul>
+              </div>
+              <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">🐕 Dog Grooming Jacksonville</h3>
+                <p className="text-gray-700 mb-4">
+                  Our <strong>dog grooming Jacksonville</strong> professionals specialize in large breeds, beach dogs, and all sizes. Many offer mobile services that come directly to your home.
+                </p>
+                <Link 
+                  href="/browse?city=jacksonville&service=dog-grooming"
+                  className="inline-block bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition"
+                >
+                  Find Dog Groomers →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Jacksonville-Specific: Cat Grooming Section */}
+      {citySlug === 'jacksonville' && (
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              Cat Grooming Jacksonville FL 🐈
+            </h2>
+            <p className="text-center text-gray-700 text-xl mb-10 max-w-3xl mx-auto">
+              Looking for professional <strong>cat grooming Jacksonville</strong> services? Our verified cat groomers in Jacksonville FL specialize in gentle handling for anxious felines, long-haired breeds, and senior cats. Book <strong>cat grooming Jacksonville FL</strong> appointments with experienced professionals who understand feline behavior.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-10">
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-100">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Cat Grooming Services</h3>
+                <ul className="space-y-3 text-gray-700 text-lg">
+                  <li>• <strong>Full grooming:</strong> $55-$95 (bath, brush, nails, ears)</li>
+                  <li>• <strong>Lion cuts & specialty styles:</strong> $70-$110</li>
+                  <li>• <strong>De-shedding treatment:</strong> $50-$80</li>
+                  <li>• <strong>Nail trim only:</strong> $18-$28</li>
+                  <li>• <strong>Senior cat care:</strong> Specialized gentle handling</li>
+                </ul>
+                <p className="mt-4 text-gray-600 text-sm">
+                  <strong>Cat grooming Jacksonville FL</strong> prices vary based on coat length, matting, and temperament. Many groomers offer stress-free environments for anxious cats.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-6 border border-orange-100">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Choose Our Cat Groomers?</h3>
+                <ul className="space-y-3 text-gray-700 text-lg">
+                  <li>✓ Feline-certified groomers with cat behavior training</li>
+                  <li>✓ Separate cat-only areas to reduce stress</li>
+                  <li>✓ Gentle handling techniques for anxious cats</li>
+                  <li>✓ Experience with long-haired breeds (Persians, Maine Coons)</li>
+                  <li>✓ Mobile <strong>cat grooming Jacksonville</strong> services available</li>
+                </ul>
+                <Link 
+                  href="/browse?city=jacksonville&service=cat-grooming"
+                  className="inline-block mt-4 bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition"
+                >
+                  Book Cat Grooming →
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Tips for Cat Grooming in Jacksonville
+              </h3>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 text-lg">
+                <li>Book regular appointments every 6-8 weeks for long-haired cats to prevent matting</li>
+                <li>Introduce your cat to grooming gradually, especially if they&apos;re new to <strong>cat grooming Jacksonville FL</strong> services</li>
+                <li>Ask about sedation-free options if your cat is particularly anxious</li>
+                <li>Many <strong>cat grooming Jacksonville</strong> professionals offer home visits for less stress</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Jacksonville-Specific: Dog Grooming Pricing Guide */}
+      {citySlug === 'jacksonville' && (
+        <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              Dog Grooming Jacksonville Prices (2025) 💰
+            </h2>
+            <p className="text-center text-gray-700 text-xl mb-12 max-w-3xl mx-auto">
+              <strong>Dog grooming Jacksonville</strong> offers competitive pricing, typically 10-15% lower than major metro areas. Whether you need <strong>dog grooming Jacksonville</strong> for large breeds, beach dogs, or regular maintenance, you&apos;ll find affordable options.
+            </p>
+
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 mb-8">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">Salon Grooming Prices</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-white rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Small Dogs (under 20 lbs)</h4>
+                  <p className="text-3xl font-bold text-purple-600 mb-2">$50-$70</p>
+                  <p className="text-gray-600">Includes: Bath, haircut, nails, ears</p>
+                </div>
+                <div className="bg-white rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Medium Dogs (20-50 lbs)</h4>
+                  <p className="text-3xl font-bold text-purple-600 mb-2">$65-$85</p>
+                  <p className="text-gray-600">Includes: Full groom package</p>
+                </div>
+                <div className="bg-white rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Large Dogs (50+ lbs)</h4>
+                  <p className="text-3xl font-bold text-purple-600 mb-2">$80-$110</p>
+                  <p className="text-gray-600">Includes: Complete grooming service</p>
+                </div>
+                <div className="bg-white rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Extra Large Dogs (80+ lbs)</h4>
+                  <p className="text-3xl font-bold text-purple-600 mb-2">$95-$130</p>
+                  <p className="text-gray-600">Perfect for Great Danes, Mastiffs, etc.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-pink-50 to-orange-50 rounded-3xl p-8">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">Mobile Pet Grooming Jacksonville</h3>
+              <p className="text-gray-700 mb-4">
+                Mobile <strong>dog grooming Jacksonville</strong> services typically cost $10-$20 more than salon prices for the convenience of coming to your home:
+              </p>
+              <ul className="space-y-3 text-gray-700">
+                <li>• <strong>Small dogs:</strong> $60-$90</li>
+                <li>• <strong>Medium dogs:</strong> $75-$105</li>
+                <li>• <strong>Large dogs:</strong> $90-$130</li>
+                <li>• <strong>Extra large dogs:</strong> $105-$150</li>
               </ul>
               <p className="text-gray-600 text-sm mt-4">
                 <Link href="/blog/how-much-does-dog-grooming-cost" className="text-purple-600 font-bold hover:underline">
