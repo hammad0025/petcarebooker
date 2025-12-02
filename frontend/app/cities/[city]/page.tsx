@@ -252,11 +252,20 @@ const cityData: Record<string, any> = {
   'pensacola': {
     name: 'Pensacola',
     state: 'FL',
-    description: 'Find pet groomers in Pensacola, FL. Book trusted groomers from Pensacola Beach to downtown with verified reviews.',
-    neighborhoods: ['Downtown Pensacola', 'Pensacola Beach', 'East Hill', 'North Hill', 'Gulf Breeze'],
+    description: 'Find top-rated dog groomers and cat grooming in Pensacola, FL. Book dog groomer Pensacola FL services and cat grooming Pensacola FL with verified reviews. Serving Pensacola Beach, Gulf Breeze, NAS Pensacola, and all of Escambia County.',
+    neighborhoods: ['Downtown Pensacola', 'Pensacola Beach', 'East Hill', 'North Hill', 'Gulf Breeze', 'Perdido Key', 'Naval Air Station', 'Cordova Park', 'Bayou Texar', 'Myrtle Grove', 'Ensley', 'Brownsville', 'Warrington'],
     avgPrice: '$50-$100',
     totalGroomers: 36,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Beach Dog Care', 'Military Pet Friendly'],
+    quickFacts: [
+      '36+ verified professional groomers serving Escambia County and NAS Pensacola',
+      'Expert cat grooming Pensacola FL services - gentle handling for anxious felines',
+      'Beach dog specialists - saltwater removal and sand-free coats for Pensacola Beach pets',
+      'Dog groomers in Pensacola offer same-day appointments and mobile services',
+      'Mobile pet grooming Pensacola services available throughout the city and Gulf Breeze',
+      'Military-friendly pricing and flexible scheduling for NAS Pensacola families',
+      'Pet grooming Pensacola FL: serving active military families and local residents',
+    ],
   },
   'lakeland': {
     name: 'Lakeland',
@@ -301,13 +310,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  // Special handling for Fort Lauderdale and Tallahassee to target exact keywords
+  // Special handling for Fort Lauderdale, Tallahassee, and Pensacola to target exact keywords
   const isFortLauderdale = citySlug === 'fort-lauderdale';
   const isTallahassee = citySlug === 'tallahassee';
+  const isPensacola = citySlug === 'pensacola';
   const title = isFortLauderdale 
     ? `Pet Grooming Fort Lauderdale: Best Dog & Cat Groomers | Book Online`
     : isTallahassee
     ? `Pet Groomers in Tallahassee, FL | Book Online | 41+ Verified Groomers`
+    : isPensacola
+    ? `Dog Groomers in Pensacola, FL | Cat Grooming Pensacola | Book Online`
     : `Pet Groomers in ${city.name}, ${city.state} | Book Online | PetCareBooker`;
   
   const canonicalUrl = `https://petcarebooker.com/cities/${citySlug}`;
@@ -323,6 +335,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ? 'Pet Grooming Fort Lauderdale: Best Salons & Mobile Services' 
         : isTallahassee
         ? 'Pet Groomers in Tallahassee, FL | Book Dog & Cat Grooming Online'
+        : isPensacola
+        ? 'Dog Groomers in Pensacola, FL | Cat Grooming Pensacola FL | Book Online'
         : `Best Pet Groomers in ${city.name}`,
       description: city.description,
       type: 'website',
@@ -365,6 +379,8 @@ export default async function CityPage({ params }: Props) {
           <h1 className="text-6xl font-extrabold text-gray-900 mb-6">
             {citySlug === 'fort-lauderdale' ? (
               <>Pet Grooming Fort Lauderdale 🐾</>
+            ) : citySlug === 'pensacola' ? (
+              <>Dog Groomers in Pensacola, FL | Cat Grooming 🐾</>
             ) : (
               <>Pet Groomers in {city.name} 🐾</>
             )}
@@ -541,6 +557,181 @@ export default async function CityPage({ params }: Props) {
                 <li>• <strong>Medium dogs:</strong> $70-$110</li>
                 <li>• <strong>Large dogs:</strong> $85-$120</li>
                 <li>• <strong>Cats:</strong> $60-$100</li>
+              </ul>
+              <p className="text-gray-600 text-sm mt-4">
+                <Link href="/blog/how-much-does-dog-grooming-cost" className="text-purple-600 font-bold hover:underline">
+                  Learn more about pet grooming costs →
+                </Link>
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Pensacola-Specific: Map & Coverage Area */}
+      {citySlug === 'pensacola' && (
+        <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              Pet Grooming Coverage Map - Pensacola, FL 🗺️
+            </h2>
+            <p className="text-center text-gray-700 text-xl mb-8 max-w-3xl mx-auto">
+              Looking for <strong>dog groomers in Pensacola</strong> or <strong>cat grooming Pensacola FL</strong> services? Our verified pet groomers serve all of Pensacola and Escambia County, including downtown Pensacola, Pensacola Beach, Gulf Breeze, Perdido Key, and NAS Pensacola. <strong>Dog groomer Pensacola FL</strong> services are available throughout the area, perfect for military families and beach residents. Compare prices, read reviews, and <Link href="/browse?city=pensacola" className="text-purple-600 font-semibold hover:underline">book instantly online</Link>.
+            </p>
+            
+            <div className="max-w-5xl mx-auto mb-8">
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110447.67283945061!2d-87.4307!3d30.4213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8890eb4c2b50b0e7%3A0x7b6f8b9c9c9c9c9c!2sPensacola%2C%20FL!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                  width="100%"
+                  height="450"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full"
+                  title="Pet Grooming Coverage Map - Pensacola, FL"
+                />
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">📍 Areas We Serve</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Downtown Pensacola</li>
+                  <li>• Pensacola Beach & Perdido Key</li>
+                  <li>• Gulf Breeze</li>
+                  <li>• NAS Pensacola (military base)</li>
+                  <li>• East Hill & North Hill</li>
+                  <li>• Cordova Park & Bayou Texar</li>
+                  <li>• Myrtle Grove & Ensley</li>
+                  <li>• All of Escambia County</li>
+                </ul>
+              </div>
+              <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">🐕 Dog Groomers in Pensacola</h3>
+                <p className="text-gray-700 mb-4">
+                  Our <strong>dog groomer Pensacola FL</strong> professionals specialize in beach dogs, military pets, and all breeds. Many offer mobile services that come directly to your home.
+                </p>
+                <Link 
+                  href="/browse?city=pensacola&service=dog-grooming"
+                  className="inline-block bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition"
+                >
+                  Find Dog Groomers →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Pensacola-Specific: Cat Grooming Section */}
+      {citySlug === 'pensacola' && (
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              Cat Grooming Pensacola FL 🐈
+            </h2>
+            <p className="text-center text-gray-700 text-xl mb-10 max-w-3xl mx-auto">
+              Looking for professional <strong>cat grooming Pensacola</strong> services? Our verified cat groomers in Pensacola FL specialize in gentle handling for anxious felines, long-haired breeds, and senior cats. Book <strong>cat grooming Pensacola FL</strong> appointments with experienced professionals who understand feline behavior.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-10">
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-100">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Cat Grooming Services</h3>
+                <ul className="space-y-3 text-gray-700 text-lg">
+                  <li>• <strong>Full grooming:</strong> $50-$85 (bath, brush, nails, ears)</li>
+                  <li>• <strong>Lion cuts & specialty styles:</strong> $65-$100</li>
+                  <li>• <strong>De-shedding treatment:</strong> $45-$70</li>
+                  <li>• <strong>Nail trim only:</strong> $15-$25</li>
+                  <li>• <strong>Senior cat care:</strong> Specialized gentle handling</li>
+                </ul>
+                <p className="mt-4 text-gray-600 text-sm">
+                  <strong>Cat grooming Pensacola FL</strong> prices vary based on coat length, matting, and temperament. Many groomers offer stress-free environments for anxious cats.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-6 border border-orange-100">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Choose Our Cat Groomers?</h3>
+                <ul className="space-y-3 text-gray-700 text-lg">
+                  <li>✓ Feline-certified groomers with cat behavior training</li>
+                  <li>✓ Separate cat-only areas to reduce stress</li>
+                  <li>✓ Gentle handling techniques for anxious cats</li>
+                  <li>✓ Experience with long-haired breeds (Persians, Maine Coons)</li>
+                  <li>✓ Mobile <strong>cat grooming Pensacola</strong> services available</li>
+                </ul>
+                <Link 
+                  href="/browse?city=pensacola&service=cat-grooming"
+                  className="inline-block mt-4 bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition"
+                >
+                  Book Cat Grooming →
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Tips for Cat Grooming in Pensacola
+              </h3>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 text-lg">
+                <li>Book regular appointments every 6-8 weeks for long-haired cats to prevent matting</li>
+                <li>Introduce your cat to grooming gradually, especially if they&apos;re new to <strong>cat grooming Pensacola FL</strong> services</li>
+                <li>Ask about sedation-free options if your cat is particularly anxious</li>
+                <li>Many <strong>cat grooming Pensacola</strong> professionals offer home visits for less stress</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Pensacola-Specific: Dog Groomers Pricing Guide */}
+      {citySlug === 'pensacola' && (
+        <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              Dog Groomer Pensacola FL Prices (2025) 💰
+            </h2>
+            <p className="text-center text-gray-700 text-xl mb-12 max-w-3xl mx-auto">
+              <strong>Dog groomers in Pensacola</strong> offer competitive pricing, typically 15-20% lower than major metro areas. Whether you need a <strong>dog groomer Pensacola FL</strong> for beach dogs, military pets, or regular maintenance, you&apos;ll find affordable options.
+            </p>
+
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 mb-8">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">Salon Grooming Prices</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-white rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Small Dogs (under 20 lbs)</h4>
+                  <p className="text-3xl font-bold text-purple-600 mb-2">$45-$70</p>
+                  <p className="text-gray-600">Includes: Bath, haircut, nails, ears</p>
+                </div>
+                <div className="bg-white rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Medium Dogs (20-50 lbs)</h4>
+                  <p className="text-3xl font-bold text-purple-600 mb-2">$60-$85</p>
+                  <p className="text-gray-600">Includes: Full groom package</p>
+                </div>
+                <div className="bg-white rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Large Dogs (50+ lbs)</h4>
+                  <p className="text-3xl font-bold text-purple-600 mb-2">$75-$100</p>
+                  <p className="text-gray-600">Includes: Complete grooming service</p>
+                </div>
+                <div className="bg-white rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Beach Dog Special</h4>
+                  <p className="text-3xl font-bold text-purple-600 mb-2">$55-$90</p>
+                  <p className="text-gray-600">Saltwater removal & sand treatment</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-pink-50 to-orange-50 rounded-3xl p-8">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">Mobile Dog Grooming Pensacola</h3>
+              <p className="text-gray-700 mb-4">
+                Mobile <strong>dog groomer Pensacola FL</strong> services typically cost $10-$20 more than salon prices for the convenience of coming to your home:
+              </p>
+              <ul className="space-y-3 text-gray-700">
+                <li>• <strong>Small dogs:</strong> $55-$90</li>
+                <li>• <strong>Medium dogs:</strong> $70-$105</li>
+                <li>• <strong>Large dogs:</strong> $85-$120</li>
+                <li>• <strong>Beach dogs:</strong> $65-$110 (includes sand removal)</li>
               </ul>
               <p className="text-gray-600 text-sm mt-4">
                 <Link href="/blog/how-much-does-dog-grooming-cost" className="text-purple-600 font-bold hover:underline">
