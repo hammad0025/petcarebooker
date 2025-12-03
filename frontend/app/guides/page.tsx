@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.petcarebooker.com/guides',
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: 'Pet Grooming Guides & Tips',
     description: 'Expert advice on preparing your pet for grooming, choosing the right groomer, and maintaining your pet between appointments.',

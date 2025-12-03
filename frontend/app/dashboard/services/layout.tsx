@@ -7,6 +7,9 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
+  alternates: {
+    canonical: 'https://www.petcarebooker.com/dashboard/services',
+  },
 };
 
 export default function ServicesLayout({

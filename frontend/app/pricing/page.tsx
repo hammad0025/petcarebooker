@@ -1,10 +1,15 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Pricing - PetCareBooker',
   description: 'Affordable pricing for pet grooming businesses. Start free, upgrade anytime.',
   alternates: {
     canonical: 'https://www.petcarebooker.com/pricing',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

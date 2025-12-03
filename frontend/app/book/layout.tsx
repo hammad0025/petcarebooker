@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.petcarebooker.com/book',
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function BookLayout({

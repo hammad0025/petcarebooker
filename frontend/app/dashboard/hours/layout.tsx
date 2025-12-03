@@ -7,6 +7,9 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
+  alternates: {
+    canonical: 'https://www.petcarebooker.com/dashboard/hours',
+  },
 };
 
 export default function BusinessHoursLayout({
