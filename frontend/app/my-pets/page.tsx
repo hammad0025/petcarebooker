@@ -38,6 +38,17 @@ export default function MyPetsPage() {
     return diffDays;
   };
 
+  useEffect(() => {
+    // Ensure canonical tag is set for this noindex page
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://www.petcarebooker.com/my-pets');
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
       {/* Header */}
