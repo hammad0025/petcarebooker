@@ -12,7 +12,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://www.petcarebooker.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "PetCareBooker | Book Pet Grooming Near You | Instant Online Booking",
     template: "%s | PetCareBooker",
@@ -20,7 +23,7 @@ export const metadata: Metadata = {
   description: "Find and book trusted pet groomers near you instantly. No phone calls, no waiting. Compare prices, read verified reviews, and schedule dog and cat grooming in seconds. Serving 100+ cities nationwide.",
   keywords: "pet grooming, dog grooming, cat grooming, mobile pet grooming, pet grooming near me, book pet groomer, dog groomer near me, pet spa",
   alternates: {
-    canonical: 'https://www.petcarebooker.com',
+    canonical: siteUrl,
   },
   icons: {
     icon: '/favicon.ico',

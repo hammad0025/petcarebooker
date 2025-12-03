@@ -2431,7 +2431,7 @@ export default async function BlogPostPage({ params }: Props) {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'BlogPosting',
-            '@id': `https://petcarebooker.com/blog/${slug}`,
+            '@id': `https://www.petcarebooker.com/blog/${slug}`,
             headline: post.title,
             description: post.description,
             author: {

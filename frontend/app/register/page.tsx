@@ -4,6 +4,20 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { authApi } from '@/lib/api';
+import { Metadata } from 'next';
+
+// Metadata for this page - noindex since it's an auth page
+export const metadata: Metadata = {
+  title: 'Create an Account | PetCareBooker',
+  description: 'Create your PetCareBooker account to save pets, manage appointments, and book faster.',
+  robots: {
+    index: false,
+    follow: false,
+  },
+  alternates: {
+    canonical: 'https://www.petcarebooker.com/register',
+  },
+};
 
 export default function RegisterPage() {
   const router = useRouter();

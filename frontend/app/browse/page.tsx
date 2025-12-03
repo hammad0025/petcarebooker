@@ -25,24 +25,6 @@ export default function BrowsePage() {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    // Set metadata for client component
-    document.title = 'Find Pet Groomers Near You | PetCareBooker';
-    const metaDescription = document.querySelector('meta[name="description"]') || document.createElement('meta');
-    metaDescription.setAttribute('name', 'description');
-    metaDescription.setAttribute('content', 'Browse and book trusted pet groomers in your area. Compare prices, read reviews, and book instantly with verified professionals.');
-    if (!document.querySelector('meta[name="description"]')) {
-      document.head.appendChild(metaDescription);
-    }
-    
-    // Add canonical URL
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute('href', 'https://www.petcarebooker.com/browse');
-    
     loadShops();
   }, []);
 
