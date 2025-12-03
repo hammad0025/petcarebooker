@@ -94,22 +94,6 @@ export default function CityAutocomplete() {
         </div>
       )}
 
-      {!searchTerm && (
-        <div className="absolute mt-2 w-full bg-white rounded-xl shadow-2xl border border-gray-200 p-4">
-          <div className="text-sm font-semibold text-gray-700 mb-3">Popular Cities</div>
-          <div className="flex flex-wrap gap-2">
-            {POPULAR_CITIES.slice(0, 8).map((city, index) => (
-              <button
-                key={index}
-                onClick={() => handleSelect(city)}
-                className="px-4 py-2 bg-purple-50 text-purple-700 rounded-full hover:bg-purple-100 transition-colors text-sm font-semibold"
-              >
-                {city.name}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }

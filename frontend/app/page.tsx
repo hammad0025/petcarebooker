@@ -199,29 +199,29 @@ export default function HomePage() {
       </div>
 
       {/* SEO-Optimized Section: Pet Grooming Near Me */}
-      <section className="bg-white py-16 border-b border-gray-200">
+      <section className="bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 py-16 border-b border-gray-200">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-center text-white mb-6 drop-shadow-2xl">
             Find Pet Grooming Near Me - Dog Grooming & Cat Grooming Online
           </h2>
-          <p className="text-xl text-gray-700 text-center mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-white/95 text-center mb-8 max-w-3xl mx-auto drop-shadow-lg">
             Looking for <strong>pet grooming near me</strong>? PetCareBooker helps you find and book <strong>dog grooming</strong> and <strong>cat grooming</strong> services instantly. Whether you need <strong>mobile pet grooming</strong> that comes to your home or a traditional grooming salon, we connect you with verified professional groomers in your area. Book <strong>pet grooming online</strong> in seconds - no phone calls required.
           </p>
           <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="bg-purple-50 rounded-xl p-6 text-center border-2 border-purple-200">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center border-2 border-white/20">
               <div className="text-4xl mb-3">🐕</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Dog Grooming Near Me</h3>
-              <p className="text-gray-600">Find professional dog groomers in your area. Book instantly online.</p>
+              <h3 className="text-xl font-bold text-white mb-2">Dog Grooming Near Me</h3>
+              <p className="text-white/90">Find professional dog groomers in your area. Book instantly online.</p>
             </div>
-            <div className="bg-pink-50 rounded-xl p-6 text-center border-2 border-pink-200">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center border-2 border-white/20">
               <div className="text-4xl mb-3">🐈</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Cat Grooming Near Me</h3>
-              <p className="text-gray-600">Expert cat groomers with gentle handling for anxious felines.</p>
+              <h3 className="text-xl font-bold text-white mb-2">Cat Grooming Near Me</h3>
+              <p className="text-white/90">Expert cat groomers with gentle handling for anxious felines.</p>
             </div>
-            <div className="bg-orange-50 rounded-xl p-6 text-center border-2 border-orange-200">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center border-2 border-white/20">
               <div className="text-4xl mb-3">🚐</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Mobile Pet Grooming</h3>
-              <p className="text-gray-600">Mobile groomers that come to your home. Convenient and stress-free.</p>
+              <h3 className="text-xl font-bold text-white mb-2">Mobile Pet Grooming</h3>
+              <p className="text-white/90">Mobile groomers that come to your home. Convenient and stress-free.</p>
             </div>
           </div>
         </div>
