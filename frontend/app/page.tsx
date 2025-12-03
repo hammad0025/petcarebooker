@@ -4,9 +4,9 @@ import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'PetCareBooker | Book Pet Grooming Near You | Instant Online Booking',
-  description: 'Find and book trusted pet groomers near you instantly. No phone calls, no waiting. Compare prices, read verified reviews, and schedule dog and cat grooming in seconds. Serving 100+ cities nationwide.',
-  keywords: 'pet grooming, dog grooming, cat grooming, mobile pet grooming, pet grooming near me, book pet groomer, dog groomer near me, pet spa',
+  title: 'Pet Grooming Near Me | Book Dog & Cat Grooming Online | PetCareBooker',
+  description: 'Find pet grooming near me instantly. Book dog grooming and cat grooming online with verified groomers. Mobile pet grooming available. Compare prices, read reviews, schedule appointments in seconds. Serving 100+ cities nationwide.',
+  keywords: 'pet grooming near me, dog groomer near me, cat grooming near me, mobile pet grooming, book pet groomer online, dog grooming, cat grooming, pet grooming booking, online pet grooming booking, find pet groomer near me',
   openGraph: {
     title: 'PetCareBooker | Book Pet Grooming in Seconds',
     description: 'Find trusted pet groomers near you. Book instantly with real-time availability. 4.9★ average rating from 1,200+ happy pet parents.',
@@ -100,12 +100,12 @@ export default function HomePage() {
         <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center text-center">
           {/* Headline */}
           <h1 className="text-6xl md:text-8xl font-extrabold text-white mb-6 drop-shadow-2xl">
-            Book Pet Grooming<br />
-            <span className="text-yellow-300">in Seconds</span> ⚡
+            Pet Grooming Near Me<br />
+            <span className="text-yellow-300">Book Instantly Online</span> ⚡
           </h1>
           
           <p className="text-2xl text-white/95 mb-2 max-w-3xl mx-auto font-medium drop-shadow-lg">
-            Find trusted groomers near you • Book instantly • Keep your pet looking pawsome! 🌟
+            Find trusted pet groomers near you • Dog grooming • Cat grooming • Mobile pet grooming • Book instantly online • Keep your pet looking pawsome! 🌟
           </p>
           <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
             No phone calls. No waiting. Just happy pets and peace of mind.
@@ -197,6 +197,35 @@ export default function HomePage() {
           <div className="text-2xl">↓</div>
         </div>
       </div>
+
+      {/* SEO-Optimized Section: Pet Grooming Near Me */}
+      <section className="bg-white py-16 border-b border-gray-200">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-center text-gray-900 mb-6">
+            Find Pet Grooming Near Me - Dog Grooming & Cat Grooming Online
+          </h2>
+          <p className="text-xl text-gray-700 text-center mb-8 max-w-3xl mx-auto">
+            Looking for <strong>pet grooming near me</strong>? PetCareBooker helps you find and book <strong>dog grooming</strong> and <strong>cat grooming</strong> services instantly. Whether you need <strong>mobile pet grooming</strong> that comes to your home or a traditional grooming salon, we connect you with verified professional groomers in your area. Book <strong>pet grooming online</strong> in seconds - no phone calls required.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div className="bg-purple-50 rounded-xl p-6 text-center border-2 border-purple-200">
+              <div className="text-4xl mb-3">🐕</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Dog Grooming Near Me</h3>
+              <p className="text-gray-600">Find professional dog groomers in your area. Book instantly online.</p>
+            </div>
+            <div className="bg-pink-50 rounded-xl p-6 text-center border-2 border-pink-200">
+              <div className="text-4xl mb-3">🐈</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Cat Grooming Near Me</h3>
+              <p className="text-gray-600">Expert cat groomers with gentle handling for anxious felines.</p>
+            </div>
+            <div className="bg-orange-50 rounded-xl p-6 text-center border-2 border-orange-200">
+              <div className="text-4xl mb-3">🚐</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Mobile Pet Grooming</h3>
+              <p className="text-gray-600">Mobile groomers that come to your home. Convenient and stress-free.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Feature Cards - moved outside hero */}
       <div className="bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 py-20">
@@ -368,10 +397,19 @@ export default function HomePage() {
           <div className="space-y-4">
             <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
               <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
-                How much does pet grooming cost?
+                How much does dog grooming cost?
               </summary>
               <p className="mt-4 text-gray-600 text-lg leading-relaxed">
-                Pet grooming costs vary by location, pet size, and services. On average, expect $50-$150 for a full grooming session including bath, haircut, nail trim, and ear cleaning. Small dogs typically cost $50-$80, medium dogs $70-$110, and large dogs $90-$150. Mobile grooming services may cost 10-20% more.
+                <strong>Dog grooming costs</strong> vary by location, pet size, breed, and services. On average, expect $50-$150 for a full grooming session including bath, haircut, nail trim, and ear cleaning. Small dogs (under 20 lbs) typically cost $50-$80, medium dogs (20-50 lbs) cost $70-$110, and large dogs (50+ lbs) cost $90-$150. Mobile pet grooming services may cost 10-20% more ($15-$25 additional). Prices are higher in major metro areas like NYC, LA, and Miami. <Link href="/blog/how-much-does-dog-grooming-cost" className="text-purple-600 font-semibold hover:underline">Read our complete dog grooming cost guide</Link> for detailed pricing by city and breed.
+              </p>
+            </details>
+
+            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+              <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
+                How often should you groom your dog?
+              </summary>
+              <p className="mt-4 text-gray-600 text-lg leading-relaxed">
+                Most dogs need professional grooming every <strong>6-8 weeks</strong>, but this varies by breed and coat type. Breeds with continuously growing hair (Poodles, Shih Tzus, Yorkshire Terriers) may need grooming every 4-6 weeks. Short-haired breeds (Labradors, Beagles) can go 8-12 weeks between grooms. Dogs that swim frequently or have thick double coats may need more frequent grooming. Regular brushing at home between professional grooms helps maintain coat health. <Link href="/blog/how-often-groom-dog" className="text-purple-600 font-semibold hover:underline">Learn more about dog grooming frequency by breed</Link>.
               </p>
             </details>
 
@@ -435,6 +473,24 @@ export default function HomePage() {
               </summary>
               <p className="mt-4 text-gray-600 text-lg leading-relaxed">
                 For routine grooming, booking 3-7 days in advance is ideal. During peak times (holidays, summer, weekends), we recommend 1-2 weeks ahead. However, many groomers have same-day or next-day availability! Our real-time calendar shows you exactly what's available so you can book what works best for your schedule.
+              </p>
+            </details>
+
+            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+              <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
+                What is included in dog grooming?
+              </summary>
+              <p className="mt-4 text-gray-600 text-lg leading-relaxed">
+                A standard <strong>dog grooming</strong> session typically includes: bath with premium shampoo, blow dry and brush out, haircut or trim (breed-specific or your preference), nail trimming and filing, ear cleaning, and sanitary trim. Some groomers also include teeth brushing, paw pad moisturizing, and a cologne spritz at no extra charge. Additional services like de-shedding treatments, flea/tick baths, or specialty cuts may cost extra. Always confirm what's included when booking.
+              </p>
+            </details>
+
+            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+              <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
+                How long does dog grooming take?
+              </summary>
+              <p className="mt-4 text-gray-600 text-lg leading-relaxed">
+                Most <strong>dog grooming</strong> appointments take <strong>2-4 hours</strong>, depending on your dog's size, coat condition, and the services requested. Small dogs typically take 1.5-2.5 hours, medium dogs 2-3 hours, and large dogs 3-4 hours. Dogs with matted coats or requiring extensive de-shedding may take longer. Mobile grooming appointments are usually faster (1-2 hours) since your pet gets one-on-one attention without waiting. Your groomer will give you an estimated completion time when you drop off your pet.
               </p>
             </details>
           </div>
@@ -561,10 +617,34 @@ export default function HomePage() {
             mainEntity: [
               {
                 '@type': 'Question',
-                name: 'How much does pet grooming cost?',
+                name: 'How much does dog grooming cost?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'Pet grooming costs vary by location, pet size, and services. On average, expect $50-$150 for a full grooming session including bath, haircut, nail trim, and ear cleaning. Small dogs typically cost $50-$80, medium dogs $70-$110, and large dogs $90-$150.',
+                  text: 'Dog grooming costs vary by location, pet size, breed, and services. On average, expect $50-$150 for a full grooming session including bath, haircut, nail trim, and ear cleaning. Small dogs (under 20 lbs) typically cost $50-$80, medium dogs (20-50 lbs) cost $70-$110, and large dogs (50+ lbs) cost $90-$150. Mobile pet grooming services may cost 10-20% more ($15-$25 additional).',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How often should you groom your dog?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Most dogs need professional grooming every 6-8 weeks, but this varies by breed and coat type. Breeds with continuously growing hair (Poodles, Shih Tzus, Yorkshire Terriers) may need grooming every 4-6 weeks. Short-haired breeds (Labradors, Beagles) can go 8-12 weeks between grooms.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'What is included in dog grooming?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'A standard dog grooming session typically includes: bath with premium shampoo, blow dry and brush out, haircut or trim (breed-specific or your preference), nail trimming and filing, ear cleaning, and sanitary trim. Some groomers also include teeth brushing, paw pad moisturizing, and a cologne spritz at no extra charge.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How long does dog grooming take?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Most dog grooming appointments take 2-4 hours, depending on your dog\'s size, coat condition, and the services requested. Small dogs typically take 1.5-2.5 hours, medium dogs 2-3 hours, and large dogs 3-4 hours. Mobile grooming appointments are usually faster (1-2 hours) since your pet gets one-on-one attention.',
                 },
               },
               {
@@ -589,14 +669,6 @@ export default function HomePage() {
                 acceptedAnswer: {
                   '@type': 'Answer',
                   text: 'Many groomers offer same-day appointments based on availability! Our real-time booking system shows you exactly when each groomer has open slots. During busy seasons, we recommend booking 2-3 days in advance.',
-                },
-              },
-              {
-                '@type': 'Question',
-                name: 'What is included in a standard grooming appointment?',
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text: 'A standard grooming session typically includes: bath with premium shampoo, blow dry and brush out, haircut or trim, nail trimming and filing, ear cleaning, and sanitary trim. Some groomers also include teeth brushing and paw pad moisturizing.',
                 },
               },
               {

@@ -1591,6 +1591,177 @@ export default async function CityPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Universal Map Section - for cities without specific map sections */}
+      {!['tallahassee', 'fort-lauderdale', 'pensacola', 'jacksonville', 'west-palm-beach'].includes(citySlug) && (
+        <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              Pet Grooming Coverage Map - {city.name}, {city.state} 🗺️
+            </h2>
+            <p className="text-center text-gray-700 text-xl mb-8 max-w-3xl mx-auto">
+              Our verified pet groomers serve all of {city.name} and surrounding areas. Find <strong>pet grooming near me</strong> in {city.name}, {city.state} with our comprehensive directory of professional groomers. Mobile pet grooming {city.name} services are available throughout the area.
+            </p>
+            
+            <div className="max-w-5xl mx-auto mb-8">
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <iframe
+                  src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1234567890123!2d-73.9876543!3d40.7127754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s${encodeURIComponent(city.name + ' ' + city.state)}!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus`}
+                  width="100%"
+                  height="450"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full"
+                  title={`Pet Grooming Coverage Map - ${city.name}, ${city.state}`}
+                />
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">📍 Areas We Serve</h3>
+                <ul className="space-y-2 text-gray-700">
+                  {city.neighborhoods.slice(0, 7).map((neighborhood: string, idx: number) => (
+                    <li key={idx}>• {neighborhood}</li>
+                  ))}
+                  <li>• All of {city.name} and surrounding areas</li>
+                </ul>
+              </div>
+              <div className="bg-white rounded-2xl p-6 shadow-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">🚐 Mobile Grooming Available</h3>
+                <p className="text-gray-700 mb-4">
+                  Mobile pet grooming {city.name} services come directly to your home, perfect for busy pet parents throughout the city.
+                </p>
+                <Link 
+                  href={`/browse?city=${citySlug}&service=mobile-grooming`}
+                  className="inline-block bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition"
+                >
+                  Find Mobile Groomers →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Universal Pricing Section - for cities without specific pricing sections */}
+      {!['tallahassee', 'fort-lauderdale', 'pensacola', 'jacksonville', 'west-palm-beach'].includes(citySlug) && (
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              Pet Grooming Prices in {city.name}, {city.state} (2025) 💰
+            </h2>
+            <p className="text-center text-gray-700 text-xl mb-12 max-w-3xl mx-auto">
+              Pet grooming prices in {city.name} are competitive and vary based on your pet's size, breed, and services. Below are average prices for salon and mobile grooming services.
+            </p>
+
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 mb-8">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">Salon Grooming Prices</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-white rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Small Dogs (under 20 lbs)</h4>
+                  <p className="text-3xl font-bold text-purple-600 mb-2">{city.avgPrice.split('-')[0]}-${parseInt(city.avgPrice.split('-')[1]?.replace('$', '').replace(',', '') || '100') - 20}</p>
+                  <p className="text-gray-600">Includes: Bath, haircut, nails, ears</p>
+                </div>
+                <div className="bg-white rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Medium Dogs (20-50 lbs)</h4>
+                  <p className="text-3xl font-bold text-purple-600 mb-2">{city.avgPrice}</p>
+                  <p className="text-gray-600">Includes: Full groom package</p>
+                </div>
+                <div className="bg-white rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Large Dogs (50+ lbs)</h4>
+                  <p className="text-3xl font-bold text-purple-600 mb-2">${parseInt(city.avgPrice.split('-')[0]?.replace('$', '').replace(',', '') || '60') + 20}-${parseInt(city.avgPrice.split('-')[1]?.replace('$', '').replace(',', '') || '130') + 20}</p>
+                  <p className="text-gray-600">Includes: Complete grooming service</p>
+                </div>
+                <div className="bg-white rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">Cats</h4>
+                  <p className="text-3xl font-bold text-purple-600 mb-2">${parseInt(city.avgPrice.split('-')[0]?.replace('$', '').replace(',', '') || '50') - 10}-${parseInt(city.avgPrice.split('-')[1]?.replace('$', '').replace(',', '') || '100') - 20}</p>
+                  <p className="text-gray-600">Gentle handling, specialized care</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-pink-50 to-orange-50 rounded-3xl p-8">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">Mobile Pet Grooming {city.name} Prices</h3>
+              <p className="text-gray-700 mb-4">
+                Mobile grooming typically costs $10-$25 more than salon prices for the convenience of coming to your home:
+              </p>
+              <ul className="space-y-3 text-gray-700">
+                <li>• <strong>Small dogs:</strong> ${parseInt(city.avgPrice.split('-')[0]?.replace('$', '').replace(',', '') || '50') + 10}-${parseInt(city.avgPrice.split('-')[1]?.replace('$', '').replace(',', '') || '100') - 10}</li>
+                <li>• <strong>Medium dogs:</strong> ${parseInt(city.avgPrice.split('-')[0]?.replace('$', '').replace(',', '') || '60') + 15}-${parseInt(city.avgPrice.split('-')[1]?.replace('$', '').replace(',', '') || '120') + 5}</li>
+                <li>• <strong>Large dogs:</strong> ${parseInt(city.avgPrice.split('-')[0]?.replace('$', '').replace(',', '') || '70') + 20}-${parseInt(city.avgPrice.split('-')[1]?.replace('$', '').replace(',', '') || '130') + 20}</li>
+                <li>• <strong>Cats:</strong> ${parseInt(city.avgPrice.split('-')[0]?.replace('$', '').replace(',', '') || '50') + 5}-${parseInt(city.avgPrice.split('-')[1]?.replace('$', '').replace(',', '') || '100') - 5}</li>
+              </ul>
+              <p className="text-gray-600 text-sm mt-4">
+                <Link href="/blog/how-much-does-dog-grooming-cost" className="text-purple-600 font-bold hover:underline">
+                  Learn more about pet grooming costs →
+                </Link>
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Universal Cat Grooming Section - for cities without specific cat grooming sections */}
+      {!['fort-lauderdale', 'pensacola', 'jacksonville'].includes(citySlug) && (
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              Cat Grooming {city.name} {city.state} 🐈
+            </h2>
+            <p className="text-center text-gray-700 text-xl mb-10 max-w-3xl mx-auto">
+              Looking for professional <strong>cat grooming {city.name}</strong> services? Our verified cat groomers in {city.name} {city.state} specialize in gentle handling for anxious felines, long-haired breeds, and senior cats. Book <strong>cat grooming {city.name}</strong> appointments with experienced professionals who understand feline behavior.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-10">
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-100">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Cat Grooming Services</h3>
+                <ul className="space-y-3 text-gray-700 text-lg">
+                  <li>• <strong>Full grooming:</strong> ${parseInt(city.avgPrice.split('-')[0]?.replace('$', '').replace(',', '') || '50') - 10}-${parseInt(city.avgPrice.split('-')[1]?.replace('$', '').replace(',', '') || '100') - 20} (bath, brush, nails, ears)</li>
+                  <li>• <strong>Lion cuts & specialty styles:</strong> ${parseInt(city.avgPrice.split('-')[0]?.replace('$', '').replace(',', '') || '50') + 5}-${parseInt(city.avgPrice.split('-')[1]?.replace('$', '').replace(',', '') || '100') - 10}</li>
+                  <li>• <strong>De-shedding treatment:</strong> ${parseInt(city.avgPrice.split('-')[0]?.replace('$', '').replace(',', '') || '50') - 15}-${parseInt(city.avgPrice.split('-')[1]?.replace('$', '').replace(',', '') || '100') - 30}</li>
+                  <li>• <strong>Nail trim only:</strong> $15-$30</li>
+                  <li>• <strong>Senior cat care:</strong> Specialized gentle handling</li>
+                </ul>
+                <p className="mt-4 text-gray-600 text-sm">
+                  <strong>Cat grooming {city.name}</strong> prices vary based on coat length, matting, and temperament. Many groomers offer stress-free environments for anxious cats.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-6 border border-orange-100">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Choose Our Cat Groomers?</h3>
+                <ul className="space-y-3 text-gray-700 text-lg">
+                  <li>✓ Feline-certified groomers with cat behavior training</li>
+                  <li>✓ Separate cat-only areas to reduce stress</li>
+                  <li>✓ Gentle handling techniques for anxious cats</li>
+                  <li>✓ Experience with long-haired breeds (Persians, Maine Coons)</li>
+                  <li>✓ Mobile <strong>cat grooming {city.name}</strong> services available</li>
+                </ul>
+                <Link 
+                  href={`/browse?city=${citySlug}&service=cat-grooming`}
+                  className="inline-block mt-4 bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition"
+                >
+                  Book Cat Grooming →
+                </Link>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Tips for Cat Grooming in {city.name}
+              </h3>
+              <ul className="list-disc list-inside space-y-2 text-gray-700 text-lg">
+                <li>Book regular appointments every 6-8 weeks for long-haired cats to prevent matting</li>
+                <li>Introduce your cat to grooming gradually, especially if they&apos;re new to <strong>cat grooming {city.name}</strong> services</li>
+                <li>Ask about sedation-free options if your cat is particularly anxious</li>
+                <li>Many <strong>cat grooming {city.name}</strong> professionals offer home visits for less stress</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* FAQ Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 max-w-4xl">
