@@ -3,20 +3,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Metadata } from 'next';
-
-// Metadata for this page - noindex since it requires auth
-export const metadata: Metadata = {
-  title: 'My Pets | PetCareBooker',
-  description: 'View and manage your saved pets and grooming appointments in your PetCareBooker account.',
-  robots: {
-    index: false,
-    follow: false,
-  },
-  alternates: {
-    canonical: 'https://www.petcarebooker.com/my-pets',
-  },
-};
 
 interface Pet {
   id: number;
