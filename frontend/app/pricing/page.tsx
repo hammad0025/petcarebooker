@@ -3,6 +3,9 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Pricing - PetCareBooker',
   description: 'Affordable pricing for pet grooming businesses. Start free, upgrade anytime.',
+  alternates: {
+    canonical: 'https://www.petcarebooker.com/pricing',
+  },
 };
 
 export default function PricingPage() {

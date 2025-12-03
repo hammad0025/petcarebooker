@@ -4,6 +4,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Pet Grooming Guides & Tips | How to Prepare Your Pet | PetCareBooker',
   description: 'Expert pet grooming guides and tips. Learn how to prepare your dog or cat for grooming, what to expect, and how to care for your pet between appointments.',
+  alternates: {
+    canonical: 'https://www.petcarebooker.com/guides',
+  },
   openGraph: {
     title: 'Pet Grooming Guides & Tips',
     description: 'Expert advice on preparing your pet for grooming, choosing the right groomer, and maintaining your pet between appointments.',

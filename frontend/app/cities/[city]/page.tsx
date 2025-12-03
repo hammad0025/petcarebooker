@@ -344,6 +344,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ? `Dog Groomers in Pensacola, FL | Cat Grooming Pensacola | Book Online`
     : `Pet Groomers in ${city.name}, ${city.state} | Book Online | PetCareBooker`;
   
+  // Build the canonical URL with a template literal so the slug is interpolated correctly
   const canonicalUrl = `https://www.petcarebooker.com/cities/${citySlug}`;
   
   return {
