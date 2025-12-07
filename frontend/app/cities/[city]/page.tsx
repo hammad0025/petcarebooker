@@ -155,7 +155,7 @@ const cityData: Record<string, any> = {
   'fort-lauderdale': {
     name: 'Fort Lauderdale',
     state: 'FL',
-    description: 'Pet grooming Fort Lauderdale: Find top-rated dog grooming Fort Lauderdale and cat grooming Fort Lauderdale services. Book Fort Lauderdale pet grooming with mobile pet grooming Fort Lauderdale and salon services. Serving Las Olas, Victoria Park, Wilton Manors, Harbor Beach, and all of Broward County.',
+    description: 'Fort Lauderdale is home to some of the best dog and cat groomers in South Florida. With so many choices—from mobile groomers to full-service grooming salons—pet owners need a simple way to compare pricing, availability, and reviews. PetCareBooker makes it easy to find and book trusted groomers in Fort Lauderdale with just a few clicks.',
     neighborhoods: ['Las Olas', 'Victoria Park', 'Wilton Manors', 'Harbor Beach', 'Rio Vista', 'Lauderdale-by-the-Sea', 'Colee Hammock', 'Coral Ridge', 'Imperial Point', 'Downtown Fort Lauderdale', 'Pompano Beach', 'Oakland Park', 'Fort Lauderdale Beach', 'Coral Ridge', 'Seven Isles'],
     avgPrice: '$65-$130',
     totalGroomers: 98,
@@ -274,7 +274,7 @@ const cityData: Record<string, any> = {
   'pensacola': {
     name: 'Pensacola',
     state: 'FL',
-    description: 'Find top-rated dog groomers and cat grooming in Pensacola, FL. Book dog groomer Pensacola FL services and cat grooming Pensacola FL with verified reviews. Serving Pensacola Beach, Gulf Breeze, NAS Pensacola, and all of Escambia County.',
+    description: 'Finding a trusted pet groomer in Pensacola can be challenging, especially with so many local options offering different prices, service quality, and availability. PetCareBooker makes it easy for Pensacola pet owners to compare groomers, check real reviews, view pricing, and book appointments online—all in one place.',
     neighborhoods: ['Downtown Pensacola', 'Pensacola Beach', 'East Hill', 'North Hill', 'Gulf Breeze', 'Perdido Key', 'Naval Air Station', 'Cordova Park', 'Bayou Texar', 'Myrtle Grove', 'Ensley', 'Brownsville', 'Warrington'],
     avgPrice: '$50-$100',
     totalGroomers: 36,
@@ -401,9 +401,9 @@ export default async function CityPage({ params }: Props) {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-6xl font-extrabold text-gray-900 mb-6">
             {citySlug === 'fort-lauderdale' ? (
-              <>Pet Grooming Fort Lauderdale | Dog & Cat Grooming 🐾</>
+              <>Pet Grooming in Fort Lauderdale, FL 🐾</>
             ) : citySlug === 'pensacola' ? (
-              <>Dog Groomers in Pensacola, FL | Cat Grooming 🐾</>
+              <>Pet Grooming in Pensacola, FL 🐾</>
             ) : (
               <>Pet Groomers in {city.name} 🐾</>
             )}
@@ -446,6 +446,75 @@ export default async function CityPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Pensacola SEO-Optimized Content */}
+      {citySlug === 'pensacola' && (
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="prose prose-lg max-w-none">
+              <p className="text-xl text-gray-700 mb-6">
+                Whether you're looking for full-service dog grooming, mobile grooming, cat grooming, or a quick bath and brush, Pensacola has a growing number of experienced professionals ready to help.
+              </p>
+
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Pensacola Pet Owners Use PetCareBooker</h2>
+              <ul className="space-y-3 text-lg text-gray-700 mb-8">
+                <li>✓ Search local groomers with real customer reviews</li>
+                <li>✓ Compare pricing, services, and availability instantly</li>
+                <li>✓ Book appointments online 24/7</li>
+                <li>✓ Avoid phone tag or outdated websites</li>
+                <li>✓ Support small, locally owned grooming businesses</li>
+              </ul>
+
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Popular Grooming Services in Pensacola</h2>
+              <ul className="space-y-2 text-lg text-gray-700 mb-6">
+                <li>• Full-service dog grooming</li>
+                <li>• Bath + brush packages</li>
+                <li>• Nail trim + ear cleaning</li>
+                <li>• Cat grooming (long-hair + short-hair)</li>
+                <li>• Mobile grooming services</li>
+                <li>• Puppy first-time grooming</li>
+              </ul>
+
+              <p className="text-xl text-gray-700">
+                Pensacola's pet community is strong, and demand for reliable, affordable grooming is increasing each year. We help connect owners with top-rated groomers, fast.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Fort Lauderdale SEO-Optimized Content */}
+      {citySlug === 'fort-lauderdale' && (
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="prose prose-lg max-w-none">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Fort Lauderdale Pet Owners Love PetCareBooker</h2>
+              <ul className="space-y-3 text-lg text-gray-700 mb-8">
+                <li>✓ Compare groomers side-by-side</li>
+                <li>✓ View pricing before booking</li>
+                <li>✓ Read verified customer reviews</li>
+                <li>✓ Book appointments instantly</li>
+                <li>✓ Discover mobile and in-home grooming options</li>
+                <li>✓ Support local small businesses</li>
+              </ul>
+
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Popular Grooming Services in Fort Lauderdale</h2>
+              <ul className="space-y-2 text-lg text-gray-700 mb-6">
+                <li>• Full dog grooming packages</li>
+                <li>• Bath + brush</li>
+                <li>• Nail trimming</li>
+                <li>• De-shedding treatments</li>
+                <li>• Cat grooming</li>
+                <li>• Mobile grooming services</li>
+              </ul>
+
+              <p className="text-xl text-gray-700">
+                Fort Lauderdale pet owners expect high-quality grooming, and local groomers deliver. We help connect you with the best professionals for your pet's needs.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Top Services */}
       <section className="py-20 bg-white">
@@ -604,16 +673,13 @@ export default async function CityPage({ params }: Props) {
             
             <div className="max-w-5xl mx-auto mb-8">
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1830.1234567890123!2d-80.1373!3d26.1224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9a6172bfeddb9%3A0x8c0b8b8b8b8b8b8b!2sFort%20Lauderdale%2C%20FL!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
-                  width="100%"
-                  height="450"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full"
-                  title="Pet Grooming Coverage Map - Fort Lauderdale, FL"
+                {/* Static map image - replace with actual Fort Lauderdale map image */}
+                <img
+                  src="https://via.placeholder.com/1200x450/6366f1/ffffff?text=Fort+Lauderdale+Pet+Grooming+Map"
+                  alt="Map of Fort Lauderdale showing major neighborhoods where pet grooming services are located"
+                  className="w-full h-auto"
+                  width={1200}
+                  height={450}
                 />
               </div>
             </div>
@@ -908,16 +974,13 @@ export default async function CityPage({ params }: Props) {
             
             <div className="max-w-5xl mx-auto mb-8">
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110447.67283945061!2d-87.4307!3d30.4213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8890eb4c2b50b0e7%3A0x7b6f8b9c9c9c9c9c!2sPensacola%2C%20FL!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
-                  width="100%"
-                  height="450"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full"
-                  title="Pet Grooming Coverage Map - Pensacola, FL"
+                {/* Static map image - replace with actual Pensacola map image */}
+                <img
+                  src="https://via.placeholder.com/1200x450/6366f1/ffffff?text=Pensacola+Pet+Grooming+Map"
+                  alt="Map of Pensacola showing major neighborhoods where pet grooming services are located"
+                  className="w-full h-auto"
+                  width={1200}
+                  height={450}
                 />
               </div>
             </div>
@@ -948,6 +1011,79 @@ export default async function CityPage({ params }: Props) {
                   Find Dog Groomers →
                 </Link>
               </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Pensacola-Specific: Neighborhood SEO Section */}
+      {citySlug === 'pensacola' && (
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              🗺️ Pet Grooming in Pensacola by Neighborhood
+            </h2>
+            <p className="text-center text-gray-700 text-lg mb-8 max-w-3xl mx-auto">
+              Find trusted pet groomers serving neighborhoods throughout Pensacola and Escambia County.
+            </p>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-100">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">📍 East Hill</h3>
+                <p className="text-gray-700 mb-3">Family-friendly neighborhood with several mobile groomers</p>
+                <Link href="/browse?city=pensacola&neighborhood=east-hill" className="text-purple-600 font-semibold hover:underline text-sm">
+                  Find groomers in East Hill →
+                </Link>
+              </div>
+
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-100">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">📍 Ferry Pass</h3>
+                <p className="text-gray-700 mb-3">Great for low-cost groomers</p>
+                <Link href="/browse?city=pensacola&neighborhood=ferry-pass" className="text-purple-600 font-semibold hover:underline text-sm">
+                  Find groomers in Ferry Pass →
+                </Link>
+              </div>
+
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-100">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">📍 Downtown Pensacola</h3>
+                <p className="text-gray-700 mb-3">Busiest area, many full-service salons</p>
+                <Link href="/browse?city=pensacola&neighborhood=downtown" className="text-purple-600 font-semibold hover:underline text-sm">
+                  Find groomers downtown →
+                </Link>
+              </div>
+
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-100">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">📍 Brent</h3>
+                <p className="text-gray-700 mb-3">Known for affordable pet care options</p>
+                <Link href="/browse?city=pensacola&neighborhood=brent" className="text-purple-600 font-semibold hover:underline text-sm">
+                  Find groomers in Brent →
+                </Link>
+              </div>
+
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-100">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">📍 Warrington</h3>
+                <p className="text-gray-700 mb-3">Popular mobile grooming zone</p>
+                <Link href="/browse?city=pensacola&neighborhood=warrington" className="text-purple-600 font-semibold hover:underline text-sm">
+                  Find groomers in Warrington →
+                </Link>
+              </div>
+
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-100">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">📍 Pensacola Beach</h3>
+                <p className="text-gray-700 mb-3">Beach dog specialists with saltwater removal</p>
+                <Link href="/browse?city=pensacola&neighborhood=beach" className="text-purple-600 font-semibold hover:underline text-sm">
+                  Find groomers at the beach →
+                </Link>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <Link 
+                href="/browse?city=pensacola"
+                className="inline-block bg-gradient-to-r from-purple-600 to-pink-500 text-white px-8 py-4 rounded-full font-bold hover:shadow-lg transition-all"
+              >
+                View all Pensacola groomers →
+              </Link>
             </div>
           </div>
         </section>
@@ -1810,6 +1946,106 @@ export default async function CityPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Comprehensive FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-12">
+            Frequently Asked Questions About Pet Grooming in {city.name}
+          </h2>
+          <div className="space-y-6">
+            <details className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition">
+              <summary className="text-xl font-bold text-gray-900 cursor-pointer">
+                How much does dog grooming cost in {city.name}?
+              </summary>
+              <p className="mt-4 text-gray-700 text-lg">
+                Dog grooming in {city.name} typically costs {city.avgPrice} depending on breed size, coat condition, and service package. Small dogs (under 20 lbs) usually cost ${parseInt(city.avgPrice.split('-')[0]?.replace('$', '').replace(',', '') || '50') - 10}-${parseInt(city.avgPrice.split('-')[1]?.replace('$', '').replace(',', '') || '100') - 20}, while large dogs (50+ lbs) range from ${parseInt(city.avgPrice.split('-')[0]?.replace('$', '').replace(',', '') || '50') + 20}-${parseInt(city.avgPrice.split('-')[1]?.replace('$', '').replace(',', '') || '100') + 30}. <Link href="/blog/how-much-does-dog-grooming-cost" className="text-purple-600 font-bold hover:underline">Learn more about dog grooming costs →</Link>
+              </p>
+            </details>
+            <details className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition">
+              <summary className="text-xl font-bold text-gray-900 cursor-pointer">
+                Are there mobile groomers in {city.name}?
+              </summary>
+              <p className="mt-4 text-gray-700 text-lg">
+                Yes. {city.name} has several mobile grooming services that provide convenient at-home grooming for dogs and cats. Mobile grooming typically costs $10-$25 more than salon grooming but offers reduced stress for pets and eliminates transportation needs.
+              </p>
+            </details>
+            <details className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition">
+              <summary className="text-xl font-bold text-gray-900 cursor-pointer">
+                How do I find the best pet groomer in {city.name}?
+              </summary>
+              <p className="mt-4 text-gray-700 text-lg">
+                PetCareBooker helps you compare {city.totalGroomers}+ verified groomers in {city.name} by reviews, pricing, and availability. You can filter by neighborhood, service type, and read real customer reviews to choose the best professional for your pet.
+              </p>
+            </details>
+            <details className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition">
+              <summary className="text-xl font-bold text-gray-900 cursor-pointer">
+                What neighborhoods in {city.name} have pet groomers?
+              </summary>
+              <p className="mt-4 text-gray-700 text-lg">
+                Pet groomers in {city.name} serve neighborhoods including {city.neighborhoods.slice(0, 5).join(', ')}, and many more areas throughout {city.name} {city.state}. Use PetCareBooker to search by neighborhood and find groomers near you.
+              </p>
+            </details>
+            <details className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition">
+              <summary className="text-xl font-bold text-gray-900 cursor-pointer">
+                How often should I groom my pet in {city.name}?
+              </summary>
+              <p className="mt-4 text-gray-700 text-lg">
+                Most dogs benefit from professional grooming every 4-8 weeks, depending on breed and coat type. Long-haired breeds may need grooming every 3-4 weeks, while short-haired breeds can go 6-8 weeks between sessions. <Link href="/blog/how-often-groom-dog" className="text-purple-600 font-bold hover:underline">Read our complete grooming frequency guide →</Link>
+              </p>
+            </details>
+            <details className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition">
+              <summary className="text-xl font-bold text-gray-900 cursor-pointer">
+                Do {city.name} groomers offer cat grooming services?
+              </summary>
+              <p className="mt-4 text-gray-700 text-lg">
+                Yes, many groomers in {city.name} offer specialized cat grooming services. Cat grooming typically costs $40-$140 depending on coat length and services needed. <Link href="/blog/cat-grooming-costs-guide" className="text-purple-600 font-bold hover:underline">Learn more about cat grooming costs →</Link>
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      {/* Internal Links to Blog Posts */}
+      <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+            Learn More About Pet Grooming 📚
+          </h2>
+          <p className="text-center text-gray-600 text-xl mb-12 max-w-2xl mx-auto">
+            Explore our comprehensive guides to help you make informed decisions about your pet's grooming needs.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Link 
+              href="/blog/how-much-does-dog-grooming-cost"
+              className="bg-white rounded-2xl p-6 hover:shadow-xl hover:scale-105 transition-all border-2 border-purple-100"
+            >
+              <div className="text-4xl mb-4">💰</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Dog Grooming Costs Guide</h3>
+              <p className="text-gray-600 mb-4">Complete breakdown of dog grooming prices by size, breed, and location.</p>
+              <span className="text-purple-600 font-bold">Read More →</span>
+            </Link>
+            <Link 
+              href="/blog/cat-grooming-costs-guide"
+              className="bg-white rounded-2xl p-6 hover:shadow-xl hover:scale-105 transition-all border-2 border-purple-100"
+            >
+              <div className="text-4xl mb-4">🐱</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Cat Grooming Costs Guide</h3>
+              <p className="text-gray-600 mb-4">Everything you need to know about cat grooming prices and services.</p>
+              <span className="text-purple-600 font-bold">Read More →</span>
+            </Link>
+            <Link 
+              href="/blog/how-often-groom-dog"
+              className="bg-white rounded-2xl p-6 hover:shadow-xl hover:scale-105 transition-all border-2 border-purple-100"
+            >
+              <div className="text-4xl mb-4">📅</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">How Often to Groom Your Dog</h3>
+              <p className="text-gray-600 mb-4">Expert guide on optimal grooming schedules for different breeds.</p>
+              <span className="text-purple-600 font-bold">Read More →</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-gradient-to-r from-purple-600 to-pink-500 py-20">
         <div className="container mx-auto px-4 text-center">
@@ -1861,6 +2097,67 @@ export default async function CityPage({ params }: Props) {
               'https://www.petcarebooker.com',
             ],
             telephone: '+1-800-PET-CARE',
+          }),
+        }}
+      />
+
+      {/* Comprehensive FAQ Schema for All Cities */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: `How much does dog grooming cost in ${city.name}?`,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: `Dog grooming in ${city.name} typically costs ${city.avgPrice} depending on breed size, coat condition, and service package. Small dogs (under 20 lbs) usually cost $${parseInt(city.avgPrice.split('-')[0]?.replace('$', '').replace(',', '') || '50') - 10}-$${parseInt(city.avgPrice.split('-')[1]?.replace('$', '').replace(',', '') || '100') - 20}, while large dogs (50+ lbs) range from $${parseInt(city.avgPrice.split('-')[0]?.replace('$', '').replace(',', '') || '50') + 20}-$${parseInt(city.avgPrice.split('-')[1]?.replace('$', '').replace(',', '') || '100') + 30}.`,
+                },
+              },
+              {
+                '@type': 'Question',
+                name: `Are there mobile groomers in ${city.name}?`,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: `Yes. ${city.name} has several mobile grooming services that provide convenient at-home grooming for dogs and cats. Mobile grooming typically costs $10-$25 more than salon grooming but offers reduced stress for pets and eliminates transportation needs.`,
+                },
+              },
+              {
+                '@type': 'Question',
+                name: `How do I find the best pet groomer in ${city.name}?`,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: `PetCareBooker helps you compare ${city.totalGroomers}+ verified groomers in ${city.name} by reviews, pricing, and availability. You can filter by neighborhood, service type, and read real customer reviews to choose the best professional for your pet.`,
+                },
+              },
+              {
+                '@type': 'Question',
+                name: `What neighborhoods in ${city.name} have pet groomers?`,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: `Pet groomers in ${city.name} serve neighborhoods including ${city.neighborhoods.slice(0, 5).join(', ')}, and many more areas throughout ${city.name} ${city.state}. Use PetCareBooker to search by neighborhood and find groomers near you.`,
+                },
+              },
+              {
+                '@type': 'Question',
+                name: `How often should I groom my pet in ${city.name}?`,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: `Most dogs benefit from professional grooming every 4-8 weeks, depending on breed and coat type. Long-haired breeds may need grooming every 3-4 weeks, while short-haired breeds can go 6-8 weeks between sessions. Regular grooming prevents matting and keeps your pet healthy.`,
+                },
+              },
+              {
+                '@type': 'Question',
+                name: `Do ${city.name} groomers offer cat grooming services?`,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: `Yes, many groomers in ${city.name} offer specialized cat grooming services. Cat grooming typically costs $40-$140 depending on coat length and services needed. Look for groomers with cat-specific experience and gentle handling techniques.`,
+                },
+              },
+            ],
           }),
         }}
       />
