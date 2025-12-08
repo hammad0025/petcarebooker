@@ -141,9 +141,10 @@ export default function HomePage() {
               <Link href="/cities/new-york-city" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">NYC</Link>
               <Link href="/cities/tampa" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Tampa</Link>
               <Link href="/cities/orlando" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Orlando</Link>
+              <Link href="/cities/pensacola" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Pensacola</Link>
+              <Link href="/cities/fort-lauderdale" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Fort Lauderdale</Link>
               <Link href="/cities/brooklyn" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Brooklyn</Link>
               <Link href="/cities/west-palm-beach" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">West Palm Beach</Link>
-              <Link href="/cities/fort-lauderdale" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Fort Lauderdale</Link>
               <Link href="/cities/jacksonville" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Jacksonville</Link>
               <Link href="/cities/buffalo" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Buffalo</Link>
               <Link href="/browse" className="bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/30 transition-all text-sm font-bold border border-white/30">View All Cities →</Link>
