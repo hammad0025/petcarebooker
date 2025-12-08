@@ -59,7 +59,7 @@ export default function CityAutocomplete() {
     : searchTerm;
 
   return (
-    <div className="relative w-full" ref={wrapperRef}>
+    <div className="relative w-full min-w-0" ref={wrapperRef}>
       <input
         type="text"
         value={displayValue}
@@ -69,7 +69,7 @@ export default function CityAutocomplete() {
         }}
         onFocus={() => setIsOpen(true)}
         placeholder="📍 Location"
-        className="w-full px-6 py-5 text-xl rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-800 placeholder-gray-400 pr-12"
+        className="w-full min-w-0 px-4 sm:px-6 py-3 sm:py-5 text-base sm:text-xl rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-800 placeholder-gray-400 pr-10 sm:pr-12"
         autoComplete="off"
       />
       <div className="absolute right-4 top-1/2 -translate-y-1/2 text-2xl pointer-events-none">

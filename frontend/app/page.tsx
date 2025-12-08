@@ -29,43 +29,43 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden w-full max-w-full">
       {/* Navbar with subtle gradient */}
-      <nav className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white py-6 shadow-lg">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <Link href="/">
-            <h1 className="text-3xl font-bold cursor-pointer hover:opacity-90 flex items-center gap-2">
+      <nav className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white py-6 shadow-lg overflow-x-hidden w-full">
+        <div className="container mx-auto px-4 flex flex-wrap justify-between items-center gap-2 max-w-full">
+          <Link href="/" className="min-w-0 flex-shrink">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold cursor-pointer hover:opacity-90 flex items-center gap-2">
               🐾 PetCareBooker
             </h1>
           </Link>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4 min-w-0">
           <Link 
             href="/browse" 
-            className="text-white hover:text-gray-100 font-semibold transition-all hover:scale-105"
+            className="text-sm sm:text-base text-white hover:text-gray-100 font-semibold transition-all hover:scale-105 whitespace-nowrap"
           >
             Find Groomers
           </Link>
           <Link 
             href="/blog" 
-            className="text-white hover:text-gray-100 font-semibold transition-all hover:scale-105"
+            className="text-sm sm:text-base text-white hover:text-gray-100 font-semibold transition-all hover:scale-105 whitespace-nowrap"
           >
             Blog
           </Link>
           <Link 
             href="/guides" 
-            className="text-white hover:text-gray-100 font-semibold transition-all hover:scale-105"
+            className="text-sm sm:text-base text-white hover:text-gray-100 font-semibold transition-all hover:scale-105 whitespace-nowrap"
           >
             Guides
           </Link>
           <Link 
             href="/customer/login" 
-            className="text-white hover:text-gray-100 font-semibold transition-all hover:scale-105"
+            className="text-sm sm:text-base text-white hover:text-gray-100 font-semibold transition-all hover:scale-105 whitespace-nowrap"
           >
             Sign In
           </Link>
           <Link 
             href="/login" 
-            className="bg-white text-purple-600 px-5 py-2.5 rounded-full font-bold hover:bg-gray-50 transition-all hover:scale-105 shadow-lg"
+            className="text-sm sm:text-base bg-white text-purple-600 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full font-bold hover:bg-gray-50 transition-all hover:scale-105 shadow-lg whitespace-nowrap"
           >
             For Businesses ✨
           </Link>
@@ -87,9 +87,9 @@ export default function HomePage() {
           </div>
           
           {/* Decorative shapes */}
-          <div className="absolute inset-0">
-            <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 max-w-full"></div>
+            <div className="absolute bottom-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-purple-400/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 max-w-full"></div>
           </div>
         </div>
 
@@ -112,12 +112,12 @@ export default function HomePage() {
           </p>
 
                  {/* Large Search Bar - Vagaro/Booksy style with autocomplete */}
-                 <div className="w-full max-w-3xl mb-8">
-                   <div className="bg-white rounded-2xl shadow-2xl p-3 flex items-center gap-3">
-                     <div className="flex-1">
+                 <div className="w-full max-w-3xl mb-8 px-2 sm:px-0">
+                   <div className="bg-white rounded-2xl shadow-2xl p-2 sm:p-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full">
+                     <div className="flex-1 min-w-0">
                        <CityAutocomplete />
                      </div>
-                     <select className="px-4 py-5 text-xl rounded-xl focus:outline-none bg-gray-50 text-gray-700 border border-gray-200">
+                     <select className="px-3 sm:px-4 py-3 sm:py-5 text-base sm:text-xl rounded-xl focus:outline-none bg-gray-50 text-gray-700 border border-gray-200 min-w-0 flex-shrink">
                        <option>All Services</option>
                        <option>Dog Grooming</option>
                        <option>Cat Grooming</option>
@@ -126,7 +126,7 @@ export default function HomePage() {
                      </select>
                      <Link 
                        href="/browse"
-                       className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-10 py-5 rounded-xl font-bold hover:from-purple-700 hover:to-pink-600 transition-all whitespace-nowrap text-xl shadow-lg hover:scale-105"
+                       className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-xl font-bold hover:from-purple-700 hover:to-pink-600 transition-all whitespace-nowrap text-base sm:text-xl shadow-lg hover:scale-105 text-center flex-shrink-0"
                      >
                        Search
                      </Link>
@@ -134,9 +134,9 @@ export default function HomePage() {
                  </div>
 
           {/* Popular Cities Quick Links */}
-          <div className="mb-8">
-            <p className="text-white/90 text-lg mb-4 font-semibold">Popular Cities:</p>
-            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+          <div className="mb-8 w-full px-2 sm:px-0">
+            <p className="text-white/90 text-base sm:text-lg mb-4 font-semibold">Popular Cities:</p>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-4xl mx-auto w-full">
               <Link href="/cities/miami" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Miami</Link>
               <Link href="/cities/new-york-city" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">NYC</Link>
               <Link href="/cities/tampa" className="bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Tampa</Link>
