@@ -14,41 +14,36 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not(.blog-page) {
-    --background: #ffffff; /* Keep white background even in dark mode */
-    --foreground: #111827; /* Force dark text */
+    --background: #ffffff;
+    --foreground: #111827;
   }
 }
 
 body {
-  background: #ffffff !important; /* Always white background */
-  color: #111827 !important; /* Force dark text */
+  background: #ffffff !important;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Force dark text on content areas - but respect explicit white text classes */
-body:not([class*="bg-gradient"]) p,
-body:not([class*="bg-gradient"]) h1,
-body:not([class*="bg-gradient"]) h2,
-body:not([class*="bg-gradient"]) h3,
-body:not([class*="bg-gradient"]) h4,
-body:not([class*="bg-gradient"]) h5,
-body:not([class*="bg-gradient"]) h6,
-body:not([class*="bg-gradient"]) span:not(.text-white),
-body:not([class*="bg-gradient"]) div:not(.text-white),
-body:not([class*="bg-gradient"]) li,
-body:not([class*="bg-gradient"]) label,
-body:not([class*="bg-gradient"]) input:not([class*="text-white"]),
-body:not([class*="bg-gradient"]) textarea:not([class*="text-white"]),
-body:not([class*="bg-gradient"]) select:not([class*="text-white"]) {
-  color: #111827 !important;
+/* CRITICAL: Force white text on ALL gradient backgrounds */
+section[class*="bg-gradient"] *,
+div[class*="bg-gradient"] *,
+[class*="bg-gradient"] h1,
+[class*="bg-gradient"] h2,
+[class*="bg-gradient"] h3,
+[class*="bg-gradient"] p,
+[class*="bg-gradient"] span {
+  color: #ffffff !important;
 }
 
-/* Explicit white text classes override */
-.text-white,
-[class*="text-white"],
-nav [class*="text-white"],
-.bg-gradient [class*="text-white"] {
-  color: white !important;
+/* Respect explicit color classes */
+[class*="text-gray"] {
+  color: inherit !important;
+}
+[class*="text-black"] {
+  color: inherit !important;
+}
+[class*="text-yellow"] {
+  color: inherit !important;
 }
 
 /* Blog page overrides */
@@ -100,5 +95,3 @@ nav [class*="text-white"],
 .blog-content li {
   margin-bottom: 0.5rem !important;
 }
-/* Force rebuild */
-/* Force commit */
