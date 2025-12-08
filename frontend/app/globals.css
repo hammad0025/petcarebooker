@@ -96,31 +96,32 @@ img {
   height: auto !important;
 }
 
-/* CRITICAL: Force white text on ALL gradient backgrounds */
-section[class*="bg-gradient"] *,
-div[class*="bg-gradient"] *,
-[class*="bg-gradient"] h1,
-[class*="bg-gradient"] h2,
-[class*="bg-gradient"] h3,
-[class*="bg-gradient"] p,
-[class*="bg-gradient"] span {
+/* CRITICAL: Only apply white text to dark gradient sections without explicit text colors */
+/* Dark gradient sections (500+) should have white text by default */
+section[class*="bg-gradient"][class*="-500"]:not([class*="-50"]):not([class*="-100"]):not([class*="-200"]):not([class*="-300"]):not([class*="-400"]) h1:not([class*="text-"]),
+section[class*="bg-gradient"][class*="-500"]:not([class*="-50"]):not([class*="-100"]):not([class*="-200"]):not([class*="-300"]):not([class*="-400"]) h2:not([class*="text-"]),
+section[class*="bg-gradient"][class*="-500"]:not([class*="-50"]):not([class*="-100"]):not([class*="-200"]):not([class*="-300"]):not([class*="-400"]) p:not([class*="text-"]),
+section[class*="bg-gradient"][class*="-600"]:not([class*="-50"]):not([class*="-100"]):not([class*="-200"]):not([class*="-300"]):not([class*="-400"]) h1:not([class*="text-"]),
+section[class*="bg-gradient"][class*="-600"]:not([class*="-50"]):not([class*="-100"]):not([class*="-200"]):not([class*="-300"]):not([class*="-400"]) h2:not([class*="text-"]),
+section[class*="bg-gradient"][class*="-600"]:not([class*="-50"]):not([class*="-100"]):not([class*="-200"]):not([class*="-300"]):not([class*="-400"]) p:not([class*="text-"]),
+section[class*="bg-gradient"][class*="-700"]:not([class*="-50"]):not([class*="-100"]):not([class*="-200"]):not([class*="-300"]):not([class*="-400"]) h1:not([class*="text-"]),
+section[class*="bg-gradient"][class*="-700"]:not([class*="-50"]):not([class*="-100"]):not([class*="-200"]):not([class*="-300"]):not([class*="-400"]) h2:not([class*="text-"]),
+section[class*="bg-gradient"][class*="-700"]:not([class*="-50"]):not([class*="-100"]):not([class*="-200"]):not([class*="-300"]):not([class*="-400"]) p:not([class*="text-"]) {
   color: #ffffff !important;
 }
 
-/* Respect explicit color classes */
-[class*="text-gray"] {
-  color: inherit !important;
-}
-[class*="text-black"] {
-  color: inherit !important;
-}
-[class*="text-yellow"] {
-  color: inherit !important;
-}
-
-/* Blog page overrides */
+/* Blog page overrides - ensure dark text on light gradients */
 .blog-page {
   background: #ffffff !important;
+  color: #111827 !important;
+}
+
+/* Ensure blog page main content area has dark text on light gradients */
+/* This must override any dark gradient rules */
+div.min-h-screen[class*="bg-gradient"][class*="-50"] *,
+div.min-h-screen[class*="bg-gradient"][class*="from-purple-50"] *,
+div.min-h-screen[class*="bg-gradient"][class*="from-pink-50"] *,
+div.min-h-screen[class*="bg-gradient"][class*="from-orange-50"] * {
   color: #111827 !important;
 }
 
