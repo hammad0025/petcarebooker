@@ -33,8 +33,16 @@ def migrate():
         "ALTER TABLE pets ADD COLUMN IF NOT EXISTS updated_at TIMESTAMP DEFAULT NOW()",
         
         # Add missing columns to bookings
-        "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS shop_commission_percentage NUMERIC(5, 2) DEFAULT 0.0",
-        "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS platform_commission_percentage NUMERIC(5, 2) DEFAULT 0.0",
+        "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS amount_paid DOUBLE PRECISION",
+        "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS stripe_payment_intent_id VARCHAR",
+        "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS payment_status VARCHAR DEFAULT 'pending'",
+        "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS payment_date TIMESTAMP",
+        "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS platform_commission DOUBLE PRECISION",
+        "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS groomer_payout DOUBLE PRECISION",
+        "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS commission_processed BOOLEAN DEFAULT FALSE",
+        "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS confirmed_at TIMESTAMP",
+        "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS completed_at TIMESTAMP",
+        "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS cancelled_at TIMESTAMP",
     ]
     
     with engine.connect() as conn:

@@ -58,9 +58,17 @@ try:
             "ALTER TABLE pets ADD COLUMN IF NOT EXISTS created_at TIMESTAMP DEFAULT NOW()",
             "ALTER TABLE pets ADD COLUMN IF NOT EXISTS updated_at TIMESTAMP DEFAULT NOW()",
             
-            # Bookings table
-            "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS platform_commission NUMERIC",
-            "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS groomer_payout NUMERIC",
+            # Bookings table - payment and commission tracking
+            "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS amount_paid DOUBLE PRECISION",
+            "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS stripe_payment_intent_id VARCHAR",
+            "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS payment_status VARCHAR DEFAULT 'pending'",
+            "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS payment_date TIMESTAMP",
+            "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS platform_commission DOUBLE PRECISION",
+            "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS groomer_payout DOUBLE PRECISION",
+            "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS commission_processed BOOLEAN DEFAULT FALSE",
+            "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS confirmed_at TIMESTAMP",
+            "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS completed_at TIMESTAMP",
+            "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS cancelled_at TIMESTAMP",
         ]
         
         for migration in migrations:
