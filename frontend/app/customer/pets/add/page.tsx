@@ -153,6 +153,8 @@ export default function AddPetPage() {
                 Type 🐾
                 <span className="text-red-500 ml-1">*</span>
               </label>
+              {/* Hidden input for form validation */}
+              <input type="hidden" name="pet_type" value={selectedPetType} required />
               <div className="grid grid-cols-2 gap-4">
                 {PET_TYPES.map((pet) => (
                   <button
@@ -209,6 +211,8 @@ export default function AddPetPage() {
                 Size 🎯
                 <span className="text-red-500 ml-1">*</span>
               </label>
+              {/* Hidden input for form validation */}
+              <input type="hidden" name="size" value={selectedSize} required />
               <div className="grid grid-cols-4 gap-3">
                 {SIZE_OPTIONS.map((size) => (
                   <button
