@@ -8,6 +8,29 @@ import re
 import json
 import os
 
+# Sentry error monitoring
+import sentry_sdk
+from sentry_sdk.integrations.fastapi import FastApiIntegration
+from sentry_sdk.integrations.sqlalchemy import SqlalchemyIntegration
+
+# Initialize Sentry if DSN is provided
+sentry_dsn = os.getenv("SENTRY_DSN")
+if sentry_dsn:
+    sentry_sdk.init(
+        dsn=sentry_dsn,
+        environment=os.getenv("ENVIRONMENT", "development"),
+        integrations=[
+            FastApiIntegration(),
+            SqlalchemyIntegration(),
+        ],
+        traces_sample_rate=1.0,  # Capture 100% of transactions
+        send_default_pii=False,  # Don't send user data
+        before_send=lambda event, hint: event,  # Can add filtering here
+    )
+    print("✅ Sentry error monitoring initialized")
+else:
+    print("⚠️  Sentry DSN not found - error monitoring disabled")
+
 from database import engine, get_db, Base
 from models import Shop, Service, Booking, BookingStatus, Customer, Pet, PasswordResetToken
 from schemas import (
