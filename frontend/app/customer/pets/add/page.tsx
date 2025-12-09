@@ -90,6 +90,18 @@ export default function AddPetPage() {
       });
 
       if (!response.ok) {
+        // If 401, token is invalid - log the user out
+        if (response.status === 401) {
+          localStorage.removeItem('customerToken');
+          localStorage.removeItem('customerId');
+          localStorage.removeItem('customerName');
+          setError('Your session has expired. Please log in again.');
+          setTimeout(() => {
+            router.push('/customer/login');
+          }, 2000);
+          return;
+        }
+        
         const errorData = await response.json().catch(() => ({ detail: 'Failed to add pet' }));
         throw new Error(errorData.detail || 'Failed to add pet');
       }
