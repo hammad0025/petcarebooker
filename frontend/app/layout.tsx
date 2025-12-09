@@ -26,7 +26,10 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
   icons: {
-    icon: '/favicon.svg',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
     shortcut: '/favicon.svg',
     apple: '/apple-icon.png',
   },
@@ -75,10 +78,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="overflow-x-hidden w-full max-w-full">
-      <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="alternate icon" href="/favicon.ico" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden w-full max-w-full`}
       >
