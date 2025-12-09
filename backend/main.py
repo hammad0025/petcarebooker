@@ -33,8 +33,9 @@ try:
     from sqlalchemy import text
     print("🔄 Running database migrations...")
     with engine.connect() as conn:
-        # Add missing subscription columns if they don't exist
+        # Migrations for all tables
         migrations = [
+            # Shops table
             "ALTER TABLE shops ADD COLUMN IF NOT EXISTS subscription_tier VARCHAR DEFAULT 'free'",
             "ALTER TABLE shops ADD COLUMN IF NOT EXISTS subscription_status VARCHAR DEFAULT 'active'",
             "ALTER TABLE shops ADD COLUMN IF NOT EXISTS stripe_customer_id VARCHAR",
@@ -42,7 +43,24 @@ try:
             "ALTER TABLE shops ADD COLUMN IF NOT EXISTS subscription_start_date TIMESTAMP",
             "ALTER TABLE shops ADD COLUMN IF NOT EXISTS subscription_renewal_date TIMESTAMP",
             "ALTER TABLE shops ADD COLUMN IF NOT EXISTS subscription_cancelled_at TIMESTAMP",
+            
+            # Pets table
+            "ALTER TABLE pets ADD COLUMN IF NOT EXISTS photo_url VARCHAR",
+            "ALTER TABLE pets ADD COLUMN IF NOT EXISTS birth_date TIMESTAMP",
+            "ALTER TABLE pets ADD COLUMN IF NOT EXISTS gender VARCHAR",
+            "ALTER TABLE pets ADD COLUMN IF NOT EXISTS color VARCHAR",
+            "ALTER TABLE pets ADD COLUMN IF NOT EXISTS special_notes TEXT",
+            "ALTER TABLE pets ADD COLUMN IF NOT EXISTS health_notes TEXT",
+            "ALTER TABLE pets ADD COLUMN IF NOT EXISTS favorite_groomer_id INTEGER REFERENCES shops(id)",
+            "ALTER TABLE pets ADD COLUMN IF NOT EXISTS grooming_frequency_days INTEGER",
+            "ALTER TABLE pets ADD COLUMN IF NOT EXISTS last_groom_date TIMESTAMP",
+            "ALTER TABLE pets ADD COLUMN IF NOT EXISTS next_groom_due TIMESTAMP",
+            
+            # Bookings table
+            "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS platform_commission NUMERIC",
+            "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS groomer_payout NUMERIC",
         ]
+        
         for migration in migrations:
             try:
                 conn.execute(text(migration))
