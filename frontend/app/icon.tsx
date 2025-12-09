@@ -1,8 +1,8 @@
 import { ImageResponse } from 'next/og';
 
 export const size = {
-  width: 512,
-  height: 512,
+  width: 32,
+  height: 32,
 };
 
 export const contentType = 'image/png';
@@ -20,62 +20,16 @@ export default function Icon() {
           justifyContent: 'center',
         }}
       >
-        {/* Simple paw print using circles */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          {/* Top two pads */}
-          <div style={{ display: 'flex', gap: '60px', marginBottom: '20px' }}>
-            <div
-              style={{
-                width: '80px',
-                height: '80px',
-                borderRadius: '50%',
-                backgroundColor: 'white',
-              }}
-            />
-            <div
-              style={{
-                width: '80px',
-                height: '80px',
-                borderRadius: '50%',
-                backgroundColor: 'white',
-              }}
-            />
-          </div>
-          {/* Middle two pads */}
-          <div style={{ display: 'flex', gap: '100px', marginBottom: '20px' }}>
-            <div
-              style={{
-                width: '70px',
-                height: '70px',
-                borderRadius: '50%',
-                backgroundColor: 'white',
-              }}
-            />
-            <div
-              style={{
-                width: '70px',
-                height: '70px',
-                borderRadius: '50%',
-                backgroundColor: 'white',
-              }}
-            />
-          </div>
+        {/* Paw print - 5 circles */}
+        <div style={{ position: 'relative', width: '24px', height: '24px' }}>
           {/* Bottom main pad */}
-          <div
-            style={{
-              width: '100px',
-              height: '100px',
-              borderRadius: '50%',
-              backgroundColor: 'white',
-            }}
-          />
+          <div style={{ position: 'absolute', bottom: '0', left: '50%', transform: 'translateX(-50%)', width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'white' }} />
+          {/* Middle two pads */}
+          <div style={{ position: 'absolute', bottom: '6px', left: '4px', width: '5px', height: '5px', borderRadius: '50%', backgroundColor: 'white' }} />
+          <div style={{ position: 'absolute', bottom: '6px', right: '4px', width: '5px', height: '5px', borderRadius: '50%', backgroundColor: 'white' }} />
+          {/* Top two pads */}
+          <div style={{ position: 'absolute', top: '2px', left: '6px', width: '5px', height: '5px', borderRadius: '50%', backgroundColor: 'white' }} />
+          <div style={{ position: 'absolute', top: '2px', right: '6px', width: '5px', height: '5px', borderRadius: '50%', backgroundColor: 'white' }} />
         </div>
       </div>
     ),
