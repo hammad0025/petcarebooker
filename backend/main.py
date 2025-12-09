@@ -55,6 +55,8 @@ try:
             "ALTER TABLE pets ADD COLUMN IF NOT EXISTS grooming_frequency_days INTEGER",
             "ALTER TABLE pets ADD COLUMN IF NOT EXISTS last_groom_date TIMESTAMP",
             "ALTER TABLE pets ADD COLUMN IF NOT EXISTS next_groom_due TIMESTAMP",
+            "ALTER TABLE pets ADD COLUMN IF NOT EXISTS created_at TIMESTAMP DEFAULT NOW()",
+            "ALTER TABLE pets ADD COLUMN IF NOT EXISTS updated_at TIMESTAMP DEFAULT NOW()",
             
             # Bookings table
             "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS platform_commission NUMERIC",
