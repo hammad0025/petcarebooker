@@ -982,6 +982,15 @@ def test_endpoint():
     return {"message": "Backend is working", "timestamp": datetime.utcnow().isoformat()}
 
 
+@app.get("/sentry-debug")
+async def trigger_error():
+    """
+    Test endpoint to verify Sentry error tracking is working.
+    This will trigger a division by zero error that Sentry will capture.
+    """
+    division_by_zero = 1 / 0
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
