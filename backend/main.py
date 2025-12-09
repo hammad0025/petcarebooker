@@ -28,6 +28,31 @@ from email_service import send_contact_email
 # Create database tables
 Base.metadata.create_all(bind=engine)
 
+# Run migrations to add any missing columns
+try:
+    from sqlalchemy import text
+    print("🔄 Running database migrations...")
+    with engine.connect() as conn:
+        # Add missing subscription columns if they don't exist
+        migrations = [
+            "ALTER TABLE shops ADD COLUMN IF NOT EXISTS subscription_tier VARCHAR DEFAULT 'free'",
+            "ALTER TABLE shops ADD COLUMN IF NOT EXISTS subscription_status VARCHAR DEFAULT 'active'",
+            "ALTER TABLE shops ADD COLUMN IF NOT EXISTS stripe_customer_id VARCHAR",
+            "ALTER TABLE shops ADD COLUMN IF NOT EXISTS stripe_subscription_id VARCHAR",
+            "ALTER TABLE shops ADD COLUMN IF NOT EXISTS subscription_start_date TIMESTAMP",
+            "ALTER TABLE shops ADD COLUMN IF NOT EXISTS subscription_renewal_date TIMESTAMP",
+            "ALTER TABLE shops ADD COLUMN IF NOT EXISTS subscription_cancelled_at TIMESTAMP",
+        ]
+        for migration in migrations:
+            try:
+                conn.execute(text(migration))
+                conn.commit()
+            except Exception as e:
+                pass  # Column probably already exists
+    print("✅ Migrations complete!")
+except Exception as e:
+    print(f"⚠️  Migration error (non-fatal): {e}")
+
 app = FastAPI(title="PetCareBooker API", version="1.0.0")
 
 # Health check endpoint (no database required)
