@@ -30,6 +30,15 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="PetCareBooker API", version="1.0.0")
 
+# Health check endpoint (no database required)
+@app.get("/health")
+def health_check():
+    return {
+        "status": "healthy",
+        "environment": os.getenv("ENVIRONMENT", "development"),
+        "cors_origins": ["https://petcarebooker.com", "https://www.petcarebooker.com"] if os.getenv("ENVIRONMENT") == "production" else ["*"]
+    }
+
 # CORS Configuration
 def get_allowed_origins():
     """Get CORS origins based on environment"""
@@ -356,16 +365,23 @@ def get_shops(
     db: Session = Depends(get_db)
 ):
     """Get all shops with optional filters"""
-    query = db.query(Shop)
-    
-    if city:
-        query = query.filter(Shop.city.ilike(f"%{city}%"))
-    if state:
-        query = query.filter(Shop.state.ilike(f"%{state}%"))
-    if search:
-        query = query.filter(Shop.business_name.ilike(f"%{search}%"))
-    
-    return query.all()
+    try:
+        query = db.query(Shop)
+        
+        if city:
+            query = query.filter(Shop.city.ilike(f"%{city}%"))
+        if state:
+            query = query.filter(Shop.state.ilike(f"%{state}%"))
+        if search:
+            query = query.filter(Shop.business_name.ilike(f"%{search}%"))
+        
+        shops = query.all()
+        return shops
+    except Exception as e:
+        print(f"ERROR in get_shops: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
 
 
 @app.get("/api/shops/{slug}", response_model=ShopResponse)
