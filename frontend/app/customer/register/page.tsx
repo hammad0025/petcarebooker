@@ -1,13 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://petcarebooker.onrender.com';
 
 export default function CustomerRegisterPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const returnTo = searchParams.get('returnTo');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -40,7 +42,9 @@ export default function CustomerRegisterPage() {
       localStorage.setItem('customerToken', data.access_token);
       localStorage.setItem('customerId', data.customer_id.toString());
       localStorage.setItem('customerName', data.name);
-      router.push('/customer/dashboard');
+      
+      // Redirect to returnTo URL if provided, otherwise go to dashboard
+      router.push(returnTo || '/customer/dashboard');
     } catch (err: any) {
       setError(err.message || 'Failed to register');
     } finally {

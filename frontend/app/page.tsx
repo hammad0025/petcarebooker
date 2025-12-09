@@ -179,7 +179,7 @@ export default function HomePage() {
           {/* CTA Buttons */}
           <div className="flex gap-4 justify-center flex-wrap">
             <Link 
-              href="/my-pets"
+              href="/customer/start"
               className="bg-white text-purple-600 px-10 py-4 rounded-full text-xl font-bold hover:bg-gray-50 transition-all hover:scale-110 shadow-2xl"
             >
               🐾 Start with Your Pet
