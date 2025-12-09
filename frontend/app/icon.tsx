@@ -18,29 +18,64 @@ export default function Icon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          flexDirection: 'column',
         }}
       >
+        {/* Simple paw print using circles */}
         <div
           style={{
-            fontSize: 200,
-            lineHeight: 1,
-            marginBottom: 20,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
-          🐾
-        </div>
-        <div
-          style={{
-            fontSize: 48,
-            fontWeight: 'bold',
-            color: 'white',
-            textAlign: 'center',
-            fontFamily: 'system-ui',
-            letterSpacing: '-0.02em',
-          }}
-        >
-          PCB
+          {/* Top two pads */}
+          <div style={{ display: 'flex', gap: '60px', marginBottom: '20px' }}>
+            <div
+              style={{
+                width: '80px',
+                height: '80px',
+                borderRadius: '50%',
+                backgroundColor: 'white',
+              }}
+            />
+            <div
+              style={{
+                width: '80px',
+                height: '80px',
+                borderRadius: '50%',
+                backgroundColor: 'white',
+              }}
+            />
+          </div>
+          {/* Middle two pads */}
+          <div style={{ display: 'flex', gap: '100px', marginBottom: '20px' }}>
+            <div
+              style={{
+                width: '70px',
+                height: '70px',
+                borderRadius: '50%',
+                backgroundColor: 'white',
+              }}
+            />
+            <div
+              style={{
+                width: '70px',
+                height: '70px',
+                borderRadius: '50%',
+                backgroundColor: 'white',
+              }}
+            />
+          </div>
+          {/* Bottom main pad */}
+          <div
+            style={{
+              width: '100px',
+              height: '100px',
+              borderRadius: '50%',
+              backgroundColor: 'white',
+            }}
+          />
         </div>
       </div>
     ),
