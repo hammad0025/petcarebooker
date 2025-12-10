@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { shopsApi } from '@/lib/api';
 import Footer from '@/components/Footer';
@@ -15,13 +15,61 @@ interface Shop {
   logo_url?: string;
 }
 
+interface City {
+  name: string;
+  state: string;
+  slug: string;
+}
+
+const POPULAR_CITIES: City[] = [
+  { name: 'West Palm Beach', state: 'FL', slug: 'west-palm-beach' },
+  { name: 'Miami', state: 'FL', slug: 'miami' },
+  { name: 'Tampa', state: 'FL', slug: 'tampa' },
+  { name: 'Orlando', state: 'FL', slug: 'orlando' },
+  { name: 'Fort Lauderdale', state: 'FL', slug: 'fort-lauderdale' },
+  { name: 'New York City', state: 'NY', slug: 'new-york-city' },
+  { name: 'Los Angeles', state: 'CA', slug: 'los-angeles' },
+  { name: 'Chicago', state: 'IL', slug: 'chicago' },
+  { name: 'Houston', state: 'TX', slug: 'houston' },
+  { name: 'Phoenix', state: 'AZ', slug: 'phoenix' },
+  { name: 'Philadelphia', state: 'PA', slug: 'philadelphia' },
+  { name: 'San Antonio', state: 'TX', slug: 'san-antonio' },
+  { name: 'San Diego', state: 'CA', slug: 'san-diego' },
+  { name: 'Dallas', state: 'TX', slug: 'dallas' },
+  { name: 'San Jose', state: 'CA', slug: 'san-jose' },
+];
+
+const SERVICE_TYPES = [
+  'All Services',
+  'Dog Grooming',
+  'Cat Grooming',
+  'Mobile Grooming',
+  'Spa Services',
+  'Nail Trimming',
+  'Bath & Brush',
+];
+
 export default function BrowsePage() {
   const [shops, setShops] = useState<Shop[]>([]);
   const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState('');
+  const [citySearch, setCitySearch] = useState('');
+  const [selectedCity, setSelectedCity] = useState<City | null>(null);
+  const [selectedService, setSelectedService] = useState('All Services');
+  const [isCityDropdownOpen, setIsCityDropdownOpen] = useState(false);
+  const cityWrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     loadShops();
+  }, []);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (cityWrapperRef.current && !cityWrapperRef.current.contains(event.target as Node)) {
+        setIsCityDropdownOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const loadShops = async () => {
@@ -35,10 +83,29 @@ export default function BrowsePage() {
     }
   };
 
-  const filteredShops = shops.filter(shop =>
-    shop.business_name.toLowerCase().includes(search.toLowerCase()) ||
-    shop.city?.toLowerCase().includes(search.toLowerCase())
+  const filteredCities = POPULAR_CITIES.filter(city =>
+    city.name.toLowerCase().includes(citySearch.toLowerCase()) ||
+    city.state.toLowerCase().includes(citySearch.toLowerCase()) ||
+    `${city.name}, ${city.state}`.toLowerCase().includes(citySearch.toLowerCase())
   );
+
+  const handleCitySelect = (city: City) => {
+    setSelectedCity(city);
+    setCitySearch(`${city.name}, ${city.state}`);
+    setIsCityDropdownOpen(false);
+  };
+
+  const filteredShops = shops.filter(shop => {
+    // Filter by city if selected
+    const cityMatch = !selectedCity || 
+      (shop.city?.toLowerCase() === selectedCity.name.toLowerCase() && 
+       shop.state?.toLowerCase() === selectedCity.state.toLowerCase());
+    
+    // Service filter would need backend support, for now just return all
+    const serviceMatch = selectedService === 'All Services';
+    
+    return cityMatch && serviceMatch;
+  });
 
   // Popular cities for SEO - static content Google can see
   const popularCities = [
@@ -72,17 +139,78 @@ export default function BrowsePage() {
         </div>
 
         {/* Search Section - Moved above cities for better UX */}
-        <div className="mb-12 max-w-3xl mx-auto">
-          <div className="relative">
-            <span className="absolute left-6 top-1/2 transform -translate-y-1/2 text-3xl">🔍</span>
-            <input
-              type="text"
-              placeholder="Search by business name or city..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-16 pr-6 py-5 border-2 border-purple-300 rounded-2xl focus:ring-4 focus:ring-purple-200 focus:border-purple-500 text-lg text-gray-900 shadow-lg"
-            />
+        <div className="mb-12 max-w-5xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-xl p-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 border-2 border-purple-200">
+            {/* City Autocomplete */}
+            <div className="flex-1 min-w-0 relative" ref={cityWrapperRef}>
+              <input
+                type="text"
+                value={citySearch}
+                onChange={(e) => {
+                  setCitySearch(e.target.value);
+                  setSelectedCity(null);
+                  setIsCityDropdownOpen(true);
+                }}
+                onFocus={() => setIsCityDropdownOpen(true)}
+                placeholder="📍 Enter your city..."
+                className="w-full px-6 py-4 text-lg rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-800 placeholder-gray-500 border border-gray-200"
+                autoComplete="off"
+              />
+              
+              {/* City Dropdown */}
+              {isCityDropdownOpen && citySearch && filteredCities.length > 0 && (
+                <div className="absolute z-50 w-full mt-2 bg-white rounded-xl shadow-2xl border-2 border-purple-300 max-h-96 overflow-y-auto">
+                  {filteredCities.map((city, index) => (
+                    <button
+                      key={index}
+                      onClick={() => handleCitySelect(city)}
+                      className="w-full px-6 py-4 text-left hover:bg-purple-50 transition-colors flex items-center gap-3 border-b border-gray-100 last:border-0"
+                    >
+                      <div className="text-2xl">📍</div>
+                      <div>
+                        <div className="font-semibold text-gray-900">{city.name}</div>
+                        <div className="text-sm text-gray-600">{city.state}</div>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Service Type Dropdown */}
+            <select 
+              value={selectedService}
+              onChange={(e) => setSelectedService(e.target.value)}
+              className="px-6 py-4 text-lg rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white text-gray-700 border border-gray-200 min-w-0 sm:w-64"
+            >
+              {SERVICE_TYPES.map((service) => (
+                <option key={service} value={service}>{service}</option>
+              ))}
+            </select>
+
+            {/* Search Button */}
+            <button className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-8 py-4 rounded-xl font-bold hover:from-purple-700 hover:to-pink-600 transition-all shadow-lg hover:scale-105 text-lg whitespace-nowrap">
+              Search 🔍
+            </button>
           </div>
+          
+          {/* Active Filters Display */}
+          {selectedCity && (
+            <div className="mt-4 flex gap-2 flex-wrap">
+              <div className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full flex items-center gap-2 font-semibold">
+                📍 {selectedCity.name}, {selectedCity.state}
+                <button 
+                  onClick={() => {
+                    setSelectedCity(null);
+                    setCitySearch('');
+                  }}
+                  className="hover:bg-purple-200 rounded-full w-5 h-5 flex items-center justify-center transition-colors"
+                >
+                  ×
+                </button>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Popular Cities Section - Static content for SEO */}
