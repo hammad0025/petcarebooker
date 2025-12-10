@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { shopsApi } from '@/lib/api';
+import ServiceAutocomplete from '@/components/ServiceAutocomplete';
 import Footer from '@/components/Footer';
 
 interface Shop {
@@ -351,16 +352,14 @@ export default function BrowsePage() {
               )}
             </div>
 
-            {/* Service Type Dropdown */}
-            <select 
-              value={selectedService}
-              onChange={(e) => setSelectedService(e.target.value)}
-              className="px-6 py-4 text-lg rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white text-gray-700 border border-gray-200 min-w-0 sm:w-64"
-            >
-              {SERVICE_TYPES.map((service) => (
-                <option key={service} value={service}>{service}</option>
-              ))}
-            </select>
+            {/* Service Type Autocomplete */}
+            <div className="min-w-0 sm:w-64">
+              <ServiceAutocomplete 
+                value={selectedService}
+                onChange={(service) => setSelectedService(service)}
+                placeholder="Service (e.g., Dog Grooming)"
+              />
+            </div>
 
             {/* Search Button */}
             <button className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-8 py-4 rounded-xl font-bold hover:from-purple-700 hover:to-pink-600 transition-all shadow-lg hover:scale-105 text-lg whitespace-nowrap">

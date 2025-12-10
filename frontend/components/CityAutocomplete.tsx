@@ -60,35 +60,39 @@ export default function CityAutocomplete() {
 
   return (
     <div className="relative w-full min-w-0" ref={wrapperRef}>
-      <input
-        type="text"
-        value={displayValue}
-        onChange={(e) => {
-          setSearchTerm(e.target.value);
-          setIsOpen(true);
-        }}
-        onFocus={() => setIsOpen(true)}
-        placeholder="📍 Location"
-        className="w-full min-w-0 px-4 sm:px-6 py-3 sm:py-5 text-base sm:text-xl rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-800 placeholder-gray-400 pr-10 sm:pr-12"
-        autoComplete="off"
-      />
-      <div className="absolute right-4 top-1/2 -translate-y-1/2 text-2xl pointer-events-none">
-        🔍
+      <div className="relative">
+        <input
+          type="text"
+          value={displayValue}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+            setIsOpen(true);
+          }}
+          onFocus={() => setIsOpen(true)}
+          placeholder="City or ZIP code"
+          className="w-full px-4 py-3 text-base rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 text-gray-900"
+          autoComplete="off"
+        />
+        <svg
+          className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
       </div>
 
       {isOpen && searchTerm && filteredCities.length > 0 && (
-        <div className="absolute z-50 w-full mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 max-h-96 overflow-y-auto">
+        <div className="absolute z-50 w-full mt-2 bg-white rounded-xl shadow-xl border border-gray-200 max-h-80 overflow-y-auto">
           {filteredCities.map((city, index) => (
             <button
               key={index}
               onClick={() => handleSelect(city)}
-              className="w-full px-6 py-4 text-left hover:bg-purple-50 transition-colors flex items-center gap-3 border-b border-gray-100 last:border-0"
+              className="w-full px-4 py-3 text-left hover:bg-purple-50 transition-colors border-b border-gray-100 last:border-0"
             >
-              <div className="text-2xl">📍</div>
-              <div>
-                <div className="font-semibold text-gray-900">{city.name}</div>
-                <div className="text-sm text-gray-600">{city.state}</div>
-              </div>
+              <div className="font-medium text-gray-900 text-sm">{city.name}, {city.state}</div>
             </button>
           ))}
         </div>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import CityAutocomplete from '@/components/CityAutocomplete';
+import ServiceAutocomplete from '@/components/ServiceAutocomplete';
 import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
@@ -111,27 +112,23 @@ export default function HomePage() {
             No phone calls. No waiting. Just happy pets and peace of mind.
           </p>
 
-                 {/* Large Search Bar - Vagaro/Booksy style with autocomplete */}
-                 <div className="w-full max-w-3xl mb-8 px-2 sm:px-0">
-                   <div className="bg-white rounded-2xl shadow-2xl p-2 sm:p-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full">
-                     <div className="flex-1 min-w-0">
-                       <CityAutocomplete />
-                     </div>
-                     <select className="px-3 sm:px-4 py-3 sm:py-5 text-base sm:text-xl rounded-xl focus:outline-none bg-gray-50 text-gray-700 border border-gray-200 min-w-0 flex-shrink">
-                       <option>All Services</option>
-                       <option>Dog Grooming</option>
-                       <option>Cat Grooming</option>
-                       <option>Mobile Grooming</option>
-                       <option>Spa Services</option>
-                     </select>
-                     <Link 
-                       href="/browse"
-                       className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 sm:px-10 py-3 sm:py-5 rounded-xl font-bold hover:from-purple-700 hover:to-pink-600 transition-all whitespace-nowrap text-base sm:text-xl shadow-lg hover:scale-105 text-center flex-shrink-0"
-                     >
-                       Search
-                     </Link>
-                   </div>
-                 </div>
+          {/* Compact Professional Search Bar */}
+          <div className="w-full max-w-2xl mb-8 px-4">
+            <div className="bg-white rounded-xl shadow-lg p-2 flex flex-col sm:flex-row items-stretch gap-2">
+              <div className="flex-1 min-w-0">
+                <CityAutocomplete />
+              </div>
+              <div className="flex-1 min-w-0">
+                <ServiceAutocomplete placeholder="Service (e.g., Dog Grooming)" />
+              </div>
+              <Link 
+                href="/browse"
+                className="bg-red-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-700 transition-colors whitespace-nowrap text-sm text-center"
+              >
+                Search
+              </Link>
+            </div>
+          </div>
 
           {/* Popular Cities Quick Links */}
           <div className="mb-8 w-full px-2 sm:px-0">
