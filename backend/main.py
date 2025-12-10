@@ -731,14 +731,42 @@ def create_booking(
     db.commit()
     db.refresh(booking)
     
-    # Send SMS notification to shop owner
-    if shop.phone:
+    # Format appointment time for notifications
+    appointment_time_str = booking.appointment_date.strftime("%A, %B %d, %Y at %I:%M %p")
+    
+    # Send notifications to shop owner (SMS + Email)
+    if shop.phone or shop.email:
         notify_shop_new_booking(
             shop_phone=shop.phone,
+            shop_email=shop.email,
+            shop_name=shop.business_name,
+            customer_name=booking.customer_name,
+            customer_email=booking.customer_email,
+            customer_phone=booking.customer_phone,
+            pet_name=booking.pet_name,
+            pet_type=booking.pet_type,
+            service_name=service.name,
+            appointment_time=appointment_time_str,
+            special_notes=booking.special_notes
+        )
+    
+    # Send confirmation to customer (SMS + Email)
+    if booking.customer_phone or booking.customer_email:
+        # Format address for email
+        shop_address = f"{shop.address}, {shop.city}, {shop.state} {shop.zip_code}"
+        
+        notify_customer_booking_confirmed(
+            customer_phone=booking.customer_phone,
+            customer_email=booking.customer_email,
             customer_name=booking.customer_name,
             pet_name=booking.pet_name,
             service_name=service.name,
-            appointment_time=booking.appointment_date.strftime("%m/%d/%Y %I:%M %p")
+            shop_name=shop.business_name,
+            shop_address=shop_address,
+            shop_phone=shop.phone,
+            appointment_time=appointment_time_str,
+            duration_minutes=service.duration_minutes,
+            special_notes=booking.special_notes
         )
     
     return booking
@@ -789,12 +817,27 @@ def update_booking(
     # Set timestamps based on status
     if updates.status == BookingStatus.CONFIRMED and not booking.confirmed_at:
         booking.confirmed_at = datetime.utcnow()
-        # Notify customer of confirmation
+        
+        # Get service details for notification
+        service = db.query(Service).filter(Service.id == booking.service_id).first()
+        
+        # Format appointment time and address
+        appointment_time_str = booking.appointment_date.strftime("%A, %B %d, %Y at %I:%M %p")
+        shop_address = f"{shop.address}, {shop.city}, {shop.state} {shop.zip_code}"
+        
+        # Notify customer of confirmation (SMS + Email)
         notify_customer_booking_confirmed(
             customer_phone=booking.customer_phone,
-            shop_name=shop.business_name,
+            customer_email=booking.customer_email,
+            customer_name=booking.customer_name,
             pet_name=booking.pet_name,
-            appointment_time=booking.appointment_date.strftime("%m/%d/%Y %I:%M %p")
+            service_name=service.name if service else "Grooming Service",
+            shop_name=shop.business_name,
+            shop_address=shop_address,
+            shop_phone=shop.phone,
+            appointment_time=appointment_time_str,
+            duration_minutes=service.duration_minutes if service else 60,
+            special_notes=booking.special_notes
         )
     elif updates.status == BookingStatus.COMPLETED and not booking.completed_at:
         booking.completed_at = datetime.utcnow()

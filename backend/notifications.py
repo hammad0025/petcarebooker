@@ -1,6 +1,7 @@
 import os
 from twilio.rest import Client
 from typing import Optional
+from email_service import send_booking_confirmation_email, send_shop_new_booking_email
 
 # Twilio configuration
 TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
@@ -32,16 +33,74 @@ def send_sms(to_phone: str, message: str) -> bool:
         return False
 
 
-def notify_shop_new_booking(shop_phone: str, customer_name: str, pet_name: str, service_name: str, appointment_time: str):
-    """Notify shop owner of new booking request"""
-    message = f"🐕 New booking request!\n\nCustomer: {customer_name}\nPet: {pet_name}\nService: {service_name}\nTime: {appointment_time}\n\nLogin to approve: petcarebooker.com"
-    return send_sms(shop_phone, message)
+def notify_shop_new_booking(
+    shop_phone: str,
+    shop_email: str,
+    shop_name: str,
+    customer_name: str,
+    customer_email: str,
+    customer_phone: str,
+    pet_name: str,
+    pet_type: str,
+    service_name: str,
+    appointment_time: str,
+    special_notes: str = None
+):
+    """Notify shop owner of new booking request via SMS and Email"""
+    # Send SMS
+    sms_message = f"🐕 New booking request!\n\nCustomer: {customer_name}\nPet: {pet_name}\nService: {service_name}\nTime: {appointment_time}\n\nLogin to approve: petcarebooker.com"
+    sms_sent = send_sms(shop_phone, sms_message)
+    
+    # Send Email
+    email_sent = send_shop_new_booking_email(
+        to_email=shop_email,
+        shop_name=shop_name,
+        customer_name=customer_name,
+        customer_email=customer_email,
+        customer_phone=customer_phone,
+        pet_name=pet_name,
+        pet_type=pet_type,
+        service_name=service_name,
+        appointment_time=appointment_time,
+        special_notes=special_notes
+    )
+    
+    return sms_sent or email_sent
 
 
-def notify_customer_booking_confirmed(customer_phone: str, shop_name: str, pet_name: str, appointment_time: str):
-    """Notify customer that booking was confirmed"""
-    message = f"✅ Your booking at {shop_name} has been confirmed!\n\nPet: {pet_name}\nTime: {appointment_time}\n\nSee you soon!"
-    return send_sms(customer_phone, message)
+def notify_customer_booking_confirmed(
+    customer_phone: str,
+    customer_email: str,
+    customer_name: str,
+    pet_name: str,
+    service_name: str,
+    shop_name: str,
+    shop_address: str,
+    shop_phone: str,
+    appointment_time: str,
+    duration_minutes: int,
+    special_notes: str = None
+):
+    """Notify customer that booking was confirmed via SMS and Email"""
+    # Send SMS
+    sms_message = f"✅ Your booking at {shop_name} has been confirmed!\n\nPet: {pet_name}\nTime: {appointment_time}\n\nSee you soon!"
+    sms_sent = send_sms(customer_phone, sms_message)
+    
+    # Send Email
+    email_sent = send_booking_confirmation_email(
+        to_email=customer_email,
+        customer_name=customer_name,
+        pet_name=pet_name,
+        service_name=service_name,
+        shop_name=shop_name,
+        appointment_time=appointment_time,
+        shop_address=shop_address,
+        shop_phone=shop_phone,
+        duration_minutes=duration_minutes,
+        special_notes=special_notes
+    )
+    
+    return sms_sent or email_sent
 
 
 def notify_customer_booking_cancelled(customer_phone: str, shop_name: str, pet_name: str):
