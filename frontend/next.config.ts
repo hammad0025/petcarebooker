@@ -3,10 +3,7 @@ import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
-  // Enable Sentry instrumentation
-  experimental: {
-    instrumentationHook: true,
-  },
+  // Sentry instrumentation is automatically enabled via instrumentation.ts
   async redirects() {
     return [
       // Redirect non-www to www for consistency
