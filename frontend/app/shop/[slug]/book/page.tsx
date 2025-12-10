@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useSearchParams, useRouter } from 'next/navigation';
 import { shopsApi, servicesApi, bookingsApi } from '@/lib/api';
-import VisualCalendar from '@/components/VisualCalendar';
+import HorizontalDatePicker from '@/components/HorizontalDatePicker';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://petcarebooker.onrender.com';
 
@@ -36,6 +36,7 @@ export default function BookingPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+  const [timeFilter, setTimeFilter] = useState<'all' | 'morning' | 'afternoon' | 'evening'>('all');
 
   useEffect(() => {
     if (serviceId) {
@@ -127,6 +128,24 @@ export default function BookingPage() {
     return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
   };
 
+  const filterSlotsByTime = (slots: TimeSlot[]) => {
+    if (timeFilter === 'all') return slots;
+    
+    return slots.filter(slot => {
+      const hour = new Date(slot.start_time).getHours();
+      
+      if (timeFilter === 'morning') {
+        return hour >= 6 && hour < 12;
+      } else if (timeFilter === 'afternoon') {
+        return hour >= 12 && hour < 17;
+      } else if (timeFilter === 'evening') {
+        return hour >= 17 && hour < 22;
+      }
+      
+      return true;
+    });
+  };
+
   if (!service) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -190,9 +209,9 @@ export default function BookingPage() {
                 Select Date & Time
               </h3>
               
-              {/* Visual Calendar - Booksy Style */}
+              {/* Horizontal Date Picker - Booksy Style */}
               <div className="mb-4">
-                <VisualCalendar
+                <HorizontalDatePicker
                   selectedDate={selectedDate}
                   onDateSelect={(date) => {
                     setSelectedDate(date);
@@ -204,7 +223,55 @@ export default function BookingPage() {
               </div>
 
               {selectedDate && (
-                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <div className="bg-white rounded-lg p-4 border border-gray-200">
+                  {/* Time Filter Tabs - Booksy Style */}
+                  <div className="flex gap-2 mb-4">
+                    <button
+                      type="button"
+                      onClick={() => setTimeFilter('all')}
+                      className={`flex-1 py-2 px-4 rounded-lg font-semibold text-sm transition-colors ${
+                        timeFilter === 'all' 
+                          ? 'bg-gray-900 text-white' 
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                    >
+                      All Day
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setTimeFilter('morning')}
+                      className={`flex-1 py-2 px-4 rounded-lg font-semibold text-sm transition-colors ${
+                        timeFilter === 'morning' 
+                          ? 'bg-gray-900 text-white' 
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                    >
+                      Morning
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setTimeFilter('afternoon')}
+                      className={`flex-1 py-2 px-4 rounded-lg font-semibold text-sm transition-colors ${
+                        timeFilter === 'afternoon' 
+                          ? 'bg-gray-900 text-white' 
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                    >
+                      Afternoon
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setTimeFilter('evening')}
+                      className={`flex-1 py-2 px-4 rounded-lg font-semibold text-sm transition-colors ${
+                        timeFilter === 'evening' 
+                          ? 'bg-gray-900 text-white' 
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                    >
+                      Evening
+                    </button>
+                  </div>
+
                   <div className="flex items-center justify-between mb-3">
                     <h4 className="text-sm font-semibold text-gray-700">Available Times</h4>
                     {loadingSlots && (
@@ -223,10 +290,23 @@ export default function BookingPage() {
                     </div>
                   )}
 
-                  {!loadingSlots && slots.length > 0 && (
+                  {!loadingSlots && slots.length > 0 && (() => {
+                    const filteredSlots = filterSlotsByTime(slots);
+                    
+                    if (filteredSlots.length === 0) {
+                      return (
+                        <div className="text-center py-8 bg-gray-50 rounded-lg border border-gray-200">
+                          <p className="text-gray-600 text-sm">
+                            No available times for this time period
+                          </p>
+                        </div>
+                      );
+                    }
+                    
+                    return (
                     <>
                       <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-2 mb-3">
-                        {slots.map((slot, index) => (
+                        {filteredSlots.map((slot, index) => (
                           <button
                             key={index}
                             type="button"
@@ -266,7 +346,8 @@ export default function BookingPage() {
                         </div>
                       </div>
                     </>
-                  )}
+                    );
+                  })()}
                 </div>
               )}
             </div>
