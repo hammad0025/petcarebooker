@@ -387,31 +387,124 @@ export default function BrowsePage() {
           )}
         </div>
 
-        {/* Popular Cities Section - Static content for SEO */}
-        <section className="mb-12 bg-white rounded-3xl shadow-xl p-8 border-2 border-purple-100">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Browse Pet Groomers by City</h2>
-          <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
-            Find verified pet groomers in major cities across the US. Click any city to see groomers, compare prices, and book instantly.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {popularCities.map((city) => (
-              <Link
-                key={city.slug}
-                href={`/cities/${city.slug}`}
-                className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 text-center hover:shadow-lg hover:scale-105 transition-all border-2 border-purple-100 hover:border-purple-300"
-              >
-                <div className="text-3xl mb-2">📍</div>
-                <div className="font-bold text-gray-900">{city.name}</div>
-                <div className="text-sm text-gray-600">{city.state}</div>
-                <div className="text-xs text-purple-600 mt-2 font-semibold">View Groomers →</div>
-              </Link>
-            ))}
-          </div>
-        </section>
+        {/* Results Section - Show first when city is selected */}
+        {selectedCity ? (
+          <section className="mb-12">
+            <div className="text-center mb-8">
+              <h2 className="text-4xl font-bold text-gray-900 mb-2">
+                Pet Groomers in {selectedCity.name}, {selectedCity.state}
+              </h2>
+              <p className="text-gray-600 text-lg">
+                {filteredShops.length} {filteredShops.length === 1 ? 'groomer' : 'groomers'} available
+              </p>
+            </div>
+            {loading ? (
+              <div className="text-center py-20">
+                <div className="text-6xl mb-4 animate-bounce">🐾</div>
+                <div className="text-2xl text-gray-600 font-semibold">Loading groomers...</div>
+              </div>
+            ) : filteredShops.length === 0 ? (
+              <div className="text-center py-20 bg-white rounded-3xl shadow-xl max-w-2xl mx-auto border-2 border-purple-100">
+                <div className="text-7xl mb-6">🐶</div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-3">No groomers found in {selectedCity.name}</h3>
+                <p className="text-gray-600 text-xl mb-6">Try selecting a different city or browse all groomers below!</p>
+                <button 
+                  onClick={() => {
+                    setSelectedCity(null);
+                    setCitySearch('');
+                  }}
+                  className="inline-block bg-purple-600 text-white px-8 py-4 rounded-full font-bold hover:bg-purple-700 transition"
+                >
+                  Clear Filter & Browse All
+                </button>
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredShops.map((shop) => (
+                  <Link
+                    key={shop.id}
+                    href={`/shop/${shop.slug}`}
+                    className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all block border border-gray-200 hover:border-purple-300 hover:-translate-y-1 group overflow-hidden"
+                  >
+                    {/* Shop Image/Logo Area */}
+                    <div className="relative h-48 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 flex items-center justify-center">
+                      {shop.logo_url ? (
+                        <img src={shop.logo_url} alt={`${shop.business_name} - Pet Groomer in ${shop.city}, ${shop.state}`} className="w-full h-full object-cover" />
+                      ) : (
+                        <div className="text-8xl">🐕</div>
+                      )}
+                      {/* Rating Badge */}
+                      <div className="absolute top-4 right-4 bg-white rounded-full px-3 py-1 shadow-lg flex items-center gap-1">
+                        <span className="text-yellow-500 font-bold">★</span>
+                        <span className="font-bold text-gray-900">4.9</span>
+                      </div>
+                    </div>
 
-        {/* Dynamic Shops Section */}
-        <section>
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Available Pet Groomers</h2>
+                    {/* Card Content */}
+                    <div className="p-6">
+                      <h3 className="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors mb-2">
+                        {shop.business_name}
+                      </h3>
+                      <p className="text-gray-600 font-medium mb-3 flex items-center gap-1">
+                        <span>📍</span> {shop.city}, {shop.state}
+                      </p>
+                      
+                      {shop.description && (
+                        <p className="text-gray-600 line-clamp-2 mb-4">{shop.description}</p>
+                      )}
+
+                      {/* Price Range */}
+                      <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                        <div>
+                          <div className="text-sm text-gray-500">Starting at</div>
+                          <div className="text-xl font-bold text-gray-900">$45</div>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-sm text-gray-500">Next available</div>
+                          <div className="text-sm font-bold text-purple-600">Today 2:00 PM</div>
+                        </div>
+                      </div>
+
+                      {/* CTA Button */}
+                      <div className="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-3 px-6 rounded-full font-bold text-center group-hover:from-purple-700 group-hover:to-pink-600 transition-all">
+                        Book Now →
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </section>
+        ) : null}
+
+        {/* Popular Cities Section - Only show when no city is selected */}
+        {!selectedCity && (
+          <section className="mb-12 bg-white rounded-3xl shadow-xl p-8 border-2 border-purple-100">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Browse Pet Groomers by City</h2>
+            <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+              Find verified pet groomers in major cities across the US. Click any city to see groomers, compare prices, and book instantly.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {popularCities.map((city) => (
+                <Link
+                  key={city.slug}
+                  href={`/cities/${city.slug}`}
+                  className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 text-center hover:shadow-lg hover:scale-105 transition-all border-2 border-purple-100 hover:border-purple-300"
+                >
+                  <div className="text-3xl mb-2">📍</div>
+                  <div className="font-bold text-gray-900">{city.name}</div>
+                  <div className="text-sm text-gray-600">{city.state}</div>
+                  <div className="text-xs text-purple-600 mt-2 font-semibold">View Groomers →</div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Default All Groomers Section - Only show when no city is selected */}
+        {!selectedCity && (
+          <section>
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Available Pet Groomers</h2>
           {loading ? (
             <div className="text-center py-20">
               <div className="text-6xl mb-4 animate-bounce">🐾</div>
@@ -485,7 +578,8 @@ export default function BrowsePage() {
               ))}
             </div>
           )}
-        </section>
+          </section>
+        )}
 
         {/* SEO Content Section - Static content for Google */}
         <section className="mt-16 bg-white rounded-3xl shadow-xl p-8 border-2 border-purple-100">
