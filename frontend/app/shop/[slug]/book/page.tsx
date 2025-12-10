@@ -156,14 +156,26 @@ export default function BookingPage() {
   const maxDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 py-12 px-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-xl p-8">
-          <h1 className="text-4xl font-extrabold text-gray-900 mb-2">Book Your Appointment 🎉</h1>
-          <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl p-6 mb-8 border-2 border-purple-200">
-            <h3 className="font-bold text-gray-900 text-xl">{service.name}</h3>
-            <p className="text-gray-700 text-lg">${service.price} • {service.duration_minutes} minutes</p>
+    <div className="min-h-screen bg-white">
+      {/* Compact Header */}
+      <div className="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+          <button 
+            onClick={() => router.back()}
+            className="text-gray-600 hover:text-gray-900 font-semibold text-sm"
+          >
+            ← Back
+          </button>
+          <div className="text-center">
+            <h1 className="text-base font-bold text-gray-900">{service.name}</h1>
+            <p className="text-xs text-gray-600">${service.price} • {service.duration_minutes}min</p>
           </div>
+          <div className="w-16"></div> {/* Spacer for centering */}
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 py-6">
+        <div className="bg-white">{/* Removed extra card wrapper */}
 
           {error && (
             <div className="bg-red-50 text-red-600 p-4 rounded-lg mb-6">
@@ -171,15 +183,15 @@ export default function BookingPage() {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-8">
+          <form onSubmit={handleSubmit} className="space-y-6">
             {/* Date and Time Selection */}
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                <span>📅</span> Choose Date & Time
+              <h3 className="text-lg font-bold text-gray-900 mb-3 pb-2 border-b border-gray-200">
+                Select Date & Time
               </h3>
               
               {/* Visual Calendar - Booksy Style */}
-              <div className="mb-8">
+              <div className="mb-4">
                 <VisualCalendar
                   selectedDate={selectedDate}
                   onDateSelect={(date) => {
@@ -192,37 +204,28 @@ export default function BookingPage() {
               </div>
 
               {selectedDate && (
-                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-100">
-                  <div className="flex items-center justify-between mb-4">
-                    <h4 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                      <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      Available Times
-                    </h4>
+                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                  <div className="flex items-center justify-between mb-3">
+                    <h4 className="text-sm font-semibold text-gray-700">Available Times</h4>
                     {loadingSlots && (
-                      <div className="flex items-center gap-2 text-purple-600 text-sm">
-                        <div className="animate-spin rounded-full h-4 w-4 border-2 border-purple-600 border-t-transparent"></div>
+                      <div className="flex items-center gap-2 text-gray-600 text-xs">
+                        <div className="animate-spin rounded-full h-3 w-3 border-2 border-gray-600 border-t-transparent"></div>
                         <span>Loading...</span>
                       </div>
                     )}
                   </div>
                   
                   {!loadingSlots && slots.length === 0 && (
-                    <div className="text-center py-12 bg-white rounded-xl">
-                      <div className="text-5xl mb-3">🗓️</div>
-                      <p className="text-gray-600 font-medium">
+                    <div className="text-center py-8 bg-white rounded-lg border border-gray-200">
+                      <p className="text-gray-600 text-sm">
                         No available times for this date
-                      </p>
-                      <p className="text-gray-500 text-sm mt-1">
-                        Please choose another date from the calendar
                       </p>
                     </div>
                   )}
 
                   {!loadingSlots && slots.length > 0 && (
                     <>
-                      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3 mb-4">
+                      <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-2 mb-3">
                         {slots.map((slot, index) => (
                           <button
                             key={index}
@@ -230,12 +233,12 @@ export default function BookingPage() {
                             disabled={!slot.available}
                             onClick={() => slot.available && setSelectedSlot(slot)}
                             className={`
-                              relative px-3 py-4 rounded-xl font-bold text-sm transition-all
+                              relative px-2 py-2.5 rounded-lg font-semibold text-xs transition-all
                               ${slot.available 
                                 ? (selectedSlot === slot
-                                    ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white ring-4 ring-purple-200 scale-105 shadow-lg'
-                                    : 'bg-white border-2 border-purple-200 text-purple-700 hover:border-purple-400 hover:bg-white hover:scale-105 hover:shadow-md')
-                                : 'bg-gray-100 text-gray-400 cursor-not-allowed opacity-50'
+                                    ? 'bg-red-600 text-white shadow-sm'
+                                    : 'bg-white border border-gray-300 text-gray-700 hover:border-red-600 hover:text-red-600')
+                                : 'bg-gray-100 text-gray-400 cursor-not-allowed'
                               }
                             `}
                           >
@@ -272,33 +275,33 @@ export default function BookingPage() {
               <>
                 {/* Customer Info */}
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Your Information</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <h3 className="text-lg font-bold text-gray-900 mb-3 pb-2 border-b border-gray-200">Your Information</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                     <div>
-                      <label className="block text-sm font-bold text-gray-900 mb-1">Your Name *</label>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1">Your Name *</label>
                       <input
                         type="text"
                         name="customerName"
                         required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-gray-900"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-sm text-gray-900"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-bold text-gray-900 mb-1">Phone *</label>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1">Phone *</label>
                       <input
                         type="tel"
                         name="phone"
                         required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-gray-900"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-sm text-gray-900"
                       />
                     </div>
-                    <div className="md:col-span-2">
-                      <label className="block text-sm font-bold text-gray-900 mb-1">Email *</label>
+                    <div>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1">Email *</label>
                       <input
                         type="email"
                         name="email"
                         required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-gray-900"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-sm text-gray-900"
                       />
                     </div>
                   </div>
@@ -306,24 +309,24 @@ export default function BookingPage() {
 
                 {/* Pet Info */}
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Pet Information</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <h3 className="text-lg font-bold text-gray-900 mb-3 pb-2 border-b border-gray-200">Pet Information</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-sm font-bold text-gray-900 mb-1">Pet Name *</label>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1">Pet Name *</label>
                       <input
                         type="text"
                         name="petName"
                         required
                         placeholder="Max"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-gray-900"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-sm text-gray-900"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-bold text-gray-900 mb-1">Type *</label>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1">Type *</label>
                       <select
                         name="petType"
                         required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-gray-900"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-sm text-gray-900"
                       >
                         <option value="">Select...</option>
                         <option value="dog">Dog</option>
@@ -331,48 +334,41 @@ export default function BookingPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-bold text-gray-900 mb-1">Breed</label>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1">Breed</label>
                       <input
                         type="text"
                         name="breed"
                         placeholder="Golden Retriever"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-gray-900"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-sm text-gray-900"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-bold text-gray-900 mb-1">Weight/Size</label>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1">Weight/Size</label>
                       <input
                         type="text"
                         name="weight"
                         placeholder="50 lbs or Large"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-gray-900"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-sm text-gray-900"
                       />
                     </div>
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-bold text-gray-900 mb-1">Special Notes</label>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1">Special Notes</label>
                       <textarea
                         name="notes"
-                        rows={3}
+                        rows={2}
                         placeholder="Any allergies, behavioral notes, etc."
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 text-gray-900"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-sm text-gray-900"
                       />
                     </div>
                   </div>
                 </div>
 
                 {/* Submit */}
-                <div className="flex gap-4 pt-4">
-                  <button
-                    type="button"
-                    onClick={() => router.back()}
-                    className="flex-1 bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300"
-                  >
-                    Cancel
-                  </button>
+                <div className="sticky bottom-0 bg-white border-t border-gray-200 pt-4 pb-4 -mx-4 px-4">
                   <button
                     type="submit"
                     disabled={loading}
-                    className="flex-1 bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 disabled:bg-gray-400 text-lg"
+                    className="w-full bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700 disabled:bg-gray-400 text-sm"
                   >
                     {loading ? 'Confirming...' : `Confirm Booking for ${formatTime(selectedSlot.start_time)}`}
                   </button>
