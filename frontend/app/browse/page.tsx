@@ -71,6 +71,20 @@ export default function BrowsePage() {
           </p>
         </div>
 
+        {/* Search Section - Moved above cities for better UX */}
+        <div className="mb-12 max-w-3xl mx-auto">
+          <div className="relative">
+            <span className="absolute left-6 top-1/2 transform -translate-y-1/2 text-3xl">🔍</span>
+            <input
+              type="text"
+              placeholder="Search by business name or city..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full pl-16 pr-6 py-5 border-2 border-purple-300 rounded-2xl focus:ring-4 focus:ring-purple-200 focus:border-purple-500 text-lg text-gray-900 shadow-lg"
+            />
+          </div>
+        </div>
+
         {/* Popular Cities Section - Static content for SEO */}
         <section className="mb-12 bg-white rounded-3xl shadow-xl p-8 border-2 border-purple-100">
           <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Browse Pet Groomers by City</h2>
@@ -92,20 +106,6 @@ export default function BrowsePage() {
             ))}
           </div>
         </section>
-
-        {/* Search Section */}
-        <div className="mb-12 max-w-3xl mx-auto">
-          <div className="relative">
-            <span className="absolute left-6 top-1/2 transform -translate-y-1/2 text-3xl">🔍</span>
-            <input
-              type="text"
-              placeholder="Search by business name or city..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-16 pr-6 py-5 border-2 border-purple-300 rounded-2xl focus:ring-4 focus:ring-purple-200 focus:border-purple-500 text-lg text-gray-900 shadow-lg"
-            />
-          </div>
-        </div>
 
         {/* Dynamic Shops Section */}
         <section>
