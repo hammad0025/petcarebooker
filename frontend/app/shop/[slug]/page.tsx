@@ -84,28 +84,28 @@ export default function ShopPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Vagaro-Style Header */}
       <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <div className="flex items-start gap-6">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex items-start gap-4">
             {/* Business Logo/Image */}
-            <div className="w-44 h-44 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center text-white text-6xl shrink-0 shadow-md">
+            <div className="w-32 h-32 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center text-white text-5xl shrink-0 shadow-md">
               🐕
             </div>
             
             {/* Business Info */}
             <div className="flex-1">
-              <h1 className="text-3xl font-bold text-gray-900 mb-1">{shop.business_name}</h1>
-              <p className="text-base text-gray-600 mb-4">{shop.city}, {shop.state}</p>
+              <h1 className="text-2xl font-bold text-gray-900 mb-1">{shop.business_name}</h1>
+              <p className="text-sm text-gray-600 mb-3">{shop.city}, {shop.state}</p>
               
               <button
                 onClick={() => setActiveTab('services')}
-                className="bg-red-600 text-white px-8 py-2.5 rounded font-bold hover:bg-red-700 transition-colors"
+                className="bg-red-600 text-white px-6 py-2 rounded font-bold hover:bg-red-700 transition-colors text-sm"
               >
                 Book Now
               </button>
             </div>
 
             {/* Share Button */}
-            <button className="text-gray-600 hover:text-gray-900 flex items-center gap-2 text-sm font-semibold">
+            <button className="text-gray-600 hover:text-gray-900 flex items-center gap-2 text-xs font-semibold">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
               </svg>
@@ -114,10 +114,10 @@ export default function ShopPage() {
           </div>
 
           {/* Tabs - Vagaro Style */}
-          <div className="flex gap-6 mt-6 border-b border-gray-200">
+          <div className="flex gap-6 mt-4 border-b border-gray-200">
             <button
               onClick={() => setActiveTab('about')}
-              className={`pb-3 font-semibold transition-colors relative ${
+              className={`pb-2 font-semibold text-sm transition-colors relative ${
                 activeTab === 'about' 
                   ? 'text-gray-900' 
                   : 'text-gray-500 hover:text-gray-700'
@@ -130,7 +130,7 @@ export default function ShopPage() {
             </button>
             <button
               onClick={() => setActiveTab('services')}
-              className={`pb-3 font-semibold transition-colors relative ${
+              className={`pb-2 font-semibold text-sm transition-colors relative ${
                 activeTab === 'services' 
                   ? 'text-gray-900' 
                   : 'text-gray-500 hover:text-gray-700'
@@ -146,15 +146,15 @@ export default function ShopPage() {
       </div>
 
       {/* Content Area */}
-      <div className="max-w-7xl mx-auto px-6 py-6">
+      <div className="max-w-7xl mx-auto px-4 py-4">
         {activeTab === 'about' && (
-          <div className="space-y-6">
+          <div className="space-y-4">
             {/* Reviews Section - Vagaro Style */}
-            <div className="bg-white rounded-lg border border-gray-200 p-6">
-              <div className="flex items-start gap-8">
+            <div className="bg-white rounded-lg border border-gray-200 p-4">
+              <div className="flex items-start gap-6">
                 <div className="text-center">
-                  <div className="text-5xl font-bold text-gray-900 mb-2">4.9</div>
-                  <div className="flex gap-1 mb-2">
+                  <div className="text-4xl font-bold text-gray-900 mb-1">4.9</div>
+                  <div className="flex gap-1 mb-1">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <svg key={star} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
                         <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
@@ -199,14 +199,14 @@ export default function ShopPage() {
 
             {/* Description */}
             {shop.description && (
-              <div className="bg-white rounded-lg border border-gray-200 p-6">
-                <h2 className="text-xl font-bold text-gray-900 mb-3">Description</h2>
-                <p className="text-gray-700 leading-relaxed">{shop.description}</p>
+              <div className="bg-white rounded-lg border border-gray-200 p-4">
+                <h2 className="text-lg font-bold text-gray-900 mb-2">Description</h2>
+                <p className="text-sm text-gray-700 leading-relaxed">{shop.description}</p>
               </div>
             )}
 
             {/* Map & Business Hours - Vagaro Style */}
-            <div className="grid md:grid-cols-[1fr_400px] gap-6">
+            <div className="grid md:grid-cols-[1fr_350px] gap-4">
               {/* Map */}
               {shop.latitude && shop.longitude && (
                 <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
@@ -245,9 +245,9 @@ export default function ShopPage() {
               )}
 
               {/* Business Hours */}
-              <div className="bg-white rounded-lg border border-gray-200 p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Business Hours</h3>
-                <div className="space-y-3">
+              <div className="bg-white rounded-lg border border-gray-200 p-4">
+                <h3 className="text-base font-bold text-gray-900 mb-3">Business Hours</h3>
+                <div className="space-y-2">
                   {[
                     { day: 'Sunday', hours: '9:00 AM - 5:30 PM' },
                     { day: 'Monday', hours: '8:30 AM - 5:30 PM' },
@@ -269,8 +269,8 @@ export default function ShopPage() {
         )}
 
         {activeTab === 'services' && (
-          <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Services</h2>
+          <div className="bg-white rounded-lg border border-gray-200 p-4">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">Services</h2>
 
             {services.length === 0 ? (
               <div className="text-center py-12">
