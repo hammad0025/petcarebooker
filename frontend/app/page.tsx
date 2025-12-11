@@ -4,6 +4,7 @@ import ServiceAutocomplete from '@/components/ServiceAutocomplete';
 import MobileMenu from '@/components/MobileMenu';
 import Footer from '@/components/Footer';
 import { Metadata } from 'next';
+import { Heart, Star, Smartphone, MapPin, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Pet Grooming Near Me | Book Dog & Cat Grooming Online | PetCareBooker',
@@ -79,7 +80,7 @@ export default function HomePage() {
       </nav>
 
       {/* Hero with video background - Vagaro/Booksy style */}
-      <div className="relative h-[85vh] min-h-[500px] md:h-[90vh] md:min-h-[600px] overflow-hidden">
+      <div className="relative h-[70vh] min-h-[450px] md:h-[75vh] md:min-h-[550px] overflow-hidden">
         {/* Video/Animated Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400">
           {/* Animated paw prints floating */}
@@ -104,16 +105,13 @@ export default function HomePage() {
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center text-center">
           {/* Headline */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-2 md:mb-3 drop-shadow-2xl px-2">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white mb-2 tracking-tight drop-shadow-2xl px-2">
             Pet Grooming Near Me<br />
-            <span className="text-yellow-300">Book Instantly Online</span> ⚡
+            <span className="text-yellow-300">Book Instantly Online</span>
           </h1>
           
-          <p className="text-sm sm:text-base md:text-lg text-white/95 mb-1 max-w-3xl mx-auto font-medium drop-shadow-lg px-4">
-            Find trusted pet groomers near you • Dog grooming • Cat grooming • Mobile pet grooming • Book instantly online • Keep your pet looking pawsome! 🌟
-          </p>
-          <p className="text-xs sm:text-sm md:text-base text-white/80 mb-4 md:mb-5 max-w-2xl mx-auto px-4">
-            No phone calls. No waiting. Just happy pets and peace of mind.
+          <p className="text-sm sm:text-base text-white/95 mb-2 max-w-2xl mx-auto font-medium drop-shadow-lg px-4">
+            Find trusted pet groomers near you • Book instantly online • No phone calls needed
           </p>
 
           {/* Compact Professional Search Bar */}
@@ -127,7 +125,7 @@ export default function HomePage() {
               </div>
               <Link 
                 href="/browse"
-                className="bg-red-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-700 transition-colors whitespace-nowrap text-sm text-center"
+                className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-3 rounded-lg font-bold hover:from-purple-700 hover:to-pink-600 transition-all whitespace-nowrap text-sm text-center shadow-lg"
               >
                 Search
               </Link>
@@ -153,25 +151,25 @@ export default function HomePage() {
           </div>
 
           {/* Trust indicators */}
-          <div className="flex flex-wrap justify-center gap-6 text-white/90 mb-4">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-white/90 mb-3">
             <div className="flex items-center gap-2">
-              <div className="text-2xl">🐾</div>
+              <Heart className="w-5 h-5" />
               <div>
-                <div className="text-xl font-bold">1,200+</div>
+                <div className="text-lg font-semibold">1,200+</div>
                 <div className="text-xs">Happy Pets</div>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <div className="text-2xl">⭐</div>
+              <Star className="w-5 h-5 fill-yellow-300 text-yellow-300" />
               <div>
-                <div className="text-xl font-bold">100+</div>
+                <div className="text-lg font-semibold">100+</div>
                 <div className="text-xs">Verified Groomers</div>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <div className="text-2xl">📱</div>
+              <Smartphone className="w-5 h-5" />
               <div>
-                <div className="text-xl font-bold">4.9★</div>
+                <div className="text-lg font-semibold">4.9★</div>
                 <div className="text-xs">Average Rating</div>
               </div>
             </div>
@@ -181,9 +179,10 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center px-4">
             <Link 
               href="/customer/start"
-              className="w-full sm:w-auto bg-white text-purple-600 px-6 py-3 rounded-full text-sm sm:text-base font-bold hover:bg-gray-50 transition-all hover:scale-105 shadow-2xl text-center"
+              className="w-full sm:w-auto bg-white text-purple-600 px-6 py-3 rounded-full text-sm sm:text-base font-semibold hover:bg-gray-50 transition-all hover:scale-105 shadow-xl text-center flex items-center justify-center gap-2"
             >
-              🐾 Start with Your Pet
+              <Sparkles className="w-4 h-4" />
+              Start with Your Pet
             </Link>
             <Link 
               href="/browse"
@@ -201,70 +200,67 @@ export default function HomePage() {
       </div>
 
       {/* SEO-Optimized Section: Pet Grooming Near Me */}
-      <section className="bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 py-8 border-b border-gray-200">
+      <section className="bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 py-6 border-b border-gray-200">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-center text-white mb-3 drop-shadow-2xl">
+          <h2 className="text-2xl md:text-3xl font-semibold text-center text-white mb-2 tracking-tight drop-shadow-2xl">
             Find Pet Grooming Near Me - Dog Grooming & Cat Grooming Online
           </h2>
           <p className="text-base text-white/95 text-center mb-4 max-w-3xl mx-auto drop-shadow-lg">
             Looking for <strong>pet grooming near me</strong>? PetCareBooker helps you find and book <strong>dog grooming</strong> and <strong>cat grooming</strong> services instantly. Whether you need <strong>mobile pet grooming</strong> that comes to your home or a traditional grooming salon, we connect you with verified professional groomers in your area. Book <strong>pet grooming online</strong> in seconds - no phone calls required.
           </p>
-          <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center border-2 border-white/20">
-              <div className="text-4xl mb-3">🐕</div>
-              <h3 className="text-xl font-bold text-white mb-2">Dog Grooming Near Me</h3>
-              <p className="text-white/90">Find professional dog groomers in your area. Book instantly online.</p>
+          <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 text-center border border-white/20 shadow-sm">
+              <h3 className="text-lg font-semibold text-white mb-1">Dog Grooming</h3>
+              <p className="text-sm text-white/90">Professional dog groomers. Book instantly online.</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center border-2 border-white/20">
-              <div className="text-4xl mb-3">🐈</div>
-              <h3 className="text-xl font-bold text-white mb-2">Cat Grooming Near Me</h3>
-              <p className="text-white/90">Expert cat groomers with gentle handling for anxious felines.</p>
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 text-center border border-white/20 shadow-sm">
+              <h3 className="text-lg font-semibold text-white mb-1">Cat Grooming</h3>
+              <p className="text-sm text-white/90">Expert cat groomers with gentle handling.</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 text-center border-2 border-white/20">
-              <div className="text-4xl mb-3">🚐</div>
-              <h3 className="text-xl font-bold text-white mb-2">Mobile Pet Grooming</h3>
-              <p className="text-white/90">Mobile groomers that come to your home. Convenient and stress-free.</p>
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 text-center border border-white/20 shadow-sm">
+              <h3 className="text-lg font-semibold text-white mb-1">Mobile Grooming</h3>
+              <p className="text-sm text-white/90">Mobile groomers that come to your home.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Feature Cards - moved outside hero */}
-      <div className="bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-4">
-            How It Works ✨
+      <div className="bg-gray-50 py-12">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-2xl md:text-3xl font-semibold text-center text-gray-900 mb-2 tracking-tight">
+            How It Works
           </h2>
-          <p className="text-center text-gray-700 text-xl mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-gray-600 text-base mb-8 max-w-2xl mx-auto">
             Three simple steps to a happy, pampered pet
           </p>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-gradient-to-br from-purple-50 to-white rounded-3xl p-8 border-2 border-purple-100 hover:shadow-xl hover:scale-105 transition-all">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg">
-                🗺️
+          <div className="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-3 shadow-sm">
+                <MapPin className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-3 text-gray-900">Find Local Groomers</h3>
-              <p className="text-gray-600 text-lg">
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">Find Local Groomers</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Browse trusted pet groomers in your area. See services, prices, and real-time availability.
               </p>
             </div>
             
-            <div className="bg-gradient-to-br from-pink-50 to-white rounded-3xl p-8 border-2 border-pink-100 hover:shadow-xl hover:scale-105 transition-all">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg">
-                ⚡
+            <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-3 shadow-sm">
+                <Sparkles className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-3 text-gray-900">Book Instantly</h3>
-              <p className="text-gray-600 text-lg">
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">Book Instantly</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Pick an available time slot. Add your pet's info. Confirmed in 60 seconds flat!
               </p>
             </div>
             
-            <div className="bg-gradient-to-br from-orange-50 to-white rounded-3xl p-8 border-2 border-orange-100 hover:shadow-xl hover:scale-105 transition-all">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-lg">
-                📱
+            <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-3 shadow-sm">
+                <Smartphone className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-3 text-gray-900">SMS Updates</h3>
-              <p className="text-gray-600 text-lg">
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">SMS Updates</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
                 Get instant confirmation texts and friendly reminders. Never miss an appointment!
               </p>
             </div>
@@ -273,24 +269,24 @@ export default function HomePage() {
       </div>
 
       {/* Social Proof Metrics */}
-      <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 py-16">
+      <div className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 py-10">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="text-5xl font-extrabold text-white mb-2">1,200+</div>
-              <div className="text-white/90 font-medium">Happy Pets</div>
+              <div className="text-3xl md:text-4xl font-semibold text-white mb-1">1,200+</div>
+              <div className="text-white/90 text-sm">Happy Pets</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-extrabold text-white mb-2">100+</div>
-              <div className="text-white/90 font-medium">Verified Groomers</div>
+              <div className="text-3xl md:text-4xl font-semibold text-white mb-1">100+</div>
+              <div className="text-white/90 text-sm">Verified Groomers</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-extrabold text-white mb-2">4.9★</div>
-              <div className="text-white/90 font-medium">Average Rating</div>
+              <div className="text-3xl md:text-4xl font-semibold text-white mb-1">4.9★</div>
+              <div className="text-white/90 text-sm">Average Rating</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-extrabold text-white mb-2">24/7</div>
-              <div className="text-white/90 font-medium">Online Booking</div>
+              <div className="text-3xl md:text-4xl font-semibold text-white mb-1">24/7</div>
+              <div className="text-white/90 text-sm">Online Booking</div>
             </div>
           </div>
         </div>
