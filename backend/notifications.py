@@ -1,4 +1,5 @@
 import os
+import re
 from twilio.rest import Client
 from typing import Optional
 from email_service import send_booking_confirmation_email, send_shop_new_booking_email
@@ -14,22 +15,56 @@ if TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN:
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
 
+def format_phone_number(phone: str) -> str:
+    """
+    Format phone number to E.164 format for Twilio
+    Converts: 5612677427 -> +15612677427
+    Handles: (561) 267-7427, 561-267-7427, etc.
+    """
+    if not phone:
+        return phone
+    
+    # Remove all non-digit characters
+    digits = re.sub(r'\D', '', phone)
+    
+    # If it's 10 digits (US number without country code), add +1
+    if len(digits) == 10:
+        return f"+1{digits}"
+    
+    # If it's 11 digits and starts with 1, add +
+    if len(digits) == 11 and digits.startswith('1'):
+        return f"+{digits}"
+    
+    # If it already starts with +, return as is
+    if phone.startswith('+'):
+        return phone
+    
+    # Otherwise, assume US and add +1 (take last 10 digits if longer)
+    if len(digits) >= 10:
+        return f"+1{digits[-10:]}"
+    
+    return phone
+
+
 def send_sms(to_phone: str, message: str) -> bool:
     """Send SMS using Twilio"""
     if not client:
         print(f"Twilio not configured. Would send: {message} to {to_phone}")
         return False
     
+    # Format phone number to E.164 format
+    formatted_phone = format_phone_number(to_phone)
+    
     try:
         message = client.messages.create(
             body=message,
             from_=TWILIO_PHONE_NUMBER,
-            to=to_phone
+            to=formatted_phone
         )
-        print(f"SMS sent successfully: {message.sid}")
+        print(f"✅ SMS sent successfully: {message.sid} to {formatted_phone}")
         return True
     except Exception as e:
-        print(f"Failed to send SMS: {str(e)}")
+        print(f"❌ Failed to send SMS to {formatted_phone}: {str(e)}")
         return False
 
 
