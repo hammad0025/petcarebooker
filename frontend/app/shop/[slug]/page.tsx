@@ -7,7 +7,8 @@ import { shopsApi, servicesApi } from '@/lib/api';
 import { 
   Star, MapPin, Clock, Phone, Mail, Share2, Bookmark, 
   MessageCircle, Calendar, CheckCircle2, Sparkles, 
-  Scissors, Heart, Award, Camera, ChevronRight, Verified
+  Scissors, Heart, Award, Camera, ChevronRight, Verified,
+  Pencil
 } from 'lucide-react';
 
 interface Service {
@@ -48,6 +49,7 @@ export default function ShopPage() {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'about' | 'services' | 'gallery'>('about');
   const [isSticky, setIsSticky] = useState(false);
+  const [isOwner, setIsOwner] = useState(false);
 
   useEffect(() => {
     loadShop();
@@ -60,6 +62,25 @@ export default function ShopPage() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const checkOwnership = async () => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        setIsOwner(false);
+        return;
+      }
+      
+      try {
+        const myShop = await shopsApi.getMyProfile(token);
+        setIsOwner(myShop.slug === slug);
+      } catch (error) {
+        setIsOwner(false);
+      }
+    };
+    
+    checkOwnership();
+  }, [slug]);
 
   const loadShop = async () => {
     try {
@@ -205,12 +226,24 @@ export default function ShopPage() {
               </button>
             </div>
             
-            <button
-              onClick={() => services.length > 0 && handleBookService(services[0].id)}
-              className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-2 rounded-lg font-bold hover:from-purple-700 hover:to-pink-600 transition-all shadow-lg hover:shadow-xl hover:scale-105"
-            >
-              Book Now
-            </button>
+            <div className="flex items-center gap-3">
+              {isOwner && (
+                <button
+                  onClick={() => router.push('/dashboard/profile')}
+                  className="flex items-center gap-2 text-gray-600 hover:text-purple-600 transition-colors px-3 py-2 rounded-lg hover:bg-gray-50"
+                  title="Edit your profile"
+                >
+                  <Pencil className="w-4 h-4" />
+                  <span className="text-sm font-semibold hidden sm:inline">Edit</span>
+                </button>
+              )}
+              <button
+                onClick={() => services.length > 0 && handleBookService(services[0].id)}
+                className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-2 rounded-lg font-bold hover:from-purple-700 hover:to-pink-600 transition-all shadow-lg hover:shadow-xl hover:scale-105"
+              >
+                Book Now
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -267,6 +300,16 @@ export default function ShopPage() {
                       <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
+                  
+                  {/* Summary Paragraph */}
+                  <div className="mb-4 pb-4 border-b border-gray-200">
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      With a <strong className="text-gray-900">4.9-star rating</strong> from 22 verified reviews, {shop.business_name} is known for 
+                      professional service, gentle handling, and exceptional results. Customers consistently praise our 
+                      attention to detail, friendly staff, and the beautiful transformations we create for their pets.
+                    </p>
+                  </div>
+                  
                   <div className="space-y-4">
                     {reviews.map((review, index) => (
                       <div key={index} className="flex gap-3 pb-4 border-b border-gray-100 last:border-0">

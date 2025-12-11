@@ -100,10 +100,10 @@ export default function DashboardPage() {
               ⏰ Hours
             </button>
             <button
-              onClick={() => router.push('/dashboard/settings')}
+              onClick={() => router.push('/dashboard/profile')}
               className="px-4 py-2 text-gray-700 hover:text-purple-600"
             >
-              Settings
+              Profile
             </button>
             <button
               onClick={() => {
