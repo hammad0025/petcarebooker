@@ -80,7 +80,7 @@ export default function HomePage() {
       </nav>
 
       {/* Hero with video background - Vagaro/Booksy style */}
-      <div className="relative h-[70vh] min-h-[450px] md:h-[75vh] md:min-h-[550px] overflow-hidden">
+      <div className="relative h-[65vh] min-h-[400px] md:h-[70vh] md:min-h-[500px] overflow-hidden">
         {/* Video/Animated Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400">
           {/* Animated paw prints floating */}
@@ -226,16 +226,16 @@ export default function HomePage() {
       </section>
 
       {/* Feature Cards - moved outside hero */}
-      <div className="bg-gray-50 py-12">
+      <div className="bg-gray-50 py-8">
         <div className="container mx-auto px-4 max-w-6xl">
           <h2 className="text-2xl md:text-3xl font-semibold text-center text-gray-900 mb-2 tracking-tight">
             How It Works
           </h2>
-          <p className="text-center text-gray-600 text-base mb-8 max-w-2xl mx-auto">
+          <p className="text-center text-gray-600 text-sm mb-6 max-w-2xl mx-auto">
             Three simple steps to a happy, pampered pet
           </p>
           <div className="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-            <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all">
+            <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all">
               <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-3 shadow-sm">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
@@ -269,9 +269,9 @@ export default function HomePage() {
       </div>
 
       {/* Social Proof Metrics */}
-      <div className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 py-10">
+      <div className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 py-8">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-semibold text-white mb-1">1,200+</div>
               <div className="text-white/90 text-sm">Happy Pets</div>
@@ -293,10 +293,10 @@ export default function HomePage() {
       </div>
 
       {/* Testimonials */}
-      <div className="bg-gradient-to-br from-purple-50 to-pink-50 py-20">
+      <div className="bg-gradient-to-br from-purple-50 to-pink-50 py-12">
         <div className="container mx-auto px-4">
-          <h2 className="text-5xl font-extrabold text-center mb-4 text-gray-900">
-            What Pet Parents Say 💜
+          <h2 className="text-3xl md:text-4xl font-semibold text-center mb-4 text-gray-900 tracking-tight">
+            What Pet Parents Say
           </h2>
           <p className="text-center text-gray-600 text-xl mb-16 max-w-2xl mx-auto">
             Real reviews from real pet parents who trust us with their furry family members

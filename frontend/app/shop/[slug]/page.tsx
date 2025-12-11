@@ -7,7 +7,7 @@ import { shopsApi, servicesApi } from '@/lib/api';
 import { 
   Star, MapPin, Clock, Phone, Mail, Share2, Bookmark, 
   MessageCircle, Calendar, CheckCircle2, Sparkles, 
-  Scissors, Heart, Award, Camera
+  Scissors, Heart, Award, Camera, ChevronRight, Verified
 } from 'lucide-react';
 
 interface Service {
@@ -55,7 +55,7 @@ export default function ShopPage() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsSticky(window.scrollY > 200);
+      setIsSticky(window.scrollY > 300);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -96,8 +96,10 @@ export default function ShopPage() {
     );
   }
 
-  // Mock data for gallery and reviews (replace with real data later)
+  // Mock data for gallery and reviews
   const galleryPhotos = [
+    'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop',
     'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop',
     'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop',
     'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop',
@@ -105,14 +107,14 @@ export default function ShopPage() {
   ];
 
   const reviews = [
-    { name: 'Sarah M.', rating: 5, text: 'Amazing service! My dog looks fantastic.', avatar: 'https://i.pravatar.cc/150?img=1' },
-    { name: 'John D.', rating: 5, text: 'Professional and friendly staff.', avatar: 'https://i.pravatar.cc/150?img=2' },
-    { name: 'Emily R.', rating: 4, text: 'Great experience, will definitely return.', avatar: 'https://i.pravatar.cc/150?img=3' },
+    { name: 'Sarah M.', rating: 5, text: 'Amazing service! My dog looks fantastic. The groomer was so gentle and professional.', avatar: 'https://i.pravatar.cc/150?img=1', date: '2 weeks ago' },
+    { name: 'John D.', rating: 5, text: 'Professional and friendly staff. My cat was very comfortable throughout the entire process.', avatar: 'https://i.pravatar.cc/150?img=2', date: '1 month ago' },
+    { name: 'Emily R.', rating: 4, text: 'Great experience, will definitely return. The facility is clean and well-maintained.', avatar: 'https://i.pravatar.cc/150?img=3', date: '2 months ago' },
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Cover Photo Hero Section */}
+      {/* Cover Photo Hero Section - 1200x300px */}
       <div className="relative h-64 md:h-80 overflow-hidden">
         <div 
           className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400"
@@ -124,25 +126,41 @@ export default function ShopPage() {
             backgroundPosition: 'center'
           }}
         >
-          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
         
-        {/* Logo Overlay */}
-        <div className="absolute bottom-0 left-6 md:left-12 transform translate-y-1/2">
-          <div className="w-24 h-24 md:w-32 md:h-32 bg-white rounded-xl shadow-xl border-4 border-white flex items-center justify-center overflow-hidden">
+        {/* Logo Overlay - Bottom Left */}
+        <div className="absolute bottom-0 left-4 md:left-8 transform translate-y-1/2 z-10">
+          <div className="w-20 h-20 md:w-28 md:h-28 bg-white rounded-xl shadow-2xl border-4 border-white flex items-center justify-center overflow-hidden">
             {shop.logo_url ? (
               <img src={shop.logo_url} alt={shop.business_name} className="w-full h-full object-cover" />
             ) : (
               <div className="w-full h-full bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center">
-                <Scissors className="w-12 h-12 md:w-16 md:h-16 text-white" />
+                <Scissors className="w-10 h-10 md:w-14 md:h-14 text-white" />
               </div>
+            )}
+          </div>
+        </div>
+
+        {/* Business Name Overlay */}
+        <div className="absolute bottom-4 left-32 md:left-40 right-4 text-white">
+          <h1 className="text-2xl md:text-3xl font-bold mb-1 drop-shadow-lg">{shop.business_name}</h1>
+          <div className="flex items-center gap-2 text-sm md:text-base">
+            <MapPin className="w-4 h-4" />
+            <span>{shop.city}, {shop.state}</span>
+            {shop.is_mobile && (
+              <>
+                <span className="mx-1">•</span>
+                <Sparkles className="w-4 h-4" />
+                <span>Mobile Service</span>
+              </>
             )}
           </div>
         </div>
       </div>
 
       {/* Sticky Navigation Bar */}
-      <div className={`sticky top-0 z-40 bg-white border-b border-gray-200 transition-all ${isSticky ? 'shadow-sm' : ''}`}>
+      <div className={`sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-200 transition-all ${isSticky ? 'shadow-md' : 'shadow-sm'}`}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex items-center justify-between py-3">
             <div className="flex items-center gap-6">
@@ -156,7 +174,7 @@ export default function ShopPage() {
               >
                 About
                 {activeTab === 'about' && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-purple-600"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500"></div>
                 )}
               </button>
               <button
@@ -169,7 +187,7 @@ export default function ShopPage() {
               >
                 Services
                 {activeTab === 'services' && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-purple-600"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500"></div>
                 )}
               </button>
               <button
@@ -182,14 +200,14 @@ export default function ShopPage() {
               >
                 Gallery
                 {activeTab === 'gallery' && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-purple-600"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500"></div>
                 )}
               </button>
             </div>
             
             <button
               onClick={() => services.length > 0 && handleBookService(services[0].id)}
-              className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-2 rounded-lg font-bold hover:from-purple-700 hover:to-pink-600 transition-all shadow-lg hover:shadow-xl"
+              className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-2 rounded-lg font-bold hover:from-purple-700 hover:to-pink-600 transition-all shadow-lg hover:shadow-xl hover:scale-105"
             >
               Book Now
             </button>
@@ -197,14 +215,14 @@ export default function ShopPage() {
         </div>
       </div>
 
-      {/* Main Content */}
+      {/* Main Content - Two Column Layout */}
       <div className="max-w-6xl mx-auto px-4 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6">
-          {/* Left Column - Main Content */}
+          {/* Left Column - Main Content (70%) */}
           <div className="space-y-4">
-            {/* Quick Stats Bar */}
-            <div className="bg-white rounded-xl shadow-sm p-4">
-              <div className="flex flex-wrap items-center gap-6">
+            {/* Quick Stats Bar - Compact */}
+            <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-4">
+              <div className="flex flex-wrap items-center gap-4">
                 <div className="flex items-center gap-2">
                   <div className="flex items-center">
                     <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
@@ -214,7 +232,7 @@ export default function ShopPage() {
                 </div>
                 <div className="flex items-center gap-2 text-gray-600">
                   <Award className="w-4 h-4" />
-                  <span className="text-sm">5 years in business</span>
+                  <span className="text-sm">5 years</span>
                 </div>
                 <div className="flex items-center gap-2 text-purple-600">
                   <CheckCircle2 className="w-4 h-4" />
@@ -223,7 +241,7 @@ export default function ShopPage() {
                 {shop.is_mobile && (
                   <div className="flex items-center gap-2 text-gray-600">
                     <Sparkles className="w-4 h-4" />
-                    <span className="text-sm">Mobile Service</span>
+                    <span className="text-sm">Mobile</span>
                   </div>
                 )}
               </div>
@@ -232,20 +250,21 @@ export default function ShopPage() {
             {/* Tab Content */}
             {activeTab === 'about' && (
               <>
-                {/* Description */}
+                {/* Description - Tighter */}
                 {shop.description && (
-                  <div className="bg-white rounded-xl shadow-sm p-5">
+                  <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-5">
                     <h2 className="text-xl font-semibold text-gray-900 mb-3">About</h2>
-                    <p className="text-gray-700 leading-relaxed">{shop.description}</p>
+                    <p className="text-gray-700 leading-relaxed text-sm">{shop.description}</p>
                   </div>
                 )}
 
-                {/* Reviews Section */}
-                <div className="bg-white rounded-xl shadow-sm p-5">
+                {/* Reviews Section - With Photos */}
+                <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-5">
                   <div className="flex items-center justify-between mb-4">
                     <h2 className="text-xl font-semibold text-gray-900">Reviews</h2>
-                    <button className="text-sm text-purple-600 font-semibold hover:text-purple-700">
+                    <button className="text-sm text-purple-600 font-semibold hover:text-purple-700 flex items-center gap-1">
                       See all 22 reviews
+                      <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
                   <div className="space-y-4">
@@ -254,11 +273,11 @@ export default function ShopPage() {
                         <img 
                           src={review.avatar} 
                           alt={review.name}
-                          className="w-12 h-12 rounded-full object-cover"
+                          className="w-12 h-12 rounded-full object-cover flex-shrink-0"
                         />
-                        <div className="flex-1">
+                        <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-1">
-                            <span className="font-semibold text-gray-900">{review.name}</span>
+                            <span className="font-semibold text-gray-900 text-sm">{review.name}</span>
                             <div className="flex gap-0.5">
                               {[1, 2, 3, 4, 5].map((star) => (
                                 <Star 
@@ -267,22 +286,23 @@ export default function ShopPage() {
                                 />
                               ))}
                             </div>
+                            <span className="text-xs text-gray-500 ml-auto">{review.date}</span>
                           </div>
-                          <p className="text-sm text-gray-700">{review.text}</p>
+                          <p className="text-sm text-gray-700 leading-relaxed">{review.text}</p>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Location & Hours */}
+                {/* Location & Hours - Compact Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Map */}
+                  {/* Map - Smaller */}
                   {shop.latitude && shop.longitude && (
-                    <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden">
                       <iframe
                         width="100%"
-                        height="250"
+                        height="200"
                         style={{ border: 0 }}
                         loading="lazy"
                         allowFullScreen
@@ -291,8 +311,8 @@ export default function ShopPage() {
                       ></iframe>
                       <div className="p-4">
                         <div className="flex items-start gap-2 mb-3">
-                          <MapPin className="w-5 h-5 text-gray-400 mt-0.5" />
-                          <div>
+                          <MapPin className="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" />
+                          <div className="min-w-0">
                             <p className="text-sm font-semibold text-gray-900">{shop.address}</p>
                             <p className="text-sm text-gray-600">{shop.city}, {shop.state} {shop.zip_code}</p>
                           </div>
@@ -301,7 +321,7 @@ export default function ShopPage() {
                           {shop.phone && (
                             <a
                               href={`tel:${shop.phone}`}
-                              className="flex-1 flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+                              className="flex-1 flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 px-3 py-2 rounded-lg text-sm font-semibold transition-colors"
                             >
                               <Phone className="w-4 h-4" />
                               Call
@@ -311,7 +331,7 @@ export default function ShopPage() {
                             href={`https://www.google.com/maps/dir/?api=1&destination=${shop.latitude},${shop.longitude}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex-1 flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg text-sm font-semibold transition-colors"
+                            className="flex-1 flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 px-3 py-2 rounded-lg text-sm font-semibold transition-colors"
                           >
                             <MapPin className="w-4 h-4" />
                             Directions
@@ -321,13 +341,13 @@ export default function ShopPage() {
                     </div>
                   )}
 
-                  {/* Business Hours */}
-                  <div className="bg-white rounded-xl shadow-sm p-5">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  {/* Business Hours - Compact */}
+                  <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-5">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
                       <Clock className="w-5 h-5 text-gray-400" />
                       Business Hours
                     </h3>
-                    <div className="space-y-2">
+                    <div className="space-y-1.5">
                       {[
                         { day: 'Sunday', hours: '9:00 AM - 5:30 PM' },
                         { day: 'Monday', hours: '8:30 AM - 5:30 PM' },
@@ -349,13 +369,13 @@ export default function ShopPage() {
             )}
 
             {activeTab === 'services' && (
-              <div className="bg-white rounded-xl shadow-sm p-5">
+              <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-5">
                 <h2 className="text-xl font-semibold text-gray-900 mb-4">Services</h2>
                 {services.length === 0 ? (
                   <div className="text-center py-12">
                     <Scissors className="w-12 h-12 text-gray-300 mx-auto mb-3" />
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">No services available</h3>
-                    <p className="text-gray-600">Check back soon!</p>
+                    <p className="text-sm text-gray-600">Check back soon!</p>
                   </div>
                 ) : (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -374,15 +394,15 @@ export default function ShopPage() {
                       return (
                         <div 
                           key={service.id} 
-                          className="border border-gray-200 rounded-xl p-4 hover:border-purple-300 hover:shadow-md transition-all cursor-pointer"
+                          className="border border-gray-200 rounded-xl p-4 hover:border-purple-300 hover:shadow-md transition-all cursor-pointer group"
                           onClick={() => handleBookService(service.id)}
                         >
                           <div className="flex items-start justify-between gap-3 mb-2">
-                            <div className="flex-1">
+                            <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-2 mb-1">
                                 <h3 className="text-base font-semibold text-gray-900">{service.name}</h3>
                                 {service.category && (
-                                  <span className="bg-purple-100 text-purple-700 px-2 py-0.5 rounded-md text-xs font-semibold">
+                                  <span className="bg-purple-100 text-purple-700 px-2 py-0.5 rounded-md text-xs font-semibold whitespace-nowrap">
                                     {service.category}
                                   </span>
                                 )}
@@ -406,7 +426,7 @@ export default function ShopPage() {
                                 e.stopPropagation();
                                 handleBookService(service.id);
                               }}
-                              className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-1.5 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-600 transition-all text-sm"
+                              className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-1.5 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-600 transition-all text-sm shadow-sm hover:shadow-md"
                             >
                               Book
                             </button>
@@ -420,7 +440,7 @@ export default function ShopPage() {
             )}
 
             {activeTab === 'gallery' && (
-              <div className="bg-white rounded-xl shadow-sm p-5">
+              <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-5">
                 <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                   <Camera className="w-5 h-5" />
                   Photo Gallery
@@ -429,12 +449,12 @@ export default function ShopPage() {
                   {galleryPhotos.map((photo, index) => (
                     <div 
                       key={index}
-                      className="aspect-square rounded-lg overflow-hidden bg-gray-100 hover:opacity-90 transition-opacity cursor-pointer"
+                      className="aspect-square rounded-lg overflow-hidden bg-gray-100 hover:opacity-90 transition-opacity cursor-pointer group"
                     >
                       <img 
                         src={photo} 
                         alt={`Gallery photo ${index + 1}`}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                   ))}
@@ -443,19 +463,19 @@ export default function ShopPage() {
             )}
           </div>
 
-          {/* Right Column - Sticky Booking Card */}
+          {/* Right Column - Sticky Booking Card (30%) */}
           <div className="lg:sticky lg:top-20 h-fit">
             <div className="bg-white rounded-xl shadow-lg p-5 border border-gray-100">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Book an Appointment</h3>
               
               {services.length > 0 ? (
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <div className="space-y-2">
                     {services.slice(0, 3).map((service) => (
                       <button
                         key={service.id}
                         onClick={() => handleBookService(service.id)}
-                        className="w-full text-left p-3 rounded-lg border border-gray-200 hover:border-purple-300 hover:bg-purple-50 transition-all"
+                        className="w-full text-left p-3 rounded-lg border border-gray-200 hover:border-purple-300 hover:bg-purple-50 transition-all group"
                       >
                         <div className="font-semibold text-gray-900 text-sm mb-1">{service.name}</div>
                         <div className="flex items-center justify-between text-xs text-gray-600">
@@ -468,7 +488,7 @@ export default function ShopPage() {
                   
                   <button
                     onClick={() => handleBookService(services[0].id)}
-                    className="w-full bg-gradient-to-r from-purple-600 to-pink-500 text-white py-3 rounded-lg font-bold hover:from-purple-700 hover:to-pink-600 transition-all shadow-lg"
+                    className="w-full bg-gradient-to-r from-purple-600 to-pink-500 text-white py-3 rounded-lg font-bold hover:from-purple-700 hover:to-pink-600 transition-all shadow-lg hover:shadow-xl hover:scale-105"
                   >
                     Book Now
                   </button>

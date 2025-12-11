@@ -306,18 +306,18 @@ export default function BrowsePage() {
         </div>
       </nav>
 
-      <div className="container mx-auto px-4 py-6 md:py-12">
-        <div className="text-center mb-6 md:mb-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-2 md:mb-4">Find Pet Groomers Near You 🐕✨</h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-3 md:mb-6 px-2">Browse trusted pet groomers in your area. Compare prices, read reviews, and book instantly with verified professionals.</p>
-          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4">
+      <div className="container mx-auto px-4 py-6 md:py-8">
+        <div className="text-center mb-6 md:mb-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900 mb-2 tracking-tight">Find Pet Groomers Near You</h1>
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-3 px-2">Browse trusted pet groomers in your area. Compare prices, read reviews, and book instantly with verified professionals.</p>
+          <p className="text-sm sm:text-base text-gray-600 max-w-3xl mx-auto px-4">
             Search for <strong>pet grooming near me</strong>, <strong>dog groomers near me</strong>, or <strong>cat grooming</strong> services. Find <strong>mobile pet grooming</strong> that comes to your home or traditional grooming salons. All groomers are verified professionals with real-time availability.
           </p>
         </div>
 
         {/* Search Section - Moved above cities for better UX */}
-        <div className="mb-6 md:mb-12 max-w-5xl mx-auto">
-          <div className="bg-white rounded-xl md:rounded-2xl shadow-xl p-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 border-2 border-purple-200">
+        <div className="mb-6 max-w-5xl mx-auto">
+          <div className="bg-white rounded-xl shadow-lg p-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 border border-purple-100">
             {/* City Autocomplete */}
             <div className="flex-1 min-w-0 relative" ref={cityWrapperRef}>
               <input
