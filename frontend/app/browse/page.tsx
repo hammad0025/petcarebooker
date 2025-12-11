@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { shopsApi } from '@/lib/api';
 import ServiceAutocomplete from '@/components/ServiceAutocomplete';
+import MobileMenu from '@/components/MobileMenu';
 import Footer from '@/components/Footer';
 
 interface Shop {
@@ -296,11 +297,12 @@ export default function BrowsePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
-      <nav className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white py-6 shadow-lg">
-        <div className="container mx-auto px-4">
-          <Link href="/" className="text-3xl font-bold hover:opacity-90 transition-opacity flex items-center gap-2">
+      <nav className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white py-4 md:py-6 shadow-lg">
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          <Link href="/" className="text-xl sm:text-2xl md:text-3xl font-bold hover:opacity-90 transition-opacity flex items-center gap-2">
             🐾 PetCareBooker
           </Link>
+          <MobileMenu />
         </div>
       </nav>
 
