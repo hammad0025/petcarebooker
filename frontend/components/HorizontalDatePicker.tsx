@@ -100,11 +100,11 @@ export default function HorizontalDatePicker({ onDateSelect, selectedDate, minDa
       </div>
 
       {/* Horizontal Date Scroller - Booksy Style */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1 md:gap-2">
         <button
           type="button"
           onClick={goToPrevWeek}
-          className="p-2 hover:bg-gray-100 rounded-lg transition-colors shrink-0"
+          className="p-2 md:p-2 hover:bg-gray-100 rounded-lg transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
           aria-label="Previous week"
         >
           <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -112,8 +112,8 @@ export default function HorizontalDatePicker({ onDateSelect, selectedDate, minDa
           </svg>
         </button>
 
-        <div className="flex-1 overflow-x-auto scrollbar-hide">
-          <div className="flex gap-2 min-w-max px-1">
+        <div className="flex-1 overflow-x-auto scrollbar-hide -mx-1 px-1">
+          <div className="flex gap-1.5 md:gap-2 min-w-max">
             {dates.map((date, index) => {
               const selectable = isDateSelectable(date);
               const selected = isDateSelected(date);
@@ -129,11 +129,11 @@ export default function HorizontalDatePicker({ onDateSelect, selectedDate, minDa
                   onClick={() => handleDateClick(date)}
                   disabled={!selectable}
                   className={`
-                    flex-shrink-0 w-16 py-3 rounded-lg font-semibold text-center transition-all
+                    flex-shrink-0 w-14 md:w-16 py-2.5 md:py-3 rounded-lg font-semibold text-center transition-all min-h-[60px] md:min-h-[70px]
                     ${selected 
                       ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-md scale-105' 
                       : selectable
-                        ? 'bg-white border-2 border-gray-200 text-gray-900 hover:border-purple-400 hover:bg-purple-50'
+                        ? 'bg-white border-2 border-gray-200 text-gray-900 hover:border-purple-400 hover:bg-purple-50 active:scale-95'
                         : 'bg-gray-50 text-gray-300 cursor-not-allowed border-2 border-gray-100'
                     }
                     ${today && !selected ? 'border-purple-400' : ''}
@@ -142,7 +142,7 @@ export default function HorizontalDatePicker({ onDateSelect, selectedDate, minDa
                   <div className={`text-xs mb-1 ${selected ? 'text-white' : 'text-gray-600'}`}>
                     {dayOfWeek}
                   </div>
-                  <div className={`text-lg font-bold ${selected ? 'text-white' : 'text-gray-900'}`}>
+                  <div className={`text-base md:text-lg font-bold ${selected ? 'text-white' : 'text-gray-900'}`}>
                     {dayOfMonth}
                   </div>
                 </button>
@@ -154,7 +154,7 @@ export default function HorizontalDatePicker({ onDateSelect, selectedDate, minDa
         <button
           type="button"
           onClick={goToNextWeek}
-          className="p-2 hover:bg-gray-100 rounded-lg transition-colors shrink-0"
+          className="p-2 md:p-2 hover:bg-gray-100 rounded-lg transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
           aria-label="Next week"
         >
           <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

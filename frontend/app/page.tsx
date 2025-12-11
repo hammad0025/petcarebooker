@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import CityAutocomplete from '@/components/CityAutocomplete';
 import ServiceAutocomplete from '@/components/ServiceAutocomplete';
+import MobileMenu from '@/components/MobileMenu';
 import Footer from '@/components/Footer';
 import { Metadata } from 'next';
 
@@ -32,50 +33,53 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden w-full max-w-full">
       {/* Navbar with subtle gradient */}
-      <nav className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white py-6 shadow-lg overflow-x-hidden w-full">
-        <div className="container mx-auto px-4 flex flex-wrap justify-between items-center gap-2 max-w-full">
+      <nav className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white py-4 md:py-6 shadow-lg overflow-x-hidden w-full">
+        <div className="container mx-auto px-4 flex justify-between items-center gap-2 max-w-full">
           <Link href="/" className="min-w-0 flex-shrink">
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold cursor-pointer hover:opacity-90 flex items-center gap-2">
+            <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold cursor-pointer hover:opacity-90 flex items-center gap-2">
               🐾 PetCareBooker
             </h1>
           </Link>
-          <div className="flex flex-wrap items-center gap-2 sm:gap-4 min-w-0">
-          <Link 
-            href="/browse" 
-            className="text-sm sm:text-base text-white hover:text-gray-100 font-semibold transition-all hover:scale-105 whitespace-nowrap"
-          >
-            Find Groomers
-          </Link>
-          <Link 
-            href="/blog" 
-            className="text-sm sm:text-base text-white hover:text-gray-100 font-semibold transition-all hover:scale-105 whitespace-nowrap"
-          >
-            Blog
-          </Link>
-          <Link 
-            href="/guides" 
-            className="text-sm sm:text-base text-white hover:text-gray-100 font-semibold transition-all hover:scale-105 whitespace-nowrap"
-          >
-            Guides
-          </Link>
-          <Link 
-            href="/customer/login" 
-            className="text-sm sm:text-base text-white hover:text-gray-100 font-semibold transition-all hover:scale-105 whitespace-nowrap"
-          >
-            Sign In
-          </Link>
-          <Link 
-            href="/login" 
-            className="text-sm sm:text-base bg-white text-purple-600 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full font-bold hover:bg-gray-50 transition-all hover:scale-105 shadow-lg whitespace-nowrap"
-          >
-            For Businesses ✨
-          </Link>
-        </div>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-4">
+            <Link 
+              href="/browse" 
+              className="text-sm lg:text-base text-white hover:text-gray-100 font-semibold transition-all whitespace-nowrap"
+            >
+              Find Groomers
+            </Link>
+            <Link 
+              href="/blog" 
+              className="text-sm lg:text-base text-white hover:text-gray-100 font-semibold transition-all whitespace-nowrap"
+            >
+              Blog
+            </Link>
+            <Link 
+              href="/guides" 
+              className="text-sm lg:text-base text-white hover:text-gray-100 font-semibold transition-all whitespace-nowrap"
+            >
+              Guides
+            </Link>
+            <Link 
+              href="/customer/login" 
+              className="text-sm lg:text-base text-white hover:text-gray-100 font-semibold transition-all whitespace-nowrap"
+            >
+              Sign In
+            </Link>
+            <Link 
+              href="/login" 
+              className="text-sm lg:text-base bg-white text-purple-600 px-4 lg:px-5 py-2 rounded-full font-bold hover:bg-gray-50 transition-all shadow-lg whitespace-nowrap"
+            >
+              For Businesses ✨
+            </Link>
+          </div>
+          {/* Mobile Menu */}
+          <MobileMenu />
         </div>
       </nav>
 
       {/* Hero with video background - Vagaro/Booksy style */}
-      <div className="relative h-[90vh] min-h-[600px] overflow-hidden">
+      <div className="relative h-[85vh] min-h-[500px] md:h-[90vh] md:min-h-[600px] overflow-hidden">
         {/* Video/Animated Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400">
           {/* Animated paw prints floating */}
@@ -100,15 +104,15 @@ export default function HomePage() {
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center text-center">
           {/* Headline */}
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-3 drop-shadow-2xl">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-2 md:mb-3 drop-shadow-2xl px-2">
             Pet Grooming Near Me<br />
             <span className="text-yellow-300">Book Instantly Online</span> ⚡
           </h1>
           
-          <p className="text-lg text-white/95 mb-1 max-w-3xl mx-auto font-medium drop-shadow-lg">
+          <p className="text-sm sm:text-base md:text-lg text-white/95 mb-1 max-w-3xl mx-auto font-medium drop-shadow-lg px-4">
             Find trusted pet groomers near you • Dog grooming • Cat grooming • Mobile pet grooming • Book instantly online • Keep your pet looking pawsome! 🌟
           </p>
-          <p className="text-base text-white/80 mb-5 max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm md:text-base text-white/80 mb-4 md:mb-5 max-w-2xl mx-auto px-4">
             No phone calls. No waiting. Just happy pets and peace of mind.
           </p>
 
@@ -174,16 +178,16 @@ export default function HomePage() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex gap-3 justify-center flex-wrap">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center px-4">
             <Link 
               href="/customer/start"
-              className="bg-white text-purple-600 px-6 py-3 rounded-full text-base font-bold hover:bg-gray-50 transition-all hover:scale-105 shadow-2xl"
+              className="w-full sm:w-auto bg-white text-purple-600 px-6 py-3 rounded-full text-sm sm:text-base font-bold hover:bg-gray-50 transition-all hover:scale-105 shadow-2xl text-center"
             >
               🐾 Start with Your Pet
             </Link>
             <Link 
               href="/browse"
-              className="bg-white/10 backdrop-blur-md text-white border-2 border-white/30 px-6 py-3 rounded-full text-base font-bold hover:bg-white/20 transition-all hover:scale-105"
+              className="w-full sm:w-auto bg-white/10 backdrop-blur-md text-white border-2 border-white/30 px-6 py-3 rounded-full text-sm sm:text-base font-bold hover:bg-white/20 transition-all hover:scale-105 text-center"
             >
               Browse All Groomers
             </Link>

@@ -304,18 +304,18 @@ export default function BrowsePage() {
         </div>
       </nav>
 
-      <div className="container mx-auto px-4 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-6xl font-extrabold text-gray-900 mb-4">Find Pet Groomers Near You 🐕✨</h1>
-          <p className="text-2xl text-gray-700 mb-6">Browse trusted pet groomers in your area. Compare prices, read reviews, and book instantly with verified professionals.</p>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+      <div className="container mx-auto px-4 py-6 md:py-12">
+        <div className="text-center mb-6 md:mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-2 md:mb-4">Find Pet Groomers Near You 🐕✨</h1>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-3 md:mb-6 px-2">Browse trusted pet groomers in your area. Compare prices, read reviews, and book instantly with verified professionals.</p>
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4">
             Search for <strong>pet grooming near me</strong>, <strong>dog groomers near me</strong>, or <strong>cat grooming</strong> services. Find <strong>mobile pet grooming</strong> that comes to your home or traditional grooming salons. All groomers are verified professionals with real-time availability.
           </p>
         </div>
 
         {/* Search Section - Moved above cities for better UX */}
-        <div className="mb-12 max-w-5xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-xl p-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 border-2 border-purple-200">
+        <div className="mb-6 md:mb-12 max-w-5xl mx-auto">
+          <div className="bg-white rounded-xl md:rounded-2xl shadow-xl p-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 border-2 border-purple-200">
             {/* City Autocomplete */}
             <div className="flex-1 min-w-0 relative" ref={cityWrapperRef}>
               <input
@@ -362,7 +362,7 @@ export default function BrowsePage() {
             </div>
 
             {/* Search Button */}
-            <button className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-8 py-4 rounded-xl font-bold hover:from-purple-700 hover:to-pink-600 transition-all shadow-lg hover:scale-105 text-lg whitespace-nowrap">
+            <button className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg md:rounded-xl font-bold hover:from-purple-700 hover:to-pink-600 transition-all shadow-lg hover:scale-105 text-sm md:text-lg whitespace-nowrap">
               Search 🔍
             </button>
           </div>
@@ -388,84 +388,84 @@ export default function BrowsePage() {
 
         {/* Results Section - Show first when city is selected */}
         {selectedCity ? (
-          <section className="mb-12">
-            <div className="text-center mb-8">
-              <h2 className="text-4xl font-bold text-gray-900 mb-2">
+          <section className="mb-6 md:mb-12">
+            <div className="text-center mb-4 md:mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 px-2">
                 Pet Groomers in {selectedCity.name}, {selectedCity.state}
               </h2>
-              <p className="text-gray-600 text-lg">
+              <p className="text-gray-600 text-sm md:text-lg">
                 {filteredShops.length} {filteredShops.length === 1 ? 'groomer' : 'groomers'} available
               </p>
             </div>
             {loading ? (
-              <div className="text-center py-20">
-                <div className="text-6xl mb-4 animate-bounce">🐾</div>
-                <div className="text-2xl text-gray-600 font-semibold">Loading groomers...</div>
+              <div className="text-center py-12 md:py-20">
+                <div className="text-4xl md:text-6xl mb-4 animate-bounce">🐾</div>
+                <div className="text-lg md:text-2xl text-gray-600 font-semibold">Loading groomers...</div>
               </div>
             ) : filteredShops.length === 0 ? (
-              <div className="text-center py-20 bg-white rounded-3xl shadow-xl max-w-2xl mx-auto border-2 border-purple-100">
-                <div className="text-7xl mb-6">🐶</div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-3">No groomers found in {selectedCity.name}</h3>
-                <p className="text-gray-600 text-xl mb-6">Try selecting a different city or browse all groomers below!</p>
+              <div className="text-center py-12 md:py-20 bg-white rounded-2xl md:rounded-3xl shadow-xl max-w-2xl mx-auto border-2 border-purple-100 px-4">
+                <div className="text-5xl md:text-7xl mb-4 md:mb-6">🐶</div>
+                <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-2 md:mb-3">No groomers found in {selectedCity.name}</h3>
+                <p className="text-gray-600 text-base md:text-xl mb-4 md:mb-6">Try selecting a different city or browse all groomers below!</p>
                 <button 
                   onClick={() => {
                     setSelectedCity(null);
                     setCitySearch('');
                   }}
-                  className="inline-block bg-purple-600 text-white px-8 py-4 rounded-full font-bold hover:bg-purple-700 transition"
+                  className="inline-block bg-purple-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold hover:bg-purple-700 transition text-sm md:text-base"
                 >
                   Clear Filter & Browse All
                 </button>
               </div>
             ) : (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                 {filteredShops.map((shop) => (
                   <Link
                     key={shop.id}
                     href={`/shop/${shop.slug}`}
-                    className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all block border border-gray-200 hover:border-purple-300 hover:-translate-y-1 group overflow-hidden"
+                    className="bg-white rounded-xl md:rounded-2xl shadow-lg hover:shadow-2xl transition-all block border border-gray-200 hover:border-purple-300 hover:-translate-y-1 group overflow-hidden"
                   >
                     {/* Shop Image/Logo Area */}
-                    <div className="relative h-48 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 flex items-center justify-center">
+                    <div className="relative h-40 md:h-48 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 flex items-center justify-center">
                       {shop.logo_url ? (
                         <img src={shop.logo_url} alt={`${shop.business_name} - Pet Groomer in ${shop.city}, ${shop.state}`} className="w-full h-full object-cover" />
                       ) : (
-                        <div className="text-8xl">🐕</div>
+                        <div className="text-6xl md:text-8xl">🐕</div>
                       )}
                       {/* Rating Badge */}
-                      <div className="absolute top-4 right-4 bg-white rounded-full px-3 py-1 shadow-lg flex items-center gap-1">
-                        <span className="text-yellow-500 font-bold">★</span>
-                        <span className="font-bold text-gray-900">4.9</span>
+                      <div className="absolute top-2 md:top-4 right-2 md:right-4 bg-white rounded-full px-2 md:px-3 py-1 shadow-lg flex items-center gap-1">
+                        <span className="text-yellow-500 font-bold text-sm md:text-base">★</span>
+                        <span className="font-bold text-gray-900 text-sm md:text-base">4.9</span>
                       </div>
                     </div>
 
                     {/* Card Content */}
-                    <div className="p-6">
-                      <h3 className="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors mb-2">
+                    <div className="p-4 md:p-6">
+                      <h3 className="text-lg md:text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors mb-2">
                         {shop.business_name}
                       </h3>
-                      <p className="text-gray-600 font-medium mb-3 flex items-center gap-1">
+                      <p className="text-sm md:text-base text-gray-600 font-medium mb-2 md:mb-3 flex items-center gap-1">
                         <span>📍</span> {shop.city}, {shop.state}
                       </p>
                       
                       {shop.description && (
-                        <p className="text-gray-600 line-clamp-2 mb-4">{shop.description}</p>
+                        <p className="text-sm md:text-base text-gray-600 line-clamp-2 mb-3 md:mb-4">{shop.description}</p>
                       )}
 
                       {/* Price Range */}
-                      <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                      <div className="flex items-center justify-between mb-3 md:mb-4 pb-3 md:pb-4 border-b border-gray-100">
                         <div>
-                          <div className="text-sm text-gray-500">Starting at</div>
-                          <div className="text-xl font-bold text-gray-900">$45</div>
+                          <div className="text-xs md:text-sm text-gray-500">Starting at</div>
+                          <div className="text-lg md:text-xl font-bold text-gray-900">$45</div>
                         </div>
                         <div className="text-right">
-                          <div className="text-sm text-gray-500">Next available</div>
-                          <div className="text-sm font-bold text-purple-600">Today 2:00 PM</div>
+                          <div className="text-xs md:text-sm text-gray-500">Next available</div>
+                          <div className="text-xs md:text-sm font-bold text-purple-600">Today 2:00 PM</div>
                         </div>
                       </div>
 
                       {/* CTA Button */}
-                      <div className="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-3 px-6 rounded-full font-bold text-center group-hover:from-purple-700 group-hover:to-pink-600 transition-all">
+                      <div className="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-2.5 md:py-3 px-4 md:px-6 rounded-full font-bold text-center text-sm md:text-base group-hover:from-purple-700 group-hover:to-pink-600 transition-all min-h-[44px] flex items-center justify-center">
                         Book Now →
                       </div>
                     </div>
@@ -478,22 +478,22 @@ export default function BrowsePage() {
 
         {/* Popular Cities Section - Only show when no city is selected */}
         {!selectedCity && (
-          <section className="mb-12 bg-white rounded-3xl shadow-xl p-8 border-2 border-purple-100">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Browse Pet Groomers by City</h2>
-            <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+          <section className="mb-6 md:mb-12 bg-white rounded-2xl md:rounded-3xl shadow-xl p-4 md:p-8 border-2 border-purple-100">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6 text-center">Browse Pet Groomers by City</h2>
+            <p className="text-center text-sm md:text-base text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto px-2">
               Find verified pet groomers in major cities across the US. Click any city to see groomers, compare prices, and book instantly.
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
               {popularCities.map((city) => (
                 <Link
                   key={city.slug}
                   href={`/cities/${city.slug}`}
-                  className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 text-center hover:shadow-lg hover:scale-105 transition-all border-2 border-purple-100 hover:border-purple-300"
+                  className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg md:rounded-xl p-4 md:p-6 text-center hover:shadow-lg hover:scale-105 transition-all border-2 border-purple-100 hover:border-purple-300 min-h-[120px] md:min-h-[140px] flex flex-col items-center justify-center"
                 >
-                  <div className="text-3xl mb-2">📍</div>
-                  <div className="font-bold text-gray-900">{city.name}</div>
-                  <div className="text-sm text-gray-600">{city.state}</div>
-                  <div className="text-xs text-purple-600 mt-2 font-semibold">View Groomers →</div>
+                  <div className="text-2xl md:text-3xl mb-1 md:mb-2">📍</div>
+                  <div className="font-bold text-gray-900 text-sm md:text-base">{city.name}</div>
+                  <div className="text-xs md:text-sm text-gray-600">{city.state}</div>
+                  <div className="text-xs text-purple-600 mt-1 md:mt-2 font-semibold">View Groomers →</div>
                 </Link>
               ))}
             </div>
@@ -503,73 +503,73 @@ export default function BrowsePage() {
         {/* Default All Groomers Section - Only show when no city is selected */}
         {!selectedCity && (
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Available Pet Groomers</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 md:mb-8 text-center px-2">Available Pet Groomers</h2>
           {loading ? (
-            <div className="text-center py-20">
-              <div className="text-6xl mb-4 animate-bounce">🐾</div>
-              <div className="text-2xl text-gray-600 font-semibold">Loading groomers...</div>
+            <div className="text-center py-12 md:py-20">
+              <div className="text-4xl md:text-6xl mb-4 animate-bounce">🐾</div>
+              <div className="text-lg md:text-2xl text-gray-600 font-semibold">Loading groomers...</div>
             </div>
           ) : filteredShops.length === 0 ? (
-            <div className="text-center py-20 bg-white rounded-3xl shadow-xl max-w-2xl mx-auto border-2 border-purple-100">
-              <div className="text-7xl mb-6">🐶</div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-3">No groomers found</h3>
-              <p className="text-gray-600 text-xl mb-6">Try adjusting your search or browse by city above!</p>
+            <div className="text-center py-12 md:py-20 bg-white rounded-2xl md:rounded-3xl shadow-xl max-w-2xl mx-auto border-2 border-purple-100 px-4">
+              <div className="text-5xl md:text-7xl mb-4 md:mb-6">🐶</div>
+              <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-2 md:mb-3">No groomers found</h3>
+              <p className="text-gray-600 text-base md:text-xl mb-4 md:mb-6">Try adjusting your search or browse by city above!</p>
               <Link 
                 href="/"
-                className="inline-block bg-purple-600 text-white px-8 py-4 rounded-full font-bold hover:bg-purple-700 transition"
+                className="inline-block bg-purple-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold hover:bg-purple-700 transition text-sm md:text-base"
               >
                 Return to Homepage
               </Link>
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
               {filteredShops.map((shop) => (
                 <Link
                   key={shop.id}
                   href={`/shop/${shop.slug}`}
-                  className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all block border border-gray-200 hover:border-purple-300 hover:-translate-y-1 group overflow-hidden"
+                  className="bg-white rounded-xl md:rounded-2xl shadow-lg hover:shadow-2xl transition-all block border border-gray-200 hover:border-purple-300 hover:-translate-y-1 group overflow-hidden"
                 >
                   {/* Shop Image/Logo Area */}
-                  <div className="relative h-48 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 flex items-center justify-center">
+                  <div className="relative h-40 md:h-48 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100 flex items-center justify-center">
                     {shop.logo_url ? (
                       <img src={shop.logo_url} alt={`${shop.business_name} - Pet Groomer in ${shop.city}, ${shop.state}`} className="w-full h-full object-cover" />
                     ) : (
-                      <div className="text-8xl">🐕</div>
+                      <div className="text-6xl md:text-8xl">🐕</div>
                     )}
                     {/* Rating Badge */}
-                    <div className="absolute top-4 right-4 bg-white rounded-full px-3 py-1 shadow-lg flex items-center gap-1">
-                      <span className="text-yellow-500 font-bold">★</span>
-                      <span className="font-bold text-gray-900">4.9</span>
+                    <div className="absolute top-2 md:top-4 right-2 md:right-4 bg-white rounded-full px-2 md:px-3 py-1 shadow-lg flex items-center gap-1">
+                      <span className="text-yellow-500 font-bold text-sm md:text-base">★</span>
+                      <span className="font-bold text-gray-900 text-sm md:text-base">4.9</span>
                     </div>
                   </div>
 
                   {/* Card Content */}
-                  <div className="p-6">
-                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors mb-2">
+                  <div className="p-4 md:p-6">
+                    <h3 className="text-lg md:text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors mb-2">
                       {shop.business_name}
                     </h3>
-                    <p className="text-gray-600 font-medium mb-3 flex items-center gap-1">
+                    <p className="text-sm md:text-base text-gray-600 font-medium mb-2 md:mb-3 flex items-center gap-1">
                       <span>📍</span> {shop.city}, {shop.state}
                     </p>
                     
                     {shop.description && (
-                      <p className="text-gray-600 line-clamp-2 mb-4">{shop.description}</p>
+                      <p className="text-sm md:text-base text-gray-600 line-clamp-2 mb-3 md:mb-4">{shop.description}</p>
                     )}
 
                     {/* Price Range */}
-                    <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-100">
+                    <div className="flex items-center justify-between mb-3 md:mb-4 pb-3 md:pb-4 border-b border-gray-100">
                       <div>
-                        <div className="text-sm text-gray-500">Starting at</div>
-                        <div className="text-xl font-bold text-gray-900">$45</div>
+                        <div className="text-xs md:text-sm text-gray-500">Starting at</div>
+                        <div className="text-lg md:text-xl font-bold text-gray-900">$45</div>
                       </div>
                       <div className="text-right">
-                        <div className="text-sm text-gray-500">Next available</div>
-                        <div className="text-sm font-bold text-purple-600">Today 2:00 PM</div>
+                        <div className="text-xs md:text-sm text-gray-500">Next available</div>
+                        <div className="text-xs md:text-sm font-bold text-purple-600">Today 2:00 PM</div>
                       </div>
                     </div>
 
                     {/* CTA Button */}
-                    <div className="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-3 px-6 rounded-full font-bold text-center group-hover:from-purple-700 group-hover:to-pink-600 transition-all">
+                    <div className="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-2.5 md:py-3 px-4 md:px-6 rounded-full font-bold text-center text-sm md:text-base group-hover:from-purple-700 group-hover:to-pink-600 transition-all min-h-[44px] flex items-center justify-center">
                       Book Now →
                     </div>
                   </div>

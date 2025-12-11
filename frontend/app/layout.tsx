@@ -22,6 +22,11 @@ export const metadata: Metadata = {
   },
   description: "Find and book trusted pet groomers near you instantly. No phone calls, no waiting. Compare prices, read verified reviews, and schedule dog and cat grooming in seconds. Serving 100+ cities nationwide.",
   keywords: "pet grooming, dog grooming, cat grooming, mobile pet grooming, pet grooming near me, book pet groomer, dog groomer near me, pet spa",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
   alternates: {
     canonical: siteUrl,
   },

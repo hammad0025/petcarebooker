@@ -225,11 +225,11 @@ export default function BookingPage() {
               {selectedDate && (
                 <div className="bg-white rounded-lg p-4 border border-gray-200">
                   {/* Time Filter Tabs - Booksy Style */}
-                  <div className="flex gap-2 mb-4">
+                  <div className="grid grid-cols-2 md:flex gap-2 mb-4">
                     <button
                       type="button"
                       onClick={() => setTimeFilter('all')}
-                      className={`flex-1 py-2 px-4 rounded-lg font-semibold text-sm transition-colors ${
+                      className={`py-2.5 px-3 md:px-4 rounded-lg font-semibold text-xs md:text-sm transition-colors ${
                         timeFilter === 'all' 
                           ? 'bg-gray-900 text-white' 
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -240,7 +240,7 @@ export default function BookingPage() {
                     <button
                       type="button"
                       onClick={() => setTimeFilter('morning')}
-                      className={`flex-1 py-2 px-4 rounded-lg font-semibold text-sm transition-colors ${
+                      className={`py-2.5 px-3 md:px-4 rounded-lg font-semibold text-xs md:text-sm transition-colors ${
                         timeFilter === 'morning' 
                           ? 'bg-gray-900 text-white' 
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -251,7 +251,7 @@ export default function BookingPage() {
                     <button
                       type="button"
                       onClick={() => setTimeFilter('afternoon')}
-                      className={`flex-1 py-2 px-4 rounded-lg font-semibold text-sm transition-colors ${
+                      className={`py-2.5 px-3 md:px-4 rounded-lg font-semibold text-xs md:text-sm transition-colors ${
                         timeFilter === 'afternoon' 
                           ? 'bg-gray-900 text-white' 
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -262,7 +262,7 @@ export default function BookingPage() {
                     <button
                       type="button"
                       onClick={() => setTimeFilter('evening')}
-                      className={`flex-1 py-2 px-4 rounded-lg font-semibold text-sm transition-colors ${
+                      className={`py-2.5 px-3 md:px-4 rounded-lg font-semibold text-xs md:text-sm transition-colors ${
                         timeFilter === 'evening' 
                           ? 'bg-gray-900 text-white' 
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -305,7 +305,7 @@ export default function BookingPage() {
                     
                     return (
                     <>
-                      <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-2 mb-3">
+                      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 mb-3">
                         {filteredSlots.map((slot, index) => (
                           <button
                             key={index}
@@ -356,7 +356,7 @@ export default function BookingPage() {
               <>
                 {/* Customer Info */}
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-3 pb-2 border-b border-gray-200">Your Information</h3>
+                  <h3 className="text-base md:text-lg font-bold text-gray-900 mb-3 pb-2 border-b border-gray-200">Your Information</h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                     <div>
                       <label className="block text-xs font-semibold text-gray-700 mb-1">Your Name *</label>
@@ -364,7 +364,7 @@ export default function BookingPage() {
                         type="text"
                         name="customerName"
                         required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-sm text-gray-900"
+                        className="w-full px-3 py-3 md:py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-base md:text-sm text-gray-900"
                       />
                     </div>
                     <div>
@@ -373,7 +373,7 @@ export default function BookingPage() {
                         type="tel"
                         name="phone"
                         required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-sm text-gray-900"
+                        className="w-full px-3 py-3 md:py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-base md:text-sm text-gray-900"
                       />
                     </div>
                     <div>
@@ -382,7 +382,7 @@ export default function BookingPage() {
                         type="email"
                         name="email"
                         required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-sm text-gray-900"
+                        className="w-full px-3 py-3 md:py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-base md:text-sm text-gray-900"
                       />
                     </div>
                   </div>
@@ -390,7 +390,7 @@ export default function BookingPage() {
 
                 {/* Pet Info */}
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-3 pb-2 border-b border-gray-200">Pet Information</h3>
+                  <h3 className="text-base md:text-lg font-bold text-gray-900 mb-3 pb-2 border-b border-gray-200">Pet Information</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div>
                       <label className="block text-xs font-semibold text-gray-700 mb-1">Pet Name *</label>
@@ -399,7 +399,7 @@ export default function BookingPage() {
                         name="petName"
                         required
                         placeholder="Max"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-sm text-gray-900"
+                        className="w-full px-3 py-3 md:py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-base md:text-sm text-gray-900"
                       />
                     </div>
                     <div>
@@ -407,7 +407,7 @@ export default function BookingPage() {
                       <select
                         name="petType"
                         required
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-sm text-gray-900"
+                        className="w-full px-3 py-3 md:py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-base md:text-sm text-gray-900"
                       >
                         <option value="">Select...</option>
                         <option value="dog">Dog</option>
@@ -420,7 +420,7 @@ export default function BookingPage() {
                         type="text"
                         name="breed"
                         placeholder="Golden Retriever"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-sm text-gray-900"
+                        className="w-full px-3 py-3 md:py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-base md:text-sm text-gray-900"
                       />
                     </div>
                     <div>
@@ -429,27 +429,27 @@ export default function BookingPage() {
                         type="text"
                         name="weight"
                         placeholder="50 lbs or Large"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-sm text-gray-900"
+                        className="w-full px-3 py-3 md:py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-base md:text-sm text-gray-900"
                       />
                     </div>
                     <div className="md:col-span-2">
                       <label className="block text-xs font-semibold text-gray-700 mb-1">Special Notes</label>
                       <textarea
                         name="notes"
-                        rows={2}
+                        rows={3}
                         placeholder="Any allergies, behavioral notes, etc."
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-sm text-gray-900"
+                        className="w-full px-3 py-3 md:py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-base md:text-sm text-gray-900"
                       />
                     </div>
                   </div>
                 </div>
 
                 {/* Submit */}
-                <div className="sticky bottom-0 bg-white border-t border-gray-200 pt-4 pb-4 -mx-4 px-4">
+                <div className="sticky bottom-0 bg-white border-t border-gray-200 pt-4 pb-4 -mx-4 px-4 md:static md:border-0 md:pt-6">
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700 disabled:bg-gray-400 text-sm"
+                    className="w-full bg-red-600 text-white py-4 md:py-3 rounded-lg font-bold hover:bg-red-700 disabled:bg-gray-400 text-base md:text-sm min-h-[44px]"
                   >
                     {loading ? 'Confirming...' : `Confirm Booking for ${formatTime(selectedSlot.start_time)}`}
                   </button>
