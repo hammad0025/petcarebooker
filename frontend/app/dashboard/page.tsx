@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { bookingsApi } from '@/lib/api';
 import SubscriptionStatus from '@/components/SubscriptionStatus';
-import { Calendar, List, Clock, Settings, LogOut, FileText, Dog, X, CheckCircle2 } from 'lucide-react';
+import { Calendar as CalendarIcon, List, Clock, Settings, LogOut, FileText, Dog, X, CheckCircle2 } from 'lucide-react';
 
 const Calendar = dynamic(() => import('@/components/Calendar'), { ssr: false });
 
@@ -140,7 +140,7 @@ export default function DashboardPage() {
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              <Calendar className="w-4 h-4" />
+              <CalendarIcon className="w-4 h-4" />
               Calendar
             </button>
             <button
@@ -159,7 +159,7 @@ export default function DashboardPage() {
 
         {bookings.length === 0 ? (
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
-            <Calendar className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+            <CalendarIcon className="w-12 h-12 text-gray-400 mx-auto mb-3" />
             <h3 className="text-lg font-semibold text-gray-900 mb-2">No bookings yet</h3>
             <p className="text-sm text-gray-600 mb-4">Share your shop link to start receiving bookings!</p>
             <button
@@ -268,7 +268,7 @@ export default function DashboardPage() {
                 <div>
                   <p className="text-xs text-gray-500 mb-1">Appointment</p>
                   <p className="text-base font-medium flex items-center gap-1.5">
-                    <Calendar className="w-4 h-4" />
+                    <CalendarIcon className="w-4 h-4" />
                     {new Date(selectedBooking.appointment_date).toLocaleString()}
                   </p>
                 </div>
