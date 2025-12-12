@@ -105,18 +105,18 @@ export default function HomePage() {
         {/* Content */}
         <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center text-center">
           {/* Headline */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white mb-2 tracking-tight drop-shadow-2xl px-2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-3 tracking-tight drop-shadow-2xl px-2">
             Pet Grooming Near Me<br />
             <span className="text-yellow-300">Book Instantly Online</span>
           </h1>
           
-          <p className="text-sm sm:text-base text-white/95 mb-2 max-w-2xl mx-auto font-medium drop-shadow-lg px-4">
+          <p className="text-base sm:text-lg md:text-xl text-white/95 mb-3 max-w-2xl mx-auto font-medium drop-shadow-lg px-4">
             Find trusted pet groomers near you • Book instantly online • No phone calls needed
           </p>
 
           {/* Compact Professional Search Bar */}
           <div className="w-full max-w-2xl mb-4 px-4">
-            <div className="bg-white rounded-xl shadow-lg p-2 flex flex-col sm:flex-row items-stretch gap-2">
+            <div className="bg-white rounded-xl shadow-lg p-1.5 flex flex-col sm:flex-row items-stretch gap-2">
               <div className="flex-1 min-w-0">
                 <CityAutocomplete />
               </div>
@@ -125,7 +125,7 @@ export default function HomePage() {
               </div>
               <Link 
                 href="/browse"
-                className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-3 rounded-lg font-bold hover:from-purple-700 hover:to-pink-600 transition-all whitespace-nowrap text-sm text-center shadow-lg"
+                className="bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500 text-white px-5 py-2.5 rounded-lg font-bold hover:from-purple-700 hover:via-pink-600 hover:to-teal-600 transition-all whitespace-nowrap text-base text-center shadow-lg"
               >
                 Search
               </Link>
@@ -134,43 +134,43 @@ export default function HomePage() {
 
           {/* Popular Cities Quick Links */}
           <div className="mb-4 w-full px-2 sm:px-0">
-            <p className="text-white/90 text-sm mb-2 font-semibold">Popular Cities:</p>
+            <p className="text-white/90 text-base mb-2 font-semibold">Popular Cities:</p>
             <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto w-full">
-              <Link href="/cities/miami" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-xs font-medium">Miami</Link>
-              <Link href="/cities/new-york-city" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-xs font-medium">NYC</Link>
-              <Link href="/cities/tampa" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-xs font-medium">Tampa</Link>
-              <Link href="/cities/orlando" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-xs font-medium">Orlando</Link>
-              <Link href="/cities/pensacola" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-xs font-medium">Pensacola</Link>
-              <Link href="/cities/fort-lauderdale" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-xs font-medium">Fort Lauderdale</Link>
-              <Link href="/cities/brooklyn" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-xs font-medium">Brooklyn</Link>
-              <Link href="/cities/west-palm-beach" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-xs font-medium">West Palm Beach</Link>
-              <Link href="/cities/jacksonville" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-xs font-medium">Jacksonville</Link>
-              <Link href="/cities/buffalo" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-xs font-medium">Buffalo</Link>
-              <Link href="/browse" className="bg-white/20 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/30 transition-all text-xs font-bold border border-white/30">View All Cities →</Link>
+              <Link href="/cities/miami" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Miami</Link>
+              <Link href="/cities/new-york-city" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-sm font-medium">NYC</Link>
+              <Link href="/cities/tampa" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Tampa</Link>
+              <Link href="/cities/orlando" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Orlando</Link>
+              <Link href="/cities/pensacola" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Pensacola</Link>
+              <Link href="/cities/fort-lauderdale" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Fort Lauderdale</Link>
+              <Link href="/cities/brooklyn" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Brooklyn</Link>
+              <Link href="/cities/west-palm-beach" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-sm font-medium">West Palm Beach</Link>
+              <Link href="/cities/jacksonville" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Jacksonville</Link>
+              <Link href="/cities/buffalo" className="bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/20 transition-all text-sm font-medium">Buffalo</Link>
+              <Link href="/browse" className="bg-white/20 backdrop-blur-md text-white px-3 py-1.5 rounded-full hover:bg-white/30 transition-all text-sm font-bold border border-white/30">View All Cities →</Link>
             </div>
           </div>
 
           {/* Trust indicators */}
           <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-white/90 mb-3">
             <div className="flex items-center gap-2">
-              <Heart className="w-5 h-5" />
+              <Heart className="w-5 h-5 md:w-6 md:h-6" />
               <div>
-                <div className="text-lg font-semibold">1,200+</div>
-                <div className="text-xs">Happy Pets</div>
+                <div className="text-xl md:text-2xl font-semibold">1,200+</div>
+                <div className="text-sm md:text-base">Happy Pets</div>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <Star className="w-5 h-5 fill-yellow-300 text-yellow-300" />
+              <Star className="w-5 h-5 md:w-6 md:h-6 fill-yellow-300 text-yellow-300" />
               <div>
-                <div className="text-lg font-semibold">100+</div>
-                <div className="text-xs">Verified Groomers</div>
+                <div className="text-xl md:text-2xl font-semibold">100+</div>
+                <div className="text-sm md:text-base">Verified Groomers</div>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <Smartphone className="w-5 h-5" />
+              <Smartphone className="w-5 h-5 md:w-6 md:h-6" />
               <div>
-                <div className="text-lg font-semibold">4.9★</div>
-                <div className="text-xs">Average Rating</div>
+                <div className="text-xl md:text-2xl font-semibold">4.9★</div>
+                <div className="text-sm md:text-base">Average Rating</div>
               </div>
             </div>
           </div>
@@ -179,14 +179,14 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center px-4">
             <Link 
               href="/customer/start"
-              className="w-full sm:w-auto bg-white text-purple-600 px-6 py-3 rounded-full text-sm sm:text-base font-semibold hover:bg-gray-50 transition-all hover:scale-105 shadow-xl text-center flex items-center justify-center gap-2"
+              className="w-full sm:w-auto bg-white text-purple-600 px-6 py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-gray-50 transition-all hover:scale-105 shadow-xl text-center flex items-center justify-center gap-2"
             >
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-4 h-4 md:w-5 md:h-5" />
               Start with Your Pet
             </Link>
             <Link 
               href="/browse"
-              className="w-full sm:w-auto bg-white/10 backdrop-blur-md text-white border-2 border-white/30 px-6 py-3 rounded-full text-sm sm:text-base font-bold hover:bg-white/20 transition-all hover:scale-105 text-center"
+              className="w-full sm:w-auto bg-white/10 backdrop-blur-md text-white border-2 border-white/30 px-6 py-3 rounded-full text-base sm:text-lg font-bold hover:bg-white/20 transition-all hover:scale-105 text-center"
             >
               Browse All Groomers
             </Link>

@@ -70,7 +70,7 @@ export default function CityAutocomplete() {
           }}
           onFocus={() => setIsOpen(true)}
           placeholder="City or ZIP code"
-          className="w-full px-4 py-3 text-base rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 text-gray-900"
+          className="w-full px-4 py-2.5 text-base rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-gray-50 text-gray-900"
           autoComplete="off"
         />
         <svg
