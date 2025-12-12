@@ -200,7 +200,7 @@ export default function DashboardPage() {
                             {booking.service.name} • ${booking.service.price}
                           </p>
                           <p className="flex items-center gap-1.5">
-                            <Calendar className="w-4 h-4" />
+                            <CalendarIcon className="w-4 h-4" />
                             {new Date(booking.appointment_date).toLocaleString()}
                           </p>
                         </div>
