@@ -17,14 +17,14 @@ export async function GET() {
         }}
       >
         {/* Paw print - 5 circles positioned absolutely */}
-        {/* Bottom main pad - largest */}
-        <div style={{ position: 'absolute', bottom: '45px', left: '50%', transform: 'translateX(-50%)', width: '50px', height: '50px', borderRadius: '50%', backgroundColor: 'white' }} />
-        {/* Middle two pads */}
-        <div style={{ position: 'absolute', bottom: '75px', left: '60px', width: '38px', height: '38px', borderRadius: '50%', backgroundColor: 'white' }} />
-        <div style={{ position: 'absolute', bottom: '75px', right: '60px', width: '38px', height: '38px', borderRadius: '50%', backgroundColor: 'white' }} />
-        {/* Top two pads */}
-        <div style={{ position: 'absolute', bottom: '100px', left: '75px', width: '38px', height: '38px', borderRadius: '50%', backgroundColor: 'white' }} />
-        <div style={{ position: 'absolute', bottom: '100px', right: '75px', width: '38px', height: '38px', borderRadius: '50%', backgroundColor: 'white' }} />
+        {/* Bottom main pad - largest, centered at bottom */}
+        <div style={{ position: 'absolute', bottom: '25px', left: '50%', transform: 'translateX(-50%)', width: '55px', height: '55px', borderRadius: '50%', backgroundColor: 'white' }} />
+        {/* Middle two pads - side by side, above bottom pad */}
+        <div style={{ position: 'absolute', bottom: '60px', left: '50px', width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'white' }} />
+        <div style={{ position: 'absolute', bottom: '60px', right: '50px', width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'white' }} />
+        {/* Top two pads - toes, above middle pads, spread wider */}
+        <div style={{ position: 'absolute', bottom: '95px', left: '60px', width: '35px', height: '35px', borderRadius: '50%', backgroundColor: 'white' }} />
+        <div style={{ position: 'absolute', bottom: '95px', right: '60px', width: '35px', height: '35px', borderRadius: '50%', backgroundColor: 'white' }} />
       </div>
     ),
     {
