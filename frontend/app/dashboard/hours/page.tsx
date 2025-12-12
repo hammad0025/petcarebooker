@@ -27,6 +27,8 @@ export default function BusinessHoursPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
   const [hours, setHours] = useState<Record<string, DayHours>>({
     monday: { open: '09:00', close: '17:00', is_closed: false },
     tuesday: { open: '09:00', close: '17:00', is_closed: false },
@@ -80,8 +82,10 @@ export default function BusinessHoursPage() {
     if (!token) return;
 
     setSaving(true);
+    setError('');
+    setSuccess(false);
     try {
-      await fetch(`${API_BASE_URL}/api/shops/me/hours`, {
+      const response = await fetch(`${API_BASE_URL}/api/shops/me/hours`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -94,10 +98,16 @@ export default function BusinessHoursPage() {
         })
       });
       
-      alert('Business hours saved successfully!');
-    } catch (error) {
-      console.error('Failed to save hours:', error);
-      alert('Failed to save business hours');
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({ detail: 'Failed to save business hours' }));
+        throw new Error(data.detail || 'Failed to save business hours');
+      }
+      
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 3000);
+    } catch (err: any) {
+      console.error('Failed to save hours:', err);
+      setError(err.message || 'Failed to save business hours');
     } finally {
       setSaving(false);
     }
@@ -114,7 +124,14 @@ export default function BusinessHoursPage() {
   };
 
   if (loading) {
-    return <div className="min-h-screen bg-gray-50 flex items-center justify-center">Loading...</div>;
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600 mx-auto mb-2"></div>
+          <p className="text-gray-600">Loading business hours...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -131,14 +148,26 @@ export default function BusinessHoursPage() {
         </div>
       </nav>
 
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
-        <div className="bg-white rounded-xl shadow-lg p-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Business Hours</h2>
-          <p className="text-gray-600 mb-8">Set your availability for customer bookings</p>
+      <div className="max-w-6xl mx-auto px-6 py-3">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-2">Business Hours</h2>
+          <p className="text-gray-600 mb-4">Set your availability for customer bookings</p>
+
+          {success && (
+            <div className="mb-4 bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
+              Business hours saved successfully!
+            </div>
+          )}
+
+          {error && (
+            <div className="mb-4 bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
+              {error}
+            </div>
+          )}
 
           {/* Booking Settings */}
-          <div className="mb-8 p-6 bg-purple-50 rounded-lg">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Booking Settings</h3>
+          <div className="mb-4 p-4 bg-purple-50 rounded-lg">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Booking Settings</h3>
             
             <div className="space-y-4">
               <div className="flex items-center">
@@ -173,9 +202,9 @@ export default function BusinessHoursPage() {
           </div>
 
           {/* Weekly Schedule */}
-          <div className="space-y-4">
+          <div className="space-y-3">
             {DAYS.map(day => (
-              <div key={day} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+              <div key={day} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                 <div className="w-32">
                   <label className="font-bold text-gray-900">{DAY_LABELS[day]}</label>
                 </div>
@@ -218,17 +247,17 @@ export default function BusinessHoursPage() {
             ))}
           </div>
 
-          <div className="mt-8 flex gap-4">
+          <div className="mt-4 flex gap-3">
             <button
               onClick={() => router.push('/dashboard')}
-              className="flex-1 bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300"
+              className="flex-1 bg-gray-200 text-gray-700 py-2.5 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
             >
               Cancel
             </button>
             <button
               onClick={handleSave}
               disabled={saving}
-              className="flex-1 bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 disabled:bg-gray-400"
+              className="flex-1 bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500 text-white py-2.5 rounded-lg font-semibold hover:shadow-md transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {saving ? 'Saving...' : 'Save Hours'}
             </button>

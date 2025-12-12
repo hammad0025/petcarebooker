@@ -37,6 +37,38 @@ export default function BookingPage() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
   const [timeFilter, setTimeFilter] = useState<'all' | 'morning' | 'afternoon' | 'evening'>('all');
+  const [formattedPhone, setFormattedPhone] = useState('');
+  const [emailError, setEmailError] = useState('');
+
+  // Format phone number to (XXX) XXX-XXXX
+  const formatPhoneNumber = (value: string) => {
+    const phoneNumber = value.replace(/\D/g, '');
+    if (phoneNumber.length === 0) return '';
+    if (phoneNumber.length <= 3) return `(${phoneNumber}`;
+    if (phoneNumber.length <= 6) return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+    return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhoneNumber(e.target.value);
+    setFormattedPhone(formatted);
+    // Update the input value
+    e.target.value = formatted;
+  };
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      setEmailError('');
+      return false;
+    }
+    if (!emailRegex.test(email)) {
+      setEmailError('Please enter a valid email address');
+      return false;
+    }
+    setEmailError('');
+    return true;
+  };
 
   useEffect(() => {
     if (serviceId) {
@@ -98,12 +130,16 @@ export default function BookingPage() {
 
     const formData = new FormData(e.currentTarget);
 
+    // Strip phone formatting before sending (remove all non-digits)
+    const phoneValue = formData.get('phone') as string;
+    const cleanPhone = phoneValue.replace(/\D/g, '');
+
     try {
       await bookingsApi.create(slug, {
         service_id: parseInt(serviceId!),
         customer_name: formData.get('customerName'),
         customer_email: formData.get('email'),
-        customer_phone: formData.get('phone'),
+        customer_phone: cleanPhone,
         pet_name: formData.get('petName'),
         pet_type: formData.get('petType'),
         pet_breed: formData.get('breed'),
@@ -377,6 +413,10 @@ export default function BookingPage() {
                         type="tel"
                         name="phone"
                         required
+                        value={formattedPhone}
+                        onChange={handlePhoneChange}
+                        placeholder="(555) 123-4567"
+                        maxLength={14}
                         className="w-full px-3 py-3 md:py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-base md:text-sm text-gray-900"
                       />
                     </div>
@@ -386,8 +426,17 @@ export default function BookingPage() {
                         type="email"
                         name="email"
                         required
-                        className="w-full px-3 py-3 md:py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-base md:text-sm text-gray-900"
+                        onBlur={(e) => validateEmail(e.target.value)}
+                        onChange={(e) => {
+                          if (emailError) validateEmail(e.target.value);
+                        }}
+                        className={`w-full px-3 py-3 md:py-2 border rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-base md:text-sm text-gray-900 ${
+                          emailError ? 'border-red-500' : 'border-gray-300'
+                        }`}
                       />
+                      {emailError && (
+                        <p className="text-xs text-red-600 mt-1">{emailError}</p>
+                      )}
                     </div>
                   </div>
                 </div>

@@ -20,6 +20,8 @@ export default function ServicesPage() {
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [editingService, setEditingService] = useState<Service | null>(null);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -63,11 +65,16 @@ export default function ServicesPage() {
         await servicesApi.create(serviceData, token);
       }
       
+      setSuccess(true);
+      setError('');
       loadServices(token);
       setShowForm(false);
       setEditingService(null);
-    } catch (error) {
-      console.error('Failed to save service:', error);
+      setTimeout(() => setSuccess(false), 3000);
+    } catch (err: any) {
+      console.error('Failed to save service:', err);
+      setError(err.message || 'Failed to save service');
+      setSuccess(false);
     }
   };
 
@@ -79,14 +86,26 @@ export default function ServicesPage() {
 
     try {
       await servicesApi.delete(serviceId, token);
+      setSuccess(true);
+      setError('');
       loadServices(token);
-    } catch (error) {
-      console.error('Failed to delete service:', error);
+      setTimeout(() => setSuccess(false), 3000);
+    } catch (err: any) {
+      console.error('Failed to delete service:', err);
+      setError(err.message || 'Failed to delete service');
+      setSuccess(false);
     }
   };
 
   if (loading) {
-    return <div className="min-h-screen bg-gray-50 flex items-center justify-center">Loading...</div>;
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600 mx-auto mb-2"></div>
+          <p className="text-gray-600">Loading services...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -103,26 +122,38 @@ export default function ServicesPage() {
         </div>
       </nav>
 
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900">Your Services</h2>
+      <div className="max-w-6xl mx-auto px-6 py-3">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-2xl font-bold text-gray-900">Your Services</h2>
           <button
             onClick={() => {
               setEditingService(null);
               setShowForm(true);
             }}
-            className="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700"
+            className="bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500 text-white px-4 py-2 rounded-lg font-semibold hover:shadow-md transition-all"
           >
             + Add Service
           </button>
         </div>
 
+        {success && (
+          <div className="mb-4 bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
+            Service {editingService ? 'updated' : 'created'} successfully!
+          </div>
+        )}
+
+        {error && (
+          <div className="mb-4 bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
+            {error}
+          </div>
+        )}
+
         {showForm && (
-          <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-4">
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">
               {editingService ? 'Edit Service' : 'New Service'}
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Service Name</label>
                 <input
@@ -190,7 +221,7 @@ export default function ServicesPage() {
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 bg-purple-600 text-white py-2 rounded-lg font-semibold hover:bg-purple-700"
+                  className="flex-1 bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500 text-white py-2 rounded-lg font-semibold hover:shadow-md transition-all"
                 >
                   {editingService ? 'Update' : 'Create'}
                 </button>
@@ -200,15 +231,15 @@ export default function ServicesPage() {
         )}
 
         {services.length === 0 ? (
-          <div className="bg-white rounded-xl shadow p-12 text-center">
-            <div className="text-6xl mb-4">✂️</div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">No services yet</h3>
-            <p className="text-gray-600 mb-6">Add your first service to start accepting bookings</p>
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 text-center">
+            <div className="text-4xl mb-3">✂️</div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">No services yet</h3>
+            <p className="text-gray-600 mb-4">Add your first service to start accepting bookings</p>
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4">
             {services.map((service) => (
-              <div key={service.id} className="bg-white rounded-xl shadow p-6">
+              <div key={service.id} className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <h3 className="text-xl font-bold text-gray-900">{service.name}</h3>
