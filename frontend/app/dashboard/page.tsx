@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { bookingsApi } from '@/lib/api';
 import SubscriptionStatus from '@/components/SubscriptionStatus';
-import { Calendar as CalendarIcon, List, Clock, Settings, LogOut, FileText, Dog, X, CheckCircle2 } from 'lucide-react';
+import { Calendar as CalendarIcon, List, Clock, Settings, LogOut, FileText, Dog, X, CheckCircle2, DollarSign, Users, AlertCircle } from 'lucide-react';
 
 const Calendar = dynamic(() => import('@/components/Calendar'), { ssr: false });
 
@@ -74,6 +74,21 @@ export default function DashboardPage() {
     }
   };
 
+  // Calculate metrics from bookings
+  const today = new Date().toISOString().split('T')[0];
+  const todayBookings = bookings.filter(b => b.appointment_date.startsWith(today)).length;
+  const weekBookings = bookings.filter(b => {
+    const bookingDate = new Date(b.appointment_date);
+    const weekAgo = new Date();
+    weekAgo.setDate(weekAgo.getDate() - 7);
+    return bookingDate >= weekAgo;
+  }).length;
+  const pendingBookings = bookings.filter(b => b.status === 'pending').length;
+  const totalRevenue = bookings
+    .filter(b => b.status === 'confirmed' || b.status === 'completed')
+    .reduce((sum, b) => sum + (b.service?.price || 0), 0);
+  const totalClients = new Set(bookings.map(b => b.customer_name)).size;
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -123,120 +138,189 @@ export default function DashboardPage() {
         </div>
       </nav>
 
-      <div className="container mx-auto px-4 py-4">
+      <div className="max-w-6xl mx-auto px-6 py-3">
+        {/* Metric Cards Row */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-3">
+          <div className="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-3 hover:bg-blue-100 transition-colors">
+            <div className="flex items-center justify-between mb-1">
+              <CalendarIcon className="w-4 h-4 text-blue-600" />
+              <span className="text-xs text-blue-600 font-medium">Today</span>
+            </div>
+            <div className="text-2xl font-bold text-blue-900">{todayBookings}</div>
+            <div className="text-xs text-blue-700">bookings</div>
+          </div>
+          
+          <div className="bg-green-50 border-l-4 border-green-500 rounded-lg p-3 hover:bg-green-100 transition-colors">
+            <div className="flex items-center justify-between mb-1">
+              <CalendarIcon className="w-4 h-4 text-green-600" />
+              <span className="text-xs text-green-600 font-medium">This Week</span>
+            </div>
+            <div className="text-2xl font-bold text-green-900">{weekBookings}</div>
+            <div className="text-xs text-green-700">bookings</div>
+          </div>
+          
+          <div className="bg-yellow-50 border-l-4 border-yellow-500 rounded-lg p-3 hover:bg-yellow-100 transition-colors">
+            <div className="flex items-center justify-between mb-1">
+              <AlertCircle className="w-4 h-4 text-yellow-600" />
+              <span className="text-xs text-yellow-600 font-medium">Pending</span>
+            </div>
+            <div className="text-2xl font-bold text-yellow-900">{pendingBookings}</div>
+            <div className="text-xs text-yellow-700">approvals</div>
+          </div>
+          
+          <div className="bg-purple-50 border-l-4 border-purple-500 rounded-lg p-3 hover:bg-purple-100 transition-colors">
+            <div className="flex items-center justify-between mb-1">
+              <DollarSign className="w-4 h-4 text-purple-600" />
+              <span className="text-xs text-purple-600 font-medium">Revenue</span>
+            </div>
+            <div className="text-2xl font-bold text-purple-900">${totalRevenue}</div>
+            <div className="text-xs text-purple-700">this week</div>
+          </div>
+          
+          <div className="bg-indigo-50 border-l-4 border-indigo-500 rounded-lg p-3 hover:bg-indigo-100 transition-colors">
+            <div className="flex items-center justify-between mb-1">
+              <Users className="w-4 h-4 text-indigo-600" />
+              <span className="text-xs text-indigo-600 font-medium">Clients</span>
+            </div>
+            <div className="text-2xl font-bold text-indigo-900">{totalClients}</div>
+            <div className="text-xs text-indigo-700">total</div>
+          </div>
+        </div>
+
         {/* Subscription Status */}
-        <div className="mb-4">
+        <div className="mb-3">
           <SubscriptionStatus />
         </div>
 
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-semibold text-gray-900">Your Calendar</h2>
-          <div className="flex gap-2 bg-gray-100 p-1 rounded-lg">
-            <button
-              onClick={() => setView('calendar')}
-              className={`px-3 py-1.5 rounded-md flex items-center gap-1.5 text-sm font-medium transition-all ${
-                view === 'calendar' 
-                  ? 'bg-white text-purple-600 shadow-sm' 
-                  : 'text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              <CalendarIcon className="w-4 h-4" />
-              Calendar
-            </button>
-            <button
-              onClick={() => setView('list')}
-              className={`px-3 py-1.5 rounded-md flex items-center gap-1.5 text-sm font-medium transition-all ${
-                view === 'list' 
-                  ? 'bg-white text-purple-600 shadow-sm' 
-                  : 'text-gray-600 hover:text-gray-900'
-              }`}
-            >
-              <List className="w-4 h-4" />
-              List
-            </button>
+        {/* Calendar Section */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-3">
+          <div className="flex justify-between items-center mb-3">
+            <h2 className="text-lg font-semibold text-gray-900">Your Calendar</h2>
+            <div className="flex gap-2 bg-gray-100 p-1 rounded-lg">
+              <button
+                onClick={() => setView('calendar')}
+                className={`px-3 py-1.5 rounded-md flex items-center gap-1.5 text-sm font-medium transition-all ${
+                  view === 'calendar' 
+                    ? 'bg-white text-purple-600 shadow-sm' 
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                <CalendarIcon className="w-4 h-4" />
+                Calendar
+              </button>
+              <button
+                onClick={() => setView('list')}
+                className={`px-3 py-1.5 rounded-md flex items-center gap-1.5 text-sm font-medium transition-all ${
+                  view === 'list' 
+                    ? 'bg-white text-purple-600 shadow-sm' 
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                <List className="w-4 h-4" />
+                List
+              </button>
+            </div>
           </div>
+
+          {bookings.length === 0 ? (
+            <div className="text-center py-8">
+              <CalendarIcon className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">No bookings yet</h3>
+              <p className="text-sm text-gray-600 mb-4">Share your shop link to start receiving bookings!</p>
+              <button
+                onClick={() => router.push('/dashboard/services')}
+                className="bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500 text-white px-5 py-2.5 rounded-lg font-semibold hover:shadow-md transition-all"
+              >
+                Add Your Services
+              </button>
+            </div>
+          ) : (
+            <>
+              {view === 'calendar' ? (
+                <Calendar
+                  bookings={bookings}
+                  onSelectEvent={(event) => setSelectedBooking(event.resource)}
+                />
+              ) : (
+                <div className="space-y-2">
+                  {bookings.map((booking) => {
+                    const borderColor = booking.status === 'pending' 
+                      ? 'border-l-yellow-500' 
+                      : booking.status === 'confirmed' 
+                      ? 'border-l-green-500' 
+                      : booking.status === 'completed'
+                      ? 'border-l-blue-500'
+                      : 'border-l-gray-500';
+                    
+                    return (
+                      <div key={booking.id} className={`bg-white rounded-lg shadow-sm border-l-4 ${borderColor} border border-gray-200 p-3 hover:shadow-md transition-shadow`}>
+                        <div className="flex justify-between items-start gap-4">
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 mb-2">
+                              <h3 className="text-base font-semibold text-gray-900">
+                                {booking.customer_name}
+                              </h3>
+                              <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${getStatusColor(booking.status)}`}>
+                                {booking.status}
+                              </span>
+                            </div>
+                            <div className="space-y-1 text-sm text-gray-600">
+                              <p className="flex items-center gap-1.5">
+                                <Dog className="w-4 h-4" />
+                                {booking.pet_name} • {booking.pet_breed} {booking.pet_type}
+                              </p>
+                              <p className="flex items-center gap-1.5">
+                                <FileText className="w-4 h-4" />
+                                {booking.service.name} • ${booking.service.price}
+                              </p>
+                              <p className="flex items-center gap-1.5">
+                                <CalendarIcon className="w-4 h-4" />
+                                {new Date(booking.appointment_date).toLocaleString()}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            {booking.status === 'pending' && (
+                              <>
+                                <button
+                                  onClick={() => handleStatusUpdate(booking.id, 'confirmed')}
+                                  className="bg-green-600 text-white px-3 py-1.5 rounded-md text-xs font-medium hover:bg-green-700 transition-colors"
+                                >
+                                  Approve
+                                </button>
+                                <button
+                                  onClick={() => handleStatusUpdate(booking.id, 'cancelled')}
+                                  className="bg-red-600 text-white px-3 py-1.5 rounded-md text-xs font-medium hover:bg-red-700 transition-colors"
+                                >
+                                  Deny
+                                </button>
+                              </>
+                            )}
+                            {booking.status === 'confirmed' && (
+                              <button
+                                onClick={() => handleStatusUpdate(booking.id, 'completed')}
+                                className="bg-blue-600 text-white px-3 py-1.5 rounded-md text-xs font-medium hover:bg-blue-700 transition-colors"
+                              >
+                                Mark Complete
+                              </button>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </>
+          )}
         </div>
 
-        {bookings.length === 0 ? (
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
-            <CalendarIcon className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">No bookings yet</h3>
-            <p className="text-sm text-gray-600 mb-4">Share your shop link to start receiving bookings!</p>
-            <button
-              onClick={() => router.push('/dashboard/services')}
-              className="bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500 text-white px-5 py-2.5 rounded-lg font-semibold hover:shadow-md transition-all"
-            >
-              Add Your Services
-            </button>
+        {/* Recent Bookings Section - Only show if there are bookings */}
+        {bookings.length > 0 && view === 'list' && (
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">Recent Bookings</h3>
+            {/* Bookings are already shown above in the calendar section */}
           </div>
-        ) : (
-          <>
-            {view === 'calendar' ? (
-              <Calendar
-                bookings={bookings}
-                onSelectEvent={(event) => setSelectedBooking(event.resource)}
-              />
-            ) : (
-              <div className="space-y-3">
-                {bookings.map((booking) => (
-                  <div key={booking.id} className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md transition-shadow">
-                    <div className="flex justify-between items-start gap-4">
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-2">
-                          <h3 className="text-lg font-semibold text-gray-900">
-                            {booking.customer_name}
-                          </h3>
-                          <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${getStatusColor(booking.status)}`}>
-                            {booking.status}
-                          </span>
-                        </div>
-                        <div className="space-y-1 text-sm text-gray-600">
-                          <p className="flex items-center gap-1.5">
-                            <Dog className="w-4 h-4" />
-                            {booking.pet_name} • {booking.pet_breed} {booking.pet_type}
-                          </p>
-                          <p className="flex items-center gap-1.5">
-                            <FileText className="w-4 h-4" />
-                            {booking.service.name} • ${booking.service.price}
-                          </p>
-                          <p className="flex items-center gap-1.5">
-                            <CalendarIcon className="w-4 h-4" />
-                            {new Date(booking.appointment_date).toLocaleString()}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-2">
-                        {booking.status === 'pending' && (
-                          <>
-                            <button
-                              onClick={() => handleStatusUpdate(booking.id, 'confirmed')}
-                              className="bg-green-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-green-700 transition-colors"
-                            >
-                              Approve
-                            </button>
-                            <button
-                              onClick={() => handleStatusUpdate(booking.id, 'cancelled')}
-                              className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-red-700 transition-colors"
-                            >
-                              Deny
-                            </button>
-                          </>
-                        )}
-                        {booking.status === 'confirmed' && (
-                          <button
-                            onClick={() => handleStatusUpdate(booking.id, 'completed')}
-                            className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors"
-                          >
-                            Mark Complete
-                          </button>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </>
         )}
 
         {/* Booking Detail Modal */}
