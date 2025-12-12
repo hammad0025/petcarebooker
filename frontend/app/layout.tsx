@@ -32,11 +32,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/icon.png', type: 'image/png' },
+      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
     ],
-    shortcut: '/favicon.svg',
-    apple: '/apple-icon.png',
+    shortcut: '/favicon.ico',
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
   manifest: '/manifest.json',
   openGraph: {
@@ -83,6 +86,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="overflow-x-hidden w-full max-w-full">
+      <head>
+        {/* Explicit favicon links for better browser/Google support */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden w-full max-w-full`}
       >
