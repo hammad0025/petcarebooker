@@ -201,7 +201,7 @@ export default function HomePage() {
 
       {/* SEO-Optimized Section: Pet Grooming Near Me */}
       <section className="bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 py-6 border-b border-gray-200">
-        <div className="container mx-auto px-4 max-w-4xl">
+        <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-semibold text-center text-white mb-2 tracking-tight drop-shadow-2xl">
             Find Pet Grooming Near Me - Dog Grooming & Cat Grooming Online
           </h2>
@@ -227,7 +227,7 @@ export default function HomePage() {
 
       {/* Feature Cards - moved outside hero */}
       <div className="bg-gray-50 py-8">
-        <div className="container mx-auto px-4 max-w-6xl">
+        <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-semibold text-center text-gray-900 mb-2 tracking-tight">
             How It Works
           </h2>
@@ -294,7 +294,7 @@ export default function HomePage() {
 
       {/* Testimonials */}
       <div className="bg-gradient-to-br from-purple-50 to-pink-50 py-12">
-        <div className="container mx-auto px-4">
+        <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-semibold text-center mb-4 text-gray-900 tracking-tight">
             What Pet Parents Say
           </h2>
@@ -346,7 +346,7 @@ export default function HomePage() {
       </div>
 
       <div className="bg-white py-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-5xl font-extrabold text-center mb-4 text-gray-900">
             Why Pet Parents Love Us 💙
           </h2>
@@ -384,7 +384,7 @@ export default function HomePage() {
 
       {/* FAQ Section with Schema Markup */}
       <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-4xl">
+        <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-5xl font-extrabold text-center text-gray-900 mb-4">
             Frequently Asked Questions 💬
           </h2>
@@ -700,7 +700,7 @@ export default function HomePage() {
 
       {/* Popular Cities Section */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
               Find Groomers in Your City 🗺️
