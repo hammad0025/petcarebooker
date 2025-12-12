@@ -17,16 +17,16 @@ export async function GET() {
             position: 'relative',
           }}
         >
-          {/* Paw print - 5 circles */}
-          {/* Bottom main pad */}
+          {/* Paw print - 5 circles - larger sizes for 32x32 */}
+          {/* Bottom main pad - largest */}
           <div
             style={{
               position: 'absolute',
-              bottom: '10px',
+              bottom: '6px',
               left: '50%',
               transform: 'translateX(-50%)',
-              width: '12px',
-              height: '12px',
+              width: '14px',
+              height: '14px',
               borderRadius: '50%',
               backgroundColor: 'white',
             }}
@@ -35,10 +35,10 @@ export async function GET() {
           <div
             style={{
               position: 'absolute',
-              bottom: '18px',
-              left: '6px',
-              width: '9px',
-              height: '9px',
+              bottom: '14px',
+              left: '4px',
+              width: '10px',
+              height: '10px',
               borderRadius: '50%',
               backgroundColor: 'white',
             }}
@@ -46,10 +46,10 @@ export async function GET() {
           <div
             style={{
               position: 'absolute',
-              bottom: '18px',
-              right: '6px',
-              width: '9px',
-              height: '9px',
+              bottom: '14px',
+              right: '4px',
+              width: '10px',
+              height: '10px',
               borderRadius: '50%',
               backgroundColor: 'white',
             }}
@@ -58,10 +58,10 @@ export async function GET() {
           <div
             style={{
               position: 'absolute',
-              bottom: '24px',
-              left: '9px',
-              width: '9px',
-              height: '9px',
+              bottom: '20px',
+              left: '7px',
+              width: '10px',
+              height: '10px',
               borderRadius: '50%',
               backgroundColor: 'white',
             }}
@@ -69,10 +69,10 @@ export async function GET() {
           <div
             style={{
               position: 'absolute',
-              bottom: '24px',
-              right: '9px',
-              width: '9px',
-              height: '9px',
+              bottom: '20px',
+              right: '7px',
+              width: '10px',
+              height: '10px',
               borderRadius: '50%',
               backgroundColor: 'white',
             }}
