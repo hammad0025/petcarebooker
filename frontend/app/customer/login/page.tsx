@@ -3,6 +3,7 @@
 import { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { Eye, EyeOff, ArrowLeft } from 'lucide-react';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://petcarebooker.onrender.com';
 
@@ -51,11 +52,11 @@ function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
-      <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back!</h1>
-          <p className="text-gray-600">Sign in to manage your pet appointments</p>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-4 px-4">
+      <div className="max-w-md w-full bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="text-center mb-6">
+          <h1 className="text-xl font-semibold text-gray-900 mb-1">Welcome Back</h1>
+          <p className="text-sm text-gray-600">Sign in to manage your pet appointments</p>
         </div>
 
         {error && (
@@ -93,7 +94,7 @@ function LoginForm() {
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 transition"
               >
-                {showPassword ? '🙈' : '👁️'}
+                {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
             </div>
           </div>
@@ -101,17 +102,17 @@ function LoginForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 disabled:bg-gray-400"
+            className="w-full bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500 text-white py-2.5 rounded-lg font-semibold hover:shadow-md transition-all disabled:bg-gray-400 disabled:cursor-not-allowed"
           >
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
 
-        <div className="mt-6 text-center space-y-2">
-          <Link href="/customer/forgot-password" className="block text-purple-600 font-semibold hover:text-purple-700 text-sm">
+        <div className="mt-4 text-center space-y-2">
+          <Link href="/customer/forgot-password" className="block text-sm text-purple-600 font-medium hover:text-purple-700">
             Forgot your password?
           </Link>
-          <p className="text-gray-600">
+          <p className="text-sm text-gray-600">
             Don't have an account?{' '}
             <Link href="/customer/register" className="text-purple-600 font-semibold hover:text-purple-700">
               Sign up
@@ -119,9 +120,10 @@ function LoginForm() {
           </p>
         </div>
 
-        <p className="mt-4 text-center text-gray-600">
-          <Link href="/browse" className="text-purple-600 hover:text-purple-700">
-            ← Continue as guest
+        <p className="mt-4 text-center">
+          <Link href="/browse" className="text-sm text-purple-600 hover:text-purple-700 flex items-center justify-center gap-1.5">
+            <ArrowLeft className="w-4 h-4" />
+            Continue as guest
           </Link>
         </p>
       </div>

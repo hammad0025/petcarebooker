@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { Dog, Cat, Plus, LogOut, Search, X } from 'lucide-react';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://petcarebooker.onrender.com';
 
@@ -118,14 +119,15 @@ export default function CustomerDashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-purple-600">
+      <nav className="bg-white border-b border-gray-200 sticky top-0 z-40">
+        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+          <Link href="/" className="text-xl font-semibold text-gray-900">
             PetCareBooker
           </Link>
-          <div className="flex gap-4 items-center">
-            <span className="text-gray-700">Hi, {customerName}!</span>
-            <Link href="/browse" className="text-purple-600 hover:text-purple-700">
+          <div className="flex gap-2 items-center">
+            <span className="text-sm text-gray-700">Hi, {customerName}!</span>
+            <Link href="/browse" className="px-3 py-1.5 text-sm text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded-md transition-colors flex items-center gap-1.5">
+              <Search className="w-4 h-4" />
               Find Groomers
             </Link>
             <button
@@ -133,28 +135,38 @@ export default function CustomerDashboardPage() {
                 localStorage.clear();
                 router.push('/');
               }}
-              className="text-red-600 hover:text-red-700"
+              className="px-3 py-1.5 text-sm text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md transition-colors flex items-center gap-1.5"
             >
+              <LogOut className="w-4 h-4" />
               Logout
             </button>
           </div>
         </div>
       </nav>
 
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">My Pets</h1>
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex justify-between items-center mb-4">
+          <h1 className="text-xl font-semibold text-gray-900">My Pets</h1>
           <button
             onClick={() => setShowAddPet(true)}
-            className="bg-purple-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-purple-700 shadow-lg"
+            className="bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500 text-white px-4 py-2 rounded-lg font-semibold hover:shadow-md transition-all flex items-center gap-1.5"
           >
-            + Add Pet
+            <Plus className="w-4 h-4" />
+            Add Pet
           </button>
         </div>
 
         {showAddPet && (
-          <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Add New Pet</h3>
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-4">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-semibold text-gray-900">Add New Pet</h3>
+              <button
+                onClick={() => setShowAddPet(false)}
+                className="text-gray-400 hover:text-gray-600"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
             <form onSubmit={handleAddPet} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
@@ -227,52 +239,56 @@ export default function CustomerDashboardPage() {
         )}
 
         {pets.length === 0 ? (
-          <div className="bg-white rounded-xl shadow p-12 text-center">
-            <div className="text-6xl mb-4">🐕</div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">No pets yet</h3>
-            <p className="text-gray-600 mb-6">Add your pets to quickly book appointments</p>
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
+            <Dog className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">No pets yet</h3>
+            <p className="text-sm text-gray-600 mb-4">Add your pets to quickly book appointments</p>
             <button
               onClick={() => setShowAddPet(true)}
-              className="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700"
+              className="bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500 text-white px-5 py-2.5 rounded-lg font-semibold hover:shadow-md transition-all"
             >
               Add Your First Pet
             </button>
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {pets.map((pet) => (
-              <div key={pet.id} className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
-                <div className="flex justify-between items-start mb-4">
+              <div key={pet.id} className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md transition-shadow">
+                <div className="flex justify-between items-start mb-3">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900">{pet.name}</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-lg font-semibold text-gray-900">{pet.name}</h3>
+                    <p className="text-sm text-gray-600">
                       {pet.breed || 'Mixed'} {pet.pet_type}
                     </p>
                   </div>
-                  <div className="text-4xl">
-                    {pet.pet_type === 'dog' ? '🐕' : '🐱'}
+                  <div>
+                    {pet.pet_type === 'dog' ? (
+                      <Dog className="w-8 h-8 text-gray-400" />
+                    ) : (
+                      <Cat className="w-8 h-8 text-gray-400" />
+                    )}
                   </div>
                 </div>
                 {pet.weight && (
-                  <p className="text-gray-600 mb-2">
-                    <strong>Weight:</strong> {pet.weight}
+                  <p className="text-sm text-gray-600 mb-2">
+                    <span className="font-medium">Weight:</span> {pet.weight}
                   </p>
                 )}
                 {pet.special_notes && (
-                  <p className="text-gray-600 mb-4 text-sm">
-                    <strong>Notes:</strong> {pet.special_notes}
+                  <p className="text-sm text-gray-600 mb-3">
+                    <span className="font-medium">Notes:</span> {pet.special_notes}
                   </p>
                 )}
                 <div className="flex gap-2">
                   <Link
                     href={`/browse`}
-                    className="flex-1 bg-purple-600 text-white py-2 rounded-lg text-center font-semibold hover:bg-purple-700"
+                    className="flex-1 bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500 text-white py-2 rounded-md text-center text-sm font-semibold hover:shadow-md transition-all"
                   >
                     Book Appointment
                   </Link>
                   <button
                     onClick={() => handleDeletePet(pet.id)}
-                    className="px-4 py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200"
+                    className="px-3 py-2 bg-red-100 text-red-600 rounded-md text-sm font-medium hover:bg-red-200 transition-colors"
                   >
                     Remove
                   </button>

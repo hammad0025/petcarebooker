@@ -3,6 +3,7 @@
 import { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { Eye, EyeOff, ArrowLeft, CheckCircle2 } from 'lucide-react';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://petcarebooker.onrender.com';
 
@@ -53,11 +54,11 @@ function RegisterForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
-      <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Create Account</h1>
-          <p className="text-gray-600">Join to manage your pet appointments</p>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-4 px-4">
+      <div className="max-w-md w-full bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="text-center mb-6">
+          <h1 className="text-xl font-semibold text-gray-900 mb-1">Create Account</h1>
+          <p className="text-sm text-gray-600">Join to manage your pet appointments</p>
         </div>
 
         {error && (
@@ -120,17 +121,32 @@ function RegisterForm() {
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 transition"
               >
-                {showPassword ? '🙈' : '👁️'}
+                {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
             </div>
-            <div className="mt-2 bg-purple-50 rounded-lg p-3 text-sm text-gray-700">
-              <p className="font-semibold mb-1">Password must include:</p>
+            <div className="mt-2 bg-gray-50 rounded-lg p-3 text-sm text-gray-700">
+              <p className="font-semibold mb-1.5">Password must include:</p>
               <ul className="space-y-1 text-xs">
-                <li>✓ At least 8 characters</li>
-                <li>✓ One uppercase letter (A-Z)</li>
-                <li>✓ One lowercase letter (a-z)</li>
-                <li>✓ One number (0-9)</li>
-                <li>✓ One special character (!@#$%^&*)</li>
+                <li className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3 h-3 text-green-600" />
+                  At least 8 characters
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3 h-3 text-green-600" />
+                  One uppercase letter (A-Z)
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3 h-3 text-green-600" />
+                  One lowercase letter (a-z)
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3 h-3 text-green-600" />
+                  One number (0-9)
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3 h-3 text-green-600" />
+                  One special character (!@#$%^&*)
+                </li>
               </ul>
             </div>
           </div>
@@ -138,22 +154,23 @@ function RegisterForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 disabled:bg-gray-400"
+            className="w-full bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500 text-white py-2.5 rounded-lg font-semibold hover:shadow-md transition-all disabled:bg-gray-400 disabled:cursor-not-allowed"
           >
             {loading ? 'Creating Account...' : 'Create Account'}
           </button>
         </form>
 
-        <p className="mt-6 text-center text-gray-600">
+        <p className="mt-4 text-center text-sm text-gray-600">
           Already have an account?{' '}
           <Link href="/customer/login" className="text-purple-600 font-semibold hover:text-purple-700">
             Sign in
           </Link>
         </p>
 
-        <p className="mt-4 text-center text-gray-600">
-          <Link href="/browse" className="text-purple-600 hover:text-purple-700">
-            ← Continue as guest
+        <p className="mt-4 text-center">
+          <Link href="/browse" className="text-sm text-purple-600 hover:text-purple-700 flex items-center justify-center gap-1.5">
+            <ArrowLeft className="w-4 h-4" />
+            Continue as guest
           </Link>
         </p>
       </div>

@@ -45,11 +45,11 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
-      <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h1>
-          <p className="text-gray-600">Login to manage your grooming business</p>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-4 px-4">
+      <div className="max-w-md w-full bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="text-center mb-6">
+          <h1 className="text-xl font-semibold text-gray-900 mb-1">Welcome Back</h1>
+          <p className="text-sm text-gray-600">Login to manage your grooming business</p>
         </div>
 
         {error && (
@@ -86,13 +86,13 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 disabled:bg-gray-400"
+            className="w-full bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500 text-white py-2.5 rounded-lg font-semibold hover:shadow-md transition-all disabled:bg-gray-400 disabled:cursor-not-allowed"
           >
             {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
 
-        <p className="mt-6 text-center text-gray-600">
+        <p className="mt-4 text-center text-sm text-gray-600">
           Don't have an account?{' '}
           <Link href="/register" className="text-purple-600 font-semibold hover:text-purple-700">
             Sign up
