@@ -138,7 +138,7 @@ export default function ShopPage() {
       {/* Cover Photo Hero Section - 1200x300px */}
       <div className="relative h-64 md:h-80 overflow-hidden">
         <div 
-          className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400"
+          className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-teal-500"
           style={{
             backgroundImage: shop.cover_image_url 
               ? `url(${shop.cover_image_url})` 
@@ -156,7 +156,7 @@ export default function ShopPage() {
             {shop.logo_url ? (
               <img src={shop.logo_url} alt={shop.business_name} className="w-full h-full object-cover" />
             ) : (
-              <div className="w-full h-full bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center">
+              <div className="w-full h-full bg-gradient-to-br from-purple-600 via-pink-500 to-teal-500 flex items-center justify-center">
                 <Scissors className="w-10 h-10 md:w-14 md:h-14 text-white" />
               </div>
             )}
@@ -195,7 +195,7 @@ export default function ShopPage() {
               >
                 About
                 {activeTab === 'about' && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500"></div>
                 )}
               </button>
               <button
@@ -208,7 +208,7 @@ export default function ShopPage() {
               >
                 Services
                 {activeTab === 'services' && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500"></div>
                 )}
               </button>
               <button
@@ -221,7 +221,7 @@ export default function ShopPage() {
               >
                 Gallery
                 {activeTab === 'gallery' && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-500"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500"></div>
                 )}
               </button>
             </div>
@@ -239,7 +239,7 @@ export default function ShopPage() {
               )}
               <button
                 onClick={() => services.length > 0 && handleBookService(services[0].id)}
-                className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-2 rounded-lg font-bold hover:from-purple-700 hover:to-pink-600 transition-all shadow-lg hover:shadow-xl hover:scale-105"
+                className="bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500 text-white px-6 py-2 rounded-lg font-bold hover:from-purple-700 hover:via-pink-600 hover:to-teal-600 transition-all shadow-lg hover:shadow-xl hover:scale-105"
               >
                 Book Now
               </button>

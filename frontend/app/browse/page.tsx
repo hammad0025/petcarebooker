@@ -296,7 +296,7 @@ export default function BrowsePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-teal-50">
       <nav className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white py-4 md:py-6 shadow-lg">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <Link href="/" className="text-xl sm:text-2xl md:text-3xl font-bold hover:opacity-90 transition-opacity flex items-center gap-2">
@@ -364,7 +364,7 @@ export default function BrowsePage() {
             </div>
 
             {/* Search Button */}
-            <button className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg md:rounded-xl font-bold hover:from-purple-700 hover:to-pink-600 transition-all shadow-lg hover:scale-105 text-sm md:text-lg whitespace-nowrap">
+            <button className="bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg md:rounded-xl font-bold hover:from-purple-700 hover:via-pink-600 hover:to-teal-600 transition-all shadow-lg hover:scale-105 text-base md:text-lg whitespace-nowrap">
               Search 🔍
             </button>
           </div>
@@ -446,12 +446,12 @@ export default function BrowsePage() {
                       <h3 className="text-lg font-semibold text-gray-900 group-hover:text-purple-600 transition-colors mb-1.5">
                         {shop.business_name}
                       </h3>
-                      <p className="text-sm text-gray-600 mb-2 flex items-center gap-1">
+                        <p className="text-base text-gray-600 mb-2 flex items-center gap-1">
                         <span>📍</span> {shop.city}, {shop.state}
                       </p>
                       
                       {shop.description && (
-                        <p className="text-sm text-gray-600 line-clamp-2 mb-3">{shop.description}</p>
+                        <p className="text-base text-gray-600 line-clamp-2 mb-3">{shop.description}</p>
                       )}
 
                       {/* Price Range */}
@@ -467,7 +467,7 @@ export default function BrowsePage() {
                       </div>
 
                       {/* CTA Button */}
-                      <div className="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-2.5 px-4 rounded-lg font-semibold text-center text-sm group-hover:from-purple-700 group-hover:to-pink-600 transition-all min-h-[44px] flex items-center justify-center">
+                      <div className="bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500 text-white py-2.5 px-4 rounded-lg font-semibold text-center text-base group-hover:from-purple-700 group-hover:via-pink-600 group-hover:to-teal-600 transition-all min-h-[44px] flex items-center justify-center">
                         Book Now →
                       </div>
                     </div>
