@@ -345,7 +345,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="bg-white py-20">
+      <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-teal-50 py-20">
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-5xl font-extrabold text-center mb-4 text-gray-900">
             Why Pet Parents Love Us 💙
@@ -353,28 +353,28 @@ export default function HomePage() {
           <p className="text-center text-gray-600 text-xl mb-16 max-w-2xl mx-auto">
             Everything you need for stress-free pet grooming
           </p>
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all">
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border-2 border-blue-200">
               <h3 className="text-3xl font-bold mb-4 text-gray-900">🐕 No Account Needed</h3>
-              <p className="text-gray-600 text-base leading-relaxed">
+              <p className="text-gray-700 text-base leading-relaxed">
                 Book instantly without signing up. Just enter your pet's info and pick a time. Simple as that!
               </p>
             </div>
-            <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all">
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border-2 border-purple-200">
               <h3 className="text-3xl font-bold mb-4 text-gray-900">⭐ Trusted Groomers</h3>
-              <p className="text-gray-600 text-base leading-relaxed">
+              <p className="text-gray-700 text-base leading-relaxed">
                 All groomers are verified professionals who love pets as much as you do. Your furry friend is in good hands!
               </p>
             </div>
-            <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all">
+            <div className="bg-gradient-to-br from-pink-50 to-pink-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border-2 border-pink-200">
               <h3 className="text-3xl font-bold mb-4 text-gray-900">🕐 Real-Time Availability</h3>
-              <p className="text-gray-600 text-base leading-relaxed">
+              <p className="text-gray-700 text-base leading-relaxed">
                 See exactly when groomers are free. No phone tag, no waiting for callbacks. Book the perfect time slot now!
               </p>
             </div>
-            <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all">
+            <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border-2 border-teal-200">
               <h3 className="text-3xl font-bold mb-4 text-gray-900">💰 Clear Pricing</h3>
-              <p className="text-gray-600 text-base leading-relaxed">
+              <p className="text-gray-700 text-base leading-relaxed">
                 See prices upfront. No hidden fees, no surprises. Know exactly what you're paying before you book.
               </p>
             </div>
@@ -383,7 +383,7 @@ export default function HomePage() {
       </div>
 
       {/* FAQ Section with Schema Markup */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-5xl font-extrabold text-center text-gray-900 mb-4">
             Frequently Asked Questions 💬
@@ -393,7 +393,7 @@ export default function HomePage() {
           </p>
 
           <div className="space-y-4">
-            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+            <details className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-purple-100">
               <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
                 How much does dog grooming cost?
               </summary>
@@ -402,7 +402,7 @@ export default function HomePage() {
               </p>
             </details>
 
-            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+            <details className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-purple-100">
               <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
                 How often should you groom your dog?
               </summary>
@@ -411,7 +411,7 @@ export default function HomePage() {
               </p>
             </details>
 
-            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+            <details className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-purple-100">
               <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
                 Do I need to create an account to book?
               </summary>
@@ -420,7 +420,7 @@ export default function HomePage() {
               </p>
             </details>
 
-            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+            <details className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-purple-100">
               <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
                 Are all groomers verified and licensed?
               </summary>
@@ -429,7 +429,7 @@ export default function HomePage() {
               </p>
             </details>
 
-            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+            <details className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-purple-100">
               <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
                 Can I book same-day grooming appointments?
               </summary>
@@ -438,7 +438,7 @@ export default function HomePage() {
               </p>
             </details>
 
-            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+            <details className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-purple-100">
               <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
                 What's included in a standard grooming appointment?
               </summary>
@@ -447,7 +447,7 @@ export default function HomePage() {
               </p>
             </details>
 
-            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+            <details className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-purple-100">
               <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
                 Do you offer mobile grooming services?
               </summary>
@@ -456,7 +456,7 @@ export default function HomePage() {
               </p>
             </details>
 
-            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+            <details className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-purple-100">
               <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
                 What if my pet has special needs or is anxious?
               </summary>
@@ -465,7 +465,7 @@ export default function HomePage() {
               </p>
             </details>
 
-            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+            <details className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-purple-100">
               <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
                 How far in advance should I book?
               </summary>
@@ -474,7 +474,7 @@ export default function HomePage() {
               </p>
             </details>
 
-            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+            <details className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-purple-100">
               <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
                 What is included in dog grooming?
               </summary>
@@ -483,7 +483,7 @@ export default function HomePage() {
               </p>
             </details>
 
-            <details className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all">
+            <details className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all border border-purple-100">
               <summary className="font-bold text-xl text-gray-900 cursor-pointer hover:text-purple-600">
                 How long does dog grooming take?
               </summary>
@@ -699,7 +699,7 @@ export default function HomePage() {
       />
 
       {/* Popular Cities Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-br from-teal-50 via-purple-50 to-pink-50">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
@@ -712,21 +712,21 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
             {[
-              { name: 'Miami', slug: 'miami', emoji: '🌴' },
-              { name: 'Tampa', slug: 'tampa', emoji: '⚡' },
-              { name: 'Orlando', slug: 'orlando', emoji: '🎢' },
-              { name: 'NYC', slug: 'new-york-city', emoji: '🗽' },
-              { name: 'Chicago', slug: 'chicago', emoji: '🏙️' },
-              { name: 'Los Angeles', slug: 'los-angeles', emoji: '🌟' },
-              { name: 'Fort Lauderdale', slug: 'fort-lauderdale', emoji: '⛵' },
-              { name: 'West Palm Beach', slug: 'west-palm-beach', emoji: '🌴' },
-              { name: 'Brooklyn', slug: 'brooklyn', emoji: '🌉' },
-              { name: 'Queens', slug: 'queens', emoji: '👑' },
+              { name: 'Miami', slug: 'miami', emoji: '🌴', color: 'from-green-100 to-emerald-100 border-green-200' },
+              { name: 'Tampa', slug: 'tampa', emoji: '⚡', color: 'from-yellow-100 to-orange-100 border-yellow-200' },
+              { name: 'Orlando', slug: 'orlando', emoji: '🎢', color: 'from-purple-100 to-pink-100 border-purple-200' },
+              { name: 'NYC', slug: 'new-york-city', emoji: '🗽', color: 'from-blue-100 to-indigo-100 border-blue-200' },
+              { name: 'Chicago', slug: 'chicago', emoji: '🏙️', color: 'from-gray-100 to-slate-100 border-gray-200' },
+              { name: 'Los Angeles', slug: 'los-angeles', emoji: '🌟', color: 'from-yellow-100 to-amber-100 border-yellow-200' },
+              { name: 'Fort Lauderdale', slug: 'fort-lauderdale', emoji: '⛵', color: 'from-cyan-100 to-blue-100 border-cyan-200' },
+              { name: 'West Palm Beach', slug: 'west-palm-beach', emoji: '🌴', color: 'from-green-100 to-teal-100 border-green-200' },
+              { name: 'Brooklyn', slug: 'brooklyn', emoji: '🌉', color: 'from-indigo-100 to-purple-100 border-indigo-200' },
+              { name: 'Queens', slug: 'queens', emoji: '👑', color: 'from-purple-100 to-pink-100 border-purple-200' },
             ].map((city) => (
               <Link
                 key={city.slug}
                 href={`/cities/${city.slug}`}
-                className="bg-gradient-to-br from-purple-50 to-pink-50 hover:from-purple-100 hover:to-pink-100 rounded-xl p-6 text-center transition-all hover:shadow-lg hover:-translate-y-1 border-2 border-purple-100"
+                className={`bg-gradient-to-br ${city.color} rounded-xl p-6 text-center transition-all hover:shadow-xl hover:-translate-y-1 border-2`}
               >
                 <div className="text-4xl mb-2">{city.emoji}</div>
                 <div className="font-bold text-gray-900">{city.name}</div>
