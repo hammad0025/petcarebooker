@@ -23,73 +23,136 @@ const cityData: Record<string, any> = {
   'brooklyn': {
     name: 'Brooklyn',
     state: 'NY',
-    description: 'Book top-rated pet groomers in Brooklyn, NY. From Williamsburg to Park Slope, find trusted groomers with real-time availability and instant booking.',
-    neighborhoods: ['Williamsburg', 'Park Slope', 'Brooklyn Heights', 'DUMBO', 'Bushwick', 'Prospect Heights', 'Carroll Gardens', 'Fort Greene'],
+    description: 'Finding a trusted pet groomer in Brooklyn can be challenging with so many options across different neighborhoods. Pet groomer Brooklyn and pet groomers Brooklyn specialists offer dog grooming Brooklyn and cat grooming Brooklyn NY services. Book verified groomers in Williamsburg, Park Slope, Brooklyn Heights, and throughout Kings County with instant online scheduling.',
+    neighborhoods: ['Williamsburg', 'Park Slope', 'Brooklyn Heights', 'DUMBO', 'Bushwick', 'Prospect Heights', 'Carroll Gardens', 'Fort Greene', 'Greenpoint', 'Red Hook', 'Cobble Hill'],
     avgPrice: '$65-$135',
     totalGroomers: 89,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Organic Products'],
+    quickFacts: [
+      '89+ verified professional groomers serving Brooklyn and Kings County',
+      'Pet groomer Brooklyn and pet groomers Brooklyn specialists',
+      'Dog grooming Brooklyn and cat grooming Brooklyn NY services available',
+      'Mobile pet grooming Brooklyn services available throughout the borough',
+      'Organic and eco-friendly grooming products widely available',
+      'Same-day appointments available at select locations',
+      'Pet grooming Brooklyn NY: serving Williamsburg, Park Slope, and all neighborhoods',
+    ],
   },
   'queens': {
     name: 'Queens',
     state: 'NY',
-    description: 'Discover professional pet groomers in Queens, NY. Serving Astoria, Long Island City, Flushing, and beyond with convenient online booking.',
-    neighborhoods: ['Astoria', 'Long Island City', 'Flushing', 'Forest Hills', 'Jackson Heights', 'Bayside', 'Sunnyside', 'Ridgewood'],
+    description: 'Finding a trusted pet groomer in Queens can be challenging with diverse neighborhoods and varying service quality. Pet groomer Queens and pet groomers Queens specialists offer dog grooming Queens and cat grooming Queens NY services. Book verified groomers in Astoria, Long Island City, Flushing, and throughout Queens County with instant online scheduling.',
+    neighborhoods: ['Astoria', 'Long Island City', 'Flushing', 'Forest Hills', 'Jackson Heights', 'Bayside', 'Sunnyside', 'Ridgewood', 'Elmhurst', 'Jamaica', 'Corona'],
     avgPrice: '$60-$125',
     totalGroomers: 67,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Multilingual Service'],
+    quickFacts: [
+      '67+ verified professional groomers serving Queens County',
+      'Pet groomer Queens and pet groomers Queens specialists',
+      'Dog grooming Queens and cat grooming Queens NY services available',
+      'Mobile pet grooming Queens services available throughout the borough',
+      'Multilingual groomers (Spanish, Chinese, Korean) available',
+      'Same-day appointments available at select locations',
+      'Pet grooming Queens NY: serving Astoria, Long Island City, and all neighborhoods',
+    ],
   },
   'buffalo': {
     name: 'Buffalo',
     state: 'NY',
-    description: 'Find trusted pet groomers in Buffalo, NY. Book experienced groomers serving Elmwood Village, Allentown, and surrounding neighborhoods.',
+    description: 'Finding a trusted pet groomer in Buffalo can be challenging, especially during harsh winters when pets need specialized care. Pet groomer Buffalo and pet groomers Buffalo specialists offer dog grooming Buffalo and cat grooming Buffalo NY services. Book verified groomers in Elmwood Village, Allentown, and throughout Erie County with instant online scheduling.',
     neighborhoods: ['Elmwood Village', 'Allentown', 'North Buffalo', 'South Buffalo', 'Delaware District'],
     avgPrice: '$55-$100',
     totalGroomers: 42,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Winter Coat Care', 'De-shedding'],
+    quickFacts: [
+      '42+ verified professional groomers serving Buffalo and Erie County',
+      'Pet groomer Buffalo and pet groomers Buffalo specialists',
+      'Dog grooming Buffalo and cat grooming Buffalo NY services available',
+      'Mobile pet grooming Buffalo services available throughout the city',
+      'Specialized winter coat care and de-shedding services',
+      'Same-day appointments available at select locations',
+      'Pet grooming Buffalo NY: serving Elmwood Village, Allentown, and all neighborhoods',
+    ],
   },
   'rochester': {
     name: 'Rochester',
     state: 'NY',
-    description: 'Book pet grooming in Rochester, NY. Discover groomers in Park Avenue, East End, and more with verified reviews and instant booking.',
+    description: 'Finding a trusted pet groomer in Rochester can be challenging with limited options across different neighborhoods. Pet groomer Rochester and pet groomers Rochester specialists offer dog grooming Rochester and cat grooming Rochester NY services. Book verified groomers in Park Avenue, East End, and throughout Monroe County with instant online scheduling.',
     neighborhoods: ['Park Avenue', 'East End', 'South Wedge', 'Charlotte', 'Corn Hill'],
     avgPrice: '$55-$105',
     totalGroomers: 38,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Show Dog Prep'],
+    quickFacts: [
+      '38+ verified professional groomers serving Rochester and Monroe County',
+      'Pet groomer Rochester and pet groomers Rochester specialists',
+      'Dog grooming Rochester and cat grooming Rochester NY services available',
+      'Mobile pet grooming Rochester services available throughout the city',
+      'Show dog preparation specialists available',
+      'Same-day appointments available at select locations',
+      'Pet grooming Rochester NY: serving Park Avenue, East End, and all neighborhoods',
+    ],
   },
   'syracuse': {
     name: 'Syracuse',
     state: 'NY',
-    description: 'Find professional pet groomers in Syracuse, NY. Serving Armory Square, Westcott, and nearby areas with online booking.',
+    description: 'Finding a trusted pet groomer in Syracuse can be challenging, especially near SU campus where student-friendly options are needed. Pet groomer Syracuse and pet groomers Syracuse specialists offer dog grooming Syracuse and cat grooming Syracuse NY services. Book verified groomers in Armory Square, Westcott, and throughout Onondaga County with instant online scheduling.',
     neighborhoods: ['Armory Square', 'Westcott', 'University Hill', 'Sedgwick', 'Eastwood'],
     avgPrice: '$50-$95',
     totalGroomers: 34,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Puppy Introductions', 'Senior Pet Care'],
+    quickFacts: [
+      '34+ verified professional groomers serving Syracuse and Onondaga County',
+      'Pet groomer Syracuse and pet groomers Syracuse specialists',
+      'Dog grooming Syracuse and cat grooming Syracuse NY services available',
+      'Mobile pet grooming Syracuse services available throughout the city',
+      'Student-friendly pricing near SU campus',
+      'Same-day appointments available at select locations',
+      'Pet grooming Syracuse NY: serving Armory Square, Westcott, and all neighborhoods',
+    ],
   },
   'albany': {
     name: 'Albany',
     state: 'NY',
-    description: 'Book pet grooming in Albany, NY. Trusted groomers in Center Square, Pine Hills, and beyond with real-time availability.',
+    description: 'Finding a trusted pet groomer in Albany can be challenging with state capital professionals needing convenient options. Pet groomer Albany and pet groomers Albany specialists offer dog grooming Albany and cat grooming Albany NY services. Book verified groomers in Center Square, Pine Hills, and throughout Albany County with instant online scheduling.',
     neighborhoods: ['Center Square', 'Pine Hills', 'New Scotland', 'Delaware Avenue', 'Buckingham Pond'],
     avgPrice: '$55-$100',
     totalGroomers: 31,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Spa Services'],
+    quickFacts: [
+      '31+ verified professional groomers serving Albany and Albany County',
+      'Pet groomer Albany and pet groomers Albany specialists',
+      'Dog grooming Albany and cat grooming Albany NY services available',
+      'Mobile pet grooming Albany services available throughout the city',
+      'Luxury spa services available for pampered pets',
+      'Same-day appointments available at select locations',
+      'Pet grooming Albany NY: serving Center Square, Pine Hills, and all neighborhoods',
+    ],
   },
   'yonkers': {
     name: 'Yonkers',
     state: 'NY',
-    description: 'Find pet groomers in Yonkers, NY. Book professional grooming services near you with instant online scheduling.',
+    description: 'Finding a trusted pet groomer in Yonkers can be challenging with proximity to NYC creating high demand. Pet groomer Yonkers and pet groomers Yonkers specialists offer dog grooming Yonkers and cat grooming Yonkers NY services. Book verified groomers in Getty Square, Riverdale Avenue, and throughout Westchester County with instant online scheduling.',
     neighborhoods: ['Getty Square', 'Riverdale Avenue', 'Park Hill', 'Crestwood', 'Ludlow'],
     avgPrice: '$60-$115',
     totalGroomers: 28,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Express Services'],
+    quickFacts: [
+      '28+ verified professional groomers serving Yonkers and Westchester County',
+      'Pet groomer Yonkers and pet groomers Yonkers specialists',
+      'Dog grooming Yonkers and cat grooming Yonkers NY services available',
+      'Mobile pet grooming Yonkers services available throughout the city',
+      'Express services available for busy professionals',
+      'Same-day appointments available at select locations',
+      'Pet grooming Yonkers NY: serving Getty Square, Riverdale Avenue, and all neighborhoods',
+    ],
   },
   
   // FLORIDA CITIES
   'miami': {
     name: 'Miami',
     state: 'FL',
-    description: 'Find top-rated dog groomers and cat grooming in Miami, FL. Book dog grooming Miami and cat grooming Miami FL services with verified reviews. Serving South Beach, Coral Gables, Brickell, and throughout Miami-Dade County.',
-    neighborhoods: ['South Beach', 'Coral Gables', 'Brickell', 'Wynwood', 'Coconut Grove', 'Design District', 'Little Havana', 'Key Biscayne', 'Downtown Miami', 'Aventura', 'Bal Harbour', 'Sunny Isles', 'Doral', 'Miami Beach'],
+    description: 'Finding a trusted pet groomer in Miami can be challenging with so many options across different neighborhoods. Pet groomer Miami and pet groomers Miami specialists offer dog grooming Miami and cat grooming Miami FL services. Book verified groomers serving South Beach, Coral Gables, Brickell, and throughout Miami-Dade County with instant online scheduling.',
+    neighborhoods: ['South Beach', 'Coral Gables', 'Brickell', 'Wynwood', 'Coconut Grove', 'Design District', 'Little Havana', 'Key Biscayne', 'Downtown Miami', 'Aventura', 'Bal Harbour', 'Sunny Isles', 'Doral', 'Miami Beach', 'Homestead', 'Cutler Bay', 'Palmetto Bay', 'Pinecrest', 'Kendall', 'Westchester'],
     avgPrice: '$65-$130',
     totalGroomers: 142,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Beach Bath Packages'],
@@ -141,7 +204,8 @@ const cityData: Record<string, any> = {
   'west-palm-beach': {
     name: 'West Palm Beach',
     state: 'FL',
-    description: 'Discover top-rated pet grooming and mobile pet grooming in West Palm Beach, FL. From downtown West Palm Beach to the Palm Beach shores, find trusted dog and cat groomers with instant online booking.',    neighborhoods: ['Downtown West Palm Beach', 'Northwood', 'Flamingo Park', 'South Dixie', 'City Place', 'Old Northwood', 'El Cid', 'Grandview Heights'],
+    description: 'Finding a trusted pet groomer in West Palm Beach can be challenging with beach dogs and luxury expectations. Pet groomer West Palm Beach and pet groomers West Palm Beach specialists offer dog grooming West Palm Beach and cat grooming West Palm Beach FL services. Book verified groomers from downtown West Palm Beach to the Palm Beach shores with instant online scheduling.',
+    neighborhoods: ['Downtown West Palm Beach', 'Northwood', 'Flamingo Park', 'South Dixie', 'City Place', 'Old Northwood', 'El Cid', 'Grandview Heights', 'Palm Beach Island', 'Jupiter', 'Wellington', 'Royal Palm Beach', 'Lake Worth', 'Boynton Beach', 'Delray Beach', 'Boca Raton', 'Riviera Beach', 'Greenacres', 'Lantana'],
     avgPrice: '$60-$125',
     totalGroomers: 89,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Beach Bath Packages'],
@@ -194,11 +258,20 @@ const cityData: Record<string, any> = {
   'st-petersburg': {
     name: 'St. Petersburg',
     state: 'FL',
-    description: 'Discover pet groomers in St. Petersburg, FL. Book trusted groomers from Downtown St. Pete to St. Pete Beach with instant scheduling.',
+    description: 'Finding a trusted pet groomer in St. Petersburg can be challenging with beach dogs needing specialized care. Pet groomer St. Petersburg and pet groomers St. Petersburg specialists offer dog grooming St. Petersburg and cat grooming St. Petersburg FL services. Book verified groomers from Downtown St. Pete to St. Pete Beach with instant online scheduling.',
     neighborhoods: ['Downtown St. Pete', 'St. Pete Beach', 'The Grand Central District', 'Historic Kenwood', 'Shore Acres', 'Gulfport'],
     avgPrice: '$60-$115',
     totalGroomers: 76,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Beach Dog Care'],
+    quickFacts: [
+      '76+ verified professional groomers serving St. Petersburg and Pinellas County',
+      'Pet groomer St. Petersburg and pet groomers St. Petersburg specialists',
+      'Dog grooming St. Petersburg and cat grooming St. Petersburg FL services available',
+      'Mobile pet grooming St. Petersburg services available throughout the city',
+      'Specialized beach dog care - saltwater removal and sand treatment',
+      'Same-day appointments available at select locations',
+      'Pet grooming St. Petersburg FL: serving Downtown St. Pete, St. Pete Beach, and all neighborhoods',
+    ],
   },
   'tallahassee': {
     name: 'Tallahassee',
@@ -220,56 +293,110 @@ const cityData: Record<string, any> = {
   'gainesville': {
     name: 'Gainesville',
     state: 'FL',
-    description: 'Book pet grooming in Gainesville, FL. Trusted groomers near UF campus and throughout Alachua County with online booking.',
+    description: 'Finding a trusted pet groomer in Gainesville can be challenging, especially for UF students needing affordable options. Pet groomer Gainesville and pet groomers Gainesville specialists offer dog grooming Gainesville and cat grooming Gainesville FL services. Book verified groomers near UF campus and throughout Alachua County with instant online scheduling.',
     neighborhoods: ['Downtown Gainesville', 'Duckpond', 'Haile Plantation', 'Tioga', 'University Heights'],
     avgPrice: '$50-$95',
     totalGroomers: 38,
     topServices: ['Dog Grooming', 'Cat Grooming', 'College Student Friendly', 'Gator-Themed Grooming'],
+    quickFacts: [
+      '38+ verified professional groomers serving Gainesville and Alachua County',
+      'Pet groomer Gainesville and pet groomers Gainesville specialists',
+      'Dog grooming Gainesville and cat grooming Gainesville FL services available',
+      'Mobile pet grooming Gainesville services available throughout the city',
+      'Student-friendly pricing perfect for UF students',
+      'Same-day appointments available at select locations',
+      'Pet grooming Gainesville FL: serving Downtown Gainesville, UF area, and all neighborhoods',
+    ],
   },
   'clearwater': {
     name: 'Clearwater',
     state: 'FL',
-    description: 'Find professional pet groomers in Clearwater, FL. Book groomers near Clearwater Beach and throughout Pinellas County.',
+    description: 'Finding a trusted pet groomer in Clearwater can be challenging with beach dogs needing specialized saltwater care. Pet groomer Clearwater and pet groomers Clearwater specialists offer dog grooming Clearwater and cat grooming Clearwater FL services. Book verified groomers near Clearwater Beach and throughout Pinellas County with instant online scheduling.',
     neighborhoods: ['Clearwater Beach', 'Downtown Clearwater', 'Island Estates', 'Countryside', 'Safety Harbor'],
     avgPrice: '$55-$110',
     totalGroomers: 64,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Beach Dog Specialists', 'Mobile Grooming'],
+    quickFacts: [
+      '64+ verified professional groomers serving Clearwater and Pinellas County',
+      'Pet groomer Clearwater and pet groomers Clearwater specialists',
+      'Dog grooming Clearwater and cat grooming Clearwater FL services available',
+      'Mobile pet grooming Clearwater services available throughout the city',
+      'Beach dog specialists - saltwater removal and sand treatment experts',
+      'Same-day appointments available at select locations',
+      'Pet grooming Clearwater FL: serving Clearwater Beach, Downtown Clearwater, and all neighborhoods',
+    ],
   },
   'naples': {
     name: 'Naples',
     state: 'FL',
-    description: 'Discover luxury pet groomers in Naples, FL. Book premium grooming services in Old Naples, Park Shore, and Marco Island.',
+    description: 'Finding a trusted pet groomer in Naples can be challenging with luxury expectations and seasonal residents. Pet groomer Naples and pet groomers Naples specialists offer dog grooming Naples and cat grooming Naples FL services. Book premium grooming services in Old Naples, Park Shore, and Marco Island with instant online scheduling.',
     neighborhoods: ['Old Naples', 'Park Shore', 'Pelican Bay', 'North Naples', 'Marco Island'],
     avgPrice: '$70-$145',
     totalGroomers: 52,
     topServices: ['Luxury Pet Spa', 'Dog Grooming', 'Cat Grooming', 'Mobile Concierge Service'],
+    quickFacts: [
+      '52+ verified professional groomers serving Naples and Collier County',
+      'Pet groomer Naples and pet groomers Naples specialists',
+      'Dog grooming Naples and cat grooming Naples FL services available',
+      'Mobile pet grooming Naples services available throughout the city',
+      'Luxury spa services and concierge mobile grooming available',
+      'Same-day appointments available at select locations',
+      'Pet grooming Naples FL: serving Old Naples, Park Shore, and all neighborhoods',
+    ],
   },
   'sarasota': {
     name: 'Sarasota',
     state: 'FL',
-    description: 'Book pet grooming in Sarasota, FL. Find top-rated groomers from Downtown Sarasota to Siesta Key with instant booking.',
+    description: 'Finding a trusted pet groomer in Sarasota can be challenging with beach communities and show dog owners needing specialized services. Pet groomer Sarasota and pet groomers Sarasota specialists offer dog grooming Sarasota and cat grooming Sarasota FL services. Book verified groomers from Downtown Sarasota to Siesta Key with instant online scheduling.',
     neighborhoods: ['Downtown Sarasota', 'Siesta Key', 'Lido Key', 'Southside Village', 'Laurel Park'],
     avgPrice: '$60-$120',
     totalGroomers: 58,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Beach Bath Services', 'Show Dog Prep'],
+    quickFacts: [
+      '58+ verified professional groomers serving Sarasota and Sarasota County',
+      'Pet groomer Sarasota and pet groomers Sarasota specialists',
+      'Dog grooming Sarasota and cat grooming Sarasota FL services available',
+      'Mobile pet grooming Sarasota services available throughout the city',
+      'Show dog preparation specialists and beach bath services available',
+      'Same-day appointments available at select locations',
+      'Pet grooming Sarasota FL: serving Downtown Sarasota, Siesta Key, and all neighborhoods',
+    ],
   },
   'fort-myers': {
     name: 'Fort Myers',
     state: 'FL',
-    description: 'Find pet groomers in Fort Myers, FL. Professional grooming from Downtown Fort Myers to Fort Myers Beach with real-time availability.',
+    description: 'Finding a trusted pet groomer in Fort Myers can be challenging with island communities and seasonal residents. Pet groomer Fort Myers and pet groomers Fort Myers specialists offer dog grooming Fort Myers and cat grooming Fort Myers FL services. Book verified groomers from Downtown Fort Myers to Fort Myers Beach with instant online scheduling.',
     neighborhoods: ['Downtown Fort Myers', 'Fort Myers Beach', 'Cape Coral', 'Sanibel', 'Gateway'],
     avgPrice: '$55-$110',
     totalGroomers: 49,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Island Dog Specialists', 'Mobile Grooming'],
+    quickFacts: [
+      '49+ verified professional groomers serving Fort Myers and Lee County',
+      'Pet groomer Fort Myers and pet groomers Fort Myers specialists',
+      'Dog grooming Fort Myers and cat grooming Fort Myers FL services available',
+      'Mobile pet grooming Fort Myers services available throughout the city',
+      'Island dog specialists - serving Sanibel, Captiva, and beach communities',
+      'Same-day appointments available at select locations',
+      'Pet grooming Fort Myers FL: serving Downtown Fort Myers, Fort Myers Beach, and all neighborhoods',
+    ],
   },
   'boca-raton': {
     name: 'Boca Raton',
     state: 'FL',
-    description: 'Book luxury pet grooming in Boca Raton, FL. Premium groomers serving Mizner Park, downtown Boca, and Delray Beach.',
+    description: 'Finding a trusted pet groomer in Boca Raton can be challenging with luxury expectations and upscale neighborhoods. Pet groomer Boca Raton and pet groomers Boca Raton specialists offer dog grooming Boca Raton and cat grooming Boca Raton FL services. Book premium groomers serving Mizner Park, downtown Boca, and Delray Beach with instant online scheduling.',
     neighborhoods: ['Mizner Park', 'Downtown Boca', 'East Boca', 'Delray Beach', 'Deerfield Beach'],
     avgPrice: '$65-$135',
     totalGroomers: 67,
     topServices: ['Luxury Spa Services', 'Dog Grooming', 'Cat Grooming', 'Mobile Grooming'],
+    quickFacts: [
+      '67+ verified professional groomers serving Boca Raton and Palm Beach County',
+      'Pet groomer Boca Raton and pet groomers Boca Raton specialists',
+      'Dog grooming Boca Raton and cat grooming Boca Raton FL services available',
+      'Mobile pet grooming Boca Raton services available throughout the city',
+      'Luxury spa services available for pampered pets',
+      'Same-day appointments available at select locations',
+      'Pet grooming Boca Raton FL: serving Mizner Park, Downtown Boca, and all neighborhoods',
+    ],
   },
   'pensacola': {
     name: 'Pensacola',
@@ -292,29 +419,56 @@ const cityData: Record<string, any> = {
   'lakeland': {
     name: 'Lakeland',
     state: 'FL',
-    description: 'Book pet grooming in Lakeland, FL. Professional groomers serving Polk County with convenient online scheduling.',
+    description: 'Finding a trusted pet groomer in Lakeland can be challenging with rural and suburban mix needing versatile services. Pet groomer Lakeland and pet groomers Lakeland specialists offer dog grooming Lakeland and cat grooming Lakeland FL services. Book verified groomers serving Polk County with instant online scheduling.',
     neighborhoods: ['Downtown Lakeland', 'South Lakeland', 'Lake Morton', 'Highland City', 'Medulla'],
     avgPrice: '$50-$95',
     totalGroomers: 33,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Farm Dog Specialists', 'Mobile Grooming'],
+    quickFacts: [
+      '33+ verified professional groomers serving Lakeland and Polk County',
+      'Pet groomer Lakeland and pet groomers Lakeland specialists',
+      'Dog grooming Lakeland and cat grooming Lakeland FL services available',
+      'Mobile pet grooming Lakeland services available throughout the city',
+      'Farm dog specialists - perfect for working and outdoor dogs',
+      'Same-day appointments available at select locations',
+      'Pet grooming Lakeland FL: serving Downtown Lakeland, South Lakeland, and all neighborhoods',
+    ],
   },
   'los-angeles': {
     name: 'Los Angeles',
     state: 'CA',
-    description: 'Discover LA\'s finest pet grooming services. From Hollywood to Venice Beach, book trusted groomers with verified reviews.',
-    neighborhoods: ['Hollywood', 'Santa Monica', 'Venice', 'Downtown LA', 'Pasadena'],
+    description: 'Finding a trusted pet groomer in Los Angeles can be challenging with so many options across different neighborhoods. Pet groomer Los Angeles and pet groomers Los Angeles specialists offer dog grooming Los Angeles and cat grooming Los Angeles CA services. Book verified groomers from Hollywood to Venice Beach with instant online scheduling.',
+    neighborhoods: ['Hollywood', 'Santa Monica', 'Venice', 'Downtown LA', 'Pasadena', 'Beverly Hills', 'West Hollywood', 'Malibu', 'Burbank', 'Glendale', 'Studio City', 'Sherman Oaks', 'Encino', 'North Hollywood', 'West LA', 'Culver City', 'Marina del Rey', 'Manhattan Beach', 'Redondo Beach', 'Torrance', 'Long Beach', 'Westwood', 'Bel Air', 'Brentwood', 'Pacific Palisades'],
     avgPrice: '$70-$140',
     totalGroomers: 198,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Mobile Grooming', 'Luxury Spa'],
+    quickFacts: [
+      '198+ verified professional groomers serving Los Angeles and LA County',
+      'Pet groomer Los Angeles and pet groomers Los Angeles specialists',
+      'Dog grooming Los Angeles and cat grooming Los Angeles CA services available',
+      'Mobile pet grooming Los Angeles services available throughout the city',
+      'Luxury spa services available in Beverly Hills, Malibu, and upscale neighborhoods',
+      'Same-day appointments available at select locations',
+      'Pet grooming Los Angeles CA: serving Hollywood, Santa Monica, Venice, and all neighborhoods',
+    ],
   },
   'chicago': {
     name: 'Chicago',
     state: 'IL',
-    description: 'Find professional pet groomers in Chicago. Book top-rated groomers from Lincoln Park to Wicker Park with instant scheduling.',
-    neighborhoods: ['Lincoln Park', 'Wicker Park', 'Lakeview', 'River North', 'Logan Square'],
+    description: 'Finding a trusted pet groomer in Chicago can be challenging with harsh winters requiring specialized care. Pet groomer Chicago and pet groomers Chicago specialists offer dog grooming Chicago and cat grooming Chicago IL services. Book verified groomers from Lincoln Park to Wicker Park with instant online scheduling.',
+    neighborhoods: ['Lincoln Park', 'Wicker Park', 'Lakeview', 'River North', 'Logan Square', 'Gold Coast', 'Old Town', 'Bucktown', 'Wrigleyville', 'Lincoln Square', 'Andersonville', 'Edgewater', 'Rogers Park', 'South Loop', 'West Loop', 'Streeterville'],
     avgPrice: '$65-$130',
     totalGroomers: 156,
     topServices: ['Dog Grooming', 'Cat Grooming', 'Winter Coat Care', 'Mobile Grooming'],
+    quickFacts: [
+      '156+ verified professional groomers serving Chicago and Cook County',
+      'Pet groomer Chicago and pet groomers Chicago specialists',
+      'Dog grooming Chicago and cat grooming Chicago IL services available',
+      'Mobile pet grooming Chicago services available throughout the city',
+      'Specialized winter coat care and de-shedding services',
+      'Same-day appointments available at select locations',
+      'Pet grooming Chicago IL: serving Lincoln Park, Wicker Park, and all neighborhoods',
+    ],
   },
 };
 
@@ -332,16 +486,38 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  // Special handling for Fort Lauderdale, Tallahassee, and Pensacola to target exact keywords
+  // Special handling for high-priority cities to target exact keywords
   const isFortLauderdale = citySlug === 'fort-lauderdale';
   const isTallahassee = citySlug === 'tallahassee';
   const isPensacola = citySlug === 'pensacola';
+  const isMiami = citySlug === 'miami';
+  const isLosAngeles = citySlug === 'los-angeles';
+  const isWestPalmBeach = citySlug === 'west-palm-beach';
+  const isChicago = citySlug === 'chicago';
+  const isNewYorkCity = citySlug === 'new-york-city';
+  const isBrooklyn = citySlug === 'brooklyn';
+  const isQueens = citySlug === 'queens';
+  
   const title = isFortLauderdale 
     ? `Pet Grooming Fort Lauderdale | Dog & Cat Grooming | Book Online`
     : isTallahassee
     ? `Pet Groomers in Tallahassee, FL | Book Online | 41+ Verified Groomers`
     : isPensacola
     ? `Dog Groomers in Pensacola, FL | Cat Grooming Pensacola | Book Online`
+    : isMiami
+    ? `Pet Groomer Miami, FL | Top-Rated Pet Groomers | Book Online`
+    : isLosAngeles
+    ? `Pet Groomer Los Angeles, CA | Top-Rated Pet Groomers | Book Online`
+    : isWestPalmBeach
+    ? `Pet Groomer West Palm Beach, FL | Top-Rated Pet Groomers | Book Online`
+    : isChicago
+    ? `Pet Groomer Chicago, IL | Top-Rated Pet Groomers | Book Online`
+    : isNewYorkCity
+    ? `Pet Groomer New York City, NY | Top-Rated Pet Groomers | Book Online`
+    : isBrooklyn
+    ? `Pet Groomer Brooklyn, NY | Top-Rated Pet Groomers | Book Online`
+    : isQueens
+    ? `Pet Groomer Queens, NY | Top-Rated Pet Groomers | Book Online`
     : `Pet Groomers in ${city.name}, ${city.state} | Book Online | PetCareBooker`;
   
   // Build the canonical URL with a template literal so the slug is interpolated correctly
@@ -360,6 +536,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ? 'Pet Groomers in Tallahassee, FL | Book Dog & Cat Grooming Online'
         : isPensacola
         ? 'Dog Groomers in Pensacola, FL | Cat Grooming Pensacola FL | Book Online'
+        : isMiami
+        ? 'Pet Groomer Miami, FL | Top-Rated Pet Groomers | Book Online'
+        : isLosAngeles
+        ? 'Pet Groomer Los Angeles, CA | Top-Rated Pet Groomers | Book Online'
+        : isWestPalmBeach
+        ? 'Pet Groomer West Palm Beach, FL | Top-Rated Pet Groomers | Book Online'
+        : isChicago
+        ? 'Pet Groomer Chicago, IL | Top-Rated Pet Groomers | Book Online'
+        : isNewYorkCity
+        ? 'Pet Groomer New York City, NY | Top-Rated Pet Groomers | Book Online'
+        : isBrooklyn
+        ? 'Pet Groomer Brooklyn, NY | Top-Rated Pet Groomers | Book Online'
+        : isQueens
+        ? 'Pet Groomer Queens, NY | Top-Rated Pet Groomers | Book Online'
         : `Best Pet Groomers in ${city.name}`,
       description: city.description,
       type: 'website',
@@ -1402,28 +1592,161 @@ export default async function CityPage({ params }: Props) {
         </section>
       )}
 
+      {/* Miami Deep-Dive SEO Section */}
+      {citySlug === 'miami' && (
+        <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              Pet Groomer Miami: Finding the Right Professional 🐾
+            </h2>
+            <p className="text-center text-gray-700 text-lg mb-10 max-w-3xl mx-auto">
+              Finding the right pet groomer in Miami can be overwhelming with so many options across South Beach, Coral Gables, Brickell, and throughout Miami-Dade County. Our verified groomers specialize in beach dog care, luxury services, mobile grooming, and gentle handling for anxious pets.
+            </p>
+
+            <div className="space-y-8">
+              {/* Pet Groomer Miami: Finding the Right Professional */}
+              <div id="pet-groomer-miami" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-purple-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Pet Groomer Miami: Finding the Right Professional
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  When searching for a <strong>pet groomer Miami</strong> or <strong>pet groomers Miami</strong>, it's essential to find professionals who understand the unique needs of Miami pets. The humid climate, beach lifestyle, and diverse pet population require groomers with specialized knowledge. Our verified groomers in Miami are experienced with saltwater removal, sand treatment, and managing the effects of Florida's heat and humidity on pet coats.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Many Miami groomers offer bilingual services (English/Spanish), which is crucial in this diverse city. Whether you're in South Beach, Coral Gables, or Brickell, you'll find groomers who can communicate effectively with all pet parents. Look for groomers with certifications, positive reviews, and experience with your pet's specific breed or needs.
+                </p>
+                <Link 
+                  href="/browse?city=miami"
+                  className="inline-block bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition"
+                >
+                  Find Miami Pet Groomers →
+                </Link>
+              </div>
+
+              {/* Dog Grooming Miami: Beach Dog Specialists */}
+              <div id="dog-grooming-miami-beach" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-pink-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Dog Grooming Miami: Beach Dog Specialists
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Dog grooming Miami</strong> services are essential for beach dogs who regularly swim in saltwater or play on sandy beaches. Saltwater can dry out a dog's coat and skin, while sand can cause matting and irritation. Miami groomers specialize in removing salt residue, treating dry skin, and preventing sand-related matting.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Many Miami groomers offer specialized "beach bath packages" that include deep conditioning treatments, desalination baths, and protective products. These services are especially important for dogs who frequent South Beach, Key Biscayne, or other waterfront areas. Regular grooming every 4-6 weeks helps maintain healthy coats despite frequent beach visits.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Specialized saltwater removal and desalination treatments</li>
+                  <li>• Sand removal and matting prevention</li>
+                  <li>• Deep conditioning for dry, sun-exposed coats</li>
+                  <li>• Protective products for beach-going dogs</li>
+                  <li>• Quick-dry services for active beach pets</li>
+                </ul>
+                <Link 
+                  href="/browse?city=miami&service=beach-dog-care"
+                  className="inline-block bg-pink-600 text-white px-6 py-3 rounded-full font-bold hover:bg-pink-700 transition"
+                >
+                  Find Beach Dog Specialists →
+                </Link>
+              </div>
+
+              {/* Cat Grooming Miami FL: Gentle Handling for Anxious Felines */}
+              <div id="cat-grooming-miami" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-orange-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Cat Grooming Miami FL: Gentle Handling for Anxious Felines
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Cat grooming Miami FL</strong> requires groomers who understand feline behavior and can handle anxious cats with patience and care. Many cats in Miami are indoor-only pets who may be stressed by travel, new environments, or unfamiliar people. Our verified Miami groomers use gentle techniques, sedation-free methods, and create calm environments.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Long-haired breeds like Persians and Maine Coons are common in Miami and require regular grooming to prevent matting in the humid climate. Miami groomers are experienced with breed-specific cuts, lion cuts for severely matted cats, and maintaining healthy coats despite Florida's humidity.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Fear-free handling techniques for anxious cats</li>
+                  <li>• Separate quiet areas for nervous felines</li>
+                  <li>• Extended appointment times for gentle handling</li>
+                  <li>• Mobile grooming options for cats who prefer home</li>
+                  <li>• Breed-specific expertise (Persian, Maine Coon, etc.)</li>
+                </ul>
+                <Link 
+                  href="/browse?city=miami&service=cat-grooming"
+                  className="inline-block bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition"
+                >
+                  Find Cat Grooming Specialists →
+                </Link>
+              </div>
+
+              {/* Mobile Pet Grooming Miami: Convenience at Your Door */}
+              <div id="mobile-pet-grooming-miami" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-teal-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Mobile Pet Grooming Miami: Convenience at Your Door
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Mobile pet grooming Miami</strong> services are perfect for busy professionals, high-rise residents, or pet parents who prefer the convenience of at-home grooming. Mobile groomers bring fully equipped vans directly to your home, eliminating the need to transport pets through Miami traffic.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Mobile grooming is especially popular in areas like Brickell, Downtown Miami, and high-rise condos where parking and pet transportation can be challenging. Many mobile groomers offer one-on-one attention, which is ideal for anxious pets or those who don't do well in busy salon environments.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Fully equipped mobile grooming vans</li>
+                  <li>• One-on-one attention for your pet</li>
+                  <li>• Convenient scheduling around your day</li>
+                  <li>• Perfect for anxious or senior pets</li>
+                  <li>• Package deals for multiple pets</li>
+                </ul>
+                <Link 
+                  href="/browse?city=miami&service=mobile-grooming"
+                  className="inline-block bg-teal-600 text-white px-6 py-3 rounded-full font-bold hover:bg-teal-700 transition"
+                >
+                  Find Mobile Groomers →
+                </Link>
+              </div>
+
+              {/* Luxury Pet Grooming Miami: Upscale Services */}
+              <div id="luxury-pet-grooming-miami" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-indigo-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Luxury Pet Grooming Miami: Upscale Services
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Luxury pet grooming Miami</strong> services are available in upscale neighborhoods like Coral Gables, Bal Harbour, and Aventura. These premium salons offer spa treatments, organic products, blueberry facials, and luxury blowouts for pampered pets.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Luxury Miami groomers often use high-end product lines, offer concierge services, and provide upscale salon environments. These services are perfect for pet parents who want the best for their furry family members and are willing to invest in premium care.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Premium spa packages with aromatherapy</li>
+                  <li>• Organic and hypoallergenic product lines</li>
+                  <li>• Blueberry facials and paw pad treatments</li>
+                  <li>• Luxury blowouts and styling</li>
+                  <li>• Upscale salon environments</li>
+                </ul>
+                <Link 
+                  href="/browse?city=miami&service=luxury-grooming"
+                  className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-full font-bold hover:bg-indigo-700 transition"
+                >
+                  Find Luxury Groomers →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* West Palm Beach Deep-Dive SEO Section */}
       {citySlug === 'west-palm-beach' && (
         <>
           {/* Map + Overview */}
           <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
-            <div className="container mx-auto px-4 max-w-6xl">
+            <div className="max-w-5xl mx-auto px-6">
               <div className="grid md:grid-cols-2 gap-10 items-start">
                 <div>
                   <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
-                    Mobile Pet Grooming & Salons in West Palm Beach 🐕
+                    Pet Groomer West Palm Beach: Finding the Right Professional 🐕
                   </h2>
                   <p className="text-lg text-gray-700 mb-4">
-                    Looking for <strong>mobile pet grooming West Palm Beach</strong> or a trusted local
-                    salon? PetCareBooker connects you with dog and cat groomers across downtown West Palm
-                    Beach, Northwood, Flamingo Park, South Dixie, CityPlace, and the surrounding Palm Beach
-                    County neighborhoods. Compare prices, read verified reviews, and book online in seconds.
+                    Finding a trusted <strong>pet groomer West Palm Beach</strong> or <strong>pet groomers West Palm Beach</strong> can be challenging with so many options across downtown West Palm Beach, Northwood, Flamingo Park, and throughout Palm Beach County. PetCareBooker connects you with verified dog and cat groomers who specialize in beach dogs, luxury services, and mobile grooming.
                   </p>
                   <p className="text-lg text-gray-700 mb-4">
-                    Whether you prefer a traditional grooming salon or <strong>mobile dog grooming West Palm
-                    Beach</strong> services that come right to your driveway, you will find options that fit
-                    your schedule, budget, and your pet&apos;s temperament. Many local groomers specialize in
-                    beach dogs, senior pets, and anxious rescue pups.
+                    Whether you prefer a traditional grooming salon or <strong>mobile dog grooming West Palm Beach</strong> services that come right to your driveway, you will find options that fit your schedule, budget, and your pet&apos;s temperament. Many local groomers specialize in beach dogs, senior pets, and anxious rescue pups.
                   </p>
                   <p className="text-lg text-gray-700">
                     Want a deeper breakdown of specific salons, mobile vans, and pricing? Read our in‑depth{' '}
@@ -1452,9 +1775,64 @@ export default async function CityPage({ params }: Props) {
             </div>
           </section>
 
-          {/* Pricing & Mobile Grooming Details */}
+          {/* Dog Grooming West Palm Beach: Beach Dog Specialists */}
           <section className="py-20 bg-white">
-            <div className="container mx-auto px-4 max-w-5xl">
+            <div className="max-w-5xl mx-auto px-6">
+              <div id="dog-grooming-west-palm-beach" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-pink-100 mb-8">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Dog Grooming West Palm Beach: Beach Dog Specialists
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Dog grooming West Palm Beach</strong> services are essential for beach dogs who regularly visit Palm Beach Island, Jupiter, or nearby beaches. Saltwater can dry out a dog's coat and skin, while sand can cause matting and irritation. West Palm Beach groomers specialize in removing salt residue, treating dry skin, and preventing sand-related matting.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Many West Palm Beach groomers offer specialized "beach bath packages" that include deep conditioning treatments, desalination baths, and protective products. These services are especially important for dogs who frequent Palm Beach Island, Jupiter Beach, or other waterfront areas throughout Palm Beach County.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Specialized saltwater removal and desalination treatments</li>
+                  <li>• Sand removal and matting prevention</li>
+                  <li>• Deep conditioning for dry, sun-exposed coats</li>
+                  <li>• Protective products for beach-going dogs</li>
+                  <li>• Quick-dry services for active beach pets</li>
+                </ul>
+                <Link 
+                  href="/browse?city=west-palm-beach&service=beach-dog-care"
+                  className="inline-block bg-pink-600 text-white px-6 py-3 rounded-full font-bold hover:bg-pink-700 transition"
+                >
+                  Find Beach Dog Specialists →
+                </Link>
+              </div>
+
+              <div id="cat-grooming-west-palm-beach" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-orange-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Cat Grooming West Palm Beach: Gentle Handling
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Cat grooming West Palm Beach</strong> requires groomers who understand feline behavior and can handle anxious cats with patience and care. Many cats in West Palm Beach are indoor-only pets who may be stressed by travel or new environments. Our verified West Palm Beach groomers use gentle techniques, sedation-free methods, and create calm environments.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Long-haired breeds require regular grooming to prevent matting in Florida's humid climate. West Palm Beach groomers are experienced with breed-specific cuts, lion cuts for severely matted cats, and maintaining healthy coats despite humidity.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Fear-free handling techniques for anxious cats</li>
+                  <li>• Separate quiet areas for nervous felines</li>
+                  <li>• Extended appointment times for gentle handling</li>
+                  <li>• Mobile grooming options for cats who prefer home</li>
+                  <li>• Breed-specific expertise (Persian, Maine Coon, etc.)</li>
+                </ul>
+                <Link 
+                  href="/browse?city=west-palm-beach&service=cat-grooming"
+                  className="inline-block bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition"
+                >
+                  Find Cat Grooming Specialists →
+                </Link>
+              </div>
+            </div>
+          </section>
+
+          {/* Pricing & Mobile Grooming Details */}
+          <section className="py-20 bg-gray-50">
+            <div className="max-w-5xl mx-auto px-6">
               <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-4">
                 West Palm Beach Pet Grooming Prices (2025) 💰
               </h2>
@@ -1582,6 +1960,310 @@ export default async function CityPage({ params }: Props) {
             </div>
           </section>
         </>
+      )}
+
+      {/* Los Angeles Deep-Dive SEO Section */}
+      {citySlug === 'los-angeles' && (
+        <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              Pet Groomer Los Angeles: Finding the Right Professional 🐾
+            </h2>
+            <p className="text-center text-gray-700 text-lg mb-10 max-w-3xl mx-auto">
+              Finding the right pet groomer in Los Angeles can be overwhelming with so many options across Hollywood, Beverly Hills, Santa Monica, Venice, and throughout LA County. Our verified groomers specialize in luxury services, beach dog care, mobile grooming, and celebrity pet care.
+            </p>
+
+            <div className="space-y-8">
+              {/* Pet Groomer Los Angeles: Finding the Right Professional */}
+              <div id="pet-groomer-los-angeles" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-purple-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Pet Groomer Los Angeles: Finding the Right Professional
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  When searching for a <strong>pet groomer Los Angeles</strong> or <strong>pet groomers Los Angeles</strong>, it's essential to find professionals who understand the unique needs of LA pets. The diverse neighborhoods, celebrity culture, and beach lifestyle require groomers with specialized knowledge. Our verified groomers in Los Angeles are experienced with luxury services, beach dog care, and managing the effects of California's climate on pet coats.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Many Los Angeles groomers offer premium services in upscale neighborhoods like Beverly Hills, Malibu, and Bel Air. Whether you're in Hollywood, Santa Monica, or Venice, you'll find groomers who can meet your pet's specific needs and your expectations for quality service.
+                </p>
+                <Link 
+                  href="/browse?city=los-angeles"
+                  className="inline-block bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition"
+                >
+                  Find Los Angeles Pet Groomers →
+                </Link>
+              </div>
+
+              {/* Luxury Pet Grooming Los Angeles: Beverly Hills & Malibu Services */}
+              <div id="luxury-pet-grooming-los-angeles" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-pink-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Luxury Pet Grooming Los Angeles: Beverly Hills & Malibu Services
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Luxury pet grooming Los Angeles</strong> services are available in upscale neighborhoods like Beverly Hills, Malibu, Bel Air, and Brentwood. These premium salons offer spa treatments, organic products, blueberry facials, and luxury blowouts for pampered pets.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Luxury Los Angeles groomers often use high-end product lines, offer concierge services, and provide upscale salon environments. These services are perfect for pet parents who want the best for their furry family members and are willing to invest in premium care.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Premium spa packages with aromatherapy</li>
+                  <li>• Organic and hypoallergenic product lines</li>
+                  <li>• Blueberry facials and paw pad treatments</li>
+                  <li>• Luxury blowouts and styling</li>
+                  <li>• Upscale salon environments in Beverly Hills and Malibu</li>
+                </ul>
+                <Link 
+                  href="/browse?city=los-angeles&service=luxury-grooming"
+                  className="inline-block bg-pink-600 text-white px-6 py-3 rounded-full font-bold hover:bg-pink-700 transition"
+                >
+                  Find Luxury Groomers →
+                </Link>
+              </div>
+
+              {/* Beach Dog Grooming Los Angeles: Venice & Santa Monica Specialists */}
+              <div id="beach-dog-grooming-los-angeles" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-orange-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Beach Dog Grooming Los Angeles: Venice & Santa Monica Specialists
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Beach dog grooming Los Angeles</strong> services are essential for dogs who regularly visit Venice Beach, Santa Monica, Manhattan Beach, or Redondo Beach. Saltwater can dry out a dog's coat and skin, while sand can cause matting and irritation. Los Angeles groomers specialize in removing salt residue, treating dry skin, and preventing sand-related matting.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Many Los Angeles groomers offer specialized "beach bath packages" that include deep conditioning treatments, desalination baths, and protective products. These services are especially important for dogs who frequent the beach areas of LA County.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Specialized saltwater removal and desalination treatments</li>
+                  <li>• Sand removal and matting prevention</li>
+                  <li>• Deep conditioning for dry, sun-exposed coats</li>
+                  <li>• Protective products for beach-going dogs</li>
+                  <li>• Quick-dry services for active beach pets</li>
+                </ul>
+                <Link 
+                  href="/browse?city=los-angeles&service=beach-dog-care"
+                  className="inline-block bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition"
+                >
+                  Find Beach Dog Specialists →
+                </Link>
+              </div>
+
+              {/* Mobile Pet Grooming Los Angeles: Beat the Traffic */}
+              <div id="mobile-pet-grooming-los-angeles" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-teal-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Mobile Pet Grooming Los Angeles: Beat the Traffic
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Mobile pet grooming Los Angeles</strong> services are perfect for busy professionals, high-rise residents, or pet parents who want to avoid LA traffic. Mobile groomers bring fully equipped vans directly to your home, eliminating the need to transport pets through congested streets.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Mobile grooming is especially popular in areas like Downtown LA, West Hollywood, and high-rise condos where parking and pet transportation can be challenging. Many mobile groomers offer one-on-one attention, which is ideal for anxious pets or those who don't do well in busy salon environments.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Fully equipped mobile grooming vans</li>
+                  <li>• One-on-one attention for your pet</li>
+                  <li>• Convenient scheduling around your day</li>
+                  <li>• Perfect for avoiding LA traffic</li>
+                  <li>• Package deals for multiple pets</li>
+                </ul>
+                <Link 
+                  href="/browse?city=los-angeles&service=mobile-grooming"
+                  className="inline-block bg-teal-600 text-white px-6 py-3 rounded-full font-bold hover:bg-teal-700 transition"
+                >
+                  Find Mobile Groomers →
+                </Link>
+              </div>
+
+              {/* Celebrity Pet Grooming Los Angeles: Upscale Services */}
+              <div id="celebrity-pet-grooming-los-angeles" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-indigo-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Celebrity Pet Grooming Los Angeles: Upscale Services
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Celebrity pet grooming Los Angeles</strong> services cater to the entertainment industry's high standards. These premium salons offer discreet services, VIP treatment, and upscale facilities perfect for celebrity pets and their owners.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Many Los Angeles groomers have experience working with celebrity pets and understand the need for privacy, quality, and exceptional service. These services are available in Beverly Hills, West Hollywood, and other entertainment industry hubs.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Discreet VIP services for celebrity pets</li>
+                  <li>• Premium spa packages with luxury products</li>
+                  <li>• Upscale salon environments</li>
+                  <li>• Flexible scheduling for busy schedules</li>
+                  <li>• Concierge mobile grooming services</li>
+                </ul>
+                <Link 
+                  href="/browse?city=los-angeles&service=luxury-grooming"
+                  className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-full font-bold hover:bg-indigo-700 transition"
+                >
+                  Find Celebrity Pet Groomers →
+                </Link>
+              </div>
+
+              {/* Dog Grooming Los Angeles: Neighborhood Guide */}
+              <div id="dog-grooming-los-angeles-neighborhoods" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-purple-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Dog Grooming Los Angeles: Neighborhood Guide
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Dog grooming Los Angeles</strong> services are available throughout LA County, from Hollywood to Long Beach. Each neighborhood offers unique services and specialties. Beverly Hills and Malibu groomers focus on luxury services, while Venice and Santa Monica groomers specialize in beach dog care.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Downtown LA and West Hollywood groomers often offer mobile services to accommodate busy professionals, while Pasadena and Burbank groomers provide family-friendly services. No matter which neighborhood you're in, you'll find verified groomers who can meet your pet's needs.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Beverly Hills & Malibu: Luxury spa services</li>
+                  <li>• Venice & Santa Monica: Beach dog specialists</li>
+                  <li>• Hollywood & West Hollywood: Celebrity pet services</li>
+                  <li>• Downtown LA: Mobile grooming and convenience</li>
+                  <li>• Pasadena & Burbank: Family-friendly services</li>
+                </ul>
+                <Link 
+                  href="/browse?city=los-angeles"
+                  className="inline-block bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition"
+                >
+                  Browse All Los Angeles Groomers →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Chicago Deep-Dive SEO Section */}
+      {citySlug === 'chicago' && (
+        <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              Pet Groomer Chicago: Finding the Right Professional 🐾
+            </h2>
+            <p className="text-center text-gray-700 text-lg mb-10 max-w-3xl mx-auto">
+              Finding the right pet groomer in Chicago can be challenging with harsh winters requiring specialized care. Our verified groomers specialize in winter coat care, mobile grooming, luxury services, and neighborhood-specific expertise across Lincoln Park, Wicker Park, and throughout Cook County.
+            </p>
+
+            <div className="space-y-8">
+              {/* Pet Groomer Chicago: Finding the Right Professional */}
+              <div id="pet-groomer-chicago" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-purple-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Pet Groomer Chicago: Finding the Right Professional
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  When searching for a <strong>pet groomer Chicago</strong> or <strong>pet groomers Chicago</strong>, it's essential to find professionals who understand the unique needs of Chicago pets. The harsh winters, urban environment, and diverse neighborhoods require groomers with specialized knowledge. Our verified groomers in Chicago are experienced with winter coat care, de-shedding, and managing the effects of cold weather on pet coats.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Many Chicago groomers offer services tailored to specific neighborhoods, from luxury services in Gold Coast to family-friendly options in Lincoln Park. Whether you're in Wicker Park, Lakeview, or River North, you'll find groomers who can meet your pet's specific needs.
+                </p>
+                <Link 
+                  href="/browse?city=chicago"
+                  className="inline-block bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition"
+                >
+                  Find Chicago Pet Groomers →
+                </Link>
+              </div>
+
+              {/* Winter Pet Grooming Chicago: Cold Weather Care */}
+              <div id="winter-pet-grooming-chicago" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-pink-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Winter Pet Grooming Chicago: Cold Weather Care
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Winter pet grooming Chicago</strong> services are essential for pets who need specialized care during Chicago's harsh winters. Cold weather can cause dry skin, matting from salt and snow, and increased shedding. Chicago groomers specialize in winter coat maintenance, de-shedding, and protective treatments.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Many Chicago groomers offer specialized winter packages that include deep conditioning, paw pad protection, and de-shedding treatments. These services are especially important for dogs who spend time outdoors in Chicago's cold winters.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Specialized winter coat maintenance and de-shedding</li>
+                  <li>• Paw pad protection from salt and ice</li>
+                  <li>• Deep conditioning for dry, cold-weather skin</li>
+                  <li>• Matting prevention from snow and salt</li>
+                  <li>• Protective treatments for outdoor pets</li>
+                </ul>
+                <Link 
+                  href="/browse?city=chicago&service=winter-coat-care"
+                  className="inline-block bg-pink-600 text-white px-6 py-3 rounded-full font-bold hover:bg-pink-700 transition"
+                >
+                  Find Winter Care Specialists →
+                </Link>
+              </div>
+
+              {/* Dog Grooming Chicago: Neighborhood Guide */}
+              <div id="dog-grooming-chicago-neighborhoods" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-orange-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Dog Grooming Chicago: Neighborhood Guide
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Dog grooming Chicago</strong> services are available throughout Cook County, from Lincoln Park to Wicker Park. Each neighborhood offers unique services and specialties. Gold Coast and River North groomers focus on luxury services, while Lincoln Park and Lakeview groomers provide family-friendly options.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Wicker Park and Bucktown groomers often offer trendy, modern services, while South Loop and West Loop groomers cater to busy professionals with mobile services. No matter which neighborhood you're in, you'll find verified groomers who can meet your pet's needs.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Gold Coast & River North: Luxury spa services</li>
+                  <li>• Lincoln Park & Lakeview: Family-friendly services</li>
+                  <li>• Wicker Park & Bucktown: Modern, trendy services</li>
+                  <li>• South Loop & West Loop: Mobile grooming for professionals</li>
+                  <li>• Old Town & Streeterville: Upscale neighborhood services</li>
+                </ul>
+                <Link 
+                  href="/browse?city=chicago"
+                  className="inline-block bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition"
+                >
+                  Browse All Chicago Groomers →
+                </Link>
+              </div>
+
+              {/* Mobile Pet Grooming Chicago: Beat the Traffic */}
+              <div id="mobile-pet-grooming-chicago" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-teal-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Mobile Pet Grooming Chicago: Beat the Traffic
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Mobile pet grooming Chicago</strong> services are perfect for busy professionals, high-rise residents, or pet parents who want to avoid Chicago traffic and harsh winters. Mobile groomers bring fully equipped vans directly to your home, eliminating the need to transport pets through congested streets or cold weather.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Mobile grooming is especially popular in areas like Downtown Chicago, River North, and high-rise condos where parking and pet transportation can be challenging. Many mobile groomers offer one-on-one attention, which is ideal for anxious pets or those who don't do well in busy salon environments.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Fully equipped mobile grooming vans</li>
+                  <li>• One-on-one attention for your pet</li>
+                  <li>• Convenient scheduling around your day</li>
+                  <li>• Perfect for avoiding Chicago traffic and cold weather</li>
+                  <li>• Package deals for multiple pets</li>
+                </ul>
+                <Link 
+                  href="/browse?city=chicago&service=mobile-grooming"
+                  className="inline-block bg-teal-600 text-white px-6 py-3 rounded-full font-bold hover:bg-teal-700 transition"
+                >
+                  Find Mobile Groomers →
+                </Link>
+              </div>
+
+              {/* Luxury Pet Grooming Chicago: Upscale Services */}
+              <div id="luxury-pet-grooming-chicago" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-indigo-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Luxury Pet Grooming Chicago: Upscale Services
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Luxury pet grooming Chicago</strong> services are available in upscale neighborhoods like Gold Coast, River North, and Streeterville. These premium salons offer spa treatments, organic products, blueberry facials, and luxury blowouts for pampered pets.
+                </p>
+                <p className="text-gray-700 text-lg mb-4">
+                  Luxury Chicago groomers often use high-end product lines, offer concierge services, and provide upscale salon environments. These services are perfect for pet parents who want the best for their furry family members and are willing to invest in premium care.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Premium spa packages with aromatherapy</li>
+                  <li>• Organic and hypoallergenic product lines</li>
+                  <li>• Blueberry facials and paw pad treatments</li>
+                  <li>• Luxury blowouts and styling</li>
+                  <li>• Upscale salon environments in Gold Coast and River North</li>
+                </ul>
+                <Link 
+                  href="/browse?city=chicago&service=luxury-grooming"
+                  className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-full font-bold hover:bg-indigo-700 transition"
+                >
+                  Find Luxury Groomers →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
       )}
 
       {/* Popular Areas */}
