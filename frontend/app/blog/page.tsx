@@ -126,7 +126,7 @@ export default function BlogPage() {
 
       {/* Hero */}
       <section className="py-20">
-        <div className="container mx-auto px-4 text-center">
+        <div className="max-w-5xl mx-auto px-6 text-center">
           <h1 className="text-6xl font-extrabold text-gray-900 mb-6">
             Pet Grooming Blog 📝
           </h1>
@@ -154,7 +154,7 @@ export default function BlogPage() {
 
       {/* Blog Posts Grid */}
       <section className="pb-20">
-        <div className="container mx-auto px-4">
+        <div className="max-w-5xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {blogPosts.map((post) => (
               <Link
