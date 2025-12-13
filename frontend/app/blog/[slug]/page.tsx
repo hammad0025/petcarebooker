@@ -818,8 +818,8 @@ Expect 2-4 hours depending on your dog's size and coat. Express services (1-2 ho
     `,
   },
   'how-much-does-dog-grooming-cost': {
-    title: 'How Much Does Dog Grooming Cost in 2025? Complete Price Guide',
-    description: 'Complete guide to dog grooming costs by size, breed, and location. Learn what affects pricing, average costs nationwide, and how to save money on professional grooming.',
+    title: 'Dog Grooming Cost 2025: Prices by Size, Breed & City [Compare & Save]',
+    description: 'Dog grooming costs $50-$200. See prices by size, breed, and 20+ cities. Find affordable groomers, compare mobile vs salon, and save money. Book instantly.',
     author: 'Hammad Haque for PetCareBooker',
     date: '2025-01-20',
     city: null,
@@ -1961,8 +1961,8 @@ These coats need specialized care:
     `,
   },
   'cat-grooming-costs-guide': {
-    title: 'Cat Grooming Costs: Complete Price Guide (2025)',
-    description: 'How much does cat grooming cost? Detailed pricing for baths, lion cuts, nail trims, and more. Compare prices and find affordable cat groomers.',
+    title: 'How Much Does Cat Grooming Cost? 2025 Price Guide [Save $50+]',
+    description: 'Cat grooming costs $40-$150. See exact prices by city, breed & service. Compare 23 cities, Persian cat grooming costs, and save money with our 2025 guide. Book instantly.',
     author: 'Hammad Haque for PetCareBooker',
     date: '2025-01-11',
     city: null,
@@ -2124,7 +2124,22 @@ Different cat breeds have unique grooming needs that affect both frequency and c
 
 ### Long-Haired Breeds (Higher Maintenance)
 
-**Persian**: Require daily brushing and professional grooming every 4-6 weeks. Full groom typically costs $80–$140. Their flat faces require special attention around the eyes.
+**Persian Cat Grooming Cost: Professional Services**
+
+Persian cats require daily brushing and professional grooming every 4-6 weeks. Full groom typically costs $80–$140 for professional Persian cat grooming services. Their flat faces require special attention around the eyes, and professional groomers are trained to handle their delicate features safely.
+
+**Persian-specific grooming needs:**
+- **Flat face care**: Specialized cleaning around eyes and nose folds
+- **Eye cleaning**: Daily attention to prevent tear staining
+- **Daily brushing**: Essential to prevent matting in their long, dense coat
+- **Professional grooming frequency**: Every 4-6 weeks (more frequent than most breeds)
+- **Persian cat grooming cost professional**: Expect $80–$140 for full service, $20–$40 more than other long-haired breeds due to specialized handling
+
+**Why Persian cat grooming costs more:**
+- Requires specialized training and experience
+- More time-consuming due to coat density
+- Delicate handling needed for flat-faced features
+- Higher risk of matting if not done professionally
 
 **Maine Coon**: Large size and thick double coat mean longer grooming sessions. Expect $85–$150 for full grooming every 6-8 weeks.
 
@@ -2404,6 +2419,8 @@ Some groomers include teeth brushing or other extras—always ask what's include
 Breed significantly affects cost:
 
 **Long-haired breeds** (Persian, Maine Coon, Ragdoll): $75–$150+
+
+**Persian cat grooming cost professional**: Persian cats typically cost $80–$140 for professional grooming services due to their specialized needs (flat face care, dense coat, frequent grooming requirements).
 **Medium-haired breeds** (American Bobtail, Turkish Angora): $65–$120
 **Short-haired breeds** (American Shorthair, Siamese, Bengal): $50–$90
 

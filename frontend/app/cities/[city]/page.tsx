@@ -123,7 +123,7 @@ const cityData: Record<string, any> = {
   'orlando': {
     name: 'Orlando',
     state: 'FL',
-    description: 'Find top-rated dog groomers and cat grooming in Orlando, FL. Book dog grooming Orlando and cat grooming Orlando FL services with verified reviews. Serving Winter Park, Lake Nona, Dr. Phillips, and throughout Orange County.',
+    description: 'Orlando Park pet grooming: anxious & aggressive dog specialists, luxury services, mobile grooming. Book expert groomers in Winter Park, Lake Nona & Orlando Park. Instant booking.',
     neighborhoods: ['Winter Park', 'Downtown Orlando', 'Lake Nona', 'Dr. Phillips', 'College Park', 'Baldwin Park', 'Thornton Park', 'Milk District', 'Windermere', 'Celebration', 'Kissimmee', 'Oviedo', 'Apopka'],
     avgPrice: '$60-$125',
     totalGroomers: 156,
@@ -404,6 +404,9 @@ export default async function CityPage({ params }: Props) {
             </h1>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
             {city.description}
+          </p>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-4 leading-relaxed">
+            Find <strong>premium dog groomers in {city.name}</strong>, <strong>mobile pet grooming {city.name}</strong>, <strong>anxiety-friendly groomers in {city.name}</strong>, and <strong>luxury pet grooming {city.name}</strong> services. Compare prices, read verified reviews, and book instantly online.
           </p>
 
           {/* Stats */}
@@ -1263,6 +1266,137 @@ export default async function CityPage({ params }: Props) {
                   <p className="text-gray-700 text-lg font-medium">{fact}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Orlando Park Specialized Services Section */}
+      {citySlug === 'orlando' && (
+        <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+              Orlando Park Pet Grooming: Specialized Services 🐾
+            </h2>
+            <p className="text-center text-gray-700 text-lg mb-10 max-w-3xl mx-auto">
+              Looking for specialized pet grooming in Orlando Park? Our verified groomers offer expert services for anxious dogs, aggressive pets, luxury treatments, and mobile grooming throughout Orlando Park and surrounding neighborhoods.
+            </p>
+
+            <div className="space-y-8">
+              {/* Anxious Dog Grooming Orlando Park */}
+              <div id="anxious-dog-grooming-orlando-park" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-purple-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Anxious Dog Grooming Orlando Park
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  Finding <strong>anxious dog groomers Orlando Park</strong> who specialize in fear-free handling is essential for pets who stress easily. Our verified groomers in Orlando Park use gentle techniques, sedation-free methods, and create calm environments to help anxious dogs feel comfortable.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Specialized training in anxiety management</li>
+                  <li>• Separate quiet areas for nervous pets</li>
+                  <li>• Extended appointment times for gentle handling</li>
+                  <li>• Mobile grooming options for familiar environments</li>
+                  <li>• Certified fear-free groomers available</li>
+                </ul>
+                <Link 
+                  href="/browse?city=orlando&service=anxiety-friendly"
+                  className="inline-block bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition"
+                >
+                  Find Anxious Dog Groomers →
+                </Link>
+              </div>
+
+              {/* Aggressive Dog Grooming Orlando Park */}
+              <div id="aggressive-dog-grooming-orlando-park" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-pink-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Aggressive Dog Grooming Orlando Park
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Aggressive dog groomers Orlando Park</strong> have specialized training to safely handle reactive pets. These professionals use muzzles when necessary, have experience with difficult behaviors, and work at a pace that keeps both pet and groomer safe.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Certified handlers with aggression management training</li>
+                  <li>• Safety-first protocols for reactive dogs</li>
+                  <li>• Sedation options (vet-prescribed) when appropriate</li>
+                  <li>• Private grooming areas to reduce triggers</li>
+                  <li>• Experience with rescue dogs and behavioral issues</li>
+                </ul>
+                <Link 
+                  href="/browse?city=orlando&service=aggressive-dog-specialist"
+                  className="inline-block bg-pink-600 text-white px-6 py-3 rounded-full font-bold hover:bg-pink-700 transition"
+                >
+                  Find Aggressive Dog Specialists →
+                </Link>
+              </div>
+
+              {/* Luxury Dog Grooming Orlando Park */}
+              <div id="luxury-dog-grooming-orlando-park" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-orange-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Luxury Dog Grooming Service Orlando Park
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Luxury dog grooming service Orlando Park</strong> offers premium spa treatments, organic products, and upscale facilities. Perfect for pet parents who want the best for their furry family members.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Premium spa packages with aromatherapy</li>
+                  <li>• Organic and hypoallergenic product lines</li>
+                  <li>• Blueberry facials and paw pad treatments</li>
+                  <li>• Luxury blowouts and styling</li>
+                  <li>• Upscale salon environments</li>
+                </ul>
+                <Link 
+                  href="/browse?city=orlando&service=luxury-grooming"
+                  className="inline-block bg-orange-600 text-white px-6 py-3 rounded-full font-bold hover:bg-orange-700 transition"
+                >
+                  Find Luxury Groomers →
+                </Link>
+              </div>
+
+              {/* Mobile Pet Grooming Orlando Park */}
+              <div id="mobile-pet-grooming-orlando-park" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-teal-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Mobile Pet Grooming Orlando Park
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Mobile pet grooming Orlando Park</strong> brings professional grooming directly to your home. Ideal for busy schedules, multiple pets, or pets who prefer familiar environments.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Fully equipped mobile grooming vans</li>
+                  <li>• One-on-one attention for your pet</li>
+                  <li>• Convenient scheduling around your day</li>
+                  <li>• Perfect for anxious or senior pets</li>
+                  <li>• Package deals for multiple pets</li>
+                </ul>
+                <Link 
+                  href="/browse?city=orlando&service=mobile-grooming"
+                  className="inline-block bg-teal-600 text-white px-6 py-3 rounded-full font-bold hover:bg-teal-700 transition"
+                >
+                  Find Mobile Groomers →
+                </Link>
+              </div>
+
+              {/* Dog Care and Grooming Orlando Park */}
+              <div id="dog-care-and-grooming-orlando-park" className="bg-white rounded-2xl p-8 shadow-lg border-2 border-indigo-100">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                  Dog Care and Grooming Orlando Park
+                </h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Dog care and grooming Orlando Park</strong> encompasses comprehensive pet wellness services beyond just haircuts. Our groomers offer full-service care including health checks, nail care, ear cleaning, and preventive treatments.
+                </p>
+                <ul className="space-y-2 text-gray-700 mb-4">
+                  <li>• Complete wellness grooming packages</li>
+                  <li>• Health screening during grooming</li>
+                  <li>• Preventive care (flea/tick treatments)</li>
+                  <li>• Senior pet specialized care</li>
+                  <li>• Puppy introduction programs</li>
+                </ul>
+                <Link 
+                  href="/browse?city=orlando"
+                  className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-full font-bold hover:bg-indigo-700 transition"
+                >
+                  Browse All Orlando Park Groomers →
+                </Link>
+              </div>
             </div>
           </div>
         </section>
