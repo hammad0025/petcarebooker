@@ -534,59 +534,6 @@ export default async function CityPage({ params }: Props) {
         </div>
       </section>
 
-        <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
-          <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
-              Pet Grooming Coverage Map - Fort Lauderdale, FL 🗺️
-            </h2>
-            <p className="text-center text-gray-700 text-xl mb-8 max-w-3xl mx-auto">
-              Looking for <strong>pet grooming Fort Lauderdale</strong> or <strong>Fort Lauderdale pet grooming</strong> services? Our verified professionals offer <strong>dog grooming Fort Lauderdale</strong> and <strong>cat grooming Fort Lauderdale</strong> throughout Broward County, including Las Olas, Victoria Park, Wilton Manors, Harbor Beach, Rio Vista, Lauderdale-by-the-Sea, and downtown Fort Lauderdale. <strong>Pet grooming Fort Lauderdale</strong> includes both salon and <strong>mobile pet grooming Fort Lauderdale</strong> services perfect for waterfront homes, marinas, and yacht-side service. Compare prices, read verified reviews, and <Link href="/browse?city=fort-lauderdale" className="text-purple-600 font-semibold hover:underline">book instantly online</Link>.
-            </p>
-            
-            <div className="max-w-5xl mx-auto mb-8">
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                {/* Static map image - replace with actual Fort Lauderdale map image */}
-                <img
-                  src="https://via.placeholder.com/1200x450/6366f1/ffffff?text=Fort+Lauderdale+Pet+Grooming+Map"
-                  alt="Map of Fort Lauderdale showing major neighborhoods where pet grooming services are located"
-                  className="w-full h-auto"
-                  width={1200}
-                  height={450}
-                />
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">📍 Areas We Serve</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Las Olas & Downtown Fort Lauderdale</li>
-                  <li>• Victoria Park & Harbor Beach</li>
-                  <li>• Wilton Manors & Rio Vista</li>
-                  <li>• Lauderdale-by-the-Sea</li>
-                  <li>• Colee Hammock & Coral Ridge</li>
-                  <li>• Imperial Point & Pompano Beach</li>
-                  <li>• Oakland Park</li>
-                  <li>• All of Broward County</li>
-                </ul>
-              </div>
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">🐕 Dog Groomers Fort Lauderdale</h3>
-                <p className="text-gray-700 mb-4">
-                  Our <strong>dog groomers Fort Lauderdale</strong> and <strong>groomers Fort Lauderdale</strong> professionals specialize in beach dogs, luxury spa treatments, and gentle cat grooming. Many offer <strong>mobile grooming Fort Lauderdale</strong> services that come to your waterfront home or marina.
-                </p>
-                <Link 
-                  href="/browse?city=fort-lauderdale"
-                  className="inline-block bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition"
-                >
-                  Find Groomers →
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* REMOVED: City-specific sections */}
       {false && citySlug === 'fort-lauderdale' && (
         <section className="py-20 bg-white">
