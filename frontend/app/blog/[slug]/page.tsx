@@ -2866,7 +2866,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* Article */}
       <article className="py-12 bg-white text-gray-900 dark:bg-white dark:text-gray-900">
-        <div className="container mx-auto px-4 max-w-4xl bg-white text-gray-900 dark:bg-white dark:text-gray-900">
+        <div className="max-w-5xl mx-auto px-6 bg-white text-gray-900 dark:bg-white dark:text-gray-900">
           {/* Header */}
           <header className="mb-12">
             {/* Category & Location */}
