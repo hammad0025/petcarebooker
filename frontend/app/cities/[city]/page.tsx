@@ -389,7 +389,7 @@ export default async function CityPage({ params }: Props) {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <nav className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 text-white py-6 shadow-lg">
-        <div className="container mx-auto px-4">
+        <div className="max-w-5xl mx-auto px-6">
           <Link href="/" className="text-3xl font-bold hover:opacity-90 transition-opacity flex items-center gap-2">
             🐾 PetCareBooker
           </Link>
@@ -397,33 +397,27 @@ export default async function CityPage({ params }: Props) {
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-6xl font-extrabold text-gray-900 mb-6">
-            {citySlug === 'fort-lauderdale' ? (
-              <>Pet Grooming in Fort Lauderdale, FL 🐾</>
-            ) : citySlug === 'pensacola' ? (
-              <>Pet Grooming in Pensacola, FL 🐾</>
-            ) : (
-              <>Pet Groomers in {city.name} 🐾</>
-            )}
-          </h1>
-          <p className="text-2xl text-gray-700 max-w-3xl mx-auto mb-8">
+      <section className="bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 py-12">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+              Pet Groomers in {city.name}
+            </h1>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
             {city.description}
           </p>
 
           {/* Stats */}
           <div className="flex flex-wrap justify-center gap-8 mb-10">
             <div className="bg-white rounded-2xl px-8 py-4 shadow-lg">
-              <div className="text-4xl font-bold text-purple-600">{city.totalGroomers}+</div>
+              <div className="text-3xl font-bold text-purple-600">{city.totalGroomers}+</div>
               <div className="text-gray-600 font-medium">Verified Groomers</div>
             </div>
             <div className="bg-white rounded-2xl px-8 py-4 shadow-lg">
-              <div className="text-4xl font-bold text-pink-500">{city.avgPrice}</div>
+              <div className="text-3xl font-bold text-pink-500">{city.avgPrice}</div>
               <div className="text-gray-600 font-medium">Average Price</div>
             </div>
             <div className="bg-white rounded-2xl px-8 py-4 shadow-lg">
-              <div className="text-4xl font-bold text-orange-500">4.9★</div>
+              <div className="text-3xl font-bold text-orange-500">4.9★</div>
               <div className="text-gray-600 font-medium">Average Rating</div>
             </div>
           </div>
@@ -447,82 +441,32 @@ export default async function CityPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Pensacola SEO-Optimized Content */}
-      {citySlug === 'pensacola' && (
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <div className="prose prose-lg max-w-none">
-              <p className="text-xl text-gray-700 mb-6">
-                Whether you're looking for full-service dog grooming, mobile grooming, cat grooming, or a quick bath and brush, Pensacola has a growing number of experienced professionals ready to help.
-              </p>
-
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Pensacola Pet Owners Use PetCareBooker</h2>
-              <ul className="space-y-3 text-lg text-gray-700 mb-8">
-                <li>✓ Search local groomers with real customer reviews</li>
-                <li>✓ Compare pricing, services, and availability instantly</li>
-                <li>✓ Book appointments online 24/7</li>
-                <li>✓ Avoid phone tag or outdated websites</li>
-                <li>✓ Support small, locally owned grooming businesses</li>
-              </ul>
-
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Popular Grooming Services in Pensacola</h2>
-              <ul className="space-y-2 text-lg text-gray-700 mb-6">
-                <li>• Full-service dog grooming</li>
-                <li>• Bath + brush packages</li>
-                <li>• Nail trim + ear cleaning</li>
-                <li>• Cat grooming (long-hair + short-hair)</li>
-                <li>• Mobile grooming services</li>
-                <li>• Puppy first-time grooming</li>
-              </ul>
-
-              <p className="text-xl text-gray-700">
-                Pensacola's pet community is strong, and demand for reliable, affordable grooming is increasing each year. We help connect owners with top-rated groomers, fast.
-              </p>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Fort Lauderdale SEO-Optimized Content */}
-      {citySlug === 'fort-lauderdale' && (
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <div className="prose prose-lg max-w-none">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Fort Lauderdale Pet Owners Love PetCareBooker</h2>
-              <ul className="space-y-3 text-lg text-gray-700 mb-8">
-                <li>✓ Compare groomers side-by-side</li>
-                <li>✓ View pricing before booking</li>
-                <li>✓ Read verified customer reviews</li>
-                <li>✓ Book appointments instantly</li>
-                <li>✓ Discover mobile and in-home grooming options</li>
-                <li>✓ Support local small businesses</li>
-              </ul>
-
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Popular Grooming Services in Fort Lauderdale</h2>
-              <ul className="space-y-2 text-lg text-gray-700 mb-6">
-                <li>• Full dog grooming packages</li>
-                <li>• Bath + brush</li>
-                <li>• Nail trimming</li>
-                <li>• De-shedding treatments</li>
-                <li>• Cat grooming</li>
-                <li>• Mobile grooming services</li>
-              </ul>
-
-              <p className="text-xl text-gray-700">
-                Fort Lauderdale pet owners expect high-quality grooming, and local groomers deliver. We help connect you with the best professionals for your pet's needs.
-              </p>
-            </div>
+      {/* Quick Facts */}
+      {city.quickFacts && city.quickFacts.length > 0 && (
+        <section className="py-12 bg-white">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">
+              Why Pet Owners Choose PetCareBooker
+            </h2>
+            <ul className="space-y-3 text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
+              {city.quickFacts.map((fact: string, index: number) => (
+                <li key={index} className="flex items-start gap-3">
+                  <span className="text-purple-600 font-bold mt-1">✓</span>
+                  <span>{fact}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       )}
 
       {/* Top Services */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-4">
-            Popular Services in {city.name} ✨
+      <section className="py-12 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+            Popular Services in {city.name}
           </h2>
-          <p className="text-center text-gray-600 text-xl mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-gray-600 text-lg mb-8 leading-relaxed max-w-2xl mx-auto">
             What pet parents are booking right now
           </p>
 
@@ -533,9 +477,6 @@ export default async function CityPage({ params }: Props) {
                 href={`/browse?service=${service.toLowerCase().replace(' ', '-')}`}
                 className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 text-center hover:shadow-xl hover:scale-105 transition-all border-2 border-purple-100"
               >
-                <div className="text-5xl mb-4">
-                  {index === 0 ? '🐕' : index === 1 ? '🐈' : index === 2 ? '🚐' : '✨'}
-                </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{service}</h3>
                 <p className="text-purple-600 font-semibold">Browse →</p>
               </Link>
@@ -544,124 +485,55 @@ export default async function CityPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Tallahassee-Specific: Map & Coverage Area */}
-      {citySlug === 'tallahassee' && (
-        <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
-          <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
-              Pet Grooming Coverage Map - Tallahassee, FL 🗺️
-            </h2>
-            <p className="text-center text-gray-700 text-xl mb-8 max-w-3xl mx-auto">
-              Our verified pet groomers serve all of Tallahassee and Leon County, including Midtown, College Town near FSU, Killearn, Southwood, and surrounding neighborhoods. Mobile pet grooming Tallahassee services are available throughout the area.
-            </p>
-            
-            <div className="max-w-5xl mx-auto mb-8">
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220895.34567890123!2d-84.2807!3d30.4515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88ec8b8b8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sTallahassee%2C%20FL!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
-                  width="100%"
-                  height="450"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full"
-                  title="Pet Grooming Coverage Map - Tallahassee, FL"
-                />
-              </div>
-            </div>
 
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">📍 Areas We Serve</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Midtown Tallahassee</li>
-                  <li>• College Town (FSU area)</li>
-                  <li>• Killearn</li>
-                  <li>• Southwood</li>
-                  <li>• Betton Hills</li>
-                  <li>• Downtown Tallahassee</li>
-                  <li>• Northeast Tallahassee</li>
-                  <li>• All of Leon County</li>
-                </ul>
+      {/* Pricing Guide */}
+      <section className="py-12 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">
+            Pet Grooming Prices
+          </h2>
+          <p className="text-center text-gray-700 text-lg mb-8 leading-relaxed max-w-3xl mx-auto">
+            Pet grooming prices vary by location, pet size, and service type. Here's a general guide for {city.name}:
+          </p>
+
+          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 mb-6">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Salon Grooming Prices</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="bg-white rounded-xl p-4">
+                <h4 className="text-lg font-bold text-gray-900 mb-2">Small Dogs (under 20 lbs)</h4>
+                <p className="text-2xl font-bold text-purple-600 mb-1">{city.avgPrice}</p>
+                <p className="text-gray-600 text-sm">Includes: Bath, haircut, nails, ears</p>
               </div>
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">🚐 Mobile Grooming Available</h3>
-                <p className="text-gray-700 mb-4">
-                  Mobile pet grooming Tallahassee services come directly to your home, perfect for busy FSU students, families, and pet parents throughout the city.
-                </p>
-                <Link 
-                  href="/browse?city=tallahassee&service=mobile-grooming"
-                  className="inline-block bg-purple-600 text-white px-6 py-3 rounded-full font-bold hover:bg-purple-700 transition"
-                >
-                  Find Mobile Groomers →
-                </Link>
+              <div className="bg-white rounded-xl p-4">
+                <h4 className="text-lg font-bold text-gray-900 mb-2">Medium Dogs (20-50 lbs)</h4>
+                <p className="text-2xl font-bold text-purple-600 mb-1">{city.avgPrice}</p>
+                <p className="text-gray-600 text-sm">Includes: Full groom package</p>
+              </div>
+              <div className="bg-white rounded-xl p-4">
+                <h4 className="text-lg font-bold text-gray-900 mb-2">Large Dogs (50+ lbs)</h4>
+                <p className="text-2xl font-bold text-purple-600 mb-1">{city.avgPrice}</p>
+                <p className="text-gray-600 text-sm">Includes: Complete grooming service</p>
+              </div>
+              <div className="bg-white rounded-xl p-4">
+                <h4 className="text-lg font-bold text-gray-900 mb-2">Cats</h4>
+                <p className="text-2xl font-bold text-purple-600 mb-1">{city.avgPrice}</p>
+                <p className="text-gray-600 text-sm">Gentle handling, specialized care</p>
               </div>
             </div>
           </div>
-        </section>
-      )}
 
-      {/* Tallahassee-Specific: Pricing Guide */}
-      {citySlug === 'tallahassee' && (
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
-              Pet Grooming Prices in Tallahassee, FL (2025) 💰
-            </h2>
-            <p className="text-center text-gray-700 text-xl mb-12 max-w-3xl mx-auto">
-              Tallahassee offers some of the most affordable pet grooming in Florida. Prices are typically 20-30% lower than major metro areas like Miami or Tampa, making it perfect for students and budget-conscious pet parents.
+          <div className="bg-gradient-to-br from-pink-50 to-orange-50 rounded-2xl p-6">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Mobile Grooming</h3>
+            <p className="text-gray-700 mb-3 leading-relaxed">
+              Mobile grooming typically costs $10-$25 more than salon prices for the convenience of coming to your home.
             </p>
-
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 mb-8">
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">Salon Grooming Prices</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white rounded-xl p-6">
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">Small Dogs (under 20 lbs)</h4>
-                  <p className="text-3xl font-bold text-purple-600 mb-2">$45-$75</p>
-                  <p className="text-gray-600">Includes: Bath, haircut, nails, ears</p>
-                </div>
-                <div className="bg-white rounded-xl p-6">
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">Medium Dogs (20-50 lbs)</h4>
-                  <p className="text-3xl font-bold text-purple-600 mb-2">$60-$90</p>
-                  <p className="text-gray-600">Includes: Full groom package</p>
-                </div>
-                <div className="bg-white rounded-xl p-6">
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">Large Dogs (50+ lbs)</h4>
-                  <p className="text-3xl font-bold text-purple-600 mb-2">$75-$100</p>
-                  <p className="text-gray-600">Includes: Complete grooming service</p>
-                </div>
-                <div className="bg-white rounded-xl p-6">
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">Cats</h4>
-                  <p className="text-3xl font-bold text-purple-600 mb-2">$50-$85</p>
-                  <p className="text-gray-600">Gentle handling, specialized care</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-pink-50 to-orange-50 rounded-3xl p-8">
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">Mobile Pet Grooming Tallahassee Prices</h3>
-              <p className="text-gray-700 mb-4">
-                Mobile grooming typically costs $10-$20 more than salon prices for the convenience of coming to your home:
-              </p>
-              <ul className="space-y-3 text-gray-700">
-                <li>• <strong>Small dogs:</strong> $55-$90</li>
-                <li>• <strong>Medium dogs:</strong> $70-$110</li>
-                <li>• <strong>Large dogs:</strong> $85-$120</li>
-                <li>• <strong>Cats:</strong> $60-$100</li>
-              </ul>
-              <p className="text-gray-600 text-sm mt-4">
-                <Link href="/blog/how-much-does-dog-grooming-cost" className="text-purple-600 font-bold hover:underline">
-                  Learn more about pet grooming costs →
-                </Link>
-              </p>
-            </div>
+            <Link href="/blog/how-much-does-dog-grooming-cost" className="text-purple-600 font-semibold hover:underline text-sm">
+              Learn more about pet grooming costs →
+            </Link>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
-      {/* Fort Lauderdale-Specific: Map & Coverage Area */}
-      {citySlug === 'fort-lauderdale' && (
         <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
@@ -715,8 +587,8 @@ export default async function CityPage({ params }: Props) {
         </section>
       )}
 
-      {/* Fort Lauderdale-Specific: Pricing Guide */}
-      {citySlug === 'fort-lauderdale' && (
+      {/* REMOVED: City-specific sections */}
+      {false && citySlug === 'fort-lauderdale' && (
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-5xl">
             <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
@@ -771,8 +643,7 @@ export default async function CityPage({ params }: Props) {
         </section>
       )}
 
-      {/* Fort Lauderdale-Specific: Dog & Cat Grooming Deep Dive */}
-      {citySlug === 'fort-lauderdale' && (
+      {false && citySlug === 'fort-lauderdale' && (
         <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="grid md:grid-cols-2 gap-10 items-start">
@@ -833,8 +704,7 @@ export default async function CityPage({ params }: Props) {
         </section>
       )}
 
-      {/* Fort Lauderdale-Specific: Mobile Dog Grooming Section */}
-      {citySlug === 'fort-lauderdale' && (
+      {false && citySlug === 'fort-lauderdale' && (
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-5xl">
             <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
@@ -899,8 +769,7 @@ export default async function CityPage({ params }: Props) {
         </section>
       )}
 
-      {/* Fort Lauderdale-Specific: Cat Grooming Section */}
-      {citySlug === 'fort-lauderdale' && (
+      {false && citySlug === 'fort-lauderdale' && (
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-5xl">
             <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
@@ -961,8 +830,7 @@ export default async function CityPage({ params }: Props) {
         </section>
       )}
 
-      {/* Pensacola-Specific: Map & Coverage Area */}
-      {citySlug === 'pensacola' && (
+      {false && citySlug === 'pensacola' && (
         <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
@@ -1016,8 +884,7 @@ export default async function CityPage({ params }: Props) {
         </section>
       )}
 
-      {/* Pensacola-Specific: Neighborhood SEO Section */}
-      {citySlug === 'pensacola' && (
+      {false && citySlug === 'pensacola' && (
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-6xl">
             <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
@@ -1089,8 +956,7 @@ export default async function CityPage({ params }: Props) {
         </section>
       )}
 
-      {/* Pensacola-Specific: Cat Grooming Section */}
-      {citySlug === 'pensacola' && (
+      {false && citySlug === 'pensacola' && (
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-5xl">
             <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
@@ -1148,8 +1014,7 @@ export default async function CityPage({ params }: Props) {
         </section>
       )}
 
-      {/* Pensacola-Specific: Dog Groomers Pricing Guide */}
-      {citySlug === 'pensacola' && (
+      {false && citySlug === 'pensacola' && (
         <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
           <div className="container mx-auto px-4 max-w-5xl">
             <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
@@ -1206,8 +1071,7 @@ export default async function CityPage({ params }: Props) {
         </section>
       )}
 
-      {/* Jacksonville-Specific: Map & Coverage Area */}
-      {citySlug === 'jacksonville' && (
+      {false && citySlug === 'jacksonville' && (
         <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
@@ -1264,8 +1128,7 @@ export default async function CityPage({ params }: Props) {
         </section>
       )}
 
-      {/* Jacksonville-Specific: Cat Grooming Section */}
-      {citySlug === 'jacksonville' && (
+      {false && citySlug === 'jacksonville' && (
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-5xl">
             <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
@@ -1323,8 +1186,7 @@ export default async function CityPage({ params }: Props) {
         </section>
       )}
 
-      {/* Jacksonville-Specific: Dog Grooming Pricing Guide */}
-      {citySlug === 'jacksonville' && (
+      {false && citySlug === 'jacksonville' && (
         <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
           <div className="container mx-auto px-4 max-w-5xl">
             <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
@@ -1383,10 +1245,10 @@ export default async function CityPage({ params }: Props) {
 
       {/* Featured Groomer - only for cities that have it */}
       {city.featuredGroomer && (
-        <section className="py-20 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100">
-          <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
-              Featured Groomer in {city.name} ⭐
+        <section className="py-12 bg-gradient-to-br from-purple-100 via-pink-100 to-orange-100">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">
+              Featured Groomer in {city.name}
             </h2>
             <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl p-10 border-4 border-purple-200">
               <div className="flex items-start gap-6 mb-6">
@@ -1900,8 +1762,8 @@ export default async function CityPage({ params }: Props) {
       )}
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-4xl">
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-6">
           <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-12">
             Frequently Asked Questions
           </h2>
@@ -1911,7 +1773,7 @@ export default async function CityPage({ params }: Props) {
               <summary className="font-bold text-xl text-gray-900 cursor-pointer">
                 How much does pet grooming cost in {city.name}?
               </summary>
-              <p className="mt-4 text-gray-600 text-lg">
+              <p className="mt-4 text-gray-600 text-lg leading-relaxed">
                 Pet grooming in {city.name} typically ranges from {city.avgPrice}, depending on your pet's size, breed, and the services you choose. Prices include bath, haircut, nail trim, and ear cleaning.
               </p>
             </details>
@@ -1920,7 +1782,7 @@ export default async function CityPage({ params }: Props) {
               <summary className="font-bold text-xl text-gray-900 cursor-pointer">
                 Are all groomers on PetCareBooker verified?
               </summary>
-              <p className="mt-4 text-gray-600 text-lg">
+              <p className="mt-4 text-gray-600 text-lg leading-relaxed">
                 Yes! All groomers on PetCareBooker are verified professionals with proper licenses and insurance. We only partner with experienced groomers who love pets.
               </p>
             </details>
@@ -1929,7 +1791,7 @@ export default async function CityPage({ params }: Props) {
               <summary className="font-bold text-xl text-gray-900 cursor-pointer">
                 Can I book same-day grooming appointments?
               </summary>
-              <p className="mt-4 text-gray-600 text-lg">
+              <p className="mt-4 text-gray-600 text-lg leading-relaxed">
                 Many of our {city.name} groomers offer same-day appointments based on availability. Use our real-time booking system to see open slots today.
               </p>
             </details>
@@ -1938,7 +1800,7 @@ export default async function CityPage({ params }: Props) {
               <summary className="font-bold text-xl text-gray-900 cursor-pointer">
                 Do you offer mobile grooming in {city.name}?
               </summary>
-              <p className="mt-4 text-gray-600 text-lg">
+              <p className="mt-4 text-gray-600 text-lg leading-relaxed">
                 Yes! Many groomers on our platform offer mobile grooming services that come to your home in {city.name}. Filter by "Mobile Grooming" when searching.
               </p>
             </details>
@@ -1946,70 +1808,11 @@ export default async function CityPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Comprehensive FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-12">
-            Frequently Asked Questions About Pet Grooming in {city.name}
-          </h2>
-          <div className="space-y-6">
-            <details className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition">
-              <summary className="text-xl font-bold text-gray-900 cursor-pointer">
-                How much does dog grooming cost in {city.name}?
-              </summary>
-              <p className="mt-4 text-gray-700 text-lg">
-                Dog grooming in {city.name} typically costs {city.avgPrice} depending on breed size, coat condition, and service package. Small dogs (under 20 lbs) usually cost ${parseInt(city.avgPrice.split('-')[0]?.replace('$', '').replace(',', '') || '50') - 10}-${parseInt(city.avgPrice.split('-')[1]?.replace('$', '').replace(',', '') || '100') - 20}, while large dogs (50+ lbs) range from ${parseInt(city.avgPrice.split('-')[0]?.replace('$', '').replace(',', '') || '50') + 20}-${parseInt(city.avgPrice.split('-')[1]?.replace('$', '').replace(',', '') || '100') + 30}. <Link href="/blog/how-much-does-dog-grooming-cost" className="text-purple-600 font-bold hover:underline">Learn more about dog grooming costs →</Link>
-              </p>
-            </details>
-            <details className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition">
-              <summary className="text-xl font-bold text-gray-900 cursor-pointer">
-                Are there mobile groomers in {city.name}?
-              </summary>
-              <p className="mt-4 text-gray-700 text-lg">
-                Yes. {city.name} has several mobile grooming services that provide convenient at-home grooming for dogs and cats. Mobile grooming typically costs $10-$25 more than salon grooming but offers reduced stress for pets and eliminates transportation needs.
-              </p>
-            </details>
-            <details className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition">
-              <summary className="text-xl font-bold text-gray-900 cursor-pointer">
-                How do I find the best pet groomer in {city.name}?
-              </summary>
-              <p className="mt-4 text-gray-700 text-lg">
-                PetCareBooker helps you compare {city.totalGroomers}+ verified groomers in {city.name} by reviews, pricing, and availability. You can filter by neighborhood, service type, and read real customer reviews to choose the best professional for your pet.
-              </p>
-            </details>
-            <details className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition">
-              <summary className="text-xl font-bold text-gray-900 cursor-pointer">
-                What neighborhoods in {city.name} have pet groomers?
-              </summary>
-              <p className="mt-4 text-gray-700 text-lg">
-                Pet groomers in {city.name} serve neighborhoods including {city.neighborhoods.slice(0, 5).join(', ')}, and many more areas throughout {city.name} {city.state}. Use PetCareBooker to search by neighborhood and find groomers near you.
-              </p>
-            </details>
-            <details className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition">
-              <summary className="text-xl font-bold text-gray-900 cursor-pointer">
-                How often should I groom my pet in {city.name}?
-              </summary>
-              <p className="mt-4 text-gray-700 text-lg">
-                Most dogs benefit from professional grooming every 4-8 weeks, depending on breed and coat type. Long-haired breeds may need grooming every 3-4 weeks, while short-haired breeds can go 6-8 weeks between sessions. <Link href="/blog/how-often-groom-dog" className="text-purple-600 font-bold hover:underline">Read our complete grooming frequency guide →</Link>
-              </p>
-            </details>
-            <details className="bg-gray-50 rounded-2xl p-6 hover:bg-gray-100 transition">
-              <summary className="text-xl font-bold text-gray-900 cursor-pointer">
-                Do {city.name} groomers offer cat grooming services?
-              </summary>
-              <p className="mt-4 text-gray-700 text-lg">
-                Yes, many groomers in {city.name} offer specialized cat grooming services. Cat grooming typically costs $40-$140 depending on coat length and services needed. <Link href="/blog/cat-grooming-costs-guide" className="text-purple-600 font-bold hover:underline">Learn more about cat grooming costs →</Link>
-              </p>
-            </details>
-          </div>
-        </div>
-      </section>
-
       {/* Internal Links to Blog Posts */}
-      <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
-            Learn More About Pet Grooming 📚
+      <section className="py-12 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">
+            Learn More About Pet Grooming
           </h2>
           <p className="text-center text-gray-600 text-xl mb-12 max-w-2xl mx-auto">
             Explore our comprehensive guides to help you make informed decisions about your pet's grooming needs.
@@ -2047,12 +1850,12 @@ export default async function CityPage({ params }: Props) {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-purple-600 to-pink-500 py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-5xl font-extrabold text-white mb-6">
-            Ready to Book in {city.name}? 🎉
+      <section className="bg-gradient-to-r from-purple-600 to-pink-500 py-12">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold text-white mb-6">
+            Ready to Book in {city.name}?
           </h2>
-          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+          <p className="text-lg text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
             Join thousands of happy pet parents who trust PetCareBooker for their grooming needs.
           </p>
           <Link 
