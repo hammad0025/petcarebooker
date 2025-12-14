@@ -85,7 +85,7 @@ export default function ProfilePage() {
     setSuccess(false);
 
     try {
-      await shopsApi.update(formData, token);
+      await shopsApi.update(token, formData);
       setSuccess(true);
       setTimeout(() => {
         router.push(`/shop/${shop?.slug}`);
