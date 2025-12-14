@@ -1964,7 +1964,7 @@ These coats need specialized care:
     title: 'How Much Does Cat Grooming Cost? 2025 Price Guide',
     description: 'Cat grooming costs $40-$150 in 2025. See prices by city, breed, and service type. Compare 23 cities and find affordable groomers near you.',
     author: 'Hammad Haque for PetCareBooker',
-    date: '2025-01-11',
+    date: '2025-01-15',
     city: null,
     state: null,
     category: 'Guides',
@@ -2029,7 +2029,7 @@ Cats who are anxious, aggressive, or difficult to handle require:
 - Potential for "behavior fees" ($10–$50+)
 - Some groomers may decline very aggressive cats
 
-**Tips for anxious cats**: Look for groomers who specialize in fearful cats, consider mobile grooming (familiar environment), and ask about sedation-free options.
+**Tips for anxious cats**: Look for groomers who specialize in fearful cats, consider mobile grooming (familiar environment), and ask about sedation-free options. Learn more about [how often you should groom your cat](/blog/how-often-groom-dog) to reduce stress and costs.
 
 ### 3. Location & Regional Pricing
 
@@ -2183,6 +2183,45 @@ Cat grooming costs vary significantly by region due to cost of living, competiti
 - Average: $55–$110
 - Competitive pricing with moderate costs
 
+## 2025 Cat Grooming Price Trends
+
+Cat grooming prices have increased 3–5% from 2024, reflecting broader economic trends and rising operational costs for groomers. Here's what's driving the changes:
+
+### Year-over-Year Price Changes
+
+- **2024 Average**: $38–$145
+- **2025 Average**: $40–$150+
+- **Increase**: 3–5% across most service types
+
+### Factors Driving Price Increases
+
+1. **Inflation Impact**: General cost of living increases affect groomer overhead (rent, utilities, supplies)
+2. **Labor Costs**: Groomer wages and training costs have risen
+3. **Supply Costs**: Premium shampoos, tools, and equipment prices increased 5–8%
+4. **Demand Growth**: More pet owners seeking professional grooming services
+
+### Regional Price Trends
+
+**High-growth markets** (Miami, Los Angeles, Seattle):
+- Price increases: 5–7% from 2024
+- Strong demand driving premium pricing
+
+**Stable markets** (Midwest, smaller cities):
+- Price increases: 2–4% from 2024
+- More competitive pricing maintained
+
+**Rural areas**:
+- Price increases: 1–3% from 2024
+- Most affordable, minimal increases
+
+### What to Expect in 2025
+
+- **Early 2025**: Prices stabilized after 2024 increases
+- **Mid-2025**: Potential seasonal variations (summer may see slight increases)
+- **Late 2025**: Prices likely to remain stable or increase 2–3% by year-end
+
+**Money-saving tip**: Book grooming appointments in advance to lock in current rates, especially for regular maintenance schedules. Many groomers honor quoted prices for scheduled appointments.
+
 ## Mobile vs Salon Grooming: Detailed Comparison
 
 ### Mobile Cat Grooming
@@ -2247,6 +2286,8 @@ Grooming frequency depends on breed, coat type, and lifestyle:
 - **At-home brushing**: Daily to prevent matting
 - **Bath frequency**: Every 6–8 weeks (or as needed)
 
+For more detailed guidance on grooming frequency, check our comprehensive guide on [how often to groom your pet](/blog/how-often-groom-dog).
+
 ### Short-Haired Breeds
 - **Professional grooming**: Every 8–12 weeks
 - **At-home brushing**: 2–3 times per week
@@ -2274,7 +2315,7 @@ Professional cat grooming is an investment in your pet's health, but there are w
 
 ### 1. Brush at Home Regularly
 
-Regular brushing (daily for long-haired, 2-3x per week for short-haired) reduces professional grooming time and prevents expensive mat removal. A well-maintained coat means shorter, less expensive grooming sessions.
+Regular brushing (daily for long-haired, 2-3x per week for short-haired) reduces professional grooming time and prevents expensive mat removal. A well-maintained coat means shorter, less expensive grooming sessions. For comparison, see our guide on [dog grooming costs](/blog/how-much-does-dog-grooming-cost) to understand pricing differences between pet types.
 
 ### 2. Ask About À La Carte Options
 
@@ -2282,7 +2323,7 @@ If you only need specific services (like nail trims or ear cleaning), ask about 
 
 ### 3. Compare Local Salons and Mobile Groomers
 
-Prices vary significantly between groomers in the same area. Use [PetCareBooker to compare prices, read reviews, and find the best value →](/browse) for your cat's needs.
+Prices vary significantly between groomers in the same area. Use [PetCareBooker to compare prices, read reviews, and find the best value →](/browse) for your cat's needs. You can also [browse groomers by city](/browse) to see local pricing and availability.
 
 ### 4. Book During Off-Peak Times
 
@@ -2308,7 +2349,7 @@ Many groomers offer first-time customer discounts or referral bonuses. Check gro
 
 ### Age Considerations
 
-**Kittens**: Start grooming early (8-12 weeks) to acclimate them, even if just for a bath and nail trim. Early exposure reduces stress and costs later.
+**Kittens**: Start grooming early (8-12 weeks) to acclimate them, even if just for a bath and nail trim. Early exposure reduces stress and costs later. This early training is similar to [puppy grooming introduction](/blog/how-much-does-dog-grooming-cost) and helps establish positive associations.
 
 **Adult Cats**: Follow breed-specific schedules (4-12 weeks depending on coat type).
 
@@ -2534,17 +2575,19 @@ When choosing a cat groomer, consider:
 5. **Handling approach**: Ask about their techniques for anxious cats
 6. **Pricing transparency**: Get detailed quotes including all add-ons
 
+Compare groomers in your area using our [city-specific guides](/blog) or [browse all available groomers →](/browse) to find the perfect match for your cat.
+
 [Compare cat groomers in your area, read verified reviews, and book instantly →](/browse)
 
 ## Conclusion
 
 Cat grooming costs $40–$150+ depending on service, location, and your cat's specific needs. While professional grooming is an investment, it's essential for your cat's health, especially for long-haired breeds. Regular grooming prevents expensive problems like matting and helps catch health issues early.
 
-The best way to manage costs is through regular maintenance—brush at home, groom on schedule, and choose services that fit your budget. [Use PetCareBooker to compare prices, read reviews, and find the best cat groomer for your pet →](/browse)
+The best way to manage costs is through regular maintenance—brush at home, groom on schedule, and choose services that fit your budget. [Use PetCareBooker to compare prices, read reviews, and find the best cat groomer for your pet →](/browse). For more pet care tips, explore our [complete guide to dog grooming costs](/blog/how-much-does-dog-grooming-cost) and [grooming frequency recommendations](/blog/how-often-groom-dog).
 
 ---
 
-*Last updated: January 2025. Prices based on 2025 market data from salons and mobile groomers nationwide. Actual prices may vary by location and groomer.*
+*Last updated: January 15, 2025. Prices based on 2025 market data from salons and mobile groomers nationwide. Actual prices may vary by location and groomer.*
     `,
   },
   'chicago-dog-wash-services': {
@@ -2856,6 +2899,18 @@ function generateFAQSchema(faqs: Array<{ question: string; answer: string }>, ur
 function generateArticleSchema(post: any, slug: string) {
   const url = `https://www.petcarebooker.com/blog/${slug}`;
   
+  // Use more recent dateModified for cat grooming article
+  const dateModified = slug === 'cat-grooming-costs-guide' ? '2025-01-15' : post.date;
+  
+  // Enhanced keywords based on article type
+  let keywords = post.city 
+    ? `pet grooming ${post.city}, dog grooming ${post.city}, ${post.city} pet care, cat grooming ${post.city}`
+    : 'pet grooming, dog grooming, cat grooming, pet grooming costs, pet grooming prices';
+  
+  if (slug === 'cat-grooming-costs-guide') {
+    keywords = 'cat grooming cost, cat grooming prices, how much does cat grooming cost, cat grooming cost 2025, cat grooming prices by city, persian cat grooming cost, cat grooming cost by breed, mobile cat grooming cost';
+  }
+  
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -2863,12 +2918,14 @@ function generateArticleSchema(post: any, slug: string) {
     headline: post.title,
     description: post.description,
     author: {
-      '@type': 'Organization',
-      name: post.author || 'Hammad Haque for PetCareBooker',
+      '@type': 'Person',
+      name: 'Hammad Haque',
+      jobTitle: 'Founder of PetCareBooker',
       url: 'https://www.petcarebooker.com',
+      sameAs: 'https://www.petcarebooker.com',
     },
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: dateModified,
     publisher: {
       '@type': 'Organization',
       name: 'PetCareBooker',
@@ -2885,9 +2942,7 @@ function generateArticleSchema(post: any, slug: string) {
     },
     image: post.image ? `https://www.petcarebooker.com/blog/${slug}/image` : 'https://www.petcarebooker.com/og-image.png',
     articleSection: post.category || 'Pet Grooming Guides',
-    keywords: post.city 
-      ? `pet grooming ${post.city}, dog grooming ${post.city}, ${post.city} pet care, cat grooming ${post.city}`
-      : 'pet grooming, dog grooming, cat grooming, pet grooming costs, pet grooming prices',
+    keywords: keywords,
     inLanguage: 'en-US',
     isAccessibleForFree: true,
   };
@@ -2962,7 +3017,7 @@ export default async function BlogPostPage({ params }: Props) {
             </h1>
 
             {/* Meta */}
-            <div className="flex items-center gap-4 text-gray-600">
+            <div className="flex items-center gap-4 text-gray-600 flex-wrap">
               <span>By {post.author}</span>
               <span>•</span>
               <time dateTime={post.date}>
@@ -2974,6 +3029,14 @@ export default async function BlogPostPage({ params }: Props) {
               </time>
               <span>•</span>
               <span>8 min read</span>
+              {slug === 'cat-grooming-costs-guide' && (
+                <>
+                  <span>•</span>
+                  <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
+                    Updated: January 15, 2025
+                  </span>
+                </>
+              )}
             </div>
           </header>
 
@@ -2982,11 +3045,83 @@ export default async function BlogPostPage({ params }: Props) {
             {post.image}
           </div>
 
+          {/* Quick Answer Box - Cat Grooming Costs Guide */}
+          {slug === 'cat-grooming-costs-guide' && (
+            <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-teal-50 rounded-2xl p-8 mb-12 border-2 border-purple-200 shadow-lg">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Quick Answer</h2>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-3xl font-bold text-purple-600">$40–$150</span>
+                  <div>
+                    <p className="text-lg font-semibold text-gray-900">Average Cat Grooming Cost (2025)</p>
+                    <p className="text-gray-700">Prices vary by service type, location, and coat length</p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                  <div className="bg-white rounded-lg p-4 border border-purple-100">
+                    <p className="font-semibold text-gray-900 mb-1">Service Type</p>
+                    <p className="text-sm text-gray-600">Bath: $40–$70 | Full Groom: $60–$150+</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 border border-purple-100">
+                    <p className="font-semibold text-gray-900 mb-1">Location</p>
+                    <p className="text-sm text-gray-600">Urban: $80–$150 | Rural: $50–$100</p>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 border border-purple-100">
+                    <p className="font-semibold text-gray-900 mb-1">Coat Length</p>
+                    <p className="text-sm text-gray-600">Short-hair: $40–$90 | Long-hair: $75–$150+</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Content */}
           <div 
             className="blog-content max-w-none"
             dangerouslySetInnerHTML={{ __html: renderMarkdown(post.content) }}
           />
+
+          {/* Author Bio Section */}
+          {post.author && post.author.includes('Hammad Haque') && (
+            <div className="bg-gray-50 rounded-xl p-8 mt-12 border border-gray-200">
+              <div className="flex items-start gap-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+                  HH
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">Hammad Haque</h3>
+                  <p className="text-purple-600 font-semibold mb-3">Founder of PetCareBooker</p>
+                  <p className="text-gray-700 leading-relaxed">
+                    Hammad Haque is the founder of PetCareBooker, a leading platform connecting pet owners with trusted groomers nationwide. With extensive experience in the pet care industry, Hammad is dedicated to helping pet parents find quality, affordable grooming services while supporting professional groomers in growing their businesses.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Related Articles Section */}
+          {slug === 'cat-grooming-costs-guide' && (
+            <div className="mt-16">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Related Articles</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <Link href="/blog/how-much-does-dog-grooming-cost" className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className="text-4xl mb-4">💰</div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Dog Grooming Cost 2025</h3>
+                  <p className="text-gray-600 text-sm">Complete price guide by size, breed, and city. Compare prices and save money.</p>
+                </Link>
+                <Link href="/blog/how-often-groom-dog" className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className="text-4xl mb-4">🐕</div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">How Often Should You Groom Your Dog?</h3>
+                  <p className="text-gray-600 text-sm">Expert guide to optimal grooming schedules based on breed and coat type.</p>
+                </Link>
+                <Link href="/blog/best-dog-groomers-nyc" className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+                  <div className="text-4xl mb-4">🗽</div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Best Dog Groomers in NYC</h3>
+                  <p className="text-gray-600 text-sm">Top-rated groomers in New York City with reviews, prices, and booking info.</p>
+                </Link>
+              </div>
+            </div>
+          )}
 
           {/* CTA Box */}
           <div className="bg-gradient-to-r from-purple-600 to-pink-500 rounded-2xl p-10 text-center mt-16">
