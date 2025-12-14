@@ -159,7 +159,7 @@ export default function ReferralsPage() {
                   </>
                 )}
               </button>
-              {navigator.share && (
+              {typeof navigator.share !== 'undefined' && (
                 <button
                   onClick={handleShare}
                   className="px-4 py-3 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-200 rounded-lg hover:bg-gray-200 transition-colors flex items-center gap-2"
