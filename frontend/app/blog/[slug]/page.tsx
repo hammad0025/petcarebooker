@@ -1961,8 +1961,8 @@ These coats need specialized care:
     `,
   },
   'cat-grooming-costs-guide': {
-    title: 'How Much Does Cat Grooming Cost? 2025 Price Guide [Save $50+]',
-    description: 'Cat grooming costs $40-$150. See exact prices by city, breed & service. Compare 23 cities, Persian cat grooming costs, and save money with our 2025 guide. Book instantly.',
+    title: 'How Much Does Cat Grooming Cost? 2025 Price Guide',
+    description: 'Cat grooming costs $40-$150 in 2025. See prices by city, breed, and service type. Compare 23 cities and find affordable groomers near you.',
     author: 'Hammad Haque for PetCareBooker',
     date: '2025-01-11',
     city: null,
