@@ -107,6 +107,24 @@ class Shop(Base):
     subscription_renewal_date = Column(DateTime)
     subscription_cancelled_at = Column(DateTime)
     
+    # Google Calendar Integration
+    google_calendar_id = Column(String)  # Google Calendar ID
+    google_calendar_sync_enabled = Column(Boolean, default=False)
+    google_calendar_access_token = Column(String)  # OAuth access token (encrypted in production)
+    google_calendar_refresh_token = Column(String)  # OAuth refresh token (encrypted in production)
+    google_calendar_last_sync = Column(DateTime)  # Last successful sync timestamp
+    
+    # Google My Business (GMB) Integration
+    gmb_profile_id = Column(String)  # Google Business Profile ID
+    gmb_verified = Column(Boolean, default=False)  # Is GMB profile verified
+    gmb_booking_enabled = Column(Boolean, default=False)  # Is booking enabled on GMB
+    
+    # Referral System
+    referral_code = Column(String, unique=True)  # Unique referral code for this shop
+    referred_by_code = Column(String)  # Referral code used when this shop registered
+    referrals_count = Column(Integer, default=0)  # Number of shops referred
+    referral_credits = Column(Integer, default=0)  # Credits earned from referrals
+    
     # Location (for map integration)
     latitude = Column(Float)  # e.g., 26.7153 for West Palm Beach
     longitude = Column(Float)  # e.g., -80.0534 for West Palm Beach
@@ -195,6 +213,13 @@ class Booking(Base):
     platform_commission = Column(Float)  # Your cut (e.g., 5-10%)
     groomer_payout = Column(Float)  # What groomer gets
     commission_processed = Column(Boolean, default=False)
+    
+    # Google Calendar integration
+    google_calendar_event_id = Column(String)  # Google Calendar event ID for this booking
+    
+    # Google Booking API integration
+    google_booking_id = Column(String)  # Google's booking ID (if booked via GMB)
+    source = Column(String, default='direct')  # 'direct' or 'google' - tracks booking source
     
     # Tracking
     created_at = Column(DateTime, default=datetime.utcnow)

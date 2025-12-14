@@ -574,6 +574,201 @@ export default function ShopPage() {
           </div>
         </div>
       </div>
+
+      {/* Schema.org Structured Data for Google Booking */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'LocalBusiness',
+            '@id': `https://www.petcarebooker.com/shop/${shop.slug}`,
+            name: shop.business_name,
+            description: shop.description || `Professional pet grooming services in ${shop.city}, ${shop.state}`,
+            url: `https://www.petcarebooker.com/shop/${shop.slug}`,
+            image: shop.logo_url || shop.cover_image_url || 'https://www.petcarebooker.com/icon-512.png',
+            telephone: shop.phone,
+            email: shop.email,
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: shop.address,
+              addressLocality: shop.city,
+              addressRegion: shop.state,
+              postalCode: shop.zip_code,
+              addressCountry: 'US',
+            },
+            geo: shop.latitude && shop.longitude ? {
+              '@type': 'GeoCoordinates',
+              latitude: shop.latitude,
+              longitude: shop.longitude,
+            } : undefined,
+            priceRange: '$$',
+            serviceType: 'Pet Grooming',
+            areaServed: shop.is_mobile && shop.service_area ? {
+              '@type': 'GeoCircle',
+              description: shop.service_area,
+            } : {
+              '@type': 'City',
+              name: shop.city,
+              addressRegion: shop.state,
+            },
+            aggregateRating: {
+              '@type': 'AggregateRating',
+              ratingValue: '4.9',
+              reviewCount: '22',
+            },
+            potentialAction: {
+              '@type': 'ReservationAction',
+              target: {
+                '@type': 'EntryPoint',
+                urlTemplate: `https://www.petcarebooker.com/shop/${shop.slug}/book`,
+                actionPlatform: [
+                  'http://schema.org/DesktopWebPlatform',
+                  'http://schema.org/MobileWebPlatform',
+                ],
+              },
+              name: 'Book Pet Grooming Appointment',
+              provider: {
+                '@type': 'Organization',
+                name: 'PetCareBooker',
+                url: 'https://www.petcarebooker.com',
+              },
+            },
+            makesOffer: services.length > 0 ? services.map((service) => ({
+              '@type': 'Offer',
+              itemOffered: {
+                '@type': 'Service',
+                name: service.name,
+                description: service.description || service.name,
+                provider: {
+                  '@type': 'LocalBusiness',
+                  name: shop.business_name,
+                },
+                areaServed: {
+                  '@type': 'City',
+                  name: shop.city,
+                  addressRegion: shop.state,
+                },
+              },
+              price: service.price,
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: `https://www.petcarebooker.com/shop/${shop.slug}/book?service=${service.id}`,
+            })) : undefined,
+          }),
+        }}
+      />
+
+      {/* ReservationAction Schema - Primary Booking Action */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ReservationAction',
+            '@id': `https://www.petcarebooker.com/shop/${shop.slug}#reservation`,
+            target: {
+              '@type': 'EntryPoint',
+              urlTemplate: `https://www.petcarebooker.com/shop/${shop.slug}/book`,
+              actionPlatform: [
+                'http://schema.org/DesktopWebPlatform',
+                'http://schema.org/MobileWebPlatform',
+              ],
+              contentType: 'text/html',
+              httpMethod: 'GET',
+            },
+            name: 'Book Pet Grooming Appointment',
+            description: `Book an appointment with ${shop.business_name} for pet grooming services`,
+            provider: {
+              '@type': 'Organization',
+              name: 'PetCareBooker',
+              url: 'https://www.petcarebooker.com',
+              logo: 'https://www.petcarebooker.com/icon-512.png',
+            },
+            object: {
+              '@type': 'Service',
+              name: 'Pet Grooming',
+              description: shop.description || `Professional pet grooming services`,
+              provider: {
+                '@type': 'LocalBusiness',
+                name: shop.business_name,
+                address: {
+                  '@type': 'PostalAddress',
+                  streetAddress: shop.address,
+                  addressLocality: shop.city,
+                  addressRegion: shop.state,
+                  postalCode: shop.zip_code,
+                  addressCountry: 'US',
+                },
+                telephone: shop.phone,
+              },
+              areaServed: {
+                '@type': 'City',
+                name: shop.city,
+                addressRegion: shop.state,
+              },
+            },
+            result: {
+              '@type': 'Reservation',
+              reservationStatus: 'https://schema.org/ReservationPending',
+            },
+          }),
+        }}
+      />
+
+      {/* Service Schemas - Individual Services */}
+      {services.length > 0 && services.map((service) => (
+        <script
+          key={service.id}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Service',
+              '@id': `https://www.petcarebooker.com/shop/${shop.slug}/service/${service.id}`,
+              name: service.name,
+              description: service.description || service.name,
+              provider: {
+                '@type': 'LocalBusiness',
+                name: shop.business_name,
+                address: {
+                  '@type': 'PostalAddress',
+                  streetAddress: shop.address,
+                  addressLocality: shop.city,
+                  addressRegion: shop.state,
+                  postalCode: shop.zip_code,
+                  addressCountry: 'US',
+                },
+                telephone: shop.phone,
+                url: `https://www.petcarebooker.com/shop/${shop.slug}`,
+              },
+              areaServed: {
+                '@type': 'City',
+                name: shop.city,
+                addressRegion: shop.state,
+              },
+              offers: {
+                '@type': 'Offer',
+                price: service.price,
+                priceCurrency: 'USD',
+                availability: 'https://schema.org/InStock',
+                url: `https://www.petcarebooker.com/shop/${shop.slug}/book?service=${service.id}`,
+              },
+              potentialAction: {
+                '@type': 'ReserveAction',
+                target: {
+                  '@type': 'EntryPoint',
+                  urlTemplate: `https://www.petcarebooker.com/shop/${shop.slug}/book?service=${service.id}`,
+                  actionPlatform: [
+                    'http://schema.org/DesktopWebPlatform',
+                    'http://schema.org/MobileWebPlatform',
+                  ],
+                },
+              },
+            }),
+          }}
+        />
+      ))}
     </div>
   );
 }

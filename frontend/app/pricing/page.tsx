@@ -60,7 +60,7 @@ export default function PricingPage() {
             <ul className="text-left space-y-3 mb-8">
               <li className="flex items-start gap-2">
                 <span className="text-green-500 text-xl">✓</span>
-                <span>Unlimited bookings</span>
+                <span>5 bookings per month</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-green-500 text-xl">✓</span>
@@ -72,11 +72,15 @@ export default function PricingPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-green-500 text-xl">✓</span>
-                <span>SMS notifications</span>
+                <span>SMS & email notifications</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-gray-500 text-xl">✗</span>
-                <span className="text-gray-700">Ends after 30 days</span>
+                <span className="text-gray-700">Google Calendar sync</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-gray-500 text-xl">✗</span>
+                <span className="text-gray-700">Unlimited bookings</span>
               </li>
             </ul>
             <Link
@@ -112,11 +116,19 @@ export default function PricingPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-green-500 text-xl">✓</span>
+                <span>Google Calendar sync</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-500 text-xl">✓</span>
                 <span>Payment processing</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-green-500 text-xl">✓</span>
                 <span>Customer analytics</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-500 text-xl">✓</span>
+                <span>Referral program</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-green-500 text-xl">✓</span>

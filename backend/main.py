@@ -46,7 +46,20 @@ from auth import hash_password, verify_password, create_access_token, get_curren
 from notifications import notify_shop_new_booking, notify_customer_booking_confirmed, notify_customer_booking_cancelled
 from email_service import send_contact_email
 # from email_service import send_reset_email
-# from stripe_service import create_stripe_customer, create_subscription_checkout_session, get_subscription_details, cancel_subscription, handle_webhook_event
+from stripe_service import create_stripe_customer, create_subscription_checkout_session, get_subscription_details, cancel_subscription, handle_webhook_event
+from google_booking_api import (
+    get_availability as gb_get_availability,
+    create_booking as gb_create_booking,
+    update_booking as gb_update_booking,
+    cancel_booking as gb_cancel_booking,
+    get_services as gb_get_services,
+    get_booking_by_google_id
+)
+from calendar_sync import (
+    get_authorization_url, exchange_code_for_tokens, get_calendar_service,
+    create_calendar_event, update_calendar_event, delete_calendar_event,
+    get_busy_times, get_primary_calendar_id, refresh_access_token
+)
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
@@ -205,10 +218,25 @@ def register_shop(shop_data: ShopCreate, db: Session = Depends(get_db)):
         phone=shop_data.phone,
         email=shop_data.email,
         auto_approve_bookings=True,  # Enable instant booking by default
-        booking_buffer_minutes=15
+        booking_buffer_minutes=15,
+        referred_by_code=shop_data.referral_code  # Track referral code used
     )
     
     db.add(shop)
+    db.commit()
+    db.refresh(shop)
+    
+    # Generate referral code for new shop
+    shop.referral_code = generate_referral_code(shop.id)
+    
+    # If they used a referral code, credit the referring shop
+    if shop_data.referral_code:
+        referring_shop = db.query(Shop).filter(Shop.referral_code == shop_data.referral_code).first()
+        if referring_shop:
+            referring_shop.referrals_count = (referring_shop.referrals_count or 0) + 1
+            # Award 1 credit per referral (can be used for 1 month free subscription)
+            referring_shop.referral_credits = (referring_shop.referral_credits or 0) + 1
+    
     db.commit()
     db.refresh(shop)
     
@@ -703,6 +731,21 @@ def create_booking(
     if not shop:
         raise HTTPException(status_code=404, detail="Shop not found")
     
+    # Check booking limits for free tier
+    if shop.subscription_tier == "free":
+        # Count bookings this month
+        start_of_month = datetime.utcnow().replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+        bookings_this_month = db.query(Booking).filter(
+            Booking.shop_id == shop.id,
+            Booking.created_at >= start_of_month
+        ).count()
+        
+        if bookings_this_month >= 5:
+            raise HTTPException(
+                status_code=403,
+                detail="Free tier limit reached (5 bookings/month). Please upgrade to continue accepting bookings."
+            )
+    
     service = db.query(Service).filter(
         Service.id == booking_data.service_id,
         Service.shop_id == shop.id
@@ -730,6 +773,39 @@ def create_booking(
     db.add(booking)
     db.commit()
     db.refresh(booking)
+    
+    # Create Google Calendar event if sync is enabled
+    if shop.google_calendar_sync_enabled and shop.google_calendar_access_token:
+        try:
+            service = get_calendar_service(shop.google_calendar_access_token, shop.google_calendar_refresh_token)
+            if service and shop.google_calendar_id:
+                start_time = booking.appointment_date
+                end_time = start_time + timedelta(minutes=booking.duration_minutes)
+                
+                booking_title = f"{booking.pet_name} - {service.name}"
+                description = f"Customer: {booking.customer_name}\nPhone: {booking.customer_phone}\nEmail: {booking.customer_email}\nPet: {booking.pet_name} ({booking.pet_type})\nService: {service.name}\nDuration: {booking.duration_minutes} minutes"
+                if booking.special_notes:
+                    description += f"\nNotes: {booking.special_notes}"
+                
+                event_id = create_calendar_event(
+                    service=service,
+                    calendar_id=shop.google_calendar_id,
+                    booking_title=booking_title,
+                    start_time=start_time,
+                    end_time=end_time,
+                    description=description,
+                    customer_email=booking.customer_email,
+                    customer_phone=booking.customer_phone
+                )
+                
+                # Store event ID in booking
+                if event_id:
+                    booking.google_calendar_event_id = event_id
+                    db.commit()
+                    print(f"✅ Created Google Calendar event: {event_id}")
+        except Exception as e:
+            print(f"⚠️ Failed to create Google Calendar event: {str(e)}")
+            # Don't fail the booking if calendar sync fails
     
     # Format appointment time for notifications
     appointment_time_str = booking.appointment_date.strftime("%A, %B %d, %Y at %I:%M %p")
@@ -811,15 +887,46 @@ def update_booking(
     
     update_data = updates.model_dump(exclude_unset=True)
     
+    # Store old appointment date for calendar sync
+    old_appointment_date = booking.appointment_date
+    old_status = booking.status
+    
     for field, value in update_data.items():
         setattr(booking, field, value)
+    
+    # Get service details for notifications and calendar
+    service = db.query(Service).filter(Service.id == booking.service_id).first()
+    
+    # Sync with Google Calendar if enabled
+    if shop.google_calendar_sync_enabled and shop.google_calendar_access_token and shop.google_calendar_id:
+        try:
+            calendar_service = get_calendar_service(shop.google_calendar_access_token, shop.google_calendar_refresh_token)
+            if calendar_service and booking.google_calendar_event_id:
+                # Update calendar event if appointment date or time changed
+                if old_appointment_date != booking.appointment_date or old_status != booking.status:
+                    start_time = booking.appointment_date
+                    end_time = start_time + timedelta(minutes=booking.duration_minutes)
+                    
+                    booking_title = f"{booking.pet_name} - {service.name if service else 'Grooming'}"
+                    description = f"Customer: {booking.customer_name}\nPhone: {booking.customer_phone}\nEmail: {booking.customer_email}\nPet: {booking.pet_name} ({booking.pet_type})\nService: {service.name if service else 'Grooming'}\nDuration: {booking.duration_minutes} minutes"
+                    if booking.special_notes:
+                        description += f"\nNotes: {booking.special_notes}"
+                    
+                    update_calendar_event(
+                        service=calendar_service,
+                        calendar_id=shop.google_calendar_id,
+                        event_id=booking.google_calendar_event_id,
+                        booking_title=booking_title,
+                        start_time=start_time,
+                        end_time=end_time,
+                        description=description
+                    )
+        except Exception as e:
+            print(f"⚠️ Failed to sync with Google Calendar: {str(e)}")
     
     # Set timestamps based on status
     if updates.status == BookingStatus.CONFIRMED and not booking.confirmed_at:
         booking.confirmed_at = datetime.utcnow()
-        
-        # Get service details for notification
-        service = db.query(Service).filter(Service.id == booking.service_id).first()
         
         # Format appointment time and address
         appointment_time_str = booking.appointment_date.strftime("%A, %B %d, %Y at %I:%M %p")
@@ -841,6 +948,15 @@ def update_booking(
         )
     elif updates.status == BookingStatus.COMPLETED and not booking.completed_at:
         booking.completed_at = datetime.utcnow()
+        
+        # Calculate commission (3% of service price)
+        if service and service.price:
+            commission_rate = 0.03  # 3%
+            booking.amount_paid = service.price
+            booking.platform_commission = round(service.price * commission_rate, 2)
+            booking.groomer_payout = round(service.price - booking.platform_commission, 2)
+            booking.payment_status = "paid"
+            booking.payment_date = datetime.utcnow()
     elif updates.status == BookingStatus.CANCELLED and not booking.cancelled_at:
         booking.cancelled_at = datetime.utcnow()
         # Notify customer of cancellation
@@ -857,58 +973,379 @@ def update_booking(
 
 
 # ============================================================================
+# GOOGLE BOOKING API ENDPOINTS - GMB INTEGRATION
+# ============================================================================
+
+@app.get("/api/google/booking/availability")
+def google_booking_availability(
+    shop_id: int = Query(..., description="Shop ID"),
+    service_id: Optional[int] = Query(None, description="Optional service ID"),
+    start_date: Optional[str] = Query(None, description="Start date (YYYY-MM-DD)"),
+    end_date: Optional[str] = Query(None, description="End date (YYYY-MM-DD)"),
+    db: Session = Depends(get_db)
+):
+    """
+    Get available time slots for Google Booking API.
+    Compatible with Google My Business booking integration.
+    """
+    try:
+        # Parse dates
+        if start_date:
+            start_dt = datetime.strptime(start_date, "%Y-%m-%d")
+        else:
+            start_dt = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
+        
+        if end_date:
+            end_dt = datetime.strptime(end_date, "%Y-%m-%d") + timedelta(days=1)
+        else:
+            end_dt = start_dt + timedelta(days=30)
+        
+        slots = gb_get_availability(
+            db=db,
+            shop_id=shop_id,
+            service_id=service_id,
+            start_date=start_dt,
+            end_date=end_dt
+        )
+        
+        return {
+            "available_slots": slots,
+            "shop_id": shop_id,
+            "service_id": service_id,
+            "date_range": {
+                "start": start_dt.isoformat(),
+                "end": end_dt.isoformat()
+            }
+        }
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to get availability: {str(e)}")
+
+
+@app.post("/api/google/booking/create", response_model=BookingResponse, status_code=status.HTTP_201_CREATED)
+def google_booking_create(
+    booking_data: Dict[str, Any] = Body(...),
+    db: Session = Depends(get_db)
+):
+    """
+    Create a booking from Google Booking API.
+    Expected fields:
+    - shop_id: int
+    - service_id: int
+    - start_time: str (ISO format)
+    - customer_name: str
+    - customer_email: str
+    - customer_phone: str
+    - pet_name: Optional[str]
+    - pet_type: Optional[str]
+    - notes: Optional[str]
+    - google_booking_id: Optional[str]
+    """
+    try:
+        # Parse start_time
+        start_time_str = booking_data.get("start_time")
+        if not start_time_str:
+            raise HTTPException(status_code=400, detail="start_time is required")
+        
+        start_time = datetime.fromisoformat(start_time_str.replace('Z', '+00:00'))
+        if start_time.tzinfo:
+            start_time = start_time.replace(tzinfo=None)
+        
+        booking = gb_create_booking(
+            db=db,
+            shop_id=booking_data["shop_id"],
+            service_id=booking_data["service_id"],
+            start_time=start_time,
+            customer_name=booking_data["customer_name"],
+            customer_email=booking_data["customer_email"],
+            customer_phone=booking_data["customer_phone"],
+            pet_name=booking_data.get("pet_name"),
+            pet_type=booking_data.get("pet_type"),
+            notes=booking_data.get("notes"),
+            google_booking_id=booking_data.get("google_booking_id")
+        )
+        
+        # Send notifications
+        shop = db.query(Shop).filter(Shop.id == booking.shop_id).first()
+        service = db.query(Service).filter(Service.id == booking.service_id).first()
+        
+        if shop and service:
+            notify_shop_new_booking(
+                shop_phone=shop.phone,
+                shop_email=shop.email,
+                shop_name=shop.business_name,
+                customer_name=booking.customer_name,
+                customer_phone=booking.customer_phone,
+                pet_name=booking.pet_name,
+                service_name=service.name,
+                appointment_time=booking.appointment_date.strftime("%A, %B %d, %Y at %I:%M %p")
+            )
+            
+            if booking.status == BookingStatus.CONFIRMED:
+                appointment_time_str = booking.appointment_date.strftime("%A, %B %d, %Y at %I:%M %p")
+                shop_address = f"{shop.address}, {shop.city}, {shop.state} {shop.zip_code}"
+                
+                notify_customer_booking_confirmed(
+                    customer_phone=booking.customer_phone,
+                    customer_email=booking.customer_email,
+                    customer_name=booking.customer_name,
+                    pet_name=booking.pet_name,
+                    service_name=service.name,
+                    shop_name=shop.business_name,
+                    shop_address=shop_address,
+                    shop_phone=shop.phone,
+                    appointment_time=appointment_time_str,
+                    duration_minutes=service.duration_minutes,
+                    special_notes=booking.notes
+                )
+        
+        return booking
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to create booking: {str(e)}")
+
+
+@app.patch("/api/google/booking/{booking_id}", response_model=BookingResponse)
+def google_booking_update(
+    booking_id: int,
+    updates: Dict[str, Any] = Body(...),
+    db: Session = Depends(get_db)
+):
+    """
+    Update a booking from Google Booking API.
+    """
+    try:
+        # Parse status if provided
+        status_update = None
+        if "status" in updates:
+            status_str = updates["status"].upper()
+            if status_str == "CONFIRMED":
+                status_update = BookingStatus.CONFIRMED
+            elif status_str == "CANCELLED":
+                status_update = BookingStatus.CANCELLED
+            elif status_str == "COMPLETED":
+                status_update = BookingStatus.COMPLETED
+            elif status_str == "PENDING":
+                status_update = BookingStatus.PENDING
+        
+        # Parse start_time if provided
+        start_time_update = None
+        if "start_time" in updates:
+            start_time_str = updates["start_time"]
+            start_time_update = datetime.fromisoformat(start_time_str.replace('Z', '+00:00'))
+            if start_time_update.tzinfo:
+                start_time_update = start_time_update.replace(tzinfo=None)
+        
+        booking = gb_update_booking(
+            db=db,
+            booking_id=booking_id,
+            google_booking_id=updates.get("google_booking_id"),
+            status=status_update,
+            start_time=start_time_update,
+            notes=updates.get("notes")
+        )
+        
+        return booking
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to update booking: {str(e)}")
+
+
+@app.delete("/api/google/booking/{booking_id}", status_code=status.HTTP_204_NO_CONTENT)
+def google_booking_cancel(
+    booking_id: int,
+    reason: Optional[str] = Query(None, description="Cancellation reason"),
+    db: Session = Depends(get_db)
+):
+    """
+    Cancel a booking from Google Booking API.
+    """
+    try:
+        booking = gb_cancel_booking(db=db, booking_id=booking_id, reason=reason)
+        
+        # Send cancellation notification
+        shop = db.query(Shop).filter(Shop.id == booking.shop_id).first()
+        if shop:
+            notify_customer_booking_cancelled(
+                customer_phone=booking.customer_phone,
+                shop_name=shop.business_name,
+                pet_name=booking.pet_name
+            )
+        
+        return None
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to cancel booking: {str(e)}")
+
+
+@app.get("/api/google/booking/services")
+def google_booking_services(
+    shop_id: int = Query(..., description="Shop ID"),
+    db: Session = Depends(get_db)
+):
+    """
+    Get service catalog for Google Booking API.
+    """
+    try:
+        services = gb_get_services(db=db, shop_id=shop_id)
+        return {
+            "services": services,
+            "shop_id": shop_id
+        }
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to get services: {str(e)}")
+
+
+@app.post("/api/google/booking/webhook")
+def google_booking_webhook(
+    webhook_data: Dict[str, Any] = Body(...),
+    db: Session = Depends(get_db)
+):
+    """
+    Handle webhook events from Google Booking API.
+    Events: booking.created, booking.updated, booking.cancelled
+    """
+    try:
+        event_type = webhook_data.get("event_type")
+        booking_data = webhook_data.get("booking", {})
+        google_booking_id = booking_data.get("id")
+        
+        if not google_booking_id:
+            raise HTTPException(status_code=400, detail="Booking ID is required")
+        
+        # Find existing booking by Google ID
+        booking = get_booking_by_google_id(db=db, google_booking_id=google_booking_id)
+        
+        if event_type == "booking.created":
+            if booking:
+                # Update existing booking
+                booking = gb_update_booking(
+                    db=db,
+                    booking_id=booking.id,
+                    google_booking_id=google_booking_id,
+                    status=BookingStatus.CONFIRMED if booking_data.get("confirmed") else BookingStatus.PENDING
+                )
+            else:
+                # Create new booking
+                start_time_str = booking_data.get("start_time")
+                start_time = datetime.fromisoformat(start_time_str.replace('Z', '+00:00'))
+                if start_time.tzinfo:
+                    start_time = start_time.replace(tzinfo=None)
+                
+                booking = gb_create_booking(
+                    db=db,
+                    shop_id=booking_data["shop_id"],
+                    service_id=booking_data["service_id"],
+                    start_time=start_time,
+                    customer_name=booking_data["customer_name"],
+                    customer_email=booking_data["customer_email"],
+                    customer_phone=booking_data["customer_phone"],
+                    pet_name=booking_data.get("pet_name"),
+                    pet_type=booking_data.get("pet_type"),
+                    notes=booking_data.get("notes"),
+                    google_booking_id=google_booking_id
+                )
+        
+        elif event_type == "booking.updated":
+            if not booking:
+                raise HTTPException(status_code=404, detail="Booking not found")
+            
+            status_update = None
+            if booking_data.get("confirmed"):
+                status_update = BookingStatus.CONFIRMED
+            elif booking_data.get("cancelled"):
+                status_update = BookingStatus.CANCELLED
+            
+            start_time_update = None
+            if booking_data.get("start_time"):
+                start_time_str = booking_data["start_time"]
+                start_time_update = datetime.fromisoformat(start_time_str.replace('Z', '+00:00'))
+                if start_time_update.tzinfo:
+                    start_time_update = start_time_update.replace(tzinfo=None)
+            
+            booking = gb_update_booking(
+                db=db,
+                booking_id=booking.id,
+                status=status_update,
+                start_time=start_time_update,
+                notes=booking_data.get("notes")
+            )
+        
+        elif event_type == "booking.cancelled":
+            if not booking:
+                raise HTTPException(status_code=404, detail="Booking not found")
+            
+            booking = gb_cancel_booking(
+                db=db,
+                booking_id=booking.id,
+                reason=booking_data.get("cancellation_reason", "Cancelled via Google")
+            )
+        
+        return {"status": "success", "booking_id": booking.id}
+    
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to process webhook: {str(e)}")
+
+
+# ============================================================================
 # STRIPE ENDPOINTS - REVENUE
 # ============================================================================
 
-# @app.post("/api/subscription/create-checkout")
-# def create_checkout_session(
-#     shop: Shop = Depends(get_current_shop),
-#     db: Session = Depends(get_db)
-# ):
-#     """Create Stripe Checkout session for subscription"""
-#     # Create Stripe customer if doesn't exist
-#     if not shop.stripe_customer_id:
-#         stripe_customer_id = create_stripe_customer(shop.owner_email, shop.owner_name)
-#         if stripe_customer_id:
-#             shop.stripe_customer_id = stripe_customer_id
-#             db.commit()
-#     
-#     # Create checkout session
-#     success_url = f"{os.getenv('FRONTEND_URL', 'https://www.petcarebooker.com')}/dashboard/subscription/success?session_id={{CHECKOUT_SESSION_ID}}"
-#     cancel_url = f"{os.getenv('FRONTEND_URL', 'https://www.petcarebooker.com')}/dashboard/subscription/cancel"
-#     
-#     checkout_data = create_subscription_checkout_session(
-#         customer_id=shop.stripe_customer_id,
-#         success_url=success_url,
-#         cancel_url=cancel_url,
-#         shop_id=shop.id
-#     )
-#     
-#     if not checkout_data:
-#         raise HTTPException(status_code=500, detail="Failed to create checkout session")
-#     
-#     return checkout_data
+@app.post("/api/subscription/create-checkout")
+def create_checkout_session(
+    shop: Shop = Depends(get_current_shop),
+    db: Session = Depends(get_db)
+):
+    """Create Stripe Checkout session for subscription"""
+    # Create Stripe customer if doesn't exist
+    if not shop.stripe_customer_id:
+        stripe_customer_id = create_stripe_customer(shop.owner_email, shop.owner_name)
+        if stripe_customer_id:
+            shop.stripe_customer_id = stripe_customer_id
+            db.commit()
+    
+    # Create checkout session
+    success_url = f"{os.getenv('FRONTEND_URL', 'https://www.petcarebooker.com')}/dashboard/subscription/success?session_id={{CHECKOUT_SESSION_ID}}"
+    cancel_url = f"{os.getenv('FRONTEND_URL', 'https://www.petcarebooker.com')}/dashboard/subscription/cancel"
+    
+    checkout_data = create_subscription_checkout_session(
+        customer_id=shop.stripe_customer_id,
+        success_url=success_url,
+        cancel_url=cancel_url,
+        shop_id=shop.id
+    )
+    
+    if not checkout_data:
+        raise HTTPException(status_code=500, detail="Failed to create checkout session")
+    
+    return checkout_data
 
 
-# @app.post("/api/subscription/cancel")
-# def cancel_shop_subscription(
-#     shop: Shop = Depends(get_current_shop),
-#     db: Session = Depends(get_db)
-# ):
-#     """Cancel shop subscription"""
-#     if not shop.stripe_subscription_id:
-#         raise HTTPException(status_code=400, detail="No active subscription to cancel")
-#     
-#     success = cancel_subscription(shop.stripe_subscription_id)
-#     if not success:
-#         raise HTTPException(status_code=500, detail="Failed to cancel subscription")
-#     
-#     # Update shop status
-#     shop.subscription_status = "cancelled"
-#     shop.subscription_cancelled_at = datetime.utcnow()
-#     db.commit()
-#     
-#     return {"message": "Subscription cancelled successfully"}
+@app.post("/api/subscription/cancel")
+def cancel_shop_subscription(
+    shop: Shop = Depends(get_current_shop),
+    db: Session = Depends(get_db)
+):
+    """Cancel shop subscription"""
+    if not shop.stripe_subscription_id:
+        raise HTTPException(status_code=400, detail="No active subscription to cancel")
+    
+    success = cancel_subscription(shop.stripe_subscription_id)
+    if not success:
+        raise HTTPException(status_code=500, detail="Failed to cancel subscription")
+    
+    # Update shop status
+    shop.subscription_status = "cancelled"
+    shop.subscription_cancelled_at = datetime.utcnow()
+    db.commit()
+    
+    return {"message": "Subscription cancelled successfully"}
 
 
 @app.get("/api/subscription/status")
@@ -923,30 +1360,234 @@ def get_subscription_status(shop: Shop = Depends(get_current_shop)):
     }
 
 
-# @app.post("/api/stripe/webhook")
-# async def stripe_webhook(request: Request):
-#     """Handle Stripe webhook events"""
-#     import stripe
-#     from fastapi import Request
-#     
-#     body = await request.body()
-#     signature = request.headers.get("stripe-signature")
-#     
-#     webhook_secret = os.getenv("STRIPE_WEBHOOK_SECRET")
-#     if not webhook_secret:
-#         raise HTTPException(status_code=500, detail="Webhook secret not configured")
-#     
-#     try:
-#         event = stripe.Webhook.construct_event(
-#             body, signature, webhook_secret
-#         )
-#     except ValueError as e:
-#         raise HTTPException(status_code=400, detail="Invalid payload")
-#     except stripe.error.SignatureVerificationError as e:
-#         raise HTTPException(status_code=400, detail="Invalid signature")
-#     
-#     # Handle the event
-#     result = handle_webhook_event(event)
+# ============================================================================
+# GOOGLE CALENDAR INTEGRATION ENDPOINTS
+# ============================================================================
+
+@app.get("/api/shops/me/calendar/authorize")
+def get_calendar_authorization_url(shop: Shop = Depends(get_current_shop)):
+    """Get Google Calendar OAuth authorization URL"""
+    auth_url = get_authorization_url(shop.id)
+    if not auth_url:
+        raise HTTPException(
+            status_code=500,
+            detail="Google Calendar integration not configured. Please contact support."
+        )
+    return {"authorization_url": auth_url}
+
+
+@app.post("/api/shops/me/calendar/connect")
+def connect_google_calendar(
+    code: str = Body(...),
+    state: str = Body(...),
+    shop: Shop = Depends(get_current_shop),
+    db: Session = Depends(get_db)
+):
+    """Connect Google Calendar using OAuth code"""
+    tokens = exchange_code_for_tokens(code, state)
+    if not tokens:
+        raise HTTPException(status_code=400, detail="Failed to exchange authorization code")
+    
+    # Verify shop_id matches
+    if tokens.get("shop_id") != shop.id:
+        raise HTTPException(status_code=403, detail="Invalid authorization")
+    
+    # Get calendar service to fetch primary calendar ID
+    service = get_calendar_service(tokens["access_token"], tokens["refresh_token"])
+    if not service:
+        raise HTTPException(status_code=500, detail="Failed to connect to Google Calendar")
+    
+    calendar_id = get_primary_calendar_id(service)
+    if not calendar_id:
+        raise HTTPException(status_code=500, detail="Failed to get calendar ID")
+    
+    # Store tokens and calendar info
+    shop.google_calendar_id = calendar_id
+    shop.google_calendar_sync_enabled = True
+    shop.google_calendar_access_token = tokens["access_token"]
+    shop.google_calendar_refresh_token = tokens["refresh_token"]
+    shop.google_calendar_last_sync = datetime.utcnow()
+    
+    db.commit()
+    db.refresh(shop)
+    
+    return {
+        "message": "Google Calendar connected successfully",
+        "calendar_id": calendar_id,
+        "sync_enabled": True
+    }
+
+
+@app.get("/api/shops/me/calendar/status")
+def get_calendar_status(shop: Shop = Depends(get_current_shop)):
+    """Get Google Calendar sync status"""
+    return {
+        "connected": shop.google_calendar_sync_enabled and shop.google_calendar_access_token is not None,
+        "sync_enabled": shop.google_calendar_sync_enabled or False,
+        "calendar_id": shop.google_calendar_id,
+        "last_sync": shop.google_calendar_last_sync.isoformat() if shop.google_calendar_last_sync else None
+    }
+
+
+@app.post("/api/shops/me/calendar/disconnect")
+def disconnect_google_calendar(
+    shop: Shop = Depends(get_current_shop),
+    db: Session = Depends(get_db)
+):
+    """Disconnect Google Calendar"""
+    shop.google_calendar_sync_enabled = False
+    shop.google_calendar_access_token = None
+    shop.google_calendar_refresh_token = None
+    shop.google_calendar_id = None
+    shop.google_calendar_last_sync = None
+    
+    db.commit()
+    
+    return {"message": "Google Calendar disconnected successfully"}
+
+
+@app.post("/api/shops/me/calendar/sync-now")
+def sync_calendar_now(
+    shop: Shop = Depends(get_current_shop),
+    db: Session = Depends(get_db)
+):
+    """Manually trigger calendar sync"""
+    if not shop.google_calendar_sync_enabled or not shop.google_calendar_access_token:
+        raise HTTPException(status_code=400, detail="Google Calendar not connected")
+    
+    # Refresh token if needed
+    service = get_calendar_service(shop.google_calendar_access_token, shop.google_calendar_refresh_token)
+    if not service:
+        # Try refreshing token
+        new_tokens = refresh_access_token(shop.google_calendar_refresh_token)
+        if new_tokens:
+            shop.google_calendar_access_token = new_tokens["access_token"]
+            db.commit()
+            service = get_calendar_service(shop.google_calendar_access_token, shop.google_calendar_refresh_token)
+    
+    if not service:
+        raise HTTPException(status_code=500, detail="Failed to connect to Google Calendar")
+    
+    # Update last sync time
+    shop.google_calendar_last_sync = datetime.utcnow()
+    db.commit()
+    
+    return {
+        "message": "Calendar sync completed",
+        "last_sync": shop.google_calendar_last_sync.isoformat()
+    }
+
+
+# ============================================================================
+# REFERRAL SYSTEM ENDPOINTS
+# ============================================================================
+
+import secrets
+import string
+
+def generate_referral_code(shop_id: int) -> str:
+    """Generate a unique referral code for a shop"""
+    # Format: PCB-{shop_id}-{random}
+    random_part = ''.join(secrets.choice(string.ascii_uppercase + string.digits) for _ in range(6))
+    return f"PCB-{shop_id}-{random_part}"
+
+@app.get("/api/shops/me/referral-code")
+def get_referral_code(
+    shop: Shop = Depends(get_current_shop),
+    db: Session = Depends(get_db)
+):
+    """Get or create referral code for current shop"""
+    if not shop.referral_code:
+        # Generate new referral code
+        shop.referral_code = generate_referral_code(shop.id)
+        db.commit()
+        db.refresh(shop)
+    
+    frontend_url = os.getenv("FRONTEND_URL", "https://www.petcarebooker.com")
+    referral_link = f"{frontend_url}/register?ref={shop.referral_code}"
+    
+    return {
+        "referral_code": shop.referral_code,
+        "referral_link": referral_link,
+        "referrals_count": shop.referrals_count or 0,
+        "referral_credits": shop.referral_credits or 0
+    }
+
+@app.get("/api/shops/me/referrals")
+def get_referrals(
+    shop: Shop = Depends(get_current_shop),
+    db: Session = Depends(get_db)
+):
+    """Get list of shops referred by current shop"""
+    # Find shops that registered with this shop's referral code
+    referred_shops = db.query(Shop).filter(
+        Shop.referred_by_code == shop.referral_code
+    ).all()
+    
+    # Format response
+    referrals_list = [
+        {
+            "id": s.id,
+            "business_name": s.business_name,
+            "owner_email": s.owner_email,
+            "created_at": s.created_at.isoformat() if s.created_at else None
+        }
+        for s in referred_shops
+    ]
+    
+    return {
+        "referrals": referrals_list,
+        "total_count": shop.referrals_count or 0,
+        "total_credits": shop.referral_credits or 0
+    }
+
+
+@app.post("/api/stripe/webhook")
+async def stripe_webhook(request: Request, db: Session = Depends(get_db)):
+    """Handle Stripe webhook events"""
+    import stripe
+    
+    body = await request.body()
+    signature = request.headers.get("stripe-signature")
+    
+    webhook_secret = os.getenv("STRIPE_WEBHOOK_SECRET")
+    if not webhook_secret:
+        raise HTTPException(status_code=500, detail="Webhook secret not configured")
+    
+    try:
+        event = stripe.Webhook.construct_event(
+            body, signature, webhook_secret
+        )
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail="Invalid payload")
+    except stripe.error.SignatureVerificationError as e:
+        raise HTTPException(status_code=400, detail="Invalid signature")
+    
+    # Handle the event
+    result = handle_webhook_event(event)
+    
+    if result and isinstance(result, dict):
+        shop_id = result.get('shop_id')
+        action = result.get('action')
+        
+        if shop_id:
+            shop = db.query(Shop).filter(Shop.id == shop_id).first()
+            if shop:
+                if action == 'activate_subscription':
+                    shop.subscription_tier = 'basic'
+                    shop.subscription_status = 'active'
+                    shop.stripe_subscription_id = result.get('subscription_id')
+                    shop.stripe_customer_id = result.get('customer_id')
+                    shop.subscription_start_date = datetime.utcnow()
+                    # Set renewal date to 1 month from now
+                    shop.subscription_renewal_date = datetime.utcnow() + timedelta(days=30)
+                elif action == 'cancel_subscription':
+                    shop.subscription_status = 'cancelled'
+                    shop.subscription_cancelled_at = datetime.utcnow()
+                
+                db.commit()
+    
+    return {"status": "success"}
 #     
 #     if result and result.get('action') == 'activate_subscription':
 #         shop_id = result.get('shop_id')

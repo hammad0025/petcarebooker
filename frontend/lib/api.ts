@@ -68,7 +68,7 @@ export const shopsApi = {
   },
   getBySlug: (slug: string) => fetchApi(`/api/shops/${slug}`),
   getMyProfile: (token: string) => fetchApi('/api/shops/me/profile', { token }),
-  update: (data: any, token: string) => 
+  update: (token: string, data: any) => 
     fetchApi('/api/shops/me', { method: 'PATCH', body: data, token }),
 };
 
@@ -93,6 +93,28 @@ export const bookingsApi = {
   },
   update: (bookingId: number, data: any, token: string) => 
     fetchApi(`/api/bookings/${bookingId}`, { method: 'PATCH', body: data, token }),
+};
+
+// Calendar
+export const calendarApi = {
+  getAuthorizationUrl: (token: string) => 
+    fetchApi('/api/shops/me/calendar/authorize', { token }),
+  connect: (code: string, state: string, token: string) => 
+    fetchApi('/api/shops/me/calendar/connect', { method: 'POST', body: { code, state }, token }),
+  getStatus: (token: string) => 
+    fetchApi('/api/shops/me/calendar/status', { token }),
+  disconnect: (token: string) => 
+    fetchApi('/api/shops/me/calendar/disconnect', { method: 'POST', token }),
+  syncNow: (token: string) => 
+    fetchApi('/api/shops/me/calendar/sync-now', { method: 'POST', token }),
+};
+
+// Referrals
+export const referralsApi = {
+  getReferralCode: (token: string) => 
+    fetchApi('/api/shops/me/referral-code', { token }),
+  getReferrals: (token: string) => 
+    fetchApi('/api/shops/me/referrals', { token }),
 };
 
 

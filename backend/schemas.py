@@ -44,6 +44,7 @@ class ShopCreate(ShopBase):
     owner_phone: str
     password: str
     slug: str
+    referral_code: Optional[str] = None  # Optional referral code used during registration
 
 
 class ShopUpdate(BaseModel):
@@ -58,6 +59,9 @@ class ShopUpdate(BaseModel):
     business_hours: Optional[str] = None
     logo_url: Optional[str] = None
     cover_image_url: Optional[str] = None
+    gmb_profile_id: Optional[str] = None
+    gmb_verified: Optional[bool] = None
+    gmb_booking_enabled: Optional[bool] = None
 
 
 class ShopResponse(ShopBase):

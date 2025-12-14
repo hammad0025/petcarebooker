@@ -35,6 +35,12 @@ services:
         sync: false
       - key: SENTRY_DSN
         sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_REDIRECT_URI
+        value: https://www.petcarebooker.com/dashboard/calendar/callback
 
 databases:
   - name: petcarebooker-db

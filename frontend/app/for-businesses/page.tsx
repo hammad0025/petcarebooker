@@ -117,10 +117,12 @@ export default function ForBusinessesPage() {
                 payments, reminders—is a tap away. No tech headaches.
               </p>
               <ul className="space-y-3 text-gray-700 text-lg">
+                <li>✅ Google Calendar sync - Never double-book again</li>
                 <li>✅ Drag-and-drop calendar with blocked time support</li>
                 <li>✅ Client CRM with pet notes, allergy alerts, and visit history</li>
                 <li>✅ Automated SMS + email reminders to crush no-shows</li>
-                <li>✅ Instant deposits to your bank with full payout transparency</li>
+                <li>✅ Referral program - Earn free months by referring other groomers</li>
+                <li>✅ Simple pricing - $24.99/month or start free (5 bookings/month)</li>
               </ul>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link href="/register" className="bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition">
@@ -182,9 +184,9 @@ export default function ForBusinessesPage() {
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="bg-gradient-to-br from-purple-50 to-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition">
               <div className="text-5xl mb-4">📅</div>
-              <h3 className="text-2xl font-bold mb-3 text-gray-900">Online Calendar Management</h3>
+              <h3 className="text-2xl font-bold mb-3 text-gray-900">Google Calendar Sync</h3>
               <p className="text-gray-600 text-lg">
-                Set your availability once. Clients book instantly. No more back-and-forth phone calls or double bookings.
+                Connect your Google Calendar to automatically sync bookings. Prevent double-booking and manage everything in one place.
               </p>
             </div>
 
@@ -208,7 +210,7 @@ export default function ForBusinessesPage() {
               <div className="text-5xl mb-4">💰</div>
               <h3 className="text-2xl font-bold mb-3 text-gray-900">Simple Pricing</h3>
               <p className="text-gray-600 text-lg">
-                No monthly fees. No hidden costs. Only pay a small commission when you get booked. That's it!
+                Start free with 5 bookings/month. Upgrade to Basic ($24.99/month) for unlimited bookings and all features. No hidden fees.
               </p>
             </div>
 
@@ -237,11 +239,12 @@ export default function ForBusinessesPage() {
           <div className="grid md:grid-cols-2 gap-10">
             <div className="bg-gradient-to-br from-purple-600 to-pink-500 text-white rounded-3xl p-10 shadow-2xl">
               <p className="text-sm uppercase tracking-widest mb-2">Pricing</p>
-              <h3 className="text-4xl font-extrabold mb-4">No monthly fees. Ever.</h3>
+              <h3 className="text-4xl font-extrabold mb-4">Start Free. Upgrade Anytime.</h3>
               <ul className="space-y-3 text-lg">
-                <li>• Free listing, free calendar, free messaging</li>
-                <li>• 8% success fee only when we send you a paid booking</li>
-                <li>• You keep full control of prices, add-ons, deposits</li>
+                <li>• Free tier: 5 bookings/month - perfect for testing</li>
+                <li>• Basic plan: $24.99/month - unlimited bookings</li>
+                <li>• Google Calendar sync included on all plans</li>
+                <li>• Refer 3 groomers, get 1 month free</li>
                 <li>• Cancel anytime — no contracts, no setup fees</li>
               </ul>
             </div>

@@ -18,6 +18,24 @@ def migrate():
         "ALTER TABLE shops ADD COLUMN IF NOT EXISTS subscription_renewal_date TIMESTAMP",
         "ALTER TABLE shops ADD COLUMN IF NOT EXISTS subscription_cancelled_at TIMESTAMP",
         
+        # Add Google Calendar integration columns to shops
+        "ALTER TABLE shops ADD COLUMN IF NOT EXISTS google_calendar_id VARCHAR",
+        "ALTER TABLE shops ADD COLUMN IF NOT EXISTS google_calendar_sync_enabled BOOLEAN DEFAULT FALSE",
+        "ALTER TABLE shops ADD COLUMN IF NOT EXISTS google_calendar_access_token VARCHAR",
+        "ALTER TABLE shops ADD COLUMN IF NOT EXISTS google_calendar_refresh_token VARCHAR",
+        "ALTER TABLE shops ADD COLUMN IF NOT EXISTS google_calendar_last_sync TIMESTAMP",
+        
+        # Add Google My Business (GMB) integration columns to shops
+        "ALTER TABLE shops ADD COLUMN IF NOT EXISTS gmb_profile_id VARCHAR",
+        "ALTER TABLE shops ADD COLUMN IF NOT EXISTS gmb_verified BOOLEAN DEFAULT FALSE",
+        "ALTER TABLE shops ADD COLUMN IF NOT EXISTS gmb_booking_enabled BOOLEAN DEFAULT FALSE",
+        
+        # Add referral system columns to shops
+        "ALTER TABLE shops ADD COLUMN IF NOT EXISTS referral_code VARCHAR UNIQUE",
+        "ALTER TABLE shops ADD COLUMN IF NOT EXISTS referred_by_code VARCHAR",
+        "ALTER TABLE shops ADD COLUMN IF NOT EXISTS referrals_count INTEGER DEFAULT 0",
+        "ALTER TABLE shops ADD COLUMN IF NOT EXISTS referral_credits INTEGER DEFAULT 0",
+        
         # Add missing columns to pets
         "ALTER TABLE pets ADD COLUMN IF NOT EXISTS photo_url VARCHAR",
         "ALTER TABLE pets ADD COLUMN IF NOT EXISTS birth_date TIMESTAMP",
@@ -43,6 +61,11 @@ def migrate():
         "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS confirmed_at TIMESTAMP",
         "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS completed_at TIMESTAMP",
         "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS cancelled_at TIMESTAMP",
+        "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS google_calendar_event_id VARCHAR",
+        
+        # Add Google Booking API fields to bookings
+        "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS google_booking_id VARCHAR",
+        "ALTER TABLE bookings ADD COLUMN IF NOT EXISTS source VARCHAR DEFAULT 'direct'",
     ]
     
     with engine.connect() as conn:
