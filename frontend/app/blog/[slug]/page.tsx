@@ -2727,8 +2727,66 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function renderMarkdown(content: string) {
-  // Convert markdown to HTML - styling handled by CSS
-  let html = content
+  // First, handle markdown tables before other processing
+  // Match markdown tables (header row, separator row, data rows)
+  const tableRegex = /(\|.+\|\n\|[-\s|:]+\|\n(?:\|.+\|\n?)+)/g;
+  
+  let html = content.replace(tableRegex, (tableMatch) => {
+    const lines = tableMatch.trim().split('\n').filter(line => line.trim());
+    if (lines.length < 2) return tableMatch; // Need at least header + separator
+    
+    const headerLine = lines[0];
+    const separatorLine = lines[1];
+    const dataLines = lines.slice(2);
+    
+    // Parse header
+    const headers = headerLine.split('|').map(h => h.trim()).filter(h => h);
+    
+    // Parse data rows
+    const rows = dataLines.map(line => {
+      return line.split('|').map(cell => cell.trim()).filter((cell, idx) => idx > 0 && idx <= headers.length);
+    });
+    
+    // Build HTML table
+    let tableHtml = '<div class="overflow-x-auto my-6"><table class="w-full border-collapse border border-gray-300">';
+    
+    // Header
+    tableHtml += '<thead><tr class="bg-gray-100">';
+    headers.forEach(header => {
+      // Check if header contains a link
+      const linkMatch = header.match(/\[([^\]]+)\]\(([^)]+)\)/);
+      if (linkMatch) {
+        tableHtml += `<th class="border border-gray-300 px-4 py-3 text-left font-semibold"><a href="${linkMatch[2]}" class="text-purple-600 hover:underline">${linkMatch[1]}</a></th>`;
+      } else {
+        tableHtml += `<th class="border border-gray-300 px-4 py-3 text-left font-semibold">${header}</th>`;
+      }
+    });
+    tableHtml += '</tr></thead>';
+    
+    // Body
+    tableHtml += '<tbody>';
+    rows.forEach(row => {
+      tableHtml += '<tr>';
+      row.forEach((cell, idx) => {
+        if (idx < headers.length) {
+          // Check if cell contains a link
+          const linkMatch = cell.match(/\[([^\]]+)\]\(([^)]+)\)/);
+          if (linkMatch) {
+            tableHtml += `<td class="border border-gray-300 px-4 py-3"><a href="${linkMatch[2]}" class="text-purple-600 hover:underline">${linkMatch[1]}</a></td>`;
+          } else {
+            tableHtml += `<td class="border border-gray-300 px-4 py-3">${cell}</td>`;
+          }
+        }
+      });
+      tableHtml += '</tr>';
+    });
+    tableHtml += '</tbody></table></div>';
+    
+    return tableHtml;
+  });
+  
+  // Then handle other markdown elements
+  html = html
     .replace(/### (.*)/g, '<h3>$1</h3>')
     .replace(/## (.*)/g, '<h2>$1</h2>')
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
@@ -2743,12 +2801,12 @@ function renderMarkdown(content: string) {
     return match;
   });
   
-  // Wrap paragraphs
+  // Wrap paragraphs (but not tables or headings)
   const blocks = html.split('\n\n');
   html = blocks.map(block => {
     const trimmed = block.trim();
     if (!trimmed) return '';
-    if (trimmed.startsWith('<h') || trimmed.startsWith('<ul')) return trimmed;
+    if (trimmed.startsWith('<h') || trimmed.startsWith('<ul') || trimmed.startsWith('<div') || trimmed.startsWith('<table')) return trimmed;
     return `<p>${trimmed}</p>`;
   }).join('');
   
