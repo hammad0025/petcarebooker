@@ -12,6 +12,76 @@ export const metadata: Metadata = {
 
 const blogPosts = [
   {
+    slug: 'mobile-dog-grooming',
+    title: 'Mobile Dog Grooming: Convenience at Your Doorstep',
+    excerpt: 'Find mobile dog grooming services near you. Mobile groomers come to your home with fully-equipped vans. Perfect for anxious pets, busy schedules, and multi-pet households.',
+    category: 'Grooming 101',
+    city: null,
+    image: '🚐',
+    date: '2025-01-21',
+    url: '/mobile-dog-grooming',
+  },
+  {
+    slug: 'cat-grooming',
+    title: 'Cat Grooming: Professional Services & Tips',
+    excerpt: 'Find professional cat grooming services near you. Expert cat groomers offer gentle handling, breed-specific cuts, and mobile grooming. Book cat grooming online with verified reviews.',
+    category: 'Pet Care Tips',
+    city: null,
+    image: '🐱',
+    date: '2025-01-21',
+    url: '/cat-grooming',
+  },
+  {
+    slug: 'poodle-grooming',
+    title: 'Poodle Grooming Styles: Complete Guide to Poodle Cuts',
+    excerpt: 'Discover popular poodle grooming styles and poodle cuts. Learn about puppy cut, continental cut, sporting cut, and more. Find professional poodle groomers and learn how to groom a poodle.',
+    category: 'Grooming 101',
+    city: null,
+    image: '🐩',
+    date: '2025-01-21',
+    url: '/poodle-grooming',
+  },
+  {
+    slug: 'yorkie-grooming',
+    title: 'Yorkie Grooming Styles: Yorkie Haircuts & Professional Grooming',
+    excerpt: 'Discover popular Yorkie grooming styles and Yorkie haircuts. Learn about the puppy cut, show cut, and other Yorkie grooming options. Find professional Yorkie groomers near you.',
+    category: 'Grooming 101',
+    city: null,
+    image: '🐕',
+    date: '2025-01-21',
+    url: '/yorkie-grooming',
+  },
+  {
+    slug: 'shih-tzu-grooming',
+    title: 'Shih Tzu Grooming Styles: Types of Shih Tzu Haircuts',
+    excerpt: 'Discover popular Shih Tzu grooming styles and types of Shih Tzu haircuts. Learn about the puppy cut, show cut, teddy bear cut, and more. Find professional Shih Tzu groomers.',
+    category: 'Grooming 101',
+    city: null,
+    image: '🐶',
+    date: '2025-01-21',
+    url: '/shih-tzu-grooming',
+  },
+  {
+    slug: 'dog-grooming-school',
+    title: 'Dog Grooming School: Become a Professional Groomer',
+    excerpt: 'Find the best dog grooming school and course programs. Learn how to become a professional dog groomer with certification, online courses, and hands-on training.',
+    category: 'Grooming 101',
+    city: null,
+    image: '🎓',
+    date: '2025-01-21',
+    url: '/dog-grooming-school',
+  },
+  {
+    slug: 'cat-grooming-supplies',
+    title: 'Cat Grooming Supplies: Products & Tools for Home Grooming',
+    excerpt: 'Shop the best cat grooming supplies, products, and tools. Find cat grooming brushes, combs, shampoos, and more. Professional-quality cat grooming supplies for home use.',
+    category: 'Pet Care Tips',
+    city: null,
+    image: '🛒',
+    date: '2025-01-21',
+    url: '/cat-grooming-supplies',
+  },
+  {
     slug: 'how-much-does-dog-grooming-cost',
     title: 'How Much Does Dog Grooming Cost in 2025? Complete Price Guide',
     excerpt: 'Complete guide to dog grooming costs by size, breed, and location. Learn what affects pricing, average costs nationwide, and how to save money on professional grooming.',
@@ -159,7 +229,7 @@ export default function BlogPage() {
             {blogPosts.map((post) => (
               <Link
                 key={post.slug}
-                href={`/blog/${post.slug}`}
+                href={post.url || `/blog/${post.slug}`}
                 className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 overflow-hidden group"
               >
                 {/* Image Placeholder */}
