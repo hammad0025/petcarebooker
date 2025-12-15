@@ -22,7 +22,7 @@ export default function Icon() {
         }}
       >
         {/* Professional paw print with better proportions */}
-        <div style={{ position: 'relative', width: '280px', height: '280px' }}>
+        <div style={{ position: 'relative', width: '280px', height: '280px', display: 'block' }}>
           {/* Bottom main pad - larger, more natural */}
           <div style={{ 
             position: 'absolute', 
