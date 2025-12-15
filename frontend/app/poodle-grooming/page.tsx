@@ -3,14 +3,14 @@ import { Metadata } from 'next';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Poodle Grooming Styles | Poodle Cuts | How to Groom a Poodle',
-  description: 'Discover popular poodle grooming styles and poodle cuts. Learn about puppy cut, continental cut, sporting cut, and more. Find professional poodle groomers and learn how to groom a poodle.',
+  title: 'Poodle Grooming | Different Poodle Grooming Styles | How to Groom a Poodle | Poodle Cuts',
+  description: 'Complete guide to poodle grooming. Discover different poodle grooming styles, learn how to groom a poodle, explore toy poodle grooming styles, standard poodle grooming styles, and mini poodle grooming styles. Find poodle grooming tools and professional groomers.',
   alternates: {
     canonical: 'https://www.petcarebooker.com/poodle-grooming',
   },
   openGraph: {
-    title: 'Poodle Grooming | How to Groom a Poodle | Professional Poodle Groomers',
-    description: 'Learn about poodle grooming styles, techniques, and costs. Find professional poodle groomers near you.',
+    title: 'Poodle Grooming | Different Poodle Grooming Styles | How to Groom a Poodle',
+    description: 'Learn about different poodle grooming styles, how to groom a poodle, poodle cuts, and find professional poodle groomers near you.',
     type: 'website',
     url: 'https://www.petcarebooker.com/poodle-grooming',
   },
@@ -159,14 +159,14 @@ export default function PoodleGroomingPage() {
           </div>
         </section>
 
-        {/* Popular Poodle Grooming Styles */}
+        {/* Different Poodle Grooming Styles */}
         <section className="py-20 bg-white">
           <div className="max-w-5xl mx-auto px-6">
             <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-12">
-              Popular Poodle Grooming Styles & Poodle Cuts
+              Different Poodle Grooming Styles & Poodle Cuts
             </h2>
             <p className="text-center text-gray-700 text-lg mb-10 max-w-3xl mx-auto">
-              When exploring <strong>poodle grooming styles</strong> and <strong>poodle cuts</strong>, you'll find a variety of options from practical pet cuts to elaborate show styles. Each <strong>poodle grooming style</strong> has different maintenance requirements and aesthetic appeal.
+              When exploring <strong>different poodle grooming styles</strong> and <strong>poodle cuts</strong>, you'll find a variety of options from practical pet cuts to elaborate show styles. Each <strong>poodle grooming style</strong> has different maintenance requirements and aesthetic appeal. Understanding the <strong>different poodle grooming styles</strong> available helps you choose the best look for your poodle.
             </p>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-lg border-2 border-purple-200">
@@ -314,8 +314,156 @@ export default function PoodleGroomingPage() {
           </div>
         </section>
 
-        {/* Tips for Poodle Owners */}
+        {/* Poodle Grooming by Size */}
+        <section className="py-20 bg-white">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-12">
+              Poodle Grooming Styles by Size
+            </h2>
+            <div className="space-y-8">
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-lg border-2 border-purple-200">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">Toy Poodle Grooming Styles</h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Toy poodle grooming styles</strong> are popular for their adorable appearance. Common <strong>toy poodle grooming styles</strong> include the puppy cut, teddy bear cut, and lamb cut. The <strong>toy poodle grooming</strong> process is similar to other sizes but requires more delicate handling due to their small size. <strong>Toy poodle grooming styles</strong> typically cost $50-$90 per session.
+                </p>
+                <p className="text-gray-600"><strong>Best styles for toy poodles:</strong> Puppy cut, Teddy Bear cut, Lamb cut, Sporting cut</p>
+              </div>
+
+              <div className="bg-gradient-to-br from-pink-50 to-blue-50 rounded-2xl p-8 shadow-lg border-2 border-pink-200">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">Mini Poodle Grooming Styles</h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Mini poodle grooming styles</strong> (also called <strong>miniature poodle grooming styles</strong>) offer versatility. The <strong>mini poodle grooming</strong> process allows for both practical pet cuts and show styles. Popular <strong>mini poodle grooming styles</strong> include the puppy cut, continental cut, and sporting cut. <strong>Miniature poodle grooming</strong> typically costs $60-$110.
+                </p>
+                <p className="text-gray-600"><strong>Best styles for mini poodles:</strong> Puppy cut, Continental cut, Sporting cut, English Saddle cut</p>
+              </div>
+
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 shadow-lg border-2 border-blue-200">
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">Standard Poodle Grooming Styles</h3>
+                <p className="text-gray-700 text-lg mb-4">
+                  <strong>Standard poodle grooming styles</strong> are the most dramatic and varied. The <strong>standard poodle grooming</strong> process can accommodate elaborate show cuts like the Continental and English Saddle, as well as practical pet cuts. <strong>Standard poodle grooming styles</strong> showcase the breed's versatility. <strong>Standard poodle grooming</strong> typically costs $80-$150.
+                </p>
+                <p className="text-gray-600"><strong>Best styles for standard poodles:</strong> Continental cut, English Saddle cut, Sporting cut, Puppy cut</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Poodle Grooming Tools */}
         <section className="py-20 bg-gray-50">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-12">
+              Poodle Grooming Tools: Essential Equipment
+            </h2>
+            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-purple-200">
+              <p className="text-gray-700 text-lg mb-6">
+                Having the right <strong>poodle grooming tools</strong> is essential for successful <strong>poodle grooming</strong>. Whether you're learning <strong>how to groom a poodle</strong> at home or maintaining between professional grooms, these <strong>poodle grooming tools</strong> are must-haves:
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Essential Poodle Grooming Tools</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• <strong>Professional clippers:</strong> Not human clippers - use dog-specific clippers ($100-$300+)</li>
+                    <li>• <strong>Poodle grooming clippers:</strong> Multiple blade sizes (#10, #7, #5, #4)</li>
+                    <li>• <strong>Poodle grooming brush:</strong> Slicker brush for daily maintenance</li>
+                    <li>• <strong>Metal comb:</strong> For checking and removing mats</li>
+                    <li>• <strong>High-velocity dryer:</strong> Essential for proper drying ($200-$500+)</li>
+                    <li>• <strong>Poodle grooming kit:</strong> Complete set with all tools</li>
+                    <li>• <strong>Scissors:</strong> For detail work and face trimming</li>
+                    <li>• <strong>Nail clippers:</strong> For regular nail maintenance</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Specialty Poodle Grooming Tools</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• <strong>Thinning shears:</strong> For blending and texturizing</li>
+                    <li>• <strong>Curved scissors:</strong> For rounded cuts and face work</li>
+                    <li>• <strong>Ear cleaner:</strong> Dog-safe ear cleaning solution</li>
+                    <li>• <strong>Styptic powder:</strong> For stopping bleeding if you nick the quick</li>
+                    <li>• <strong>Grooming table:</strong> Adjustable height table with arm and loop</li>
+                    <li>• <strong>Grooming loop:</strong> Safety restraint for grooming</li>
+                    <li>• <strong>Conditioner:</strong> High-quality conditioner for curly coats</li>
+                    <li>• <strong>Detangling spray:</strong> For managing mats and tangles</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Poodle Face Grooming */}
+        <section className="py-20 bg-white">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-12">
+              Poodle Face Grooming: How to Trim a Poodle's Face
+            </h2>
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-lg border-2 border-purple-200">
+              <p className="text-gray-700 text-lg mb-6">
+                <strong>Poodle face grooming</strong> is one of the most important aspects of <strong>poodle grooming</strong>. Proper <strong>poodle face grooming</strong> ensures your poodle can see clearly and prevents eye irritation. <strong>Grooming poodle face</strong> requires precision and care. Here's how to approach <strong>poodle face grooming styles</strong>:
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Poodle Face Grooming Techniques</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• Use clippers with a #10 or #15 blade for close shave</li>
+                    <li>• Trim hair around eyes for visibility</li>
+                    <li>• Shape the topknot (pom-pom on head) with scissors</li>
+                    <li>• Trim mustache and beard area carefully</li>
+                    <li>• Keep ears clean and trimmed</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Poodle Face Grooming Styles</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• <strong>Clean face:</strong> Fully shaved face (show style)</li>
+                    <li>• <strong>Modified face:</strong> Shorter but not fully shaved</li>
+                    <li>• <strong>Natural face:</strong> Trimmed but left longer</li>
+                    <li>• <strong>Topknot styles:</strong> Round, oval, or square topknot</li>
+                    <li>• <strong>Standard poodle face grooming:</strong> Typically clean face with topknot</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Puppy Cut Section */}
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-12">
+              Grooming Poodle Puppy Cut: Complete Guide
+            </h2>
+            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-purple-200">
+              <p className="text-gray-700 text-lg mb-6">
+                The <strong>grooming poodle puppy cut</strong> (also called the <strong>puppy cut poodle</strong>) is one of the most popular <strong>poodle grooming styles</strong>. When <strong>grooming poodle puppy cut</strong>, the entire body is trimmed to 1-2 inches uniformly, creating an easy-to-maintain look. The <strong>poodle puppy grooming</strong> process is simpler than show cuts but still requires regular maintenance.
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">How to Create a Puppy Cut</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>1. Trim entire body to 1-2 inches uniformly</li>
+                    <li>2. Trim face shorter (but not shaved)</li>
+                    <li>3. Trim feet and tail to match body length</li>
+                    <li>4. Round the head for a cute appearance</li>
+                    <li>5. Trim around eyes for visibility</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Puppy Cut Benefits</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>✓ Easy to maintain between grooms</li>
+                    <li>✓ Perfect for active poodles</li>
+                    <li>✓ Less expensive than show cuts</li>
+                    <li>✓ Suitable for all poodle sizes</li>
+                    <li>✓ Low-maintenance style</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Tips for Poodle Owners */}
+        <section className="py-20 bg-white">
           <div className="max-w-5xl mx-auto px-6">
             <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-12">
               Tips for Successful Poodle Grooming
@@ -342,6 +490,47 @@ export default function PoodleGroomingPage() {
                     <li>• Ask about their matting policy</li>
                   </ul>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-12">
+              Frequently Asked Questions About Poodle Grooming
+            </h2>
+            <div className="space-y-6">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-purple-100">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">What are the different poodle grooming styles?</h3>
+                <p className="text-gray-700 text-lg">
+                  The <strong>different poodle grooming styles</strong> include the puppy cut, continental cut, English Saddle cut, sporting cut, lamb cut, and teddy bear cut. Each style has different maintenance requirements and aesthetic appeal.
+                </p>
+              </div>
+              <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-purple-100">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">How much does poodle grooming cost?</h3>
+                <p className="text-gray-700 text-lg">
+                  <strong>Poodle grooming cost</strong> varies by size: Toy poodles ($50-$90), Miniature poodles ($60-$110), and Standard poodles ($80-$150). <strong>Toy poodle grooming cost</strong> is typically on the lower end, while <strong>standard poodle grooming cost</strong> is higher due to more hair and time required.
+                </p>
+              </div>
+              <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-purple-100">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">What poodle grooming tools do I need?</h3>
+                <p className="text-gray-700 text-lg">
+                  Essential <strong>poodle grooming tools</strong> include professional clippers, multiple blade sizes, a slicker brush, metal comb, high-velocity dryer, scissors, and nail clippers. A complete <strong>poodle grooming kit</strong> contains all necessary tools.
+                </p>
+              </div>
+              <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-purple-100">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">How often should I groom my poodle?</h3>
+                <p className="text-gray-700 text-lg">
+                  Most poodles need professional <strong>grooming a poodle</strong> every 4-6 weeks. However, daily brushing is essential between professional grooms to prevent matting. The frequency depends on the <strong>poodle grooming style</strong> you choose.
+                </p>
+              </div>
+              <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-purple-100">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">What is the best poodle grooming style for pets?</h3>
+                <p className="text-gray-700 text-lg">
+                  The puppy cut is the most popular <strong>poodle grooming style</strong> for pets because it's easy to maintain and looks great. The <strong>grooming poodle puppy cut</strong> involves trimming the entire body to 1-2 inches uniformly.
+                </p>
               </div>
             </div>
           </div>
@@ -375,8 +564,8 @@ export default function PoodleGroomingPage() {
             '@context': 'https://schema.org',
             '@type': 'WebPage',
             '@id': 'https://www.petcarebooker.com/poodle-grooming',
-            name: 'Poodle Grooming Styles | Poodle Cuts | How to Groom a Poodle',
-            description: 'Discover popular poodle grooming styles and poodle cuts. Learn about puppy cut, continental cut, sporting cut, and more.',
+            name: 'Poodle Grooming | Different Poodle Grooming Styles | How to Groom a Poodle | Poodle Cuts',
+            description: 'Complete guide to poodle grooming. Discover different poodle grooming styles, learn how to groom a poodle, explore toy poodle grooming styles, standard poodle grooming styles, and mini poodle grooming styles. Find poodle grooming tools and professional groomers.',
             url: 'https://www.petcarebooker.com/poodle-grooming',
             inLanguage: 'en-US',
             isPartOf: {
@@ -387,7 +576,44 @@ export default function PoodleGroomingPage() {
             about: {
               '@type': 'Service',
               serviceType: 'Poodle Grooming',
-              description: 'Professional poodle grooming services and grooming styles',
+              description: 'Professional poodle grooming services, different poodle grooming styles, toy poodle grooming, standard poodle grooming, mini poodle grooming, poodle grooming tools, and poodle face grooming',
+            },
+            mainEntity: {
+              '@type': 'FAQPage',
+              mainEntity: [
+                {
+                  '@type': 'Question',
+                  name: 'What are the different poodle grooming styles?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'The different poodle grooming styles include the puppy cut, continental cut, English Saddle cut, sporting cut, lamb cut, and teddy bear cut. Each style has different maintenance requirements and aesthetic appeal.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'How much does poodle grooming cost?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Poodle grooming cost varies by size: Toy poodles ($50-$90), Miniature poodles ($60-$110), and Standard poodles ($80-$150).',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'What poodle grooming tools do I need?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Essential poodle grooming tools include professional clippers, multiple blade sizes, a slicker brush, metal comb, high-velocity dryer, scissors, and nail clippers.',
+                  },
+                },
+                {
+                  '@type': 'Question',
+                  name: 'How often should I groom my poodle?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Most poodles need professional grooming every 4-6 weeks. However, daily brushing is essential between professional grooms to prevent matting.',
+                  },
+                },
+              ],
             },
           }),
         }}
