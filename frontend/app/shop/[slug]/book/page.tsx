@@ -39,6 +39,10 @@ export default function BookingPage() {
   const [timeFilter, setTimeFilter] = useState<'all' | 'morning' | 'afternoon' | 'evening'>('all');
   const [formattedPhone, setFormattedPhone] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [customerProfile, setCustomerProfile] = useState<{name: string; email: string; phone: string} | null>(null);
+  const [customerPets, setCustomerPets] = useState<Array<{id: number; name: string; pet_type: string; breed?: string; weight?: string}>>([]);
+  const [selectedPetId, setSelectedPetId] = useState<number | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // Format phone number to (XXX) XXX-XXXX
   const formatPhoneNumber = (value: string) => {
@@ -74,7 +78,57 @@ export default function BookingPage() {
     if (serviceId) {
       loadService();
     }
-  }, [serviceId]);
+    loadShopInfo();
+    checkLoginAndLoadData();
+  }, [serviceId, slug]);
+
+  const loadShopInfo = async () => {
+    try {
+      const shop = await shopsApi.getBySlug(slug);
+      setShopInfo({
+        business_name: shop.business_name,
+        address: shop.address,
+        city: shop.city,
+        state: shop.state,
+        phone: shop.phone,
+      });
+    } catch (error) {
+      console.error('Failed to load shop info:', error);
+    }
+  };
+
+  const checkLoginAndLoadData = async () => {
+    const token = localStorage.getItem('customerToken');
+    if (token) {
+      setIsLoggedIn(true);
+      try {
+        // Load customer profile
+        const profileResponse = await fetch(`${API_BASE_URL}/api/customer/me`, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+        if (profileResponse.ok) {
+          const profile = await profileResponse.json();
+          setCustomerProfile(profile);
+          setFormattedPhone(formatPhoneNumber(profile.phone || ''));
+        }
+
+        // Load customer pets
+        const petsResponse = await fetch(`${API_BASE_URL}/api/customer/pets`, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+        if (petsResponse.ok) {
+          const pets = await petsResponse.json();
+          setCustomerPets(pets);
+        }
+      } catch (error) {
+        console.error('Failed to load customer data:', error);
+      }
+    }
+  };
 
   useEffect(() => {
     if (selectedDate && serviceId) {
@@ -134,24 +188,52 @@ export default function BookingPage() {
     const phoneValue = formData.get('phone') as string;
     const cleanPhone = phoneValue.replace(/\D/g, '');
 
+    const token = localStorage.getItem('customerToken');
+    const customerId = token ? parseInt(localStorage.getItem('customerId') || '0') : null;
+    
+    // If logged in and selected an existing pet, use pet_id
+    const selectedPet = selectedPetId ? customerPets.find(p => p.id === selectedPetId) : null;
+    
     try {
-      await bookingsApi.create(slug, {
+      const bookingData: any = {
         service_id: parseInt(serviceId!),
-        customer_name: formData.get('customerName'),
-        customer_email: formData.get('email'),
+        customer_name: formData.get('customerName') as string,
+        customer_email: formData.get('email') as string,
         customer_phone: cleanPhone,
-        pet_name: formData.get('petName'),
-        pet_type: formData.get('petType'),
-        pet_breed: formData.get('breed'),
-        pet_weight: formData.get('weight'),
-        special_notes: formData.get('notes'),
+        pet_name: selectedPet ? selectedPet.name : (formData.get('petName') as string),
+        pet_type: selectedPet ? selectedPet.pet_type : (formData.get('petType') as string),
+        pet_breed: selectedPet ? (selectedPet.breed || '') : (formData.get('breed') as string),
+        pet_weight: selectedPet ? (selectedPet.weight || '') : (formData.get('weight') as string),
+        special_notes: formData.get('notes') as string,
         appointment_date: selectedSlot.start_time,
-      });
+      };
 
-      setSuccess(true);
-      setTimeout(() => {
-        router.push(`/shop/${slug}`);
-      }, 2000);
+      // If logged in, include customer_id and pet_id
+      if (customerId) {
+        bookingData.customer_id = customerId;
+      }
+      if (selectedPetId) {
+        bookingData.pet_id = selectedPetId;
+      }
+
+      const bookingResponse = await bookingsApi.create(slug, bookingData);
+
+      // Store booking data for confirmation page (fallback if API doesn't return full data)
+      sessionStorage.setItem('lastBooking', JSON.stringify({
+        ...bookingResponse,
+        service: service ? {
+          name: service.name,
+          price: service.price,
+          duration_minutes: service.duration_minutes,
+        } : null,
+        shop: shopInfo || {
+          business_name: slug,
+          slug: slug,
+        }
+      }));
+
+      // Redirect to confirmation page
+      router.push(`/booking/confirmation?id=${bookingResponse.id}`);
     } catch (err: any) {
       setError(err.message || 'Failed to create booking');
     } finally {
@@ -396,7 +478,12 @@ export default function BookingPage() {
               <>
                 {/* Customer Info */}
                 <div>
-                  <h3 className="text-base md:text-lg font-bold text-gray-900 mb-3 pb-2 border-b border-gray-200">Your Information</h3>
+                  <h3 className="text-base md:text-lg font-bold text-gray-900 mb-3 pb-2 border-b border-gray-200">
+                    Your Information
+                    {isLoggedIn && (
+                      <span className="ml-2 text-xs font-normal text-green-600">✓ Logged in</span>
+                    )}
+                  </h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                     <div>
                       <label className="block text-xs font-semibold text-gray-700 mb-1">Your Name *</label>
@@ -404,6 +491,7 @@ export default function BookingPage() {
                         type="text"
                         name="customerName"
                         required
+                        defaultValue={customerProfile?.name || ''}
                         className="w-full px-3 py-3 md:py-2 border border-gray-300 rounded-lg focus:ring-1 focus:ring-red-500 focus:border-red-500 text-base md:text-sm text-gray-900"
                       />
                     </div>
@@ -426,6 +514,7 @@ export default function BookingPage() {
                         type="email"
                         name="email"
                         required
+                        defaultValue={customerProfile?.email || ''}
                         onBlur={(e) => validateEmail(e.target.value)}
                         onChange={(e) => {
                           if (emailError) validateEmail(e.target.value);
@@ -444,6 +533,52 @@ export default function BookingPage() {
                 {/* Pet Info */}
                 <div>
                   <h3 className="text-base md:text-lg font-bold text-gray-900 mb-3 pb-2 border-b border-gray-200">Pet Information</h3>
+                  
+                  {isLoggedIn && customerPets.length > 0 && (
+                    <div className="mb-4">
+                      <label className="block text-xs font-semibold text-gray-700 mb-2">Select from your pets (or add new below)</label>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                        {customerPets.map((pet) => (
+                          <button
+                            key={pet.id}
+                            type="button"
+                            onClick={() => {
+                              setSelectedPetId(pet.id);
+                              // Pre-fill form fields
+                              const petNameInput = document.querySelector('input[name="petName"]') as HTMLInputElement;
+                              const petTypeSelect = document.querySelector('select[name="petType"]') as HTMLSelectElement;
+                              const breedInput = document.querySelector('input[name="breed"]') as HTMLInputElement;
+                              const weightInput = document.querySelector('input[name="weight"]') as HTMLInputElement;
+                              
+                              if (petNameInput) petNameInput.value = pet.name;
+                              if (petTypeSelect) petTypeSelect.value = pet.pet_type;
+                              if (breedInput && pet.breed) breedInput.value = pet.breed;
+                              if (weightInput && pet.weight) weightInput.value = pet.weight;
+                            }}
+                            className={`px-4 py-3 rounded-lg border-2 text-sm font-semibold transition ${
+                              selectedPetId === pet.id
+                                ? 'border-purple-600 bg-purple-50 text-purple-700'
+                                : 'border-gray-300 bg-white text-gray-700 hover:border-purple-400'
+                            }`}
+                          >
+                            {pet.name} ({pet.pet_type})
+                          </button>
+                        ))}
+                        <button
+                          type="button"
+                          onClick={() => setSelectedPetId(null)}
+                          className={`px-4 py-3 rounded-lg border-2 text-sm font-semibold transition ${
+                            selectedPetId === null
+                              ? 'border-purple-600 bg-purple-50 text-purple-700'
+                              : 'border-gray-300 bg-white text-gray-700 hover:border-purple-400'
+                          }`}
+                        >
+                          + New Pet
+                        </button>
+                      </div>
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div>
                       <label className="block text-xs font-semibold text-gray-700 mb-1">Pet Name *</label>

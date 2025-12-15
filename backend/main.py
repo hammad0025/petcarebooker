@@ -34,6 +34,7 @@ else:
 from database import engine, get_db, Base
 from models import Shop, Service, Booking, BookingStatus, Customer, Pet, PasswordResetToken
 from schemas import (
+    CustomerProfile,
     ShopCreate, ShopResponse, ShopListItem, ShopUpdate,
     ServiceCreate, ServiceResponse,
     BookingCreate, BookingResponse, BookingUpdate,
@@ -407,6 +408,16 @@ def reset_password(request: dict, db: Session = Depends(get_db)):
     db.commit()
     
     return {"message": "Password reset successfully"}
+
+
+# ============================================================================
+# CUSTOMER PROFILE ENDPOINTS
+# ============================================================================
+
+@app.get("/api/customer/me", response_model=CustomerProfile)
+def get_my_profile(customer: Customer = Depends(get_current_customer)):
+    """Get current customer's profile"""
+    return customer
 
 
 # ============================================================================
@@ -845,7 +856,86 @@ def create_booking(
             special_notes=booking.special_notes
         )
     
-    return booking
+    # Refresh to get relationships
+    db.refresh(booking)
+    
+    # Manually set shop info since it's not a relationship
+    booking_response = BookingResponse(
+        id=booking.id,
+        shop_id=booking.shop_id,
+        service_id=booking.service_id,
+        customer_name=booking.customer_name,
+        customer_email=booking.customer_email,
+        customer_phone=booking.customer_phone,
+        pet_name=booking.pet_name,
+        pet_type=booking.pet_type,
+        pet_breed=booking.pet_breed,
+        pet_weight=booking.pet_weight,
+        special_notes=booking.special_notes,
+        appointment_date=booking.appointment_date,
+        duration_minutes=booking.duration_minutes,
+        status=booking.status,
+        created_at=booking.created_at,
+        service=service,
+        shop=ShopListItem(
+            id=shop.id,
+            business_name=shop.business_name,
+            slug=shop.slug,
+            description=shop.description,
+            city=shop.city,
+            state=shop.state,
+            address=shop.address,
+            phone=shop.phone,
+        )
+    )
+    
+    return booking_response
+
+
+@app.get("/api/bookings/{booking_id}", response_model=BookingResponse)
+def get_booking(booking_id: int, db: Session = Depends(get_db)):
+    """Get a booking by ID (public endpoint for confirmation page)"""
+    booking = db.query(Booking).filter(Booking.id == booking_id).first()
+    if not booking:
+        raise HTTPException(status_code=404, detail="Booking not found")
+    
+    service = db.query(Service).filter(Service.id == booking.service_id).first()
+    shop = db.query(Shop).filter(Shop.id == booking.shop_id).first()
+    
+    if not service or not shop:
+        raise HTTPException(status_code=404, detail="Booking data incomplete")
+    
+    # Manually set shop info
+    booking_response = BookingResponse(
+        id=booking.id,
+        shop_id=booking.shop_id,
+        service_id=booking.service_id,
+        customer_name=booking.customer_name,
+        customer_email=booking.customer_email,
+        customer_phone=booking.customer_phone,
+        pet_name=booking.pet_name,
+        pet_type=booking.pet_type,
+        pet_breed=booking.pet_breed,
+        pet_weight=booking.pet_weight,
+        special_notes=booking.special_notes,
+        appointment_date=booking.appointment_date,
+        duration_minutes=booking.duration_minutes,
+        status=booking.status,
+        created_at=booking.created_at,
+        service=service,
+        shop=ShopListItem(
+            id=shop.id,
+            business_name=shop.business_name,
+            slug=shop.slug,
+            description=shop.description,
+            city=shop.city,
+            state=shop.state,
+            address=shop.address,
+            phone=shop.phone,
+        )
+    )
+    
+    return booking_response
 
 
 @app.get("/api/shops/me/bookings", response_model=List[BookingResponse])

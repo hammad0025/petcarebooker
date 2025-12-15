@@ -88,6 +88,8 @@ class ShopListItem(BaseModel):
     city: Optional[str] = None
     state: Optional[str] = None
     logo_url: Optional[str] = None
+    address: Optional[str] = None
+    phone: Optional[str] = None
 
     class Config:
         from_attributes = True
@@ -124,6 +126,7 @@ class BookingResponse(BaseModel):
     status: BookingStatus
     created_at: datetime
     service: ServiceResponse
+    shop: Optional[ShopListItem] = None  # Include shop info
 
     class Config:
         from_attributes = True
@@ -160,6 +163,16 @@ class CustomerResponse(BaseModel):
     token_type: str = "bearer"
     customer_id: int
     name: str
+
+
+class CustomerProfile(BaseModel):
+    id: int
+    name: str
+    email: str
+    phone: str
+
+    class Config:
+        from_attributes = True
 
 
 class PetCreate(BaseModel):
