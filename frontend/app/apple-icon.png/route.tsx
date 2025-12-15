@@ -17,7 +17,7 @@ export async function GET() {
         }}
       >
         {/* Professional paw print for 180x180 */}
-        <div style={{ position: 'relative', width: '140px', height: '140px', display: 'block' }}>
+        <div style={{ position: 'relative', width: '140px', height: '140px', display: 'flex' }}>
           {/* Bottom main pad */}
           <div style={{ 
             position: 'absolute', 
