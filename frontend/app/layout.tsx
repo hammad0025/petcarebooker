@@ -32,13 +32,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
-      { url: '/favicon.ico', sizes: 'any' },
+      { url: `${siteUrl}/favicon.svg`, type: 'image/svg+xml' },
+      { url: `${siteUrl}/icon.png`, type: 'image/png', sizes: '512x512' },
+      { url: `${siteUrl}/favicon.ico`, sizes: 'any' },
     ],
-    shortcut: '/favicon.svg',
+    shortcut: `${siteUrl}/favicon.svg`,
     apple: [
-      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: `${siteUrl}/apple-icon.png`, sizes: '180x180', type: 'image/png' },
     ],
   },
   manifest: '/manifest.json',

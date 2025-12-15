@@ -80,6 +80,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Other major cities
     'los-angeles',
     'chicago',
+    // New cities added
+    'denver',
+    'atlanta',
+    'houston',
+    'detroit',
+    'sacramento',
+    'philadelphia',
+    'indianapolis',
   ];
 
   const cityPages: MetadataRoute.Sitemap = cities.map((city) => ({
@@ -104,6 +112,52 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'chicago-dog-wash-services',
   ];
 
+  // New SEO pages (HIGH PRIORITY)
+  const seoPages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/mobile-dog-grooming`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/cat-grooming`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/cat-grooming-supplies`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/poodle-grooming`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/yorkie-grooming`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/shih-tzu-grooming`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/dog-grooming-school`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+  ];
+
   const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
     url: `${baseUrl}/blog/${slug}`,
     lastModified: new Date(),
@@ -111,6 +165,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...cityPages, ...blogPages];
+  return [...staticPages, ...cityPages, ...blogPages, ...seoPages];
 }
 

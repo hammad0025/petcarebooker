@@ -2,9 +2,12 @@ import { NextResponse } from 'next/server';
 import { ImageResponse } from 'next/og';
 
 // Generate favicon.ico - browsers will accept PNG for .ico requests
+export const runtime = 'edge';
+export const contentType = 'image/x-icon';
+
 export async function GET() {
   try {
-    return new ImageResponse(
+    const response = new ImageResponse(
       (
         <div
           style={{
@@ -17,16 +20,15 @@ export async function GET() {
             position: 'relative',
           }}
         >
-          {/* Improved paw print - more defined for 32x32 */}
-          {/* Bottom main pad - largest (ellipse) */}
+          {/* Professional paw print for 32x32 */}
+          {/* Bottom main pad */}
           <div
             style={{
               position: 'absolute',
-              bottom: '4px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '16px',
-              height: '12px',
+              bottom: '2px',
+              left: '16px',
+              width: '18px',
+              height: '14px',
               borderRadius: '50%',
               backgroundColor: 'white',
             }}
@@ -35,10 +37,10 @@ export async function GET() {
           <div
             style={{
               position: 'absolute',
-              bottom: '12px',
+              bottom: '10px',
               left: '2px',
-              width: '11px',
-              height: '11px',
+              width: '12px',
+              height: '12px',
               borderRadius: '50%',
               backgroundColor: 'white',
             }}
@@ -47,10 +49,10 @@ export async function GET() {
           <div
             style={{
               position: 'absolute',
-              bottom: '12px',
+              bottom: '10px',
               right: '2px',
-              width: '11px',
-              height: '11px',
+              width: '12px',
+              height: '12px',
               borderRadius: '50%',
               backgroundColor: 'white',
             }}
@@ -60,7 +62,7 @@ export async function GET() {
             style={{
               position: 'absolute',
               bottom: '18px',
-              left: '5px',
+              left: '6px',
               width: '10px',
               height: '10px',
               borderRadius: '50%',
@@ -72,7 +74,7 @@ export async function GET() {
             style={{
               position: 'absolute',
               bottom: '18px',
-              right: '5px',
+              right: '6px',
               width: '10px',
               height: '10px',
               borderRadius: '50%',
@@ -86,6 +88,17 @@ export async function GET() {
         height: 32,
       }
     );
+    
+    // Clone response and add headers for Google
+    const headers = new Headers(response.headers);
+    headers.set('Content-Type', 'image/x-icon');
+    headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+    
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
   } catch (error) {
     console.error('Error generating favicon:', error);
     // Fallback: redirect to SVG

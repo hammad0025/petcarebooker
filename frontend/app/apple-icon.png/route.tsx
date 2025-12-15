@@ -16,17 +16,64 @@ export async function GET() {
           borderRadius: '20%',
         }}
       >
-        {/* Improved paw print - more defined shape for 180x180 */}
-        {/* Bottom main pad - largest (ellipse for natural shape) */}
-        <div style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)', width: '65px', height: '50px', borderRadius: '50%', backgroundColor: 'white' }} />
-        {/* Middle left pad */}
-        <div style={{ position: 'absolute', bottom: '55px', left: '45px', width: '45px', height: '45px', borderRadius: '50%', backgroundColor: 'white' }} />
-        {/* Middle right pad */}
-        <div style={{ position: 'absolute', bottom: '55px', right: '45px', width: '45px', height: '45px', borderRadius: '50%', backgroundColor: 'white' }} />
-        {/* Top left pad */}
-        <div style={{ position: 'absolute', bottom: '90px', left: '55px', width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'white' }} />
-        {/* Top right pad */}
-        <div style={{ position: 'absolute', bottom: '90px', right: '55px', width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'white' }} />
+        {/* Professional paw print for 180x180 */}
+        <div style={{ position: 'relative', width: '140px', height: '140px' }}>
+          {/* Bottom main pad */}
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '0px', 
+            left: '70px', 
+            width: '80px', 
+            height: '65px', 
+            borderRadius: '50%', 
+            backgroundColor: 'white',
+            boxShadow: '0 3px 8px rgba(0,0,0,0.15)'
+          }} />
+          {/* Middle left pad */}
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '55px', 
+            left: '30px', 
+            width: '55px', 
+            height: '55px', 
+            borderRadius: '50%', 
+            backgroundColor: 'white',
+            boxShadow: '0 2px 6px rgba(0,0,0,0.15)'
+          }} />
+          {/* Middle right pad */}
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '55px', 
+            right: '30px', 
+            width: '55px', 
+            height: '55px', 
+            borderRadius: '50%', 
+            backgroundColor: 'white',
+            boxShadow: '0 2px 6px rgba(0,0,0,0.15)'
+          }} />
+          {/* Top left pad */}
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '100px', 
+            left: '50px', 
+            width: '48px', 
+            height: '48px', 
+            borderRadius: '50%', 
+            backgroundColor: 'white',
+            boxShadow: '0 2px 6px rgba(0,0,0,0.15)'
+          }} />
+          {/* Top right pad */}
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '100px', 
+            right: '50px', 
+            width: '48px', 
+            height: '48px', 
+            borderRadius: '50%', 
+            backgroundColor: 'white',
+            boxShadow: '0 2px 6px rgba(0,0,0,0.15)'
+          }} />
+        </div>
       </div>
     ),
     {

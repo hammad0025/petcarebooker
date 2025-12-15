@@ -1,5 +1,8 @@
 import { ImageResponse } from 'next/og';
 
+export const contentType = 'image/png';
+export const runtime = 'edge';
+
 // Generate 1080x566 horizontal logo with text for Instagram stories
 export async function GET() {
   return new ImageResponse(
@@ -15,26 +18,71 @@ export async function GET() {
           padding: '60px',
         }}
       >
-        {/* Paw icon on left */}
-        <div style={{ position: 'relative', width: '200px', height: '200px', marginRight: '40px' }}>
-          {/* Bottom main pad (ellipse) */}
-          <div style={{ position: 'absolute', bottom: '0px', left: '50%', transform: 'translateX(-50%)', width: '100px', height: '80px', borderRadius: '50%', backgroundColor: 'white' }} />
+        {/* Professional paw icon on left */}
+        <div style={{ position: 'relative', width: '240px', height: '240px', marginRight: '50px' }}>
+          {/* Bottom main pad */}
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '0px', 
+            left: '120px', 
+            width: '140px', 
+            height: '115px', 
+            borderRadius: '50%', 
+            backgroundColor: 'white',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.2)'
+          }} />
           {/* Middle left pad */}
-          <div style={{ position: 'absolute', bottom: '60px', left: '20px', width: '70px', height: '70px', borderRadius: '50%', backgroundColor: 'white' }} />
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '95px', 
+            left: '30px', 
+            width: '100px', 
+            height: '100px', 
+            borderRadius: '50%', 
+            backgroundColor: 'white',
+            boxShadow: '0 3px 10px rgba(0,0,0,0.2)'
+          }} />
           {/* Middle right pad */}
-          <div style={{ position: 'absolute', bottom: '60px', right: '20px', width: '70px', height: '70px', borderRadius: '50%', backgroundColor: 'white' }} />
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '95px', 
+            right: '30px', 
+            width: '100px', 
+            height: '100px', 
+            borderRadius: '50%', 
+            backgroundColor: 'white',
+            boxShadow: '0 3px 10px rgba(0,0,0,0.2)'
+          }} />
           {/* Top left pad */}
-          <div style={{ position: 'absolute', bottom: '120px', left: '50px', width: '60px', height: '60px', borderRadius: '50%', backgroundColor: 'white' }} />
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '175px', 
+            left: '70px', 
+            width: '85px', 
+            height: '85px', 
+            borderRadius: '50%', 
+            backgroundColor: 'white',
+            boxShadow: '0 3px 10px rgba(0,0,0,0.2)'
+          }} />
           {/* Top right pad */}
-          <div style={{ position: 'absolute', bottom: '120px', right: '50px', width: '60px', height: '60px', borderRadius: '50%', backgroundColor: 'white' }} />
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '175px', 
+            right: '70px', 
+            width: '85px', 
+            height: '85px', 
+            borderRadius: '50%', 
+            backgroundColor: 'white',
+            boxShadow: '0 3px 10px rgba(0,0,0,0.2)'
+          }} />
         </div>
         
         {/* Text on right */}
         <div>
-          <div style={{ fontSize: '64px', fontWeight: 'bold', color: 'white', marginBottom: '16px', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+          <div style={{ fontSize: '64px', fontWeight: 'bold', color: 'white', marginBottom: '16px', fontFamily: 'system-ui, -apple-system, sans-serif', textShadow: '0 2px 8px rgba(0,0,0,0.2)' }}>
             PetCareBooker
           </div>
-          <div style={{ fontSize: '28px', color: 'white', opacity: 0.9, fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+          <div style={{ fontSize: '28px', color: 'white', opacity: 0.95, fontFamily: 'system-ui, -apple-system, sans-serif', textShadow: '0 2px 6px rgba(0,0,0,0.2)' }}>
             Booking Software for Groomers
           </div>
         </div>
@@ -46,4 +94,3 @@ export async function GET() {
     }
   );
 }
-

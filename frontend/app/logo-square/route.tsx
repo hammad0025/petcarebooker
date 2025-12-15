@@ -1,5 +1,8 @@
 import { ImageResponse } from 'next/og';
 
+export const contentType = 'image/png';
+export const runtime = 'edge';
+
 // Generate 1080x1080 square logo with text for Instagram profile/posts
 export async function GET() {
   return new ImageResponse(
@@ -17,26 +20,71 @@ export async function GET() {
           padding: '80px',
         }}
       >
-        {/* Paw print icon - larger and more defined */}
-        <div style={{ position: 'relative', width: '400px', height: '400px', marginBottom: '60px' }}>
-          {/* Bottom main pad (ellipse for natural shape) */}
-          <div style={{ position: 'absolute', bottom: '0px', left: '50%', transform: 'translateX(-50%)', width: '200px', height: '160px', borderRadius: '50%', backgroundColor: 'white' }} />
+        {/* Professional paw print icon */}
+        <div style={{ position: 'relative', width: '500px', height: '500px', marginBottom: '60px' }}>
+          {/* Bottom main pad */}
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '0px', 
+            left: '250px', 
+            width: '280px', 
+            height: '230px', 
+            borderRadius: '50%', 
+            backgroundColor: 'white',
+            boxShadow: '0 8px 24px rgba(0,0,0,0.2)'
+          }} />
           {/* Middle left pad */}
-          <div style={{ position: 'absolute', bottom: '120px', left: '60px', width: '140px', height: '140px', borderRadius: '50%', backgroundColor: 'white' }} />
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '190px', 
+            left: '100px', 
+            width: '200px', 
+            height: '200px', 
+            borderRadius: '50%', 
+            backgroundColor: 'white',
+            boxShadow: '0 6px 20px rgba(0,0,0,0.2)'
+          }} />
           {/* Middle right pad */}
-          <div style={{ position: 'absolute', bottom: '120px', right: '60px', width: '140px', height: '140px', borderRadius: '50%', backgroundColor: 'white' }} />
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '190px', 
+            right: '100px', 
+            width: '200px', 
+            height: '200px', 
+            borderRadius: '50%', 
+            backgroundColor: 'white',
+            boxShadow: '0 6px 20px rgba(0,0,0,0.2)'
+          }} />
           {/* Top left pad */}
-          <div style={{ position: 'absolute', bottom: '240px', left: '100px', width: '120px', height: '120px', borderRadius: '50%', backgroundColor: 'white' }} />
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '360px', 
+            left: '180px', 
+            width: '170px', 
+            height: '170px', 
+            borderRadius: '50%', 
+            backgroundColor: 'white',
+            boxShadow: '0 6px 20px rgba(0,0,0,0.2)'
+          }} />
           {/* Top right pad */}
-          <div style={{ position: 'absolute', bottom: '240px', right: '100px', width: '120px', height: '120px', borderRadius: '50%', backgroundColor: 'white' }} />
+          <div style={{ 
+            position: 'absolute', 
+            bottom: '360px', 
+            right: '180px', 
+            width: '170px', 
+            height: '170px', 
+            borderRadius: '50%', 
+            backgroundColor: 'white',
+            boxShadow: '0 6px 20px rgba(0,0,0,0.2)'
+          }} />
         </div>
         
         {/* Text */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <div style={{ fontSize: '72px', fontWeight: 'bold', color: 'white', marginBottom: '20px', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+          <div style={{ fontSize: '72px', fontWeight: 'bold', color: 'white', marginBottom: '20px', fontFamily: 'system-ui, -apple-system, sans-serif', textShadow: '0 2px 8px rgba(0,0,0,0.2)' }}>
             PetCareBooker
           </div>
-          <div style={{ fontSize: '32px', color: 'white', opacity: 0.9, fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+          <div style={{ fontSize: '32px', color: 'white', opacity: 0.95, fontFamily: 'system-ui, -apple-system, sans-serif', textShadow: '0 2px 6px rgba(0,0,0,0.2)' }}>
             Booking Software for Groomers
           </div>
         </div>
