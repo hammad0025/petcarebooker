@@ -16,15 +16,17 @@ export async function GET() {
           borderRadius: '20%',
         }}
       >
-        {/* Paw print - 5 circles positioned absolutely */}
-        {/* Bottom main pad - largest, centered at bottom */}
-        <div style={{ position: 'absolute', bottom: '25px', left: '50%', transform: 'translateX(-50%)', width: '55px', height: '55px', borderRadius: '50%', backgroundColor: 'white' }} />
-        {/* Middle two pads - side by side, above bottom pad */}
-        <div style={{ position: 'absolute', bottom: '60px', left: '50px', width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'white' }} />
-        <div style={{ position: 'absolute', bottom: '60px', right: '50px', width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'white' }} />
-        {/* Top two pads - toes, above middle pads, spread wider */}
-        <div style={{ position: 'absolute', bottom: '95px', left: '60px', width: '35px', height: '35px', borderRadius: '50%', backgroundColor: 'white' }} />
-        <div style={{ position: 'absolute', bottom: '95px', right: '60px', width: '35px', height: '35px', borderRadius: '50%', backgroundColor: 'white' }} />
+        {/* Improved paw print - more defined shape for 180x180 */}
+        {/* Bottom main pad - largest (ellipse for natural shape) */}
+        <div style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)', width: '65px', height: '50px', borderRadius: '50%', backgroundColor: 'white' }} />
+        {/* Middle left pad */}
+        <div style={{ position: 'absolute', bottom: '55px', left: '45px', width: '45px', height: '45px', borderRadius: '50%', backgroundColor: 'white' }} />
+        {/* Middle right pad */}
+        <div style={{ position: 'absolute', bottom: '55px', right: '45px', width: '45px', height: '45px', borderRadius: '50%', backgroundColor: 'white' }} />
+        {/* Top left pad */}
+        <div style={{ position: 'absolute', bottom: '90px', left: '55px', width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'white' }} />
+        {/* Top right pad */}
+        <div style={{ position: 'absolute', bottom: '90px', right: '55px', width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'white' }} />
       </div>
     ),
     {

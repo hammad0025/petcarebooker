@@ -17,60 +17,62 @@ export async function GET() {
             position: 'relative',
           }}
         >
-          {/* Paw print - 5 circles - larger sizes for 32x32 */}
-          {/* Bottom main pad - largest */}
+          {/* Improved paw print - more defined for 32x32 */}
+          {/* Bottom main pad - largest (ellipse) */}
           <div
             style={{
               position: 'absolute',
-              bottom: '6px',
+              bottom: '4px',
               left: '50%',
               transform: 'translateX(-50%)',
-              width: '14px',
-              height: '14px',
+              width: '16px',
+              height: '12px',
               borderRadius: '50%',
               backgroundColor: 'white',
             }}
           />
-          {/* Middle two pads */}
+          {/* Middle left pad */}
           <div
             style={{
               position: 'absolute',
-              bottom: '14px',
-              left: '4px',
+              bottom: '12px',
+              left: '2px',
+              width: '11px',
+              height: '11px',
+              borderRadius: '50%',
+              backgroundColor: 'white',
+            }}
+          />
+          {/* Middle right pad */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '12px',
+              right: '2px',
+              width: '11px',
+              height: '11px',
+              borderRadius: '50%',
+              backgroundColor: 'white',
+            }}
+          />
+          {/* Top left pad */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '18px',
+              left: '5px',
               width: '10px',
               height: '10px',
               borderRadius: '50%',
               backgroundColor: 'white',
             }}
           />
+          {/* Top right pad */}
           <div
             style={{
               position: 'absolute',
-              bottom: '14px',
-              right: '4px',
-              width: '10px',
-              height: '10px',
-              borderRadius: '50%',
-              backgroundColor: 'white',
-            }}
-          />
-          {/* Top two pads */}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '20px',
-              left: '7px',
-              width: '10px',
-              height: '10px',
-              borderRadius: '50%',
-              backgroundColor: 'white',
-            }}
-          />
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '20px',
-              right: '7px',
+              bottom: '18px',
+              right: '5px',
               width: '10px',
               height: '10px',
               borderRadius: '50%',
